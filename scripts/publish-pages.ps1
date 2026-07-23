@@ -43,9 +43,9 @@ if (-not $WorktreePath.StartsWith($SystemTemp, [StringComparison]::OrdinalIgnore
 }
 
 try {
-  git fetch origin gh-pages 2>$null
-  $RemoteBranch = git ls-remote --exit-code --heads origin gh-pages 2>$null
-  if ($LASTEXITCODE -eq 0 -and $RemoteBranch) {
+  $RemoteBranch = git ls-remote --heads origin gh-pages
+  if ($RemoteBranch) {
+    git fetch origin gh-pages
     git worktree add -B gh-pages $WorktreePath origin/gh-pages
   } else {
     git worktree add --detach $WorktreePath HEAD
@@ -80,4 +80,3 @@ try {
 }
 
 Write-Host "Published source to main and static files to gh-pages."
-
