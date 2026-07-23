@@ -1,0 +1,53 @@
+name: Publish gh-pages branch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - name: Publish generated site branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          PAGES_DIR="$(mktemp -d)"
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch origin gh-pages
+            git worktree add -B gh-pages "$PAGES_DIR" origin/gh-pages
+          else
+            git worktree add --detach "$PAGES_DIR" HEAD
+            git -C "$PAGES_DIR" switch --orphan gh-pages
+            git -C "$PAGES_DIR" rm -rf .
+          fi
+          find "$PAGES_DIR" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf -- {} +
+          cp -R dist/. "$PAGES_DIR/"
+          touch "$PAGES_DIR/.nojekyll"
+          git -C "$PAGES_DIR" add -A
+          if [ -n "$(git -C "$PAGES_DIR" status --porcelain)" ]; then
+            git -C "$PAGES_DIR" commit -m "deploy: ${GITHUB_SHA::7}"
+            git -C "$PAGES_DIR" push origin gh-pages
+          fi

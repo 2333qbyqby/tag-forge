@@ -1,0 +1,50 @@
+:root {
+  color-scheme: dark;
+  --canvas: #0b0c0f;
+  --canvas-grid: rgb(255 255 255 / 0.025);
+  --surface-1: #13151a;
+  --surface-2: #1a1d24;
+  --surface-3: #20242c;
+  --border: #2a2e38;
+  --border-strong: #3b414f;
+  --text: #f4f1e8;
+  --muted: #a7abb5;
+  --faint: #747a87;
+  --acid: #c6f36b;
+  --acid-ink: #172109;
+  --violet: #a78bfa;
+  --coral: #ff7a6e;
+  --cyan: #59d5c8;
+  --amber: #f6c85f;
+  --danger: #ff6b77;
+  --radius-control: 0.75rem;
+  --radius-card: 1.125rem;
+  --radius-panel: 1.5rem;
+  --shadow-panel: 0 1px 0 rgb(255 255 255 / 0.03), 0 18px 60px rgb(0 0 0 / 0.28);
+  --font-display: "Bricolage Grotesque Variable", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-body: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #f3efe6;
+  --canvas-grid: rgb(21 22 25 / 0.035);
+  --surface-1: #fffdf7;
+  --surface-2: #ebe6db;
+  --surface-3: #e2ddd2;
+  --border: #d7d0c3;
+  --border-strong: #b9b0a1;
+  --text: #151619;
+  --muted: #5e626b;
+  --faint: #7e817f;
+  --acid: #9fd134;
+  --acid-ink: #182006;
+  --violet: #7658d9;
+  --coral: #c94b3d;
+  --cyan: #167d73;
+  --amber: #a56a00;
+  --danger: #b93426;
+  --shadow-panel: 0 1px 0 rgb(255 255 255 / 0.7), 0 18px 50px rgb(57 48 32 / 0.1);
+}
+
