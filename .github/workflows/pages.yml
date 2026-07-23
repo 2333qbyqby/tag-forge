@@ -41,7 +41,6 @@ jobs:
           else
             git worktree add --detach "$PAGES_DIR" HEAD
             git -C "$PAGES_DIR" switch --orphan gh-pages
-            git -C "$PAGES_DIR" rm -rf .
           fi
           find "$PAGES_DIR" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf -- {} +
           cp -R dist/. "$PAGES_DIR/"

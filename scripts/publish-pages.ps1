@@ -50,7 +50,6 @@ try {
   } else {
     git worktree add --detach $WorktreePath HEAD
     git -C $WorktreePath switch --orphan gh-pages
-    git -C $WorktreePath rm -rf .
   }
 
   $ResolvedWorktree = [IO.Path]::GetFullPath($WorktreePath)
