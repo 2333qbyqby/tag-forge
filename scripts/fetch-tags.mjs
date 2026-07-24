@@ -1,9 +1,11 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import process from "node:process";
 
 const OUTPUT_DIR = new URL("../data-cache/", import.meta.url);
 const USER_AGENT =
   "TagForge/0.1 data-maintenance (+https://github.com/2333qbyqby/tag-forge)";
+const DEFAULT_TIMEOUT_MS = 20_000;
+const DEFAULT_RETRIES = 2;
 
 function decodeHtml(value) {
   return value
@@ -16,12 +18,50 @@ function decodeHtml(value) {
     .trim();
 }
 
-async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { "user-agent": USER_AGENT, "accept-language": "en-US,en;q=0.9" },
-  });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
-  return response.text();
+function delay(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function fetchText(
+  url,
+  { timeoutMs = DEFAULT_TIMEOUT_MS, retries = DEFAULT_RETRIES } = {},
+) {
+  let lastError;
+
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          "user-agent": USER_AGENT,
+          "accept-language": "en-US,en;q=0.9",
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}: ${url}`);
+      }
+      return await response.text();
+    } catch (error) {
+      lastError = error;
+      if (attempt < retries) await delay(400 * 2 ** attempt);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  throw lastError;
+}
+
+async function fetchJson(url, options) {
+  const text = await fetchText(url, options);
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Invalid JSON from ${url}`, { cause: error });
+  }
 }
 
 function uniqueBy(items, key) {
@@ -34,36 +74,62 @@ function uniqueBy(items, key) {
   });
 }
 
-async function fetchSteamTags() {
-  const url = "https://partner.steamgames.com/doc/store/tags?l=english";
-  const html = await fetchText(url);
-  const section = html.split(/List of tags/i)[1] ?? html;
-  const cells = [...section.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)]
-    .map((match) => decodeHtml(match[1]))
+async function fetchSteamTags(options) {
+  const englishUrl =
+    "https://store.steampowered.com/tagdata/populartags/english";
+  const chineseUrl =
+    "https://store.steampowered.com/tagdata/populartags/schinese";
+  const [english, chinese] = await Promise.all([
+    fetchJson(englishUrl, options),
+    fetchJson(chineseUrl, options),
+  ]);
+
+  if (!Array.isArray(english) || !Array.isArray(chinese)) {
+    throw new Error("Steam tag endpoints did not return arrays.");
+  }
+
+  const chineseById = new Map(
+    chinese.map((item) => [Number(item.tagid), String(item.name).trim()]),
+  );
+  const tags = english
+    .map((item) => ({
+      id: Number(item.tagid),
+      en: String(item.name).trim(),
+      zh: chineseById.get(Number(item.tagid)) ?? "",
+    }))
     .filter(
-      (value) =>
-        value.length >= 2 &&
-        value.length <= 60 &&
-        !value.includes("http") &&
-        !/^(Tag|Category|Examples?)$/i.test(value),
+      (item) =>
+        Number.isInteger(item.id) &&
+        item.id > 0 &&
+        item.en.length >= 2 &&
+        item.en.length <= 80,
     );
+
   return {
-    source: url,
+    source: "https://partner.steamgames.com/doc/store/tags",
+    endpoints: { english: englishUrl, simplifiedChinese: chineseUrl },
     retrievedAt: new Date().toISOString(),
-    tags: [...new Set(cells)].sort((a, b) => a.localeCompare(b)),
+    tags,
   };
 }
 
-async function fetchItchTags(pageCount) {
+async function fetchItchTags(pageCount, options) {
   const projects = [];
   for (let page = 1; page <= pageCount; page += 1) {
     const url = `https://itch.io/tags?page=${page}`;
-    const html = await fetchText(url);
-    const regex = /href="\/(?:games\/)?tag-([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+    const html = await fetchText(url, options);
+    const regex =
+      /href="\/games\/((?:tag|genre)-[^"/?#]+)"[^>]*>([\s\S]*?)<\/a>/gi;
     for (const match of html.matchAll(regex)) {
       const label = decodeHtml(match[2]);
       if (!label || label.length > 60) continue;
-      projects.push({ slug: match[1], label, page });
+      const route = match[1];
+      projects.push({
+        slug: route.replace(/^(?:tag|genre)-/, ""),
+        label,
+        type: route.startsWith("genre-") ? "genre" : "tag",
+        page,
+      });
     }
   }
   return {
@@ -74,19 +140,20 @@ async function fetchItchTags(pageCount) {
   };
 }
 
-async function fetchGgjThemes() {
+async function fetchGgjThemes(options) {
   const url = "https://globalgamejam.org/history";
-  const html = await fetchText(url);
-  const text = decodeHtml(html);
-  const matches = [
-    ...text.matchAll(
-      /\b(20(?:0[9]|1\d|2\d))\s*:\s*["“]?(.+?)["”]?(?=\s+20(?:0[9]|1\d|2\d)\s*:|$)/g,
-    ),
-  ];
-  const themes = matches
+  const html = await fetchText(url, options);
+  const themes = [...html.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+    .map((match) => decodeHtml(match[1]))
+    .map((text) => text.match(/^(20(?:0[9]|1\d|2\d))\s*:\s*(.+)$/))
+    .filter(Boolean)
     .map((match) => ({
       year: Number(match[1]),
-      theme: match[2].replace(/\s+/g, " ").trim().slice(0, 180),
+      theme: match[2]
+        .replace(/^["“]|["”]$/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 180),
     }))
     .filter((item) => item.theme.length > 0);
   return {
@@ -104,10 +171,19 @@ function argument(name, fallback) {
 
 await mkdir(OUTPUT_DIR, { recursive: true });
 const itchPages = Math.max(1, Math.min(16, Number(argument("itch-pages", "3"))));
+const timeoutMs = Math.max(
+  3_000,
+  Math.min(120_000, Number(argument("timeout-ms", String(DEFAULT_TIMEOUT_MS)))),
+);
+const retries = Math.max(
+  0,
+  Math.min(5, Number(argument("retries", String(DEFAULT_RETRIES)))),
+);
+const requestOptions = { timeoutMs, retries };
 const tasks = [
-  ["steam-tags.json", fetchSteamTags],
-  ["itch-tags.json", () => fetchItchTags(itchPages)],
-  ["ggj-themes.json", fetchGgjThemes],
+  ["steam-tags.json", () => fetchSteamTags(requestOptions)],
+  ["itch-tags.json", () => fetchItchTags(itchPages, requestOptions)],
+  ["ggj-themes.json", () => fetchGgjThemes(requestOptions)],
 ];
 
 const summary = [];
@@ -127,8 +203,26 @@ for (const [filename, task] of tasks) {
       error instanceof Error && error.cause
         ? `${error.message}; cause: ${String(error.cause)}`
         : String(error);
-    summary.push({ source: filename, ok: false, error: detail });
-    console.error(`Failed ${filename}: ${detail}`);
+    try {
+      const cached = JSON.parse(
+        await readFile(new URL(filename, OUTPUT_DIR), "utf8"),
+      );
+      const count = cached.tags?.length ?? cached.themes?.length ?? 0;
+      if (count <= 0) throw new Error("Cached snapshot is empty.");
+      summary.push({
+        source: filename,
+        ok: true,
+        cached: true,
+        count,
+        refreshError: detail,
+      });
+      console.warn(
+        `Refresh failed for ${filename}; retained cached snapshot with ${count} entries.`,
+      );
+    } catch {
+      summary.push({ source: filename, ok: false, error: detail });
+      console.error(`Failed ${filename}: ${detail}`);
+    }
   }
 }
 

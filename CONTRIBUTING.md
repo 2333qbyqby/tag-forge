@@ -1,69 +1,46 @@
 # Contributing
 
-感谢你为 TagForge 增加新的设计词汇和关系。
-
-## 开发流程
+## 开发检查
 
 ```bash
 pnpm install
 pnpm dev
-pnpm check
+pnpm data:verify
 ```
 
-提交前 `pnpm check` 必须通过。
+## 修改基础标签
 
-## 添加 Tag
+任何对 `data-src/catalog.json`、翻译、元数据或关系的修改都必须先完整执行 [数据更新协议](docs/DATA_UPDATE_PROTOCOL.md)。
 
-编辑 `data-src/catalog.json`：
+基础标签使用对象记录，至少需要：
 
-1. 选择准确类别。
-2. ID 使用小写 kebab-case。
-3. 提供中英双语标签。
-4. 选择 1–3 个可复用语义集群。
-5. 标注稀有度、规模影响和实现风险。
-6. 不要直接复制平台上含义重复的 Tag。
+- 稳定的 kebab-case ID
+- 自然且一致的中英文标签
+- `kind`、`aliases`、`family` 和 `clusters`
+- `baseWeight`、`rarity`、`scopeImpact` 和 `implementationRisk`
+- `generationEligible` 与可追溯 `sourceRefs`
 
-避免把营销词当成设计词，例如：
+只有语义明确时才添加显式关系。未知关系保持中性；不需要为了覆盖率给每个 Tag 连边。
 
-```text
-Indie
-Singleplayer
-Great Soundtrack
-Early Access
-```
+## 修改开放命题
 
-## 添加关系
+不要直接手写或批量粘贴到 `data-src/prompts.json`。命题更新必须经过：
 
-只有在关系明确时才添加显式边。
+1. 官方 Game Jam 参考语料抓取与快照。
+2. 生成子代理输出 `data-cache/prompt-batches/*.candidates.jsonl`。
+3. 独立审核子代理输出 `*.decisions.jsonl`。
+4. 确定性整合脚本执行配额、重复和来源相似度检查。
+5. 正式决策写入 `data-reviews/<dataVersion>.prompt-decisions.jsonl`。
 
-- “可能很怪”不是 `hard-conflict`。
-- `tension` 用于值得保留的反差。
-- `redundancy` 用于同义或上下位词堆叠。
-- `soft-conflict` 允许高惊喜模式越过。
-- `hard-conflict` 只用于逻辑无法同时成立。
-
-请尽量填写合理的 `confidence`，不要所有边都设为 1。
-
-## 数据来源
-
-新数据源必须记录在 `data-src/catalog.json` 的 `sourceRefs` 和 `SOURCES.md` 中。不要提交来源或再分发许可不清楚的完整抓取数据。
-
-## 检查
-
-```bash
-pnpm data:validate
-pnpm test
-pnpm simulate -- --count=10000 --mode=jam
-```
-
-涉及概率系数的 PR 应附模拟前后对比。
+来源原文、网页快照和未通过候选不得进入正式运行数据。
 
 ## Pull Request
 
 请说明：
 
-- 改了什么。
-- 为什么有助于生成质量或维护性。
-- 是否改变现有 seed 的结果。
-- 使用了哪些测试和模拟。
+- 修改内容和产品影响
+- 是否改变固定 seed 的 Engine 2 结果
+- 数据来源成功与失败状态
+- 使用的验证、测试和模拟命令
 
+数据验证通过不会自动授权提交、推送或发布。

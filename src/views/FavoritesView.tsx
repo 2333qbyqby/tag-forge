@@ -1,20 +1,29 @@
 import { Copy, Sparkles, Star, Trash2 } from "lucide-react";
-import { compiledData } from "../data";
-import type { GeneratedIdea } from "../engine/types";
-import { TEMPLATES } from "../engine/templates";
+import type { CompiledData } from "../engine/types";
+import {
+  isV2Idea,
+  type PromptRecord,
+  type SavedIdea,
+} from "../engine/v2-types";
 
 interface FavoritesViewProps {
-  favorites: GeneratedIdea[];
+  favorites: SavedIdea[];
+  data: CompiledData;
+  prompts: PromptRecord[];
   onRemove: (id: string) => void;
-  onLoad: (idea: GeneratedIdea) => void;
-  onCopy: (idea: GeneratedIdea) => void;
+  onLoad: (idea: SavedIdea) => void;
+  onCopy: (idea: SavedIdea) => void;
+  onExtractLegacy: (idea: SavedIdea) => void;
 }
 
 export default function FavoritesView({
   favorites,
+  data,
+  prompts,
   onRemove,
   onLoad,
   onCopy,
+  onExtractLegacy,
 }: FavoritesViewProps) {
   return (
     <main className="view-shell">
@@ -32,39 +41,57 @@ export default function FavoritesView({
         </section>
       ) : (
         <section className="favorites-grid">
-          {favorites.map((idea) => (
-            <article className="favorite-card panel" key={idea.id}>
-              <div className="favorite-card-top">
-                <span className="eyebrow">{TEMPLATES[idea.mode].label}</span>
-                <span>{new Date(idea.createdAt).toLocaleDateString("zh-CN")}</span>
-              </div>
-              <div className="favorite-tags">
-                {idea.tagIds.map((id) => {
-                  const tag = compiledData.tagById.get(id);
-                  return tag ? <span key={id}>{tag.labels.zh}</span> : null;
-                })}
-              </div>
-              <div className="favorite-metrics">
-                <span>连贯 {Math.round(idea.metrics.coherence * 100)}</span>
-                <span>意外 {Math.round(idea.metrics.novelty * 100)}</span>
-                <span>规模 {Math.round(idea.metrics.scope * 100)}</span>
-              </div>
-              <div className="favorite-actions">
-                <button onClick={() => onLoad(idea)}>
-                  <Sparkles size={15} /> 载入
-                </button>
-                <button onClick={() => onCopy(idea)}>
-                  <Copy size={15} /> 复制
-                </button>
-                <button onClick={() => onRemove(idea.id)} aria-label="删除收藏">
-                  <Trash2 size={15} />
-                </button>
-              </div>
-            </article>
-          ))}
+          {favorites.map((idea) => {
+            const v2 = isV2Idea(idea);
+            const ids = v2
+              ? idea.baseTagIds.filter((id): id is string => Boolean(id))
+              : idea.tagIds;
+            const prompt = v2
+              ? prompts.find((item) => item.id === idea.promptId)
+              : undefined;
+            return (
+              <article className="favorite-card panel" key={idea.id}>
+                <div className="favorite-card-top">
+                  <span className="eyebrow">
+                    {v2
+                      ? idea.mode === "challenge"
+                        ? "挑战模式"
+                        : "逐词模式"
+                      : "旧版结果"}
+                  </span>
+                  <span>{new Date(idea.createdAt).toLocaleDateString("zh-CN")}</span>
+                </div>
+                <div className="favorite-tags">
+                  {ids.map((id) => (
+                    <span key={id}>{data.tagById.get(id)?.labels.zh ?? id}</span>
+                  ))}
+                  {prompt ? (
+                    <span>{prompt.labels.zh}</span>
+                  ) : v2 && idea.promptId ? (
+                    <span>{idea.promptId}</span>
+                  ) : null}
+                </div>
+                <div className="favorite-actions">
+                  <button onClick={() => onLoad(idea)}>
+                    <Sparkles size={15} /> 载入
+                  </button>
+                  {!v2 ? (
+                    <button onClick={() => onExtractLegacy(idea)}>
+                      <Sparkles size={15} /> 提取
+                    </button>
+                  ) : null}
+                  <button onClick={() => onCopy(idea)}>
+                    <Copy size={15} /> 复制
+                  </button>
+                  <button onClick={() => onRemove(idea.id)} aria-label="删除收藏">
+                    <Trash2 size={15} />
+                  </button>
+                </div>
+              </article>
+            );
+          })}
         </section>
       )}
     </main>
   );
 }
-

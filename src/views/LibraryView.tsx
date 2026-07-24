@@ -63,12 +63,22 @@ export default function LibraryView({ onUseTag }: LibraryViewProps) {
             key={tag.id}
             className={`tag-library-card color-${KIND_COLORS[tag.kind]}`}
             onClick={() => onUseTag(tag.id)}
+            disabled={!tag.generationEligible || Boolean(tag.deprecatedBy)}
+            title={
+              tag.generationEligible && !tag.deprecatedBy
+                ? "带入逐词模式"
+                : "资料库保留标签，不参与 Engine 2 生成"
+            }
           >
             <span className="eyebrow">{KIND_LABELS[tag.kind]}</span>
             <strong>{tag.labels.zh}</strong>
             <small>{tag.labels.en}</small>
             <div>
-              <span>稀有 {Math.round(tag.rarity * 100)}</span>
+              <span>
+                {tag.generationEligible && !tag.deprecatedBy
+                  ? `稀有 ${Math.round(tag.rarity * 100)}`
+                  : "资料标签"}
+              </span>
               <span>{tag.clusters[0]}</span>
             </div>
           </button>
@@ -77,4 +87,3 @@ export default function LibraryView({ onUseTag }: LibraryViewProps) {
     </main>
   );
 }
-

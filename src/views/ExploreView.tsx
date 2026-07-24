@@ -24,7 +24,16 @@ export default function ExploreView({ onUseTag }: ExploreViewProps) {
           <h1>在游戏设计空间里散步。</h1>
           <p>点击节点切换中心，实线表示关联，虚线表示创意反差。</p>
         </div>
-        <button className="primary-compact" onClick={() => onUseTag(centerId)}>
+        <button
+          className="primary-compact"
+          onClick={() => onUseTag(centerId)}
+          disabled={!center.generationEligible || Boolean(center.deprecatedBy)}
+          title={
+            center.generationEligible && !center.deprecatedBy
+              ? "带入逐词模式"
+              : "资料库保留标签，不参与 Engine 2 生成"
+          }
+        >
           <Plus size={16} /> 用作生成锚点
         </button>
       </header>
@@ -73,4 +82,3 @@ export default function ExploreView({ onUseTag }: ExploreViewProps) {
     </main>
   );
 }
-

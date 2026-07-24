@@ -33,6 +33,10 @@ export interface TagNode {
   scopeImpact: number;
   implementationRisk: number;
   clusters: string[];
+  family?: string;
+  compositeOf?: string[];
+  deprecatedBy?: string;
+  generationEligible?: boolean;
   facets?: string[];
   sourceRefs: string[];
   enabled: boolean;
@@ -127,4 +131,3 @@ export interface GeneratedIdea extends IdeaCandidate {
   signals: PairSignal[];
   createdAt: number;
 }
-
