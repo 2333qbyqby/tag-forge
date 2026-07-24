@@ -1,106 +1,70 @@
-# TagForge Engine 2
+# TagForge Pack Engine
 
-Engine 2 只生成两个基础方向，以及挑战模式中的一个独立开放命题。实现位于 `src/engine/v2.ts`，不依赖 React、浏览器存储或网络。
+## Recipe 与随机流
 
-## 随机流
-
-相同数据、配置、历史与 seed 必须得到相同 ID：
+生成入口是 `src/engine/pack-engine.ts`。每次生成由 `pack checksum + Recipe + 设置 + 根 Seed + 历史` 决定。
 
 ```text
 root seed
-├── base
-└── prompt
+├─ variant
+├─ slot:<slot-a>
+├─ slot:<slot-b>
+└─ slot:<slot-n>
 ```
 
-基础方向和命题只使用各自的派生随机流。更改基础标签过滤条件不会改变同 seed 的命题结果，反之亦然。
+槽位随机流互相独立。锁定或单独重抽一个槽位时，其他槽位保留当前快照，不会重新运行其随机流。
 
-## 基础方向配方
+官方包提供五个 Recipe：
 
-挑战模式先按固定权重抽取配方：
+- `collision`：玩法方向 × 任意普通类别。
+- `challenge`：五种加权二词配方 + 独立原创开放命题。
+- `prototype`：主机制、玩法框架、玩家目标、开发限制。
+- `world-building`：主题、场景、氛围、表现/视角。
+- `historical-jam`：历史主题、机制、场景、限制、氛围。
 
-| 配方 | 权重 |
-|---|---:|
-| 类型 × 机制 | 35% |
-| 机制 × 机制 | 20% |
-| 机制 × 主题/氛围 | 20% |
-| 类型 × 主题/氛围 | 15% |
-| 类型/机制 × 表现/视角 | 10% |
+## 组合合法性
 
-每个结果至少有一个类型或机制。以下候选永远不进入抽样池：
+普通 Entry 的组合只检查：
 
-- 相同 ID 或相同 `family`
-- `compositeOf` 重叠
-- 显式 `redundancy`
-- 显式 `hard-conflict`
-- 已弃用、禁用或不属于 Engine 2 类别
+1. ID 不同。
+2. family 不同。
+3. `compositeOf` 展开后没有重叠。
+4. Entry 属于槽位允许的类别。
+5. Entry 未禁用、未 deprecated、未被用户排除。
 
-未知关系保持中性。其余候选使用固定分数：
+Facet 与官方分析边不参与硬过滤。系统没有 Relation 模型，也没有协同、冲突或共享 cluster 的硬判断。
 
-```text
-log(baseWeight)
-- recentTagPenalty
-- recentFamilyPenalty
-+ 0.25 × synergy
-+ 0.10 × tension
-- 0.80 × softConflict
-- 0.60 × max(0, averageRisk - 0.65)
-```
+## 权重与冷却
 
-分数通过固定温度 Softmax 抽样。若历史冷却使候选耗尽，只放松历史条件，不放松语义冗余或硬冲突。
-
-## 命题抽样
-
-命题不读取基础标签、关系边或风险：
+基础抽样权重：
 
 ```text
 baseWeight
-× promptIdCooldown
-× promptFamilyCooldown
-× promptTypeBalance
+× recentEntryWeight
+× recentFamilyWeight
+× optionalRiskPreference
 ```
 
-- 同一命题最近 10 次禁止。
-- 同一命题家族最近 3 次降权。
-- 同一类型连续 3 次后降权。
-- 当前排除项和正在重抽的命题不会再次出现。
+- Recipe 的 `entryWindow` 内出现相同 ID 时降权。
+- `familyWindow` 内出现相同 family 时降权。
+- `pairWindow` 内出现相同精确 Entry 对时优先排除；候选耗尽时回退。
+- `prefer-lower` Recipe 对实现风险较低的词轻度增权。
+- Prompt 可按最近类型做平衡，但不读取普通 Entry 或分析结果。
 
-## 历史与重抽
+## 可复现性与分享
 
-- 基础词最近 5 次强降权。
-- 完全相同的基础词对最近 30 次禁止。
-- 基础词家族最近 3 次降权。
-- 单独重抽命题保持两个基础方向不变。
-- 重抽基础方向保持命题不变。
-- 全局生成只改变未锁定部分。
+同一 canonical pack checksum、Recipe、Seed、设置与历史会产生相同槽位内容和结果 ID。结果快照同时保存中英文标签，因此原包缺失时仍可查看。
 
-逐词模式可以只包含左侧一个词。填入第二个词时会以已有词为上下文执行同一组有效性过滤。
+官方结果在 checksum 匹配时可继续生成。外部包缺失、旧 localStorage 结果和旧 query 分享链接均只读。
 
-## 分享结果
+## 官方分析
 
-V2 分享链接直接保存结果 ID，而不是要求未来版本重新运行算法：
+分析完全在构建期执行，不影响生成概率：
 
-```text
-engine=2
-mode=single|challenge
-seed=<seed>
-base=<id-a,id-b?>
-prompt=<prompt-id?>
-data=2026.07.2
-```
+- 相同 family 形成家族边。
+- `compositeOf` 形成组成边。
+- Facet Jaccard 超阈值后，每节点保留前 6 个邻居。
+- 固定 Seed 模拟五个 Recipe，按每节点前 4 个保留共现边。
+- 对称化、去重后计算 Louvain、PageRank、度、加权度和介数中心性。
 
-因此算法或权重未来变化后，旧链接仍能展示原结果。Engine 1 链接继续使用旧模式和 `tags` 参数。
-
-## 验证
-
-```bash
-pnpm test
-pnpm data:simulate
-```
-
-模拟对两个模式各运行 50,000 次，并验证：
-
-- 同家族、冗余和硬冲突为 0
-- 基础配方与目标误差不超过 2.5 个百分点
-- 最近 30 次不存在相同基础词对
-- 1000 条命题全部可达
-- 单一命题、类型或家族没有异常垄断
+分析文件绑定 pack checksum 和 `analyzerVersion`。浏览器 checksum 不匹配时拒绝显示数据实验室。

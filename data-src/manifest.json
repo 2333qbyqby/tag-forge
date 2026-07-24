@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "tagforge-official-v2",
+  "version": "2026.07.3",
+  "dataVersion": "2026.07.3",
+  "name": {
+    "zh": "TagForge 官方 V2",
+    "en": "TagForge Official V2"
+  },
+  "description": {
+    "zh": "合并旧版设计词汇与 V2 原创命题的官方数据包。",
+    "en": "The official pack combining the original design vocabulary with V2 prompts."
+  },
+  "defaultLocale": "zh",
+  "locales": [
+    "zh",
+    "en"
+  ],
+  "files": {
+    "categories": "categories.csv",
+    "entries": "entries.csv",
+    "recipes": "recipes.json",
+    "prompts": "prompts.csv"
+  },
+  "official": true
+}

@@ -1,0 +1,392 @@
+{
+  "dataVersion": "2026.07.3",
+  "recipes": [
+    {
+      "id": "collision",
+      "labels": {
+        "zh": "二词碰撞",
+        "en": "Collision"
+      },
+      "description": {
+        "zh": "用一个玩法方向撞上任意补充维度。",
+        "en": "Collide a gameplay direction with any supporting dimension."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "neutral",
+      "slots": [
+        {
+          "id": "left",
+          "labels": {
+            "zh": "方向 A",
+            "en": "Direction A"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "genre",
+            "mechanic"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
+        },
+        {
+          "id": "right",
+          "labels": {
+            "zh": "方向 B",
+            "en": "Direction B"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "genre",
+            "mechanic",
+            "theme",
+            "setting",
+            "mood",
+            "goal",
+            "constraint",
+            "presentation",
+            "perspective"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "labels": {
+        "zh": "开放挑战",
+        "en": "Open Challenge"
+      },
+      "description": {
+        "zh": "两个基础方向与一条独立原创命题。",
+        "en": "Two base directions and an independently drawn original prompt."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "neutral",
+      "slots": [
+        {
+          "id": "left",
+          "labels": {
+            "zh": "方向 A",
+            "en": "Direction A"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "genre"
+          ],
+          "required": true
+        },
+        {
+          "id": "right",
+          "labels": {
+            "zh": "方向 B",
+            "en": "Direction B"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "mechanic"
+          ],
+          "required": true
+        },
+        {
+          "id": "prompt",
+          "labels": {
+            "zh": "开放命题",
+            "en": "Open Prompt"
+          },
+          "source": "promptDeck",
+          "deckId": "original-prompts",
+          "required": true,
+          "balanceBy": "type"
+        }
+      ],
+      "variants": [
+        {
+          "id": "genre-mechanic",
+          "weight": 35,
+          "slotCategoryIds": {
+            "left": [
+              "genre"
+            ],
+            "right": [
+              "mechanic"
+            ]
+          }
+        },
+        {
+          "id": "mechanic-mechanic",
+          "weight": 20,
+          "slotCategoryIds": {
+            "left": [
+              "mechanic"
+            ],
+            "right": [
+              "mechanic"
+            ]
+          }
+        },
+        {
+          "id": "mechanic-theme-mood",
+          "weight": 20,
+          "slotCategoryIds": {
+            "left": [
+              "mechanic"
+            ],
+            "right": [
+              "theme",
+              "mood"
+            ]
+          }
+        },
+        {
+          "id": "genre-theme-mood",
+          "weight": 15,
+          "slotCategoryIds": {
+            "left": [
+              "genre"
+            ],
+            "right": [
+              "theme",
+              "mood"
+            ]
+          }
+        },
+        {
+          "id": "gameplay-presentation-perspective",
+          "weight": 10,
+          "slotCategoryIds": {
+            "left": [
+              "genre",
+              "mechanic"
+            ],
+            "right": [
+              "presentation",
+              "perspective"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "prototype",
+      "labels": {
+        "zh": "独立原型",
+        "en": "Prototype"
+      },
+      "description": {
+        "zh": "机制、玩法框架、玩家目标与开发限制。",
+        "en": "Mechanics, gameplay frame, player goal, and production constraint."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "prefer-lower",
+      "slots": [
+        {
+          "id": "primary",
+          "labels": {
+            "zh": "主机制",
+            "en": "Primary Mechanic"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "mechanic"
+          ],
+          "required": true
+        },
+        {
+          "id": "frame",
+          "labels": {
+            "zh": "类型 / 副机制",
+            "en": "Genre / Secondary Mechanic"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "genre",
+            "mechanic"
+          ],
+          "required": true
+        },
+        {
+          "id": "goal",
+          "labels": {
+            "zh": "玩家目标",
+            "en": "Player Goal"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "goal"
+          ],
+          "required": true
+        },
+        {
+          "id": "constraint",
+          "labels": {
+            "zh": "开发限制",
+            "en": "Constraint"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "constraint"
+          ],
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "world-building",
+      "labels": {
+        "zh": "世界构建",
+        "en": "World Building"
+      },
+      "description": {
+        "zh": "用主题、场景、氛围与视觉视角形成世界方向。",
+        "en": "Shape a world through theme, setting, mood, and presentation."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "neutral",
+      "slots": [
+        {
+          "id": "theme",
+          "labels": {
+            "zh": "主题",
+            "en": "Theme"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "theme"
+          ],
+          "required": true
+        },
+        {
+          "id": "setting",
+          "labels": {
+            "zh": "场景",
+            "en": "Setting"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "setting"
+          ],
+          "required": true
+        },
+        {
+          "id": "mood",
+          "labels": {
+            "zh": "氛围",
+            "en": "Mood"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "mood"
+          ],
+          "required": true
+        },
+        {
+          "id": "presentation",
+          "labels": {
+            "zh": "表现 / 视角",
+            "en": "Presentation / Perspective"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "presentation",
+            "perspective"
+          ],
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "historical-jam",
+      "labels": {
+        "zh": "历史 Jam",
+        "en": "Historical Jam"
+      },
+      "description": {
+        "zh": "从历史 Jam 主题出发，用机制、场景、限制与氛围收敛。",
+        "en": "Start from a historical jam theme and narrow it with game directions."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "prefer-lower",
+      "slots": [
+        {
+          "id": "prompt",
+          "labels": {
+            "zh": "历史主题",
+            "en": "Historical Theme"
+          },
+          "source": "promptDeck",
+          "deckId": "historical-jam",
+          "required": true
+        },
+        {
+          "id": "mechanic",
+          "labels": {
+            "zh": "核心机制",
+            "en": "Core Mechanic"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "mechanic"
+          ],
+          "required": true
+        },
+        {
+          "id": "setting",
+          "labels": {
+            "zh": "场景",
+            "en": "Setting"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "setting"
+          ],
+          "required": true
+        },
+        {
+          "id": "constraint",
+          "labels": {
+            "zh": "限制",
+            "en": "Constraint"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "constraint"
+          ],
+          "required": true
+        },
+        {
+          "id": "mood",
+          "labels": {
+            "zh": "氛围",
+            "en": "Mood"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "mood"
+          ],
+          "required": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,99 +1,59 @@
-import { ArrowUpRight, Binary, Database, Github, Shuffle } from "lucide-react";
-import { DATA_VERSION, compiledData, prompts } from "../data";
+import { ArrowUpRight, Boxes, Database, Github, Shuffle } from "lucide-react";
+import type { CompiledPack } from "../packs/types";
 
-export default function AboutView() {
+export default function AboutView({ pack }: { pack: CompiledPack }) {
+  const promptCount = pack.data.promptDecks.reduce(
+    (count, deck) => count + deck.prompts.length,
+    0,
+  );
   return (
     <main className="view-shell about-view">
       <header className="view-hero">
-        <span className="eyebrow">ABOUT / ENGINE 2</span>
-        <h1>它只点燃第一簇火花，把最有价值的联想留给你。</h1>
+        <span className="eyebrow">ABOUT / DATA PACK ENGINE</span>
+        <h1>数据属于用户，生成留在浏览器。</h1>
         <p>
-          TagForge 面向独立开发者和 Game Jam 团队，通过两个基础方向与一个独立开放命题，
-          给出可以继续想象的创意起点。它完全在浏览器中运行，不上传生成历史。
+          TagForge 是部署在 GitHub Pages 的纯静态灵感生成器。官方包和用户包走同一套
+          Schema、校验、Recipe 与 Seed 引擎，用户文件不会上传到服务器。
         </p>
       </header>
-
       <section className="about-grid">
         <article className="panel">
           <Shuffle size={22} />
-          <span className="eyebrow">01 / TWO MODES</span>
-          <h2>逐词或直接接受挑战</h2>
-          <p>
-            逐词模式让两个基础方向分别抽取与锁定；挑战模式一次给出两个方向和一个开放命题。
-          </p>
+          <span className="eyebrow">01 / RECIPE</span>
+          <h2>配方定义组合方式</h2>
+          <p>Category 决定槽位池，Family 与 Composite 防止明显重复。</p>
         </article>
         <article className="panel">
-          <Binary size={22} />
-          <span className="eyebrow">02 / INDEPENDENT</span>
-          <h2>命题与方向互不迎合</h2>
-          <p>
-            基础方向会过滤同义、冗余与硬冲突；命题使用独立随机流，不参与方向评分。
-          </p>
+          <Boxes size={22} />
+          <span className="eyebrow">02 / LOCAL PACKS</span>
+          <h2>导入自己的数据</h2>
+          <p>JSON 或 ZIP/CSV 在本地校验，可临时打开或安装到 IndexedDB。</p>
         </article>
         <article className="panel">
           <Database size={22} />
-          <span className="eyebrow">03 / OPEN</span>
-          <h2>只展示关键词</h2>
-          <p>
-            产品不补写角色、世界观或玩法答案。如何连接这些词，正是创作过程的一部分。
-          </p>
+          <span className="eyebrow">03 / NO RELATION</span>
+          <h2>生成不判断“正确搭配”</h2>
+          <p>Facet 只负责发现和官方分析，陌生碰撞由用户继续想象。</p>
         </article>
       </section>
-
-      <section className="algorithm-card panel">
-        <div>
-          <span className="eyebrow">ALGORITHM PIPELINE</span>
-          <h2>一次生成如何发生</h2>
-        </div>
-        <ol>
-          <li>
-            <span>01</span>
-            <div>
-              <strong>选择基础配方</strong>
-              <p>按固定比例选取“类型 × 机制”等五组基础方向配方。</p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <strong>过滤与加权</strong>
-              <p>拒绝同家族、冗余和硬冲突，并降低近期重复与软冲突的权重。</p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <strong>独立抽取命题</strong>
-              <p>命题只考虑自身权重、近期冷却及类型与家族平衡。</p>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <strong>保留你的选择</strong>
-              <p>锁定的部分不变，单独重抽也不会扰动无关随机分支。</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
       <section className="dataset-card panel">
         <div>
-          <span className="eyebrow">DATA SNAPSHOT</span>
-          <h2>{DATA_VERSION}</h2>
+          <span className="eyebrow">ACTIVE PACK</span>
+          <h2>{pack.data.manifest.name.zh}</h2>
+          <p>{pack.ref.checksum}</p>
         </div>
         <div className="dataset-stats">
           <span>
-            <strong>{compiledData.tags.length}</strong> Tag 节点
+            <strong>{pack.data.entries.length}</strong> Entry
           </span>
           <span>
-            <strong>{prompts.length}</strong> 开放命题
+            <strong>{promptCount}</strong> Prompt
           </span>
           <span>
-            <strong>{compiledData.relations.length}</strong> 显式关系
+            <strong>{pack.data.recipes.length}</strong> Recipe
           </span>
           <span>
-            <strong>0</strong> 运行时请求
+            <strong>0</strong> 运行时 API
           </span>
         </div>
         <div className="source-links">
@@ -109,7 +69,7 @@ export default function AboutView() {
             target="_blank"
             rel="noreferrer"
           >
-            Global Game Jam History <ArrowUpRight size={14} />
+            Global Game Jam <ArrowUpRight size={14} />
           </a>
           <a
             href="https://github.com/2333qbyqby/tag-forge"

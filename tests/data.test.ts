@@ -1,86 +1,75 @@
-import { describe, expect, it } from "vitest";
-import { compiledData, DATA_VERSION, prompts } from "../src/data";
-import {
-  BASE_TAG_KINDS,
-  PROMPT_FAMILIES,
-  PROMPT_TYPES,
-} from "../src/engine/v2-types";
+import { existsSync } from "node:fs";
+import migrationMap from "../data-src/migration-map.json";
+import { canonicalPackJson, packChecksum } from "../src/packs/canonical";
+import { validatePack } from "../src/packs/validate";
+import { officialData } from "./fixtures";
 
-const TYPE_TARGETS: Record<string, number> = {
-  "open-choice": 180,
-  "abstract-metaphor": 140,
-  "change-consequence": 120,
-  "relationship-identity": 100,
-  "time-loop-rhythm": 90,
-  "space-scale-boundary": 90,
-  "perception-information": 90,
-  "object-material-sensory": 70,
-  "rule-resource-constraint": 60,
-  "goal-start-situation": 30,
-  "experimental-absurd": 30,
-};
-
-function normalized(value: string): string {
-  return value.normalize("NFKC").trim().toLocaleLowerCase();
-}
-
-describe("Engine 2 data snapshot", () => {
-  it("uses the V2 versions and an auditable base-tag vocabulary", () => {
-    expect(DATA_VERSION).toBe("2026.07.2");
-    expect(compiledData.tags.length).toBeGreaterThanOrEqual(450);
-    for (const kind of BASE_TAG_KINDS) {
+describe("official V2 data pack", () => {
+  it("contains the exact migrated datasets", () => {
+    expect(officialData.manifest.schemaVersion).toBe(1);
+    expect(officialData.manifest.version).toBe("2026.07.3");
+    expect(officialData.entries).toHaveLength(427);
+    expect(
+      officialData.entries.filter(
+        (entry) => entry.enabled !== false && !entry.deprecatedBy,
+      ),
+    ).toHaveLength(424);
+    expect(
+      officialData.entries.filter((entry) => entry.deprecatedBy),
+    ).toHaveLength(3);
+    expect(Object.keys(migrationMap.deprecatedBy)).toHaveLength(3);
+    for (const [id, target] of Object.entries(migrationMap.deprecatedBy)) {
       expect(
-        compiledData.tagsByKind
-          .get(kind)
-          ?.some(
-            (tag) =>
-              tag.enabled &&
-              tag.generationEligible &&
-              !tag.deprecatedBy &&
-              tag.aliases !== undefined &&
-              tag.family,
-          ),
-      ).toBe(true);
-    }
-  });
-
-  it("only references valid tags without requiring a dense relation graph", () => {
-    for (const relation of compiledData.relations) {
-      expect(compiledData.tagById.has(relation.a)).toBe(true);
-      expect(compiledData.tagById.has(relation.b)).toBe(true);
-    }
-    for (const tag of compiledData.tags) {
-      for (const component of tag.compositeOf ?? []) {
-        expect(compiledData.tagById.has(component)).toBe(true);
-      }
-      if (tag.deprecatedBy) {
-        expect(compiledData.tagById.has(tag.deprecatedBy)).toBe(true);
-        expect(tag.generationEligible).toBe(false);
-      }
-    }
-  });
-
-  it("contains exactly 1000 enabled, unique, quota-balanced prompts", () => {
-    expect(prompts).toHaveLength(1000);
-    const enabled = prompts.filter((prompt) => prompt.enabled);
-    expect(enabled).toHaveLength(1000);
-    expect(new Set(enabled.map((prompt) => prompt.id)).size).toBe(1000);
-    expect(
-      new Set(enabled.map((prompt) => normalized(prompt.labels.zh))).size,
-    ).toBe(1000);
-    expect(
-      new Set(enabled.map((prompt) => normalized(prompt.labels.en))).size,
-    ).toBe(1000);
-
-    for (const type of PROMPT_TYPES) {
-      expect(enabled.filter((prompt) => prompt.type === type)).toHaveLength(
-        TYPE_TARGETS[type],
+        officialData.entries.find((entry) => entry.id === id)?.deprecatedBy,
+      ).toBe(target);
+      expect(officialData.entries.some((entry) => entry.id === target)).toBe(
+        true,
       );
     }
-    for (const family of PROMPT_FAMILIES) {
-      const count = enabled.filter((prompt) => prompt.family === family).length;
-      expect(count).toBeGreaterThanOrEqual(50);
-      expect(count).toBeLessThanOrEqual(120);
+    expect(officialData.promptDecks[0].prompts).toHaveLength(1000);
+    expect(officialData.promptDecks[1].prompts).toHaveLength(34);
+    expect(officialData.recipes.map((recipe) => recipe.id)).toEqual([
+      "collision",
+      "challenge",
+      "prototype",
+      "world-building",
+      "historical-jam",
+    ]);
+  });
+
+  it("preserves every official V1 ID and every current catalog ID", () => {
+    const allIds = new Set([
+      ...officialData.entries.map((entry) => entry.id),
+      ...officialData.promptDecks[1].prompts.map((prompt) => prompt.id),
+    ]);
+    expect(migrationMap.legacyIds).toHaveLength(328);
+    for (const id of migrationMap.legacyIds) expect(allIds.has(id)).toBe(true);
+    expect(allIds.size).toBe(461);
+    expect(officialData.promptDecks[0].prompts).toHaveLength(1000);
+  });
+
+  it("keeps historical themes separate from original prompts", () => {
+    const entryIds = new Set(officialData.entries.map((entry) => entry.id));
+    const originalIds = new Set(
+      officialData.promptDecks[0].prompts.map((prompt) => prompt.id),
+    );
+    for (const prompt of officialData.promptDecks[1].prompts) {
+      expect(entryIds.has(prompt.id)).toBe(false);
+      expect(originalIds.has(prompt.id)).toBe(false);
     }
+  });
+
+  it("has valid references and complete declared recipe reachability", () => {
+    const report = validatePack(officialData);
+    expect(report.valid, JSON.stringify(report.issues, null, 2)).toBe(true);
+    expect(
+      report.issues.filter((issue) => issue.code.endsWith(".unreachable")),
+    ).toEqual([]);
+  });
+
+  it("has no relation source and hashes canonically", async () => {
+    expect(existsSync("data-src/relations.json")).toBe(false);
+    expect(canonicalPackJson(officialData)).not.toContain('"relations"');
+    expect(await packChecksum(officialData)).toMatch(/^sha256:[a-f0-9]{64}$/);
   });
 });

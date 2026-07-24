@@ -1,33 +1,62 @@
 import {
+  Boxes,
+  Database,
+  FlaskConical,
   Github,
+  Info,
   LibraryBig,
   Moon,
-  Orbit,
   Sparkles,
+  Star,
   Sun,
 } from "lucide-react";
+import type { PackOrigin } from "../packs/types";
 
-export type AppView = "generate" | "explore" | "library" | "favorites" | "about";
+export type AppView =
+  | "generate"
+  | "library"
+  | "favorites"
+  | "packs"
+  | "lab"
+  | "about";
 
 interface HeaderProps {
   view: AppView;
   theme: "dark" | "light";
   favoriteCount: number;
+  packName: string;
+  packOrigin: PackOrigin;
+  analysisEnabled: boolean;
   onViewChange: (view: AppView) => void;
   onThemeToggle: () => void;
 }
 
-const navItems: { id: AppView; label: string; icon: typeof Sparkles }[] = [
+const navItems: Array<{
+  id: AppView;
+  label: string;
+  icon: typeof Sparkles;
+}> = [
   { id: "generate", label: "生成", icon: Sparkles },
-  { id: "explore", label: "图谱", icon: Orbit },
   { id: "library", label: "词库", icon: LibraryBig },
-  { id: "favorites", label: "收藏", icon: Sparkles },
+  { id: "favorites", label: "收藏", icon: Star },
+  { id: "packs", label: "数据包", icon: Boxes },
+  { id: "lab", label: "数据实验室", icon: FlaskConical },
+  { id: "about", label: "关于", icon: Info },
 ];
+
+const originLabels: Record<PackOrigin, string> = {
+  official: "官方",
+  installed: "本地",
+  temporary: "临时",
+};
 
 export function Header({
   view,
   theme,
   favoriteCount,
+  packName,
+  packOrigin,
+  analysisEnabled,
   onViewChange,
   onThemeToggle,
 }: HeaderProps) {
@@ -39,27 +68,32 @@ export function Header({
         </span>
         <span>
           <strong>TagForge</strong>
-          <small>游戏灵感工作台</small>
+          <small>{packName}</small>
         </span>
       </button>
 
       <nav className="main-nav" aria-label="主导航">
-        {navItems.map(({ id, label, icon: Icon }) => (
-          <button
-            key={id}
-            className={view === id ? "active" : ""}
-            onClick={() => onViewChange(id)}
-          >
-            <Icon size={15} aria-hidden="true" />
-            <span>{label}</span>
-            {id === "favorites" && favoriteCount > 0 ? (
-              <em>{favoriteCount}</em>
-            ) : null}
-          </button>
-        ))}
+        {navItems
+          .filter((item) => item.id !== "lab" || analysisEnabled)
+          .map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              className={view === id ? "active" : ""}
+              onClick={() => onViewChange(id)}
+            >
+              <Icon size={15} aria-hidden="true" />
+              <span>{label}</span>
+              {id === "favorites" && favoriteCount > 0 ? (
+                <em>{favoriteCount}</em>
+              ) : null}
+            </button>
+          ))}
       </nav>
 
       <div className="header-actions">
+        <span className={`pack-origin-badge origin-${packOrigin}`}>
+          <Database size={13} /> {originLabels[packOrigin]}
+        </span>
         <button
           className="icon-button"
           onClick={onThemeToggle}
@@ -80,4 +114,3 @@ export function Header({
     </header>
   );
 }
-

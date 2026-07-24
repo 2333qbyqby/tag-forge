@@ -1,0 +1,669 @@
+{
+  "dataVersion": "2026.07.3",
+  "prompts": [
+    {
+      "id": "prompt-only-one",
+      "labels": {
+        "en": "Only One",
+        "zh": "唯一"
+      },
+      "family": "prompt-only-one",
+      "facets": [
+        "one",
+        "constraint"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-loop",
+      "labels": {
+        "en": "Loop",
+        "zh": "循环"
+      },
+      "family": "prompt-loop",
+      "facets": [
+        "loop",
+        "time"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-repair",
+      "labels": {
+        "en": "Repair",
+        "zh": "修复"
+      },
+      "family": "prompt-repair",
+      "facets": [
+        "repair",
+        "healing"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-lost-found",
+      "labels": {
+        "en": "Lost and Found",
+        "zh": "失而复得"
+      },
+      "family": "prompt-lost-found",
+      "facets": [
+        "loss",
+        "discovery"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-duality",
+      "labels": {
+        "en": "Duality",
+        "zh": "二元性"
+      },
+      "family": "duality",
+      "facets": [
+        "duality",
+        "contrast"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-roots",
+      "labels": {
+        "en": "Roots",
+        "zh": "根"
+      },
+      "family": "prompt-roots",
+      "facets": [
+        "roots",
+        "origin",
+        "nature"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-laugh",
+      "labels": {
+        "en": "Make Me Laugh",
+        "zh": "逗我笑"
+      },
+      "family": "prompt-laugh",
+      "facets": [
+        "humor",
+        "performance"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-bubble",
+      "labels": {
+        "en": "Bubble",
+        "zh": "泡泡"
+      },
+      "family": "prompt-bubble",
+      "facets": [
+        "bubble",
+        "fragile",
+        "contained"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-mask",
+      "labels": {
+        "en": "Mask",
+        "zh": "面具"
+      },
+      "family": "masks",
+      "facets": [
+        "mask",
+        "identity",
+        "deception"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-transmission",
+      "labels": {
+        "en": "Transmission",
+        "zh": "传输"
+      },
+      "family": "prompt-transmission",
+      "facets": [
+        "signal",
+        "communication"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-waves",
+      "labels": {
+        "en": "Waves",
+        "zh": "波"
+      },
+      "family": "prompt-waves",
+      "facets": [
+        "wave",
+        "signal",
+        "ocean"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-ritual",
+      "labels": {
+        "en": "Ritual",
+        "zh": "仪式"
+      },
+      "family": "prompt-ritual",
+      "facets": [
+        "ritual",
+        "routine"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-extinction",
+      "labels": {
+        "en": "Extinction",
+        "zh": "灭绝"
+      },
+      "family": "prompt-extinction",
+      "facets": [
+        "death",
+        "nature",
+        "loss"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-deception",
+      "labels": {
+        "en": "Deception",
+        "zh": "欺骗"
+      },
+      "family": "prompt-deception",
+      "facets": [
+        "deception",
+        "trust"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-scale",
+      "labels": {
+        "en": "Built to Scale",
+        "zh": "按比例建造"
+      },
+      "family": "prompt-scale",
+      "facets": [
+        "scale",
+        "building"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-role-reversal",
+      "labels": {
+        "en": "Role Reversal",
+        "zh": "角色反转"
+      },
+      "family": "prompt-role-reversal",
+      "facets": [
+        "reversal",
+        "identity"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-joined",
+      "labels": {
+        "en": "Joined Together",
+        "zh": "连接在一起"
+      },
+      "family": "prompt-joined",
+      "facets": [
+        "connection",
+        "coordination"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-out-of-control",
+      "labels": {
+        "en": "Out of Control",
+        "zh": "失去控制"
+      },
+      "family": "prompt-out-of-control",
+      "facets": [
+        "control",
+        "chaos"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-stronger-together",
+      "labels": {
+        "en": "Stronger Together",
+        "zh": "团结更强大"
+      },
+      "family": "prompt-stronger-together",
+      "facets": [
+        "connection",
+        "strength"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-limited-space",
+      "labels": {
+        "en": "Limited Space",
+        "zh": "有限空间"
+      },
+      "family": "prompt-limited-space",
+      "facets": [
+        "space",
+        "constraint"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-harvest",
+      "labels": {
+        "en": "Harvest",
+        "zh": "收获"
+      },
+      "family": "prompt-harvest",
+      "facets": [
+        "harvest",
+        "growth",
+        "nature"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-signal",
+      "labels": {
+        "en": "Signal",
+        "zh": "信号"
+      },
+      "family": "prompt-signal",
+      "facets": [
+        "signal",
+        "communication",
+        "unknown"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-beneath",
+      "labels": {
+        "en": "Beneath the Surface",
+        "zh": "表象之下"
+      },
+      "family": "prompt-beneath",
+      "facets": [
+        "hidden",
+        "depth",
+        "discovery"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-fragile",
+      "labels": {
+        "en": "Fragile",
+        "zh": "脆弱"
+      },
+      "family": "prompt-fragile",
+      "facets": [
+        "fragile",
+        "care",
+        "risk"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-echo",
+      "labels": {
+        "en": "Echo",
+        "zh": "回声"
+      },
+      "family": "prompt-echo",
+      "facets": [
+        "echo",
+        "sound",
+        "memory"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-catalyst",
+      "labels": {
+        "en": "Catalyst",
+        "zh": "催化剂"
+      },
+      "family": "prompt-catalyst",
+      "facets": [
+        "change",
+        "reaction"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-aftermath",
+      "labels": {
+        "en": "Aftermath",
+        "zh": "余波"
+      },
+      "family": "prompt-aftermath",
+      "facets": [
+        "aftermath",
+        "change",
+        "loss"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-tiny-world",
+      "labels": {
+        "en": "Tiny World",
+        "zh": "微小世界"
+      },
+      "family": "prompt-tiny-world",
+      "facets": [
+        "small",
+        "world",
+        "scale"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-chain-reaction",
+      "labels": {
+        "en": "Chain Reaction",
+        "zh": "连锁反应"
+      },
+      "family": "prompt-chain-reaction",
+      "facets": [
+        "reaction",
+        "systemic",
+        "cause"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-heartbeat",
+      "labels": {
+        "en": "Heartbeat",
+        "zh": "心跳"
+      },
+      "family": "prompt-heartbeat",
+      "facets": [
+        "heartbeat",
+        "rhythm",
+        "life"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-ouroboros",
+      "labels": {
+        "en": "Ouroboros",
+        "zh": "衔尾蛇"
+      },
+      "family": "prompt-ouroboros",
+      "facets": [
+        "cycle",
+        "myth",
+        "rebirth"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-as-we-are",
+      "labels": {
+        "en": "As We Are",
+        "zh": "如我们所是"
+      },
+      "family": "prompt-as-we-are",
+      "facets": [
+        "perspective",
+        "identity",
+        "truth"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-now",
+      "labels": {
+        "en": "What Do We Do Now?",
+        "zh": "我们现在怎么办？"
+      },
+      "family": "prompt-now",
+      "facets": [
+        "uncertainty",
+        "choice",
+        "aftermath"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "prompt-home",
+      "labels": {
+        "en": "What Home Means to You",
+        "zh": "家对你意味着什么"
+      },
+      "family": "prompt-home",
+      "facets": [
+        "home",
+        "identity",
+        "connection"
+      ],
+      "baseWeight": 1,
+      "origin": "historical-jam-theme",
+      "sourceRefs": [
+        "ggj-history-2026-07",
+        "curated-2026-07"
+      ],
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "dataVersion": "2026.07.3",
+  "categories": [
+    {
+      "id": "genre",
+      "labels": {
+        "zh": "类型",
+        "en": "Genre"
+      },
+      "color": "coral",
+      "enabled": true
+    },
+    {
+      "id": "mechanic",
+      "labels": {
+        "zh": "机制",
+        "en": "Mechanic"
+      },
+      "color": "acid",
+      "enabled": true
+    },
+    {
+      "id": "theme",
+      "labels": {
+        "zh": "主题",
+        "en": "Theme"
+      },
+      "color": "violet",
+      "enabled": true
+    },
+    {
+      "id": "setting",
+      "labels": {
+        "zh": "场景",
+        "en": "Setting"
+      },
+      "color": "cyan",
+      "enabled": true
+    },
+    {
+      "id": "mood",
+      "labels": {
+        "zh": "氛围",
+        "en": "Mood"
+      },
+      "color": "amber",
+      "enabled": true
+    },
+    {
+      "id": "goal",
+      "labels": {
+        "zh": "目标",
+        "en": "Goal"
+      },
+      "color": "green",
+      "enabled": true
+    },
+    {
+      "id": "constraint",
+      "labels": {
+        "zh": "限制",
+        "en": "Constraint"
+      },
+      "color": "red",
+      "enabled": true
+    },
+    {
+      "id": "presentation",
+      "labels": {
+        "zh": "表现",
+        "en": "Presentation"
+      },
+      "color": "blue",
+      "enabled": true
+    },
+    {
+      "id": "perspective",
+      "labels": {
+        "zh": "视角",
+        "en": "Perspective"
+      },
+      "color": "slate",
+      "enabled": true
+    }
+  ]
+}

@@ -247,7 +247,7 @@ const kindMatchers = [
   ],
 ];
 
-function inferKind(label) {
+function inferCategory(label) {
   const normalized = normalize(label);
   for (const [kind, terms] of kindMatchers) {
     if (terms.some((term) => normalized.includes(term))) return kind;
@@ -277,8 +277,10 @@ if (!steam && !itch) {
 }
 
 const known = new Set();
-const existingTags = Array.isArray(catalog.tags)
-  ? catalog.tags
+const existingTags = Array.isArray(catalog.entries)
+  ? catalog.entries
+  : Array.isArray(catalog.tags)
+    ? catalog.tags
   : Object.values(catalog.groups ?? {}).flatMap((entries) =>
       entries.map(([id, en, zh]) => ({ id, labels: { en, zh } })),
     );
@@ -306,7 +308,7 @@ function addCandidate(candidate) {
   merged.set(key, {
     en: candidate.en,
     zh: candidate.zh ?? "",
-    suggestedKind: inferKind(candidate.en),
+    suggestedCategoryId: inferCategory(candidate.en),
     steamTagId: candidate.steamTagId,
     steamRank: candidate.steamRank,
     itchPage: candidate.itchPage,
@@ -343,12 +345,14 @@ const candidates = [...merged.values()]
     return aRank - bRank || a.en.localeCompare(b.en);
   });
 
-const byKind = Object.fromEntries(
-  [...new Set(candidates.map((candidate) => candidate.suggestedKind))]
+const byCategory = Object.fromEntries(
+  [...new Set(candidates.map((candidate) => candidate.suggestedCategoryId))]
     .sort()
-    .map((kind) => [
-      kind,
-      candidates.filter((candidate) => candidate.suggestedKind === kind),
+    .map((categoryId) => [
+      categoryId,
+      candidates.filter(
+        (candidate) => candidate.suggestedCategoryId === categoryId,
+      ),
     ]),
 );
 
@@ -361,7 +365,7 @@ await writeFile(
       catalogVersion: catalog.dataVersion,
       existingTagCount: existingTags.length,
       candidateCount: candidates.length,
-      byKind,
+      byCategory,
     },
     null,
     2,
@@ -370,9 +374,9 @@ await writeFile(
 );
 
 console.log(
-  `Suggested ${candidates.length} candidates across ${Object.keys(byKind).length} kinds.`,
+  `Suggested ${candidates.length} candidates across ${Object.keys(byCategory).length} categories.`,
 );
-for (const [kind, entries] of Object.entries(byKind)) {
-  console.log(`${kind.padEnd(14)} ${String(entries.length).padStart(3)}`);
+for (const [categoryId, entries] of Object.entries(byCategory)) {
+  console.log(`${categoryId.padEnd(14)} ${String(entries.length).padStart(3)}`);
 }
 console.log("Review data-cache/tag-candidates.json before editing catalog.json.");

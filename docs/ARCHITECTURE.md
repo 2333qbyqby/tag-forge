@@ -1,61 +1,59 @@
 # 架构
 
-## 依赖方向
+## 总体数据流
 
 ```text
 data-src
-  → src/data → src/engine
-             → React components
-             → browser storage
+  → scripts/build-packs.mjs
+  → .tmp/public/packs + templates
+  → Vite dist
+  → official loader / user importer
+  → canonical DataPackV1
+  → pack engine + React views + IndexedDB
 ```
 
-- `src/engine` 不依赖 React、DOM 或 `localStorage`。
-- 页面组件不自行实现随机逻辑。
-- `data-cache/` 只保存抓取快照和待审候选，永不进入浏览器 bundle。
-- 正式命题不包含来源解释或审核玩法钩子。
-
-## 数据层
-
-`data-src/catalog.json` 保存可审核的基础标签对象；`src/data/catalog.ts` 负责运行时读取和索引。`data-src/relations.json` 是稀疏图：未知关系是合法的中性状态，不要求每个 Tag 都有显式边。
-
-`data-src/prompts.json` 只包含产品运行所需的双语文本、类型、家族、motif、权重、来源类别和启用状态。逐条来源引用、发散说明、拒绝原因和两个隐藏玩法钩子保存在 `data-reviews/2026.07.2.prompt-decisions.jsonl`。
-
-运行时索引包括：
-
-- `tagById`
-- `tagsByKind`
-- `edgeByPair`
-- `clusterIndex`
-
-## Engine 2
-
-- `v2-types.ts`：模式、配置、命题、结果、历史和兼容联合类型
-- `v2.ts`：配方抽样、过滤、独立命题随机流、锁定、重抽和历史转换
-- `rng.ts`：字符串 seed 与可派生的确定性 PRNG
-- `indexes.ts`：稀疏关系查找；缺失边返回中性关系
-
-旧 Engine 1 文件继续保留，只用于解析和展示旧收藏、历史与分享结果，不再为旧结果提供重抽。
-
-## UI 与状态
-
-`App.tsx` 保存当前 V2 配置、结果、历史、收藏与主题。生成页拆分为：
-
-- `V2SettingsPanel`：模式、逐词类别、历史冷却和 seed
-- `V2IdeaBoard`：基础方向与开放命题、锁定、排除、复制、分享
-- `V2HistoryStrip`：V1/V2 联合历史
-
-`src/storage/local.ts` 使用 `tagforge:*:v2`，首次读取时从 V1 键幂等迁移，并始终保留原 V1 数据。
-
-## 数据维护
+官方分析走独立的构建路径：
 
 ```text
-fetch / snapshot
-→ deterministic normalization
-→ generator agent candidates (cache)
-→ reviewer agent decisions (cache)
-→ deterministic integration
-→ formal data + formal audit
-→ validation + 50k simulations + build
+canonical official pack
+  → scripts/build-analysis.mjs
+  → family / composite / facet / recipe co-occurrence 派生边
+  → 固定 Seed 图指标
+  → .tmp/public/analysis
+  → 官方数据实验室只读加载
 ```
 
-具体顺序和停止条件以 `docs/DATA_UPDATE_PROTOCOL.md` 为准。
+## 数据包层
+
+`src/packs/types.ts` 定义公开 Schema 和结果快照。`validate.ts` 只接受声明式 Recipe；`importer.ts` 将 JSON 与 ZIP/CSV 归一成相同对象；`canonical.ts` 负责稳定 JSON 和 SHA-256；`compile.ts` 建立运行时索引。
+
+官方能力不信任数据包声明。`src/packs/official.ts` 读取构建生成的 checksum 注册表，只有注册表匹配的官方包才获得 `analysis: true`。用户安装包和临时包始终没有高级分析权限。
+
+## 生成器
+
+`src/engine/pack-engine.ts` 不依赖 React、DOM、IndexedDB 或网络。它只读取 `CompiledPack`、设置和历史快照，并返回 `ResultSnapshotV1`。
+
+核心模型没有 Relation、边索引、协同分数或冲突分数。每个 Recipe 槽位使用独立派生随机流；合法性、权重与冷却规则详见 [ALGORITHM.md](ALGORITHM.md)。
+
+## 存储
+
+`src/storage/db.ts` 使用 `idb` 封装 IndexedDB：
+
+- `packs`：已安装包元数据
+- `packData`：已安装包内容
+- `settings`：当前包和按包生成设置
+- `history`：最多 100 条结果快照
+- `favorites`：收藏快照
+- `migrations`：幂等迁移标记
+
+官方包来自静态文件，不复制到 IndexedDB。临时包只在 React 内存状态中存在。`legacy-migration.ts` 是隔离的旧 localStorage 适配器，原键不会被删除。
+
+## UI 与加载
+
+`App.tsx` 负责当前包、Recipe 设置、结果、历史、收藏和页面状态。生成器、词库、收藏、数据包管理器和数据实验室均读取同一个动态 `CompiledPack`。
+
+数据包管理器、词库、收藏、关于和 D3 数据实验室采用懒加载。官方命题和分析数据通过 `fetch(import.meta.env.BASE_URL + path)` 加载，保持 GitHub Pages 仓库子路径兼容。
+
+## 分享与兼容
+
+新链接在 URL Fragment 中携带完整结果快照，包括 pack 引用、Recipe、Seed 和槽位文本。缺少外部包时仍能显示文本，但结果只读。旧 Engine 1/2 query 链接只由 `src/utils/share.ts` 解析成只读快照，不再调用旧生成器。

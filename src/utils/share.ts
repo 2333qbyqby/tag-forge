@@ -1,124 +1,113 @@
-import { DATA_VERSION } from "../data";
-import type { GeneratedIdea, GeneratorMode } from "../engine/types";
-import {
-  isV2Idea,
-  type GeneratedIdeaV2,
-  type SavedIdea,
-} from "../engine/v2-types";
+import type { CompiledPack, ResultSnapshotV1 } from "../packs/types";
 
-export function makeShareUrl(idea: SavedIdea): string {
+function toBase64Url(value: string): string {
+  const bytes = new TextEncoder().encode(value);
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary)
+    .replaceAll("+", "-")
+    .replaceAll("/", "_")
+    .replace(/=+$/g, "");
+}
+
+function fromBase64Url(value: string): string {
+  const padded = value.replaceAll("-", "+").replaceAll("_", "/");
+  const binary = atob(padded + "=".repeat((4 - (padded.length % 4)) % 4));
+  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+export function makeShareUrl(result: ResultSnapshotV1): string {
   const url = new URL(window.location.href);
   url.search = "";
   url.searchParams.set("view", "generate");
-  if (isV2Idea(idea)) {
-    url.searchParams.set("engine", "2");
-    url.searchParams.set("mode", idea.mode);
-    url.searchParams.set("seed", idea.seed);
-    url.searchParams.set("base", idea.baseTagIds.filter(Boolean).join(","));
-    if (idea.promptId) url.searchParams.set("prompt", idea.promptId);
-  } else {
-    url.searchParams.set("engine", "1");
-    url.searchParams.set("mode", idea.mode);
-    url.searchParams.set("seed", idea.seed);
-    url.searchParams.set("tags", idea.tagIds.join(","));
-  }
-  url.searchParams.set("data", DATA_VERSION);
+  url.hash = `result=${toBase64Url(JSON.stringify(result))}`;
   return url.toString();
 }
 
-export type SharedIdeaPayload =
-  | {
-      engine: 2;
-      mode: GeneratedIdeaV2["mode"];
-      seed: string;
-      baseTagIds: [string, string?];
-      promptId?: string;
-    }
-  | {
-      engine: 1;
-      mode: GeneratorMode;
-      seed: string;
-      tagIds: string[];
-    };
-
-export function parseSharedIdeaPayload(): SharedIdeaPayload | null {
-  const params = new URLSearchParams(window.location.search);
-  const engine = params.get("engine");
-  const mode = params.get("mode");
-  const seed = params.get("seed");
-  if (!mode || !seed) return null;
-  if (engine === "2") {
-    const base = params.get("base")?.split(",").filter(Boolean) ?? [];
-    if (
-      !["single", "challenge"].includes(mode) ||
-      base.length < 1 ||
-      base.length > 2
-    ) {
-      return null;
-    }
+function legacySlot(pack: CompiledPack, id: string, index: number) {
+  const entry = pack.entryById.get(id);
+  const prompt = pack.promptById.get(id);
+  if (entry) {
+    const canonical = entry.deprecatedBy
+      ? pack.entryById.get(entry.deprecatedBy) ?? entry
+      : entry;
     return {
-      engine: 2,
-      mode: mode as GeneratedIdeaV2["mode"],
-      seed,
-      baseTagIds: [base[0], base[1]],
-      promptId: params.get("prompt") ?? undefined,
+      slotId: `legacy-${index + 1}`,
+      source: "entries" as const,
+      itemId: canonical.id,
+      categoryId: canonical.categoryId,
+      family: canonical.family,
+      labels: canonical.labels,
     };
   }
-  const tags = params.get("tags");
-  if (
-    !tags ||
-    !["quick", "jam", "prototype", "wild"].includes(mode)
-  ) {
-    return null;
+  if (prompt) {
+    return {
+      slotId: `legacy-${index + 1}`,
+      source: "promptDeck" as const,
+      itemId: id,
+      family: prompt.family,
+      labels: prompt.labels,
+    };
   }
   return {
-    engine: 1,
-    mode: mode as GeneratorMode,
-    seed,
-    tagIds: tags.split(",").filter(Boolean),
+    slotId: `legacy-${index + 1}`,
+    source: "entries" as const,
+    itemId: id,
+    family: id,
+    labels: { zh: id, en: id },
   };
 }
 
-export function parseSharedIdea(): {
-  mode: GeneratorMode;
-  seed: string;
-  tagIds: string[];
-} | null {
+export function parseSharedResult(pack: CompiledPack): ResultSnapshotV1 | null {
+  const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const encoded = hash.get("result");
+  if (encoded) {
+    try {
+      const parsed = JSON.parse(fromBase64Url(encoded)) as ResultSnapshotV1;
+      if (parsed.schemaVersion === 1 && Array.isArray(parsed.slots)) {
+        return parsed;
+      }
+    } catch {
+      return null;
+    }
+  }
   const params = new URLSearchParams(window.location.search);
-  const mode = params.get("mode") as GeneratorMode | null;
+  const engine = params.get("engine");
   const seed = params.get("seed");
-  const tags = params.get("tags");
-  if (!mode || !seed || !tags) return null;
-  if (!["quick", "jam", "prototype", "wild"].includes(mode)) return null;
-  return { mode, seed, tagIds: tags.split(",").filter(Boolean) };
+  if (!seed) return null;
+  const ids =
+    engine === "2"
+      ? [
+          ...(params.get("base")?.split(",").filter(Boolean) ?? []),
+          ...(params.get("prompt") ? [params.get("prompt")!] : []),
+        ]
+      : params.get("tags")?.split(",").filter(Boolean) ?? [];
+  if (ids.length === 0) return null;
+  return {
+    id: `legacy-link:${seed}:${ids.join("|")}`,
+    schemaVersion: 1,
+    pack: pack.ref,
+    recipeId: "migrated-result",
+    seed,
+    slots: ids.map((id, index) => legacySlot(pack, id, index)),
+    createdAt: Date.now(),
+    readOnly: true,
+    migratedFrom: "legacy-link",
+  };
 }
 
-export async function copyIdeaText(
-  idea: GeneratedIdea,
-  labels: { kind: string; value: string }[],
-): Promise<void> {
+export async function copyResultText(result: ResultSnapshotV1): Promise<void> {
   const text = [
-    "TAGFORGE / IDEA SEED",
+    "TAGFORGE / IDEA",
     "",
-    ...labels.map(({ kind, value }) => `${kind}: ${value}`),
+    ...result.slots.map(
+      (slot) => `${slot.slotId.toUpperCase()}: ${slot.labels.zh}`,
+    ),
     "",
-    `Seed: ${idea.seed}`,
-    makeShareUrl(idea),
-  ].join("\n");
-  await navigator.clipboard.writeText(text);
-}
-
-export async function copySavedIdeaText(
-  idea: SavedIdea,
-  labels: { kind: string; value: string }[],
-): Promise<void> {
-  const text = [
-    isV2Idea(idea) ? "TAGFORGE / ENGINE 2" : "TAGFORGE / LEGACY IDEA",
-    "",
-    ...labels.map(({ kind, value }) => `${kind}: ${value}`),
-    "",
-    `Seed: ${idea.seed}`,
-    makeShareUrl(idea),
+    `Recipe: ${result.recipeId}`,
+    `Seed: ${result.seed}`,
+    makeShareUrl(result),
   ].join("\n");
   await navigator.clipboard.writeText(text);
 }

@@ -7,6 +7,4 @@ if (-not (Test-Path -LiteralPath (Join-Path $RepoRoot "node_modules"))) {
   pnpm install
 }
 
-pnpm data:validate
 pnpm dev
-

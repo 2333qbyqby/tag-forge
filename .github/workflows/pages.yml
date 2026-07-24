@@ -25,7 +25,24 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
+      - name: Build official pack and templates
+        run: pnpm pack:build
+      - name: Validate Pack Schema
+        run: pnpm pack:validate
+      - name: Build and verify deterministic analysis
+        run: pnpm analysis:build && pnpm analysis:verify
+      - name: Simulate all five recipes
+        run: pnpm data:simulate
+      - name: Type check
+        run: pnpm typecheck
+      - name: Unit tests
+        run: pnpm test
+      - name: Build static site
+        run: pnpm build:app
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Browser tests
+        run: pnpm test:e2e
       - name: Publish generated site branch
         shell: bash
         run: |

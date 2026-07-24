@@ -1,235 +1,197 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Header, type AppView } from "./components/Header";
-import { V2HistoryStrip } from "./components/generator/V2HistoryStrip";
-import { V2IdeaBoard } from "./components/generator/V2IdeaBoard";
-import { V2SettingsPanel } from "./components/generator/V2SettingsPanel";
-import { compiledData, DATA_VERSION, prompts } from "./data";
-import { createRandomSeed, createSeededRng } from "./engine/rng";
-import type { GeneratorMode } from "./engine/types";
+import { PackWorkbench } from "./components/generator/PackWorkbench";
+import { ResultHistory } from "./components/generator/ResultHistory";
+import { createRandomSeed } from "./engine/rng";
 import {
-  generateChallenge,
-  isValidBasePair,
-  rerollChallengeBase,
-  rerollChallengePrompt,
-  rerollChallengeSlot,
-  rerollSingleSlot,
-  toHistoryEntry,
-} from "./engine/v2";
+  defaultGeneratorSettings,
+  generateResult,
+} from "./engine/pack-engine";
+import { compilePack } from "./packs/compile";
+import { loadOfficialPack } from "./packs/official";
+import type {
+  CompiledPack,
+  GeneratorSettings,
+  ResultSnapshotV1,
+} from "./packs/types";
+import type { ImportedPack } from "./packs/importer";
 import {
-  isV2Idea,
-  type GeneratedIdeaV2,
-  type GeneratorConfigV2,
-  type IdeaHistoryEntryV2,
-  type LegacySavedIdea,
-  type SavedIdea,
-  type StoredHistoryEntry,
-} from "./engine/v2-types";
+  addHistory,
+  deleteInstalledPack,
+  getSetting,
+  installPack,
+  listInstalledPacks,
+  loadFavorites,
+  loadGeneratorSettings,
+  loadHistory,
+  loadInstalledPack,
+  packStorageKey,
+  saveGeneratorSettings,
+  setFavorite,
+  setSetting,
+  type InstalledPackMeta,
+} from "./storage/db";
+import { migrateLegacyStorage } from "./storage/legacy-migration";
 import {
-  loadConfigV2,
-  loadFavoritesV2,
-  loadHistoryV2,
-  loadTheme,
-  saveConfigV2,
-  saveFavoritesV2,
-  saveHistoryV2,
-  saveTheme,
-} from "./storage/local";
-import {
-  copySavedIdeaText,
+  copyResultText,
   makeShareUrl,
-  parseSharedIdeaPayload,
+  parseSharedResult,
 } from "./utils/share";
-import AboutView from "./views/AboutView";
-import ExploreView from "./views/ExploreView";
-import FavoritesView from "./views/FavoritesView";
-import LibraryView from "./views/LibraryView";
 
-const DEFAULT_CONFIG: GeneratorConfigV2 = {
-  mode: "challenge",
-  selectedKinds: ["gameplay", "any"],
-  locked: { left: false, right: false, prompt: false },
-  excludedTagIds: [],
-  excludedPromptIds: [],
-  avoidRecent: true,
-  seed: "first-spark-v2",
-};
+const LibraryView = lazy(() => import("./views/LibraryView"));
+const FavoritesView = lazy(() => import("./views/FavoritesView"));
+const PackManagerView = lazy(() => import("./views/PackManagerView"));
+const DataLabView = lazy(() => import("./views/DataLabView"));
+const AboutView = lazy(() => import("./views/AboutView"));
 
-function currentView(): AppView {
-  const view = new URLSearchParams(window.location.search).get("view");
-  if (["generate", "explore", "library", "favorites", "about"].includes(view ?? "")) {
-    return view as AppView;
-  }
-  return "generate";
+function viewFromUrl(): AppView {
+  const value = new URLSearchParams(window.location.search).get("view");
+  return ["generate", "library", "favorites", "packs", "lab", "about"].includes(
+    value ?? "",
+  )
+    ? (value as AppView)
+    : "generate";
 }
 
-function toEngineHistory(history: StoredHistoryEntry[]): IdeaHistoryEntryV2[] {
-  return history.map((entry) => {
-    if (entry.schemaVersion === 2) return entry;
-    const eligible = entry.tagIds.filter((id) => {
-      const tag = compiledData.tagById.get(id);
-      return tag?.generationEligible && !tag.deprecatedBy;
-    });
-    return {
-      id: `migrated:${entry.id}`,
-      schemaVersion: 2,
-      mode: "single",
-      baseTagIds: eligible.slice(0, 2),
-      legacyTagIds: entry.tagIds,
-      createdAt: entry.createdAt,
-    };
-  });
+function themeFromStorage(): "dark" | "light" {
+  const stored =
+    localStorage.getItem("tagforge:theme") ??
+    localStorage.getItem("tagforge:theme:v1");
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia?.("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
 }
 
-function buildLegacySharedIdea(
-  mode: GeneratorMode,
+function snapshotForEntry(
+  pack: CompiledPack,
+  recipeId: string,
+  slotId: string,
+  entryId: string,
   seed: string,
-  tagIds: string[],
-): LegacySavedIdea {
+): ResultSnapshotV1 {
+  const entry = pack.entryById.get(entryId);
+  if (!entry) throw new Error(`Unknown entry: ${entryId}`);
   return {
-    id: `legacy:${seed}:${tagIds.join("|")}`,
+    id: `anchor:${entryId}:${seed}`,
     schemaVersion: 1,
+    pack: pack.ref,
+    recipeId,
     seed,
-    mode,
-    tagIds,
-    createdAt: Date.now(),
-  };
-}
-
-function buildSharedIdea(): SavedIdea | null {
-  const payload = parseSharedIdeaPayload();
-  if (!payload) return null;
-  if (payload.engine === 1) {
-    return buildLegacySharedIdea(payload.mode, payload.seed, payload.tagIds);
-  }
-  const validBase = payload.baseTagIds.filter(
-    (id): id is string =>
-      typeof id === "string" && compiledData.tagById.has(id),
-  );
-  const firstBase = validBase[0];
-  if (!firstBase) return null;
-  return {
-    id: `shared-v2:${payload.seed}:${validBase.join("|")}:${payload.promptId ?? ""}`,
-    schemaVersion: 2,
-    mode: payload.mode,
-    seed: payload.seed,
-    baseTagIds: [firstBase, validBase[1]],
-    promptId: payload.promptId,
-    createdAt: Date.now(),
-  };
-}
-
-function makeSingleIdea(seed: string, ids: string[]): GeneratedIdeaV2 {
-  return {
-    id: `v2:${seed}:${ids.join("|")}`,
-    schemaVersion: 2,
-    mode: "single",
-    seed,
-    baseTagIds: [ids[0] ?? "", ids[1]],
+    slots: [
+      {
+        slotId,
+        source: "entries",
+        itemId: entry.id,
+        categoryId: entry.categoryId,
+        family: entry.family,
+        labels: entry.labels,
+      },
+    ],
     createdAt: Date.now(),
   };
 }
 
 export default function App() {
-  const initialRef = useRef<{
-    config: GeneratorConfigV2;
-    history: StoredHistoryEntry[];
-    idea: SavedIdea;
-  } | null>(null);
-
-  if (!initialRef.current) {
-    const history = loadHistoryV2();
-    const storedConfig = loadConfigV2(DEFAULT_CONFIG);
-    const shared = buildSharedIdea();
-    const activeConfig =
-      shared && isV2Idea(shared)
-        ? { ...storedConfig, mode: shared.mode, seed: shared.seed }
-        : storedConfig;
-    const migratedEligibleIds = activeConfig.migratedBaseTagIds
-      ?.filter((id): id is string => {
-        if (!id) return false;
-        const tag = compiledData.tagById.get(id);
-        return Boolean(tag?.generationEligible && !tag.deprecatedBy);
-      })
-      .slice(0, 2);
-    const migratedFirst = migratedEligibleIds?.[0];
-    const migratedSecond = migratedEligibleIds?.[1];
-    const migratedPairIsValid =
-      migratedFirst &&
-      migratedSecond &&
-      isValidBasePair(
-        compiledData.tagById.get(migratedFirst)!,
-        compiledData.tagById.get(migratedSecond)!,
-        compiledData,
-      ) &&
-      [migratedFirst, migratedSecond].some((id) => {
-        const kind = compiledData.tagById.get(id)?.kind;
-        return kind === "genre" || kind === "mechanic";
-      });
-    const migratedBaseTagIds = migratedFirst
-      ? migratedPairIsValid
-        ? [migratedFirst, migratedSecond]
-        : [migratedFirst]
-      : undefined;
-    const consumedConfig: GeneratorConfigV2 = {
-      ...activeConfig,
-      locked: migratedBaseTagIds?.length
-        ? {
-            ...activeConfig.locked,
-            left: true,
-            right: migratedBaseTagIds.length > 1,
-          }
-        : activeConfig.locked,
-      migratedBaseTagIds: undefined,
-    };
-    let idea: SavedIdea;
-    if (shared) {
-      idea = shared;
-    } else if (consumedConfig.mode === "challenge") {
-      const migratedIdea = migratedBaseTagIds?.[0]
-        ? ({
-            ...makeSingleIdea(consumedConfig.seed, migratedBaseTagIds),
-            mode: "challenge" as const,
-          } satisfies GeneratedIdeaV2)
-        : undefined;
-      idea = generateChallenge(
-        consumedConfig,
-        compiledData,
-        prompts,
-        toEngineHistory(history),
-        createSeededRng(consumedConfig.seed),
-        migratedIdea,
-      );
-    } else if (migratedBaseTagIds?.[0]) {
-      idea = makeSingleIdea(consumedConfig.seed, migratedBaseTagIds);
-    } else {
-      idea = rerollSingleSlot(
-        0,
-        consumedConfig,
-        compiledData,
-        toEngineHistory(history),
-        createSeededRng(consumedConfig.seed),
-      );
-    }
-    initialRef.current = { config: consumedConfig, history, idea };
-  }
-
-  const [view, setView] = useState<AppView>(currentView);
-  const [config, setConfig] = useState(initialRef.current.config);
-  const [history, setHistory] = useState(initialRef.current.history);
-  const [idea, setIdea] = useState<SavedIdea>(initialRef.current.idea);
-  const [favorites, setFavorites] = useState<SavedIdea[]>(loadFavoritesV2);
-  const [theme, setTheme] = useState<"dark" | "light">(loadTheme);
+  const [view, setView] = useState<AppView>(viewFromUrl);
+  const [officialPack, setOfficialPack] = useState<CompiledPack>();
+  const [pack, setPack] = useState<CompiledPack>();
+  const [settings, setSettings] = useState<GeneratorSettings>();
+  const [result, setResult] = useState<ResultSnapshotV1>();
+  const [history, setHistory] = useState<ResultSnapshotV1[]>([]);
+  const [favorites, setFavorites] = useState<ResultSnapshotV1[]>([]);
+  const [installed, setInstalled] = useState<InstalledPackMeta[]>([]);
+  const [theme, setTheme] = useState<"dark" | "light">(themeFromStorage);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    async function boot() {
+      try {
+        const official = await loadOfficialPack();
+        await migrateLegacyStorage(official);
+        const [installedPacks, storedHistory, storedFavorites, activeKey] =
+          await Promise.all([
+            listInstalledPacks(),
+            loadHistory(),
+            loadFavorites(),
+            getSetting<string>("active-pack"),
+          ]);
+        const active =
+          activeKey && activeKey !== "official"
+            ? (await loadInstalledPack(activeKey)) ?? official
+            : official;
+        const fallback = defaultGeneratorSettings(active);
+        let activeSettings = await loadGeneratorSettings(active, fallback);
+        if (!active.recipeById.has(activeSettings.recipeId)) {
+          activeSettings = fallback;
+        }
+        const shared = parseSharedResult(official);
+        const visibleShared =
+          shared && shared.pack.checksum !== active.ref.checksum
+            ? { ...shared, readOnly: true }
+            : shared;
+        if (
+          visibleShared &&
+          active.recipeById.has(visibleShared.recipeId) &&
+          !visibleShared.readOnly
+        ) {
+          activeSettings = {
+            ...activeSettings,
+            recipeId: visibleShared.recipeId,
+            seed: visibleShared.seed,
+          };
+        }
+        const activeHistory = storedHistory.filter(
+          (item) => item.pack.checksum === active.ref.checksum,
+        );
+        const initial =
+          visibleShared ??
+          generateResult(active, activeSettings, activeHistory);
+        if (cancelled) return;
+        setOfficialPack(official);
+        setPack(active);
+        setSettings(activeSettings);
+        setResult(initial);
+        setHistory(storedHistory);
+        setFavorites(storedFavorites);
+        setInstalled(installedPacks);
+      } catch (reason) {
+        if (!cancelled) {
+          setError(
+            reason instanceof Error
+              ? reason.message
+              : "TagForge failed to initialize.",
+          );
+        }
+      }
+    }
+    void boot();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    saveTheme(theme);
+    localStorage.setItem("tagforge:theme", theme);
   }, [theme]);
-  useEffect(() => saveConfigV2(config), [config]);
-  useEffect(() => saveHistoryV2(history), [history]);
-  useEffect(() => saveFavoritesV2(favorites), [favorites]);
 
-  const engineHistory = useMemo(() => toEngineHistory(history), [history]);
+  const activeHistory = useMemo(
+    () =>
+      pack
+        ? history.filter((item) => item.pack.checksum === pack.ref.checksum)
+        : [],
+    [history, pack],
+  );
 
   const updateView = useCallback((next: AppView) => {
     setView(next);
@@ -240,345 +202,236 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const recordIdea = useCallback((next: GeneratedIdeaV2) => {
-    setIdea(next);
-    setHistory((current) =>
-      [toHistoryEntry(next, prompts), ...current].slice(0, 100),
-    );
+  const persistSettings = useCallback(
+    (next: GeneratorSettings) => {
+      setSettings(next);
+      if (pack && pack.origin !== "temporary") {
+        void saveGeneratorSettings(pack, next);
+      }
+    },
+    [pack],
+  );
+
+  const record = useCallback((next: ResultSnapshotV1) => {
+    setResult(next);
+    setHistory((current) => [
+      next,
+      ...current.filter((item) => item.id !== next.id),
+    ].slice(0, 100));
+    void addHistory(next);
   }, []);
+
+  const generate = useCallback(
+    (
+      nextSettings: GeneratorSettings,
+      current?: ResultSnapshotV1,
+      onlySlotId?: string,
+    ) => {
+      if (!pack) return;
+      const next = generateResult(
+        pack,
+        nextSettings,
+        activeHistory,
+        current,
+        onlySlotId,
+      );
+      persistSettings(nextSettings);
+      record(next);
+    },
+    [activeHistory, pack, persistSettings, record],
+  );
 
   const forge = useCallback(() => {
-    const seed = createRandomSeed();
-    const nextConfig = { ...config, seed };
-    let next: GeneratedIdeaV2;
-    if (nextConfig.mode === "challenge") {
-      next = generateChallenge(
-        nextConfig,
-        compiledData,
-        prompts,
-        engineHistory,
-        createSeededRng(seed),
-        isV2Idea(idea) && idea.mode === "challenge" ? idea : undefined,
+    if (!settings) return;
+    generate({ ...settings, seed: createRandomSeed() }, result);
+  }, [generate, result, settings]);
+
+  const changeSettings = useCallback(
+    (next: GeneratorSettings) => {
+      if (!settings || !pack) return;
+      if (next.recipeId !== settings.recipeId) {
+        const seeded = { ...next, seed: createRandomSeed() };
+        generate(seeded);
+      } else {
+        persistSettings(next);
+      }
+    },
+    [generate, pack, persistSettings, settings],
+  );
+
+  const activate = useCallback(
+    async (nextPack: CompiledPack, persist: boolean) => {
+      const fallback = defaultGeneratorSettings(nextPack);
+      const nextSettings =
+        nextPack.origin === "temporary"
+          ? fallback
+          : await loadGeneratorSettings(nextPack, fallback);
+      const validSettings = nextPack.recipeById.has(nextSettings.recipeId)
+        ? nextSettings
+        : fallback;
+      const relevant = history.filter(
+        (item) => item.pack.checksum === nextPack.ref.checksum,
       );
-    } else {
-      const current = isV2Idea(idea) && idea.mode === "single" ? idea : undefined;
-      let working =
-        current ??
-        rerollSingleSlot(
-          0,
-          nextConfig,
-          compiledData,
-          engineHistory,
-          createSeededRng(seed).fork("initial"),
-        );
-      if (!nextConfig.locked.left) {
-        working = rerollSingleSlot(
-          0,
-          nextConfig,
-          compiledData,
-          engineHistory,
-          createSeededRng(seed).fork("left"),
-          working,
-        );
+      setPack(nextPack);
+      setSettings(validSettings);
+      setResult(generateResult(nextPack, validSettings, relevant));
+      if (persist) {
+        await setSetting("active-pack", packStorageKey(nextPack.ref));
       }
-      if (!nextConfig.locked.right) {
-        working = rerollSingleSlot(
-          1,
-          nextConfig,
-          compiledData,
-          engineHistory,
-          createSeededRng(seed).fork("right"),
-          working,
-        );
-      }
-      next = working;
-    }
-    setConfig(nextConfig);
-    recordIdea(next);
-  }, [config, engineHistory, idea, recordIdea]);
-
-  const changeConfig = useCallback(
-    (next: GeneratorConfigV2) => {
-      if (next.mode === config.mode) {
-        setConfig(next);
-        return;
-      }
-      const seed = createRandomSeed();
-      const reset = {
-        ...next,
-        seed,
-        locked: { left: false, right: false, prompt: false },
-      };
-      const generated =
-        reset.mode === "challenge"
-          ? generateChallenge(
-              reset,
-              compiledData,
-              prompts,
-              engineHistory,
-              createSeededRng(seed),
-            )
-          : rerollSingleSlot(
-              0,
-              reset,
-              compiledData,
-              engineHistory,
-              createSeededRng(seed),
-            );
-      setConfig(reset);
-      recordIdea(generated);
+      updateView("generate");
     },
-    [config.mode, engineHistory, recordIdea],
+    [history, updateView],
   );
 
-  const rerollSlot = useCallback(
-    (slot: 0 | 1) => {
-      if (config.locked[slot === 0 ? "left" : "right"]) return;
-      const seed = createRandomSeed();
-      const nextConfig = { ...config, seed };
-      const current = isV2Idea(idea) ? idea : undefined;
-      const next =
-        current?.mode === "challenge"
-          ? rerollChallengeSlot(
-              slot,
-              nextConfig,
-              compiledData,
-              engineHistory,
-              createSeededRng(seed),
-              current,
-            )
-          : rerollSingleSlot(
-              slot,
-              nextConfig,
-              compiledData,
-              engineHistory,
-              createSeededRng(seed),
-              current,
-            );
-      setConfig(nextConfig);
-      recordIdea(next);
+  const activateOfficial = useCallback(async () => {
+    if (!officialPack) return;
+    await setSetting("active-pack", "official");
+    await activate(officialPack, false);
+  }, [activate, officialPack]);
+
+  const activateInstalled = useCallback(
+    async (key: string) => {
+      const nextPack = await loadInstalledPack(key);
+      if (nextPack) await activate(nextPack, true);
     },
-    [config, engineHistory, idea, recordIdea],
+    [activate],
   );
 
-  const rerollBase = useCallback(() => {
-    if (!isV2Idea(idea) || idea.mode !== "challenge") return;
-    const seed = createRandomSeed();
-    const nextConfig = { ...config, seed };
-    const next = rerollChallengeBase(
-      nextConfig,
-      compiledData,
-      engineHistory,
-      createSeededRng(seed),
-      idea,
-    );
-    setConfig(nextConfig);
-    recordIdea(next);
-  }, [config, engineHistory, idea, recordIdea]);
-
-  const rerollPrompt = useCallback(() => {
-    if (
-      !isV2Idea(idea) ||
-      idea.mode !== "challenge" ||
-      config.locked.prompt
-    ) {
-      return;
-    }
-    const seed = createRandomSeed();
-    const nextConfig = { ...config, seed };
-    const next = rerollChallengePrompt(
-      nextConfig,
-      prompts,
-      engineHistory,
-      createSeededRng(seed),
-      idea,
-    );
-    setConfig(nextConfig);
-    recordIdea(next);
-  }, [config, engineHistory, idea, recordIdea]);
-
-  const toggleLock = useCallback((part: "left" | "right" | "prompt") => {
-    setConfig((current) => ({
-      ...current,
-      locked: { ...current.locked, [part]: !current.locked[part] },
-    }));
-  }, []);
-
-  const excludeTag = useCallback(
-    (slot: 0 | 1, tagId: string) => {
-      if (config.locked[slot === 0 ? "left" : "right"]) return;
-      const seed = createRandomSeed();
-      const nextConfig = {
-        ...config,
-        seed,
-        excludedTagIds: [...new Set([...config.excludedTagIds, tagId])],
-      };
-      const current = isV2Idea(idea) ? idea : undefined;
-      const next =
-        current?.mode === "challenge"
-          ? rerollChallengeSlot(
-              slot,
-              nextConfig,
-              compiledData,
-              engineHistory,
-              createSeededRng(seed),
-              current,
-            )
-          : rerollSingleSlot(
-              slot,
-              nextConfig,
-              compiledData,
-              engineHistory,
-              createSeededRng(seed),
-              current,
-            );
-      setConfig(nextConfig);
-      recordIdea(next);
-    },
-    [config, engineHistory, idea, recordIdea],
-  );
-
-  const excludePrompt = useCallback(
-    (promptId: string) => {
-      if (
-        config.locked.prompt ||
-        !isV2Idea(idea) ||
-        idea.mode !== "challenge"
-      ) {
-        return;
-      }
-      const seed = createRandomSeed();
-      const nextConfig = {
-        ...config,
-        seed,
-        excludedPromptIds: [
-          ...new Set([...config.excludedPromptIds, promptId]),
-        ],
-      };
-      const next = rerollChallengePrompt(
-        nextConfig,
-        prompts,
-        engineHistory,
-        createSeededRng(seed),
-        idea,
-      );
-      setConfig(nextConfig);
-      recordIdea(next);
-    },
-    [config, engineHistory, idea, recordIdea],
-  );
-
-  const isFavorite = favorites.some((favorite) => favorite.id === idea.id);
-  const toggleFavorite = useCallback(() => {
-    setFavorites((current) =>
-      current.some((favorite) => favorite.id === idea.id)
-        ? current.filter((favorite) => favorite.id !== idea.id)
-        : [idea, ...current],
-    );
-  }, [idea]);
-
-  const labelsFor = useCallback((target: SavedIdea) => {
-    if (!isV2Idea(target)) {
-      return target.tagIds.map((id) => ({
-        kind: compiledData.tagById.get(id)?.kind ?? "旧标签",
-        value: compiledData.tagById.get(id)?.labels.zh ?? id,
-      }));
-    }
-    const labels = target.baseTagIds
-      .filter((id): id is string => Boolean(id))
-      .map((id, index) => ({
-        kind: `方向 ${index === 0 ? "A" : "B"}`,
-        value: compiledData.tagById.get(id)?.labels.zh ?? id,
-      }));
-    const prompt = prompts.find((item) => item.id === target.promptId);
-    if (prompt) {
-      labels.push({ kind: "开放命题", value: prompt.labels.zh });
-    } else if (target.promptId) {
-      labels.push({ kind: "开放命题（旧数据）", value: target.promptId });
-    }
-    return labels;
-  }, []);
-
-  const copyIdea = useCallback(
-    async (target: SavedIdea = idea) => {
-      await copySavedIdeaText(target, labelsFor(target));
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    },
-    [idea, labelsFor],
-  );
-
-  const shareIdea = useCallback(async () => {
-    await navigator.clipboard.writeText(makeShareUrl(idea));
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
-  }, [idea]);
-
-  const extractLegacy = useCallback(
-    (target: SavedIdea = idea) => {
-      if (isV2Idea(target)) return;
-      const ids = target.tagIds
-        .filter((id) => {
-          const tag = compiledData.tagById.get(id);
-          return tag?.generationEligible && !tag.deprecatedBy;
-        })
-        .slice(0, 2);
-      if (ids.length === 0) return;
-      const seed = createRandomSeed();
-      const next = makeSingleIdea(seed, ids);
-      setConfig((current) => ({
-        ...current,
-        mode: "single",
-        seed,
-        locked: {
-          left: true,
-          right: ids.length > 1,
-          prompt: false,
+  const openTemporary = useCallback(
+    (imported: ImportedPack) => {
+      const temporary = compilePack({
+        data: imported.pack,
+        ref: {
+          packId: imported.pack.manifest.packId,
+          version: imported.pack.manifest.version,
+          checksum: imported.checksum,
         },
-      }));
-      recordIdea(next);
-      updateView("generate");
+        origin: "temporary",
+        capabilities: {
+          generate: true,
+          browse: true,
+          history: true,
+          export: true,
+          analysis: false,
+        },
+      });
+      void activate(temporary, false);
     },
-    [idea, recordIdea, updateView],
+    [activate],
   );
 
-  const useTag = useCallback(
-    (tagId: string) => {
-      const tag = compiledData.tagById.get(tagId);
-      if (!tag?.generationEligible || tag.deprecatedBy) return;
+  const installImported = useCallback(
+    async (imported: ImportedPack) => {
+      const nextPack = await installPack(imported.pack, imported.checksum);
+      setInstalled(await listInstalledPacks());
+      await activate(nextPack, true);
+    },
+    [activate],
+  );
+
+  const removeInstalled = useCallback(
+    async (key: string) => {
+      await deleteInstalledPack(key);
+      setInstalled(await listInstalledPacks());
+      if (pack && packStorageKey(pack.ref) === key) {
+        await activateOfficial();
+      }
+    },
+    [activateOfficial, pack],
+  );
+
+  const toggleFavorite = useCallback(async () => {
+    if (!result) return;
+    const exists = favorites.some((item) => item.id === result.id);
+    await setFavorite(result, !exists);
+    setFavorites((current) =>
+      exists
+        ? current.filter((item) => item.id !== result.id)
+        : [result, ...current],
+    );
+  }, [favorites, result]);
+
+  const copy = useCallback(
+    async (target: ResultSnapshotV1 = result!) => {
+      if (!target) return;
+      await copyResultText(target);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1500);
+    },
+    [result],
+  );
+
+  const share = useCallback(async () => {
+    if (!result) return;
+    await navigator.clipboard.writeText(makeShareUrl(result));
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1500);
+  }, [result]);
+
+  const useEntry = useCallback(
+    (entryId: string) => {
+      if (!pack) return;
+      const entry = pack.entryById.get(entryId);
+      const recipe = pack.recipeById.get("collision") ?? pack.data.recipes[0];
+      if (!entry || !recipe) return;
+      const compatible = recipe.slots.filter(
+        (slot) =>
+          slot.source === "entries" &&
+          (slot.categoryIds?.includes(entry.categoryId) ?? false),
+      );
+      const slot = compatible.at(-1);
+      if (!slot) return;
       const seed = createRandomSeed();
-      const next = makeSingleIdea(seed, [tagId]);
-      setConfig((current) => ({
-        ...current,
-        mode: "single",
+      const nextSettings: GeneratorSettings = {
+        ...(settings ?? defaultGeneratorSettings(pack)),
+        recipeId: recipe.id,
         seed,
-        locked: { left: true, right: false, prompt: false },
-      }));
-      recordIdea(next);
+        lockedSlotIds: [slot.id],
+        excludedItemIds: [],
+        categoryOverrides: {},
+      };
+      const anchor = snapshotForEntry(pack, recipe.id, slot.id, entry.id, seed);
+      generate(nextSettings, anchor);
       updateView("generate");
     },
-    [recordIdea, updateView],
+    [generate, pack, settings, updateView],
   );
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       if (["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
-      if (event.key.toLowerCase() === "g" || event.code === "Space") {
+      if (event.key.toLowerCase() === "g") {
         event.preventDefault();
         forge();
-      }
-      if (event.key.toLowerCase() === "f") toggleFavorite();
-      if (event.key.toLowerCase() === "c") void copyIdea();
-      if (event.key === "1") toggleLock("left");
-      if (event.key === "2") toggleLock("right");
-      if (event.key === "3" && isV2Idea(idea) && idea.mode === "challenge") {
-        toggleLock("prompt");
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [copyIdea, forge, idea, toggleFavorite, toggleLock]);
+  }, [forge]);
+
+  if (error) {
+    return (
+      <main className="view-shell">
+        <section className="panel empty-state">
+          <h1>TagForge could not start</h1>
+          <p>{error}</p>
+        </section>
+      </main>
+    );
+  }
+
+  if (!pack || !officialPack || !settings || !result) {
+    return (
+      <main className="view-shell">
+        <section className="panel empty-state">
+          <h1>Loading official V2 data pack…</h1>
+        </section>
+      </main>
+    );
+  }
+
+  const isFavorite = favorites.some((item) => item.id === result.id);
 
   return (
     <div className="app">
@@ -586,6 +439,9 @@ export default function App() {
         view={view}
         theme={theme}
         favoriteCount={favorites.length}
+        packName={pack.data.manifest.name.zh}
+        packOrigin={pack.origin}
+        analysisEnabled={pack.capabilities.analysis}
         onViewChange={updateView}
         onThemeToggle={() =>
           setTheme((current) => (current === "dark" ? "light" : "dark"))
@@ -595,75 +451,115 @@ export default function App() {
       {view === "generate" ? (
         <>
           <div className="workbench">
-            <V2SettingsPanel config={config} onChange={changeConfig} />
-            <V2IdeaBoard
-              idea={idea}
-              config={config}
-              data={compiledData}
-              prompts={prompts}
+            <PackWorkbench
+              pack={pack}
+              settings={settings}
+              result={result}
               isFavorite={isFavorite}
               copied={copied}
+              onSettingsChange={changeSettings}
               onGenerate={forge}
-              onRerollSlot={rerollSlot}
-              onRerollBase={rerollBase}
-              onRerollPrompt={rerollPrompt}
-              onToggleLock={toggleLock}
-              onExcludeTag={excludeTag}
-              onExcludePrompt={excludePrompt}
-              onFavorite={toggleFavorite}
-              onCopy={() => void copyIdea()}
-              onShare={() => void shareIdea()}
-              onExtractLegacy={() => extractLegacy()}
+              onRerollSlot={(slotId) => {
+                if (settings.lockedSlotIds.includes(slotId)) return;
+                const nextSettings = { ...settings, seed: createRandomSeed() };
+                generate(nextSettings, result, slotId);
+              }}
+              onToggleLock={(slotId) =>
+                persistSettings({
+                  ...settings,
+                  lockedSlotIds: settings.lockedSlotIds.includes(slotId)
+                    ? settings.lockedSlotIds.filter((id) => id !== slotId)
+                    : [...settings.lockedSlotIds, slotId],
+                })
+              }
+              onExclude={(slotId, itemId) => {
+                if (settings.lockedSlotIds.includes(slotId)) return;
+                const nextSettings = {
+                  ...settings,
+                  seed: createRandomSeed(),
+                  excludedItemIds: [
+                    ...new Set([...settings.excludedItemIds, itemId]),
+                  ],
+                };
+                generate(nextSettings, result, slotId);
+              }}
+              onFavorite={() => void toggleFavorite()}
+              onCopy={() => void copy()}
+              onShare={() => void share()}
+              onRandomSeed={() =>
+                persistSettings({ ...settings, seed: createRandomSeed() })
+              }
             />
           </div>
-          <V2HistoryStrip
-            history={history}
-            data={compiledData}
-            prompts={prompts}
+          <ResultHistory
+            history={activeHistory}
+            onLoad={(next) => setResult(next)}
           />
         </>
       ) : null}
-      {view === "explore" ? <ExploreView onUseTag={useTag} /> : null}
-      {view === "library" ? <LibraryView onUseTag={useTag} /> : null}
-      {view === "favorites" ? (
-        <FavoritesView
-          favorites={favorites}
-          data={compiledData}
-          prompts={prompts}
-          onRemove={(id) =>
-            setFavorites((current) => current.filter((item) => item.id !== id))
-          }
-          onLoad={(next) => {
-            setIdea(next);
-            if (isV2Idea(next)) {
-              setConfig((current) => ({
-                ...current,
-                mode: next.mode,
-                seed: next.seed,
-                locked: { left: false, right: false, prompt: false },
-              }));
-            }
-            updateView("generate");
-          }}
-          onCopy={(target) => void copyIdea(target)}
-          onExtractLegacy={extractLegacy}
-        />
-      ) : null}
-      {view === "about" ? <AboutView /> : null}
+
+      <Suspense
+        fallback={
+          <main className="view-shell">
+            <section className="panel empty-state">Loading view…</section>
+          </main>
+        }
+      >
+        {view === "library" ? (
+          <LibraryView pack={pack} onUseEntry={useEntry} />
+        ) : null}
+        {view === "favorites" ? (
+          <FavoritesView
+            favorites={favorites}
+            onLoad={(next) => {
+              setResult(
+                next.pack.checksum === pack.ref.checksum
+                  ? next
+                  : { ...next, readOnly: true },
+              );
+              updateView("generate");
+            }}
+            onRemove={(next) => {
+              void setFavorite(next, false);
+              setFavorites((current) =>
+                current.filter((item) => item.id !== next.id),
+              );
+            }}
+            onCopy={(next) => void copy(next)}
+          />
+        ) : null}
+        {view === "packs" ? (
+          <PackManagerView
+            activePack={pack}
+            installed={installed}
+            onOpenTemporary={openTemporary}
+            onInstall={(imported) => void installImported(imported)}
+            onActivateOfficial={() => void activateOfficial()}
+            onActivateInstalled={(key) => void activateInstalled(key)}
+            onDeleteInstalled={(key) => void removeInstalled(key)}
+          />
+        ) : null}
+        {view === "lab" && pack.capabilities.analysis ? (
+          <DataLabView pack={pack} onUseEntry={useEntry} />
+        ) : null}
+        {view === "about" ? <AboutView pack={pack} /> : null}
+      </Suspense>
 
       <footer className="app-footer">
-        <span>TagForge · Engine 2 · Data {DATA_VERSION}</span>
-        <button onClick={() => updateView("about")}>算法与数据</button>
+        <span>
+          TagForge · Pack Schema 1 · Data {pack.data.manifest.dataVersion}
+        </span>
+        <button onClick={() => updateView("about")}>About data</button>
         <a
           href="https://github.com/2333qbyqby/tag-forge"
           target="_blank"
           rel="noreferrer"
         >
-          开源仓库
+          GitHub
         </a>
       </footer>
       <span className="sr-only" aria-live="polite">
-        {copied ? "已复制到剪贴板" : ""}
+        {copied ? "Copied to clipboard" : ""}
       </span>
     </div>
   );

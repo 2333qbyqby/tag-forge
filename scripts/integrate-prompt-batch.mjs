@@ -123,7 +123,7 @@ try {
   promptFile = JSON.parse(await readFile(PROMPTS_URL, "utf8"));
 } catch (error) {
   if (error?.code !== "ENOENT") throw error;
-  promptFile = { dataVersion: "2026.07.2", prompts: [] };
+  promptFile = { dataVersion: "2026.07.3", prompts: [] };
 }
 let priorAudit = "";
 try {
@@ -228,7 +228,7 @@ for (const candidate of candidates) {
         family: candidate.family,
         motifs: candidate.motifs,
         baseWeight: 1,
-        origin: "jam-researched-original-v1",
+        origin: "jam-researched-original-v2",
         enabled: true,
       };
       prompts.push(prompt);
@@ -246,7 +246,7 @@ for (const candidate of candidates) {
   const candidateReferenceIds =
     candidate.referenceIds ?? candidate.referenceRefs ?? [];
   auditRows.push({
-    dataVersion: "2026.07.2",
+    dataVersion: "2026.07.3",
     batch,
     id: candidate.id,
     status,
@@ -262,7 +262,7 @@ for (const candidate of candidates) {
   });
 }
 
-promptFile.dataVersion = "2026.07.2";
+promptFile.dataVersion = "2026.07.3";
 promptFile.prompts = prompts;
 const priorAuditRows = priorAudit
   .split(/\r?\n/)
