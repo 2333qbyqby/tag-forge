@@ -73,7 +73,7 @@ scripts/                  # Pack、分析、模拟和数据治理脚本
 tests/                    # 数据、生成器、导入、迁移和分享测试
 ```
 
-架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)，算法见 [docs/ALGORITHM.md](docs/ALGORITHM.md)，数据维护必须遵守 [docs/DATA_UPDATE_PROTOCOL.md](docs/DATA_UPDATE_PROTOCOL.md)。
+架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)，算法见 [docs/ALGORITHM.md](docs/ALGORITHM.md)，部署与线上验收遵循 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)，数据维护必须遵守 [docs/DATA_UPDATE_PROTOCOL.md](docs/DATA_UPDATE_PROTOCOL.md)。
 数据包作者可参考 [docs/DATA_PACK_SCHEMA.md](docs/DATA_PACK_SCHEMA.md)。
 
 ## License
