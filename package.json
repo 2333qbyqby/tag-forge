@@ -28,8 +28,7 @@
     "data:simulate": "pnpm simulate -- --count=2000",
     "data:verify": "pnpm pack:build && pnpm pack:validate && pnpm data:report && pnpm data:prompt-similarity && pnpm data:simulate && pnpm analysis:build && pnpm analysis:verify && pnpm typecheck && pnpm test && pnpm build:app && pnpm test:e2e",
     "simulate": "tsx scripts/simulate.ts",
-    "check": "pnpm pack:build && pnpm pack:validate && pnpm analysis:build && pnpm analysis:verify && pnpm data:simulate && pnpm typecheck && pnpm test && pnpm build:app && pnpm test:e2e",
-    "deploy:pages": "powershell -ExecutionPolicy Bypass -File scripts/publish-pages.ps1"
+    "check": "pnpm pack:build && pnpm pack:validate && pnpm analysis:build && pnpm analysis:verify && pnpm data:simulate && pnpm typecheck && pnpm test && pnpm build:app && pnpm test:e2e"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
