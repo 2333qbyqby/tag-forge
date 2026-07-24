@@ -1,0 +1,3394 @@
+[
+  {
+    "id": "abstract-art",
+    "degree": 9,
+    "weightedDegree": 4.14090908,
+    "pageRank": 0.00144517,
+    "betweenness": 0.00241887,
+    "community": 0
+  },
+  {
+    "id": "absurd",
+    "degree": 34,
+    "weightedDegree": 24.15621298,
+    "pageRank": 0.00717153,
+    "betweenness": 0.00109053,
+    "community": 0
+  },
+  {
+    "id": "action",
+    "degree": 12,
+    "weightedDegree": 7.30666665,
+    "pageRank": 0.00240798,
+    "betweenness": 0,
+    "community": 1
+  },
+  {
+    "id": "action-adventure",
+    "degree": 13,
+    "weightedDegree": 6.88999999,
+    "pageRank": 0.00225569,
+    "betweenness": 0.00272728,
+    "community": 1
+  },
+  {
+    "id": "action-roguelike",
+    "degree": 14,
+    "weightedDegree": 5.84333333,
+    "pageRank": 0.00198968,
+    "betweenness": 0.00543678,
+    "community": 1
+  },
+  {
+    "id": "action-rpg",
+    "degree": 22,
+    "weightedDegree": 6.79999999,
+    "pageRank": 0.00224331,
+    "betweenness": 0.04393878,
+    "community": 2
+  },
+  {
+    "id": "actions-cost-time",
+    "degree": 33,
+    "weightedDegree": 14.982997,
+    "pageRank": 0.00446318,
+    "betweenness": 0.04753888,
+    "community": 1
+  },
+  {
+    "id": "adventure",
+    "degree": 14,
+    "weightedDegree": 7.02333332,
+    "pageRank": 0.00229847,
+    "betweenness": 0.00315331,
+    "community": 1
+  },
+  {
+    "id": "afterlife",
+    "degree": 20,
+    "weightedDegree": 7.39684211,
+    "pageRank": 0.00233779,
+    "betweenness": 0.03379796,
+    "community": 0
+  },
+  {
+    "id": "alien-planet",
+    "degree": 34,
+    "weightedDegree": 12.90981353,
+    "pageRank": 0.00383374,
+    "betweenness": 0.05049889,
+    "community": 0
+  },
+  {
+    "id": "aliens",
+    "degree": 22,
+    "weightedDegree": 7.31818182,
+    "pageRank": 0.00230988,
+    "betweenness": 0.02341289,
+    "community": 0
+  },
+  {
+    "id": "alternate-history",
+    "degree": 15,
+    "weightedDegree": 5.6,
+    "pageRank": 0.00184067,
+    "betweenness": 0.01400341,
+    "community": 0
+  },
+  {
+    "id": "ancient-ruins",
+    "degree": 22,
+    "weightedDegree": 7.44,
+    "pageRank": 0.0023187,
+    "betweenness": 0.03051885,
+    "community": 0
+  },
+  {
+    "id": "ancient-temple",
+    "degree": 9,
+    "weightedDegree": 4.66090909,
+    "pageRank": 0.00157287,
+    "betweenness": 0.00411321,
+    "community": 0
+  },
+  {
+    "id": "apartment",
+    "degree": 10,
+    "weightedDegree": 4.47894737,
+    "pageRank": 0.00151991,
+    "betweenness": 0.00070197,
+    "community": 0
+  },
+  {
+    "id": "arcade",
+    "degree": 6,
+    "weightedDegree": 3.25555556,
+    "pageRank": 0.00123908,
+    "betweenness": 0.00010644,
+    "community": 1
+  },
+  {
+    "id": "archaeology",
+    "degree": 21,
+    "weightedDegree": 7.11871795,
+    "pageRank": 0.00228684,
+    "betweenness": 0.04392037,
+    "community": 2
+  },
+  {
+    "id": "archery",
+    "degree": 14,
+    "weightedDegree": 6.06333333,
+    "pageRank": 0.00201561,
+    "betweenness": 0.01031998,
+    "community": 1
+  },
+  {
+    "id": "archive",
+    "degree": 16,
+    "weightedDegree": 7.12965368,
+    "pageRank": 0.00222496,
+    "betweenness": 0.00970144,
+    "community": 0
+  },
+  {
+    "id": "arctic-base",
+    "degree": 12,
+    "weightedDegree": 4.88913044,
+    "pageRank": 0.00164796,
+    "betweenness": 0.00741258,
+    "community": 0
+  },
+  {
+    "id": "arena-shooter",
+    "degree": 19,
+    "weightedDegree": 6.25,
+    "pageRank": 0.00208375,
+    "betweenness": 0.01976471,
+    "community": 1
+  },
+  {
+    "id": "artificial-intelligence",
+    "degree": 21,
+    "weightedDegree": 8.01666667,
+    "pageRank": 0.00250387,
+    "betweenness": 0.02762602,
+    "community": 0
+  },
+  {
+    "id": "ascii",
+    "degree": 13,
+    "weightedDegree": 5.87692308,
+    "pageRank": 0.00195181,
+    "betweenness": 0.01510469,
+    "community": 0
+  },
+  {
+    "id": "asymmetric-control",
+    "degree": 17,
+    "weightedDegree": 7.24582419,
+    "pageRank": 0.00234222,
+    "betweenness": 0.00969893,
+    "community": 2
+  },
+  {
+    "id": "atmospheric",
+    "degree": 32,
+    "weightedDegree": 24.01503418,
+    "pageRank": 0.00702227,
+    "betweenness": 0.00002241,
+    "community": 0
+  },
+  {
+    "id": "auto-battler",
+    "degree": 16,
+    "weightedDegree": 5.40714287,
+    "pageRank": 0.00188671,
+    "betweenness": 0.02091014,
+    "community": 1
+  },
+  {
+    "id": "automation",
+    "degree": 13,
+    "weightedDegree": 5.68888889,
+    "pageRank": 0.00190928,
+    "betweenness": 0.01132774,
+    "community": 0
+  },
+  {
+    "id": "awkward-controls",
+    "degree": 16,
+    "weightedDegree": 7.8072261,
+    "pageRank": 0.00248951,
+    "betweenness": 0.00525527,
+    "community": 2
+  },
+  {
+    "id": "base-building",
+    "degree": 17,
+    "weightedDegree": 7.99285714,
+    "pageRank": 0.00258172,
+    "betweenness": 0.00853185,
+    "community": 2
+  },
+  {
+    "id": "battlefield",
+    "degree": 7,
+    "weightedDegree": 4.47564102,
+    "pageRank": 0.00151895,
+    "betweenness": 0.00031382,
+    "community": 0
+  },
+  {
+    "id": "beat-em-up",
+    "degree": 13,
+    "weightedDegree": 4.91,
+    "pageRank": 0.00167275,
+    "betweenness": 0.00684109,
+    "community": 1
+  },
+  {
+    "id": "bittersweet",
+    "degree": 42,
+    "weightedDegree": 30.66082788,
+    "pageRank": 0.00893221,
+    "betweenness": 0.00058822,
+    "community": 0
+  },
+  {
+    "id": "blueprint",
+    "degree": 4,
+    "weightedDegree": 2.875,
+    "pageRank": 0.00107639,
+    "betweenness": 0,
+    "community": 0
+  },
+  {
+    "id": "body-swap",
+    "degree": 17,
+    "weightedDegree": 7.62454545,
+    "pageRank": 0.00244027,
+    "betweenness": 0.01049929,
+    "community": 1
+  },
+  {
+    "id": "break-cycle",
+    "degree": 19,
+    "weightedDegree": 11.16163169,
+    "pageRank": 0.00346626,
+    "betweenness": 0.00057375,
+    "community": 1
+  },
+  {
+    "id": "breeding",
+    "degree": 15,
+    "weightedDegree": 6.90073592,
+    "pageRank": 0.00226536,
+    "betweenness": 0.02235903,
+    "community": 1
+  },
+  {
+    "id": "broadcast-studio",
+    "degree": 16,
+    "weightedDegree": 5.85797101,
+    "pageRank": 0.00190093,
+    "betweenness": 0.01724276,
+    "community": 0
+  },
+  {
+    "id": "build-goal",
+    "degree": 15,
+    "weightedDegree": 8.01666666,
+    "pageRank": 0.00262943,
+    "betweenness": 0.00385762,
+    "community": 1
+  },
+  {
+    "id": "building",
+    "degree": 14,
+    "weightedDegree": 5.82666666,
+    "pageRank": 0.0019419,
+    "betweenness": 0.01105933,
+    "community": 2
+  },
+  {
+    "id": "bullet-dodging",
+    "degree": 21,
+    "weightedDegree": 8.29740259,
+    "pageRank": 0.00264493,
+    "betweenness": 0.01501608,
+    "community": 2
+  },
+  {
+    "id": "bullet-hell",
+    "degree": 13,
+    "weightedDegree": 6.08333332,
+    "pageRank": 0.00205037,
+    "betweenness": 0.00285279,
+    "community": 1
+  },
+  {
+    "id": "bullet-time",
+    "degree": 21,
+    "weightedDegree": 8.60714287,
+    "pageRank": 0.00272368,
+    "betweenness": 0.02597182,
+    "community": 1
+  },
+  {
+    "id": "bureaucracy",
+    "degree": 10,
+    "weightedDegree": 4.15,
+    "pageRank": 0.00143805,
+    "betweenness": 0.0055493,
+    "community": 0
+  },
+  {
+    "id": "cannot-attack-first",
+    "degree": 18,
+    "weightedDegree": 9.60748252,
+    "pageRank": 0.00303286,
+    "betweenness": 0.01071566,
+    "community": 1
+  },
+  {
+    "id": "cannot-move-directly",
+    "degree": 21,
+    "weightedDegree": 11.59943388,
+    "pageRank": 0.00352034,
+    "betweenness": 0.00532529,
+    "community": 2
+  },
+  {
+    "id": "cannot-see",
+    "degree": 20,
+    "weightedDegree": 10.90339825,
+    "pageRank": 0.00336831,
+    "betweenness": 0.01641608,
+    "community": 2
+  },
+  {
+    "id": "cannot-stop",
+    "degree": 21,
+    "weightedDegree": 10.74608058,
+    "pageRank": 0.00323383,
+    "betweenness": 0.01081913,
+    "community": 1
+  },
+  {
+    "id": "capitalism",
+    "degree": 10,
+    "weightedDegree": 4.53333333,
+    "pageRank": 0.0015863,
+    "betweenness": 0.00675946,
+    "community": 0
+  },
+  {
+    "id": "card-battler",
+    "degree": 12,
+    "weightedDegree": 5.95,
+    "pageRank": 0.00199896,
+    "betweenness": 0.00226133,
+    "community": 1
+  },
+  {
+    "id": "card-game",
+    "degree": 19,
+    "weightedDegree": 7.73333333,
+    "pageRank": 0.00253159,
+    "betweenness": 0.00937012,
+    "community": 1
+  },
+  {
+    "id": "cartoon",
+    "degree": 14,
+    "weightedDegree": 6.83478991,
+    "pageRank": 0.00218207,
+    "betweenness": 0.001463,
+    "community": 0
+  },
+  {
+    "id": "childhood",
+    "degree": 12,
+    "weightedDegree": 4.91111112,
+    "pageRank": 0.00162838,
+    "betweenness": 0.0065226,
+    "community": 0
+  },
+  {
+    "id": "choices-matter",
+    "degree": 16,
+    "weightedDegree": 8.12965367,
+    "pageRank": 0.00259599,
+    "betweenness": 0.00393541,
+    "community": 1
+  },
+  {
+    "id": "cinematic",
+    "degree": 17,
+    "weightedDegree": 6.53055556,
+    "pageRank": 0.00208926,
+    "betweenness": 0.01603155,
+    "community": 0
+  },
+  {
+    "id": "city-builder",
+    "degree": 13,
+    "weightedDegree": 5.49999998,
+    "pageRank": 0.00188618,
+    "betweenness": 0.00305442,
+    "community": 1
+  },
+  {
+    "id": "clay",
+    "degree": 11,
+    "weightedDegree": 4.54705882,
+    "pageRank": 0.00156309,
+    "betweenness": 0.00353731,
+    "community": 0
+  },
+  {
+    "id": "cleaning",
+    "degree": 11,
+    "weightedDegree": 5.42641026,
+    "pageRank": 0.00181689,
+    "betweenness": 0.00799753,
+    "community": 1
+  },
+  {
+    "id": "climate",
+    "degree": 12,
+    "weightedDegree": 4.69,
+    "pageRank": 0.00159721,
+    "betweenness": 0.00172605,
+    "community": 0
+  },
+  {
+    "id": "climbing",
+    "degree": 15,
+    "weightedDegree": 6.7047619,
+    "pageRank": 0.00216164,
+    "betweenness": 0.01008948,
+    "community": 1
+  },
+  {
+    "id": "clockwork-city",
+    "degree": 22,
+    "weightedDegree": 7.87118882,
+    "pageRank": 0.00246744,
+    "betweenness": 0.03658905,
+    "community": 0
+  },
+  {
+    "id": "cloning",
+    "degree": 11,
+    "weightedDegree": 5.22,
+    "pageRank": 0.00180735,
+    "betweenness": 0.00359878,
+    "community": 2
+  },
+  {
+    "id": "collage",
+    "degree": 11,
+    "weightedDegree": 5.30419581,
+    "pageRank": 0.00176861,
+    "betweenness": 0.00037894,
+    "community": 0
+  },
+  {
+    "id": "collect",
+    "degree": 12,
+    "weightedDegree": 7.00448718,
+    "pageRank": 0.00232342,
+    "betweenness": 0.00060296,
+    "community": 1
+  },
+  {
+    "id": "collectathon",
+    "degree": 15,
+    "weightedDegree": 7.05476192,
+    "pageRank": 0.00229537,
+    "betweenness": 0.00616309,
+    "community": 1
+  },
+  {
+    "id": "colony-sim",
+    "degree": 10,
+    "weightedDegree": 4.44,
+    "pageRank": 0.00159018,
+    "betweenness": 0.00292476,
+    "community": 1
+  },
+  {
+    "id": "color-mixing",
+    "degree": 22,
+    "weightedDegree": 9.59871795,
+    "pageRank": 0.00299074,
+    "betweenness": 0.02778695,
+    "community": 1
+  },
+  {
+    "id": "colorful",
+    "degree": 16,
+    "weightedDegree": 7.40069931,
+    "pageRank": 0.00235918,
+    "betweenness": 0.00787099,
+    "community": 0
+  },
+  {
+    "id": "comic-book",
+    "degree": 16,
+    "weightedDegree": 6.39333333,
+    "pageRank": 0.00207056,
+    "betweenness": 0.00440786,
+    "community": 0
+  },
+  {
+    "id": "communication",
+    "degree": 13,
+    "weightedDegree": 5.1,
+    "pageRank": 0.00170795,
+    "betweenness": 0.0184446,
+    "community": 0
+  },
+  {
+    "id": "complete-ritual",
+    "degree": 25,
+    "weightedDegree": 12.97294371,
+    "pageRank": 0.00393635,
+    "betweenness": 0.01098706,
+    "community": 2
+  },
+  {
+    "id": "connect-goal",
+    "degree": 18,
+    "weightedDegree": 10.00329004,
+    "pageRank": 0.00320361,
+    "betweenness": 0.00271033,
+    "community": 1
+  },
+  {
+    "id": "connection",
+    "degree": 21,
+    "weightedDegree": 7.61666666,
+    "pageRank": 0.00239866,
+    "betweenness": 0.01765282,
+    "community": 0
+  },
+  {
+    "id": "conspiracy",
+    "degree": 10,
+    "weightedDegree": 4.29545455,
+    "pageRank": 0.00145349,
+    "betweenness": 0.00335848,
+    "community": 0
+  },
+  {
+    "id": "consumerism",
+    "degree": 11,
+    "weightedDegree": 4.60000001,
+    "pageRank": 0.00159049,
+    "betweenness": 0.00355154,
+    "community": 0
+  },
+  {
+    "id": "contemplative",
+    "degree": 29,
+    "weightedDegree": 20.3144714,
+    "pageRank": 0.00599649,
+    "betweenness": 0.0010009,
+    "community": 0
+  },
+  {
+    "id": "cooking",
+    "degree": 14,
+    "weightedDegree": 5.6978022,
+    "pageRank": 0.00193295,
+    "betweenness": 0.01776739,
+    "community": 1
+  },
+  {
+    "id": "courtroom",
+    "degree": 12,
+    "weightedDegree": 7.00620491,
+    "pageRank": 0.00221292,
+    "betweenness": 0.00627418,
+    "community": 0
+  },
+  {
+    "id": "cozy",
+    "degree": 42,
+    "weightedDegree": 28.60447173,
+    "pageRank": 0.00825713,
+    "betweenness": 0.00317634,
+    "community": 0
+  },
+  {
+    "id": "cozy-game",
+    "degree": 12,
+    "weightedDegree": 5.7247619,
+    "pageRank": 0.00183738,
+    "betweenness": 0.00345424,
+    "community": 1
+  },
+  {
+    "id": "crafting",
+    "degree": 16,
+    "weightedDegree": 7.16329003,
+    "pageRank": 0.00232211,
+    "betweenness": 0.0092686,
+    "community": 1
+  },
+  {
+    "id": "creature-collection",
+    "degree": 14,
+    "weightedDegree": 5.78333334,
+    "pageRank": 0.00191193,
+    "betweenness": 0.01128015,
+    "community": 1
+  },
+  {
+    "id": "creature-taming",
+    "degree": 18,
+    "weightedDegree": 8.41999999,
+    "pageRank": 0.00269365,
+    "betweenness": 0.01370618,
+    "community": 1
+  },
+  {
+    "id": "crime",
+    "degree": 13,
+    "weightedDegree": 4.86666667,
+    "pageRank": 0.00161523,
+    "betweenness": 0.01634145,
+    "community": 0
+  },
+  {
+    "id": "crime-scene",
+    "degree": 14,
+    "weightedDegree": 5.2,
+    "pageRank": 0.00173705,
+    "betweenness": 0.01306149,
+    "community": 0
+  },
+  {
+    "id": "cult",
+    "degree": 10,
+    "weightedDegree": 4.26666668,
+    "pageRank": 0.0014774,
+    "betweenness": 0.00884232,
+    "community": 0
+  },
+  {
+    "id": "cult-compound",
+    "degree": 14,
+    "weightedDegree": 5.59028571,
+    "pageRank": 0.0018477,
+    "betweenness": 0.01898593,
+    "community": 0
+  },
+  {
+    "id": "cure-outbreak",
+    "degree": 19,
+    "weightedDegree": 10.24238094,
+    "pageRank": 0.00323003,
+    "betweenness": 0.00619486,
+    "community": 1
+  },
+  {
+    "id": "cyberpunk",
+    "degree": 15,
+    "weightedDegree": 5.37,
+    "pageRank": 0.001776,
+    "betweenness": 0.01266914,
+    "community": 0
+  },
+  {
+    "id": "cyberspace",
+    "degree": 13,
+    "weightedDegree": 5.18972332,
+    "pageRank": 0.00173235,
+    "betweenness": 0.01366795,
+    "community": 0
+  },
+  {
+    "id": "dark",
+    "degree": 46,
+    "weightedDegree": 33.36971711,
+    "pageRank": 0.00975106,
+    "betweenness": 0.00485346,
+    "community": 0
+  },
+  {
+    "id": "day-night-cycle",
+    "degree": 15,
+    "weightedDegree": 6.45181819,
+    "pageRank": 0.00210741,
+    "betweenness": 0.01596336,
+    "community": 1
+  },
+  {
+    "id": "death",
+    "degree": 11,
+    "weightedDegree": 4.93484848,
+    "pageRank": 0.00164026,
+    "betweenness": 0.0042129,
+    "community": 0
+  },
+  {
+    "id": "decay",
+    "degree": 9,
+    "weightedDegree": 4.66666666,
+    "pageRank": 0.00156423,
+    "betweenness": 0.00008963,
+    "community": 0
+  },
+  {
+    "id": "deceive-goal",
+    "degree": 23,
+    "weightedDegree": 11.62406925,
+    "pageRank": 0.00361744,
+    "betweenness": 0.00553279,
+    "community": 1
+  },
+  {
+    "id": "deception",
+    "degree": 10,
+    "weightedDegree": 4.70333333,
+    "pageRank": 0.00162415,
+    "betweenness": 0.00078205,
+    "community": 0
+  },
+  {
+    "id": "deck-building",
+    "degree": 13,
+    "weightedDegree": 6.38679653,
+    "pageRank": 0.0021465,
+    "betweenness": 0.00535689,
+    "community": 1
+  },
+  {
+    "id": "decorating",
+    "degree": 18,
+    "weightedDegree": 7.57109891,
+    "pageRank": 0.00245408,
+    "betweenness": 0.01524569,
+    "community": 1
+  },
+  {
+    "id": "deep-sea",
+    "degree": 13,
+    "weightedDegree": 5.22391305,
+    "pageRank": 0.00171495,
+    "betweenness": 0.00613609,
+    "community": 0
+  },
+  {
+    "id": "delayed-input",
+    "degree": 21,
+    "weightedDegree": 10.80979021,
+    "pageRank": 0.00325398,
+    "betweenness": 0.0136891,
+    "community": 1
+  },
+  {
+    "id": "deliver-goal",
+    "degree": 21,
+    "weightedDegree": 10.6643723,
+    "pageRank": 0.00329779,
+    "betweenness": 0.00163077,
+    "community": 1
+  },
+  {
+    "id": "delivery",
+    "degree": 11,
+    "weightedDegree": 5.4987013,
+    "pageRank": 0.00188015,
+    "betweenness": 0.00576055,
+    "community": 1
+  },
+  {
+    "id": "demons",
+    "degree": 4,
+    "weightedDegree": 3.15,
+    "pageRank": 0.00116293,
+    "betweenness": 0,
+    "community": 0
+  },
+  {
+    "id": "desert",
+    "degree": 20,
+    "weightedDegree": 8.17391608,
+    "pageRank": 0.00254935,
+    "betweenness": 0.01482565,
+    "community": 0
+  },
+  {
+    "id": "destruction",
+    "degree": 13,
+    "weightedDegree": 5.33,
+    "pageRank": 0.00179355,
+    "betweenness": 0.00800481,
+    "community": 1
+  },
+  {
+    "id": "detective",
+    "degree": 28,
+    "weightedDegree": 9.94523808,
+    "pageRank": 0.00305683,
+    "betweenness": 0.01928787,
+    "community": 2
+  },
+  {
+    "id": "dialogue-choice",
+    "degree": 16,
+    "weightedDegree": 8.10846154,
+    "pageRank": 0.00257055,
+    "betweenness": 0.00548889,
+    "community": 1
+  },
+  {
+    "id": "dice-rolling",
+    "degree": 8,
+    "weightedDegree": 6.03982682,
+    "pageRank": 0.00201854,
+    "betweenness": 0,
+    "community": 1
+  },
+  {
+    "id": "die-to-progress",
+    "degree": 17,
+    "weightedDegree": 9.48342658,
+    "pageRank": 0.00298839,
+    "betweenness": 0.02020982,
+    "community": 2
+  },
+  {
+    "id": "diegetic-ui",
+    "degree": 6,
+    "weightedDegree": 3.725,
+    "pageRank": 0.00134484,
+    "betweenness": 0.00005882,
+    "community": 0
+  },
+  {
+    "id": "diorama",
+    "degree": 12,
+    "weightedDegree": 5.35333333,
+    "pageRank": 0.00177673,
+    "betweenness": 0.0037838,
+    "community": 0
+  },
+  {
+    "id": "diplomacy",
+    "degree": 13,
+    "weightedDegree": 6.2003663,
+    "pageRank": 0.00206304,
+    "betweenness": 0.00375244,
+    "community": 1
+  },
+  {
+    "id": "discover",
+    "degree": 25,
+    "weightedDegree": 15.37039626,
+    "pageRank": 0.00473379,
+    "betweenness": 0.0043798,
+    "community": 1
+  },
+  {
+    "id": "disguise",
+    "degree": 14,
+    "weightedDegree": 6.16060605,
+    "pageRank": 0.00202036,
+    "betweenness": 0.00469642,
+    "community": 2
+  },
+  {
+    "id": "dragons",
+    "degree": 9,
+    "weightedDegree": 4.66666668,
+    "pageRank": 0.00159304,
+    "betweenness": 0.00198603,
+    "community": 0
+  },
+  {
+    "id": "drawing",
+    "degree": 7,
+    "weightedDegree": 4.26818182,
+    "pageRank": 0.00149155,
+    "betweenness": 0.00004482,
+    "community": 1
+  },
+  {
+    "id": "dreams",
+    "degree": 7,
+    "weightedDegree": 4.06666667,
+    "pageRank": 0.00139627,
+    "betweenness": 0.0000112,
+    "community": 0
+  },
+  {
+    "id": "driving",
+    "degree": 11,
+    "weightedDegree": 5.83571429,
+    "pageRank": 0.00195366,
+    "betweenness": 0.00140979,
+    "community": 2
+  },
+  {
+    "id": "duality",
+    "degree": 4,
+    "weightedDegree": 2.87272727,
+    "pageRank": 0.00110325,
+    "betweenness": 0,
+    "community": 0
+  },
+  {
+    "id": "dungeon-crawler",
+    "degree": 19,
+    "weightedDegree": 6.74761905,
+    "pageRank": 0.00222515,
+    "betweenness": 0.00726251,
+    "community": 1
+  },
+  {
+    "id": "dynamic-narration",
+    "degree": 14,
+    "weightedDegree": 6.79322343,
+    "pageRank": 0.00218026,
+    "betweenness": 0.00444915,
+    "community": 1
+  },
+  {
+    "id": "dystopia",
+    "degree": 10,
+    "weightedDegree": 4.02142858,
+    "pageRank": 0.00141332,
+    "betweenness": 0.00479598,
+    "community": 0
+  },
+  {
+    "id": "echo-replay",
+    "degree": 10,
+    "weightedDegree": 4.56538462,
+    "pageRank": 0.0015928,
+    "betweenness": 0.0031742,
+    "community": 2
+  },
+  {
+    "id": "eerie",
+    "degree": 34,
+    "weightedDegree": 23.50690215,
+    "pageRank": 0.00706875,
+    "betweenness": 0.00285218,
+    "community": 0
+  },
+  {
+    "id": "emotional",
+    "degree": 23,
+    "weightedDegree": 14.4960204,
+    "pageRank": 0.00436849,
+    "betweenness": 0.00739295,
+    "community": 0
+  },
+  {
+    "id": "endure",
+    "degree": 15,
+    "weightedDegree": 8.90411033,
+    "pageRank": 0.0027622,
+    "betweenness": 0.00172628,
+    "community": 1
+  },
+  {
+    "id": "enemies-help",
+    "degree": 20,
+    "weightedDegree": 12.87465201,
+    "pageRank": 0.00387987,
+    "betweenness": 0.00017955,
+    "community": 1
+  },
+  {
+    "id": "entropy",
+    "degree": 12,
+    "weightedDegree": 5.31666667,
+    "pageRank": 0.00174569,
+    "betweenness": 0.01250486,
+    "community": 0
+  },
+  {
+    "id": "environmental-puzzle",
+    "degree": 16,
+    "weightedDegree": 6.26666667,
+    "pageRank": 0.00206752,
+    "betweenness": 0.0134247,
+    "community": 1
+  },
+  {
+    "id": "escape",
+    "degree": 24,
+    "weightedDegree": 14.38803751,
+    "pageRank": 0.00440322,
+    "betweenness": 0.00358973,
+    "community": 1
+  },
+  {
+    "id": "escape-room",
+    "degree": 15,
+    "weightedDegree": 5.64999999,
+    "pageRank": 0.00188821,
+    "betweenness": 0.01383114,
+    "community": 1
+  },
+  {
+    "id": "espionage",
+    "degree": 6,
+    "weightedDegree": 3.41818182,
+    "pageRank": 0.0012452,
+    "betweenness": 0.00122946,
+    "community": 0
+  },
+  {
+    "id": "everything-decays",
+    "degree": 18,
+    "weightedDegree": 10.27161172,
+    "pageRank": 0.00311036,
+    "betweenness": 0.00154485,
+    "community": 1
+  },
+  {
+    "id": "extraction",
+    "degree": 14,
+    "weightedDegree": 5.80333333,
+    "pageRank": 0.00191274,
+    "betweenness": 0.01399477,
+    "community": 2
+  },
+  {
+    "id": "extraction-shooter",
+    "degree": 10,
+    "weightedDegree": 4.29,
+    "pageRank": 0.00151731,
+    "betweenness": 0.00718919,
+    "community": 1
+  },
+  {
+    "id": "factory",
+    "degree": 11,
+    "weightedDegree": 5.05860363,
+    "pageRank": 0.00166033,
+    "betweenness": 0.00993366,
+    "community": 0
+  },
+  {
+    "id": "failure-progresses",
+    "degree": 16,
+    "weightedDegree": 9.38352647,
+    "pageRank": 0.00291654,
+    "betweenness": 0.00332688,
+    "community": 2
+  },
+  {
+    "id": "family",
+    "degree": 14,
+    "weightedDegree": 5.62,
+    "pageRank": 0.00185001,
+    "betweenness": 0.0101297,
+    "community": 0
+  },
+  {
+    "id": "fantasy",
+    "degree": 9,
+    "weightedDegree": 5.02,
+    "pageRank": 0.00168569,
+    "betweenness": 0.00082051,
+    "community": 0
+  },
+  {
+    "id": "farm",
+    "degree": 13,
+    "weightedDegree": 5.53,
+    "pageRank": 0.00178425,
+    "betweenness": 0.01242529,
+    "community": 0
+  },
+  {
+    "id": "farming",
+    "degree": 12,
+    "weightedDegree": 6.37769231,
+    "pageRank": 0.00205479,
+    "betweenness": 0.00290107,
+    "community": 1
+  },
+  {
+    "id": "farming-sim",
+    "degree": 11,
+    "weightedDegree": 5.31999999,
+    "pageRank": 0.00179342,
+    "betweenness": 0.00521499,
+    "community": 1
+  },
+  {
+    "id": "fighting",
+    "degree": 25,
+    "weightedDegree": 9.28666666,
+    "pageRank": 0.00295617,
+    "betweenness": 0.01424863,
+    "community": 1
+  },
+  {
+    "id": "first-person",
+    "degree": 19,
+    "weightedDegree": 7.19102563,
+    "pageRank": 0.0022531,
+    "betweenness": 0.00222639,
+    "community": 0
+  },
+  {
+    "id": "fishing",
+    "degree": 16,
+    "weightedDegree": 9.15,
+    "pageRank": 0.00279615,
+    "betweenness": 0.00679227,
+    "community": 1
+  },
+  {
+    "id": "fixed-camera",
+    "degree": 19,
+    "weightedDegree": 8.18666667,
+    "pageRank": 0.00250928,
+    "betweenness": 0.00176188,
+    "community": 0
+  },
+  {
+    "id": "fixed-camera-only",
+    "degree": 64,
+    "weightedDegree": 23.76846485,
+    "pageRank": 0.00677978,
+    "betweenness": 0.09063045,
+    "community": 0
+  },
+  {
+    "id": "flight",
+    "degree": 10,
+    "weightedDegree": 4.79545455,
+    "pageRank": 0.00164084,
+    "betweenness": 0.00096707,
+    "community": 1
+  },
+  {
+    "id": "floating-islands",
+    "degree": 12,
+    "weightedDegree": 6.38893281,
+    "pageRank": 0.00200941,
+    "betweenness": 0.00884607,
+    "community": 0
+  },
+  {
+    "id": "fmv",
+    "degree": 6,
+    "weightedDegree": 3.43333333,
+    "pageRank": 0.00121338,
+    "betweenness": 0.00020167,
+    "community": 0
+  },
+  {
+    "id": "folklore",
+    "degree": 12,
+    "weightedDegree": 4.71153847,
+    "pageRank": 0.0015776,
+    "betweenness": 0.00450747,
+    "community": 0
+  },
+  {
+    "id": "forest",
+    "degree": 13,
+    "weightedDegree": 5.09761904,
+    "pageRank": 0.00168733,
+    "betweenness": 0.00446622,
+    "community": 0
+  },
+  {
+    "id": "frantic",
+    "degree": 35,
+    "weightedDegree": 22.7475042,
+    "pageRank": 0.00679355,
+    "betweenness": 0.00901262,
+    "community": 0
+  },
+  {
+    "id": "free-traversal",
+    "degree": 8,
+    "weightedDegree": 4.7,
+    "pageRank": 0.00160871,
+    "betweenness": 0.00012231,
+    "community": 1
+  },
+  {
+    "id": "friendship",
+    "degree": 10,
+    "weightedDegree": 4.20714286,
+    "pageRank": 0.00148061,
+    "betweenness": 0.00212254,
+    "community": 0
+  },
+  {
+    "id": "futuristic",
+    "degree": 12,
+    "weightedDegree": 5.00454545,
+    "pageRank": 0.0016794,
+    "betweenness": 0.00621629,
+    "community": 0
+  },
+  {
+    "id": "gardening",
+    "degree": 13,
+    "weightedDegree": 5.99090909,
+    "pageRank": 0.00196961,
+    "betweenness": 0.00274577,
+    "community": 1
+  },
+  {
+    "id": "gliding",
+    "degree": 14,
+    "weightedDegree": 8.43030302,
+    "pageRank": 0.002673,
+    "betweenness": 0.00055763,
+    "community": 1
+  },
+  {
+    "id": "glitch-art",
+    "degree": 9,
+    "weightedDegree": 4.09615385,
+    "pageRank": 0.0014256,
+    "betweenness": 0.00235612,
+    "community": 0
+  },
+  {
+    "id": "gothic",
+    "degree": 10,
+    "weightedDegree": 4.21666667,
+    "pageRank": 0.00145971,
+    "betweenness": 0.01451231,
+    "community": 0
+  },
+  {
+    "id": "gothic-castle",
+    "degree": 13,
+    "weightedDegree": 4.93684211,
+    "pageRank": 0.00166916,
+    "betweenness": 0.01039537,
+    "community": 0
+  },
+  {
+    "id": "grand-strategy",
+    "degree": 11,
+    "weightedDegree": 4.62,
+    "pageRank": 0.00160743,
+    "betweenness": 0.01258106,
+    "community": 1
+  },
+  {
+    "id": "grappling-hook",
+    "degree": 14,
+    "weightedDegree": 6.46,
+    "pageRank": 0.00212041,
+    "betweenness": 0.00471357,
+    "community": 2
+  },
+  {
+    "id": "gravity-switch",
+    "degree": 13,
+    "weightedDegree": 5.66753248,
+    "pageRank": 0.00187982,
+    "betweenness": 0.00542283,
+    "community": 1
+  },
+  {
+    "id": "grid-movement",
+    "degree": 12,
+    "weightedDegree": 5.38666667,
+    "pageRank": 0.00179116,
+    "betweenness": 0.00690266,
+    "community": 1
+  },
+  {
+    "id": "grow",
+    "degree": 18,
+    "weightedDegree": 9.89179486,
+    "pageRank": 0.00306106,
+    "betweenness": 0.00447578,
+    "community": 2
+  },
+  {
+    "id": "gun-customization",
+    "degree": 10,
+    "weightedDegree": 4.28333333,
+    "pageRank": 0.00149854,
+    "betweenness": 0.01117939,
+    "community": 1
+  },
+  {
+    "id": "hacking",
+    "degree": 12,
+    "weightedDegree": 4.83333333,
+    "pageRank": 0.00164205,
+    "betweenness": 0.00968514,
+    "community": 2
+  },
+  {
+    "id": "hand-drawn",
+    "degree": 11,
+    "weightedDegree": 4.63333333,
+    "pageRank": 0.00158226,
+    "betweenness": 0.0033693,
+    "community": 0
+  },
+  {
+    "id": "haunted-house",
+    "degree": 14,
+    "weightedDegree": 5.85928853,
+    "pageRank": 0.00191365,
+    "betweenness": 0.01171604,
+    "community": 0
+  },
+  {
+    "id": "hex-grid",
+    "degree": 12,
+    "weightedDegree": 5.75000001,
+    "pageRank": 0.00193225,
+    "betweenness": 0.00675137,
+    "community": 1
+  },
+  {
+    "id": "hidden-information",
+    "degree": 13,
+    "weightedDegree": 6.92490842,
+    "pageRank": 0.00221303,
+    "betweenness": 0.00000133,
+    "community": 1
+  },
+  {
+    "id": "home",
+    "degree": 10,
+    "weightedDegree": 4.70333333,
+    "pageRank": 0.0015893,
+    "betweenness": 0.00004482,
+    "community": 0
+  },
+  {
+    "id": "hopeful",
+    "degree": 37,
+    "weightedDegree": 26.99895121,
+    "pageRank": 0.00805615,
+    "betweenness": 0.00178052,
+    "community": 0
+  },
+  {
+    "id": "hospital",
+    "degree": 14,
+    "weightedDegree": 5.21666666,
+    "pageRank": 0.00171554,
+    "betweenness": 0.00617374,
+    "community": 0
+  },
+  {
+    "id": "humorous",
+    "degree": 33,
+    "weightedDegree": 24.14031309,
+    "pageRank": 0.00714647,
+    "betweenness": 0.00268503,
+    "community": 0
+  },
+  {
+    "id": "hunt-monster",
+    "degree": 12,
+    "weightedDegree": 6.97179487,
+    "pageRank": 0.00229888,
+    "betweenness": 0.00196609,
+    "community": 1
+  },
+  {
+    "id": "hunting",
+    "degree": 11,
+    "weightedDegree": 4.72727272,
+    "pageRank": 0.00160752,
+    "betweenness": 0.01300689,
+    "community": 2
+  },
+  {
+    "id": "identity",
+    "degree": 12,
+    "weightedDegree": 4.94545455,
+    "pageRank": 0.00165386,
+    "betweenness": 0.00256031,
+    "community": 0
+  },
+  {
+    "id": "immersive-sim",
+    "degree": 12,
+    "weightedDegree": 5.55,
+    "pageRank": 0.00194442,
+    "betweenness": 0.00248917,
+    "community": 1
+  },
+  {
+    "id": "incremental",
+    "degree": 8,
+    "weightedDegree": 4.08571428,
+    "pageRank": 0.0014805,
+    "betweenness": 0.00002614,
+    "community": 1
+  },
+  {
+    "id": "indirect-control",
+    "degree": 12,
+    "weightedDegree": 5.95454545,
+    "pageRank": 0.00195272,
+    "betweenness": 0.00407031,
+    "community": 2
+  },
+  {
+    "id": "indirect-view",
+    "degree": 10,
+    "weightedDegree": 4.88846154,
+    "pageRank": 0.001623,
+    "betweenness": 0.00026729,
+    "community": 0
+  },
+  {
+    "id": "inside-body",
+    "degree": 13,
+    "weightedDegree": 5.06277056,
+    "pageRank": 0.00169037,
+    "betweenness": 0.00868644,
+    "community": 0
+  },
+  {
+    "id": "interactive-fiction",
+    "degree": 18,
+    "weightedDegree": 6.69999999,
+    "pageRank": 0.00218756,
+    "betweenness": 0.01778496,
+    "community": 1
+  },
+  {
+    "id": "internet",
+    "degree": 11,
+    "weightedDegree": 4.77307693,
+    "pageRank": 0.00162921,
+    "betweenness": 0.00478146,
+    "community": 0
+  },
+  {
+    "id": "inventory-is-health",
+    "degree": 12,
+    "weightedDegree": 6.02,
+    "pageRank": 0.00196383,
+    "betweenness": 0.00419896,
+    "community": 2
+  },
+  {
+    "id": "inventory-management",
+    "degree": 10,
+    "weightedDegree": 4.34999999,
+    "pageRank": 0.00154752,
+    "betweenness": 0.00608828,
+    "community": 2
+  },
+  {
+    "id": "inventory-puzzle",
+    "degree": 11,
+    "weightedDegree": 4.81666667,
+    "pageRank": 0.00166493,
+    "betweenness": 0.0058144,
+    "community": 1
+  },
+  {
+    "id": "investigate",
+    "degree": 32,
+    "weightedDegree": 13.01932401,
+    "pageRank": 0.00395434,
+    "betweenness": 0.01969868,
+    "community": 1
+  },
+  {
+    "id": "irreversible-actions",
+    "degree": 14,
+    "weightedDegree": 8.57560439,
+    "pageRank": 0.002642,
+    "betweenness": 0.00138373,
+    "community": 1
+  },
+  {
+    "id": "isolation",
+    "degree": 13,
+    "weightedDegree": 5.53333333,
+    "pageRank": 0.00182451,
+    "betweenness": 0.00236957,
+    "community": 0
+  },
+  {
+    "id": "isometric-art",
+    "degree": 11,
+    "weightedDegree": 4.49615385,
+    "pageRank": 0.00154605,
+    "betweenness": 0.0148101,
+    "community": 0
+  },
+  {
+    "id": "joyful",
+    "degree": 21,
+    "weightedDegree": 16.26996931,
+    "pageRank": 0.00490264,
+    "betweenness": 0,
+    "community": 0
+  },
+  {
+    "id": "language",
+    "degree": 6,
+    "weightedDegree": 3.56111112,
+    "pageRank": 0.00128623,
+    "betweenness": 0.00002241,
+    "community": 0
+  },
+  {
+    "id": "library",
+    "degree": 10,
+    "weightedDegree": 5.0926087,
+    "pageRank": 0.00166866,
+    "betweenness": 0.00560445,
+    "community": 0
+  },
+  {
+    "id": "life-sim",
+    "degree": 12,
+    "weightedDegree": 5.02,
+    "pageRank": 0.00176788,
+    "betweenness": 0.0077887,
+    "community": 1
+  },
+  {
+    "id": "light-is-life",
+    "degree": 13,
+    "weightedDegree": 6.11904762,
+    "pageRank": 0.00198186,
+    "betweenness": 0.00893788,
+    "community": 1
+  },
+  {
+    "id": "light-shadow",
+    "degree": 13,
+    "weightedDegree": 6.46263736,
+    "pageRank": 0.00213301,
+    "betweenness": 0.01148121,
+    "community": 2
+  },
+  {
+    "id": "lighthouse",
+    "degree": 10,
+    "weightedDegree": 4.2566087,
+    "pageRank": 0.00148382,
+    "betweenness": 0.00978571,
+    "community": 0
+  },
+  {
+    "id": "limited-breath",
+    "degree": 14,
+    "weightedDegree": 8.86952381,
+    "pageRank": 0.00270652,
+    "betweenness": 0.00005117,
+    "community": 1
+  },
+  {
+    "id": "limited-palette",
+    "degree": 16,
+    "weightedDegree": 7.26666666,
+    "pageRank": 0.0022975,
+    "betweenness": 0.00810629,
+    "community": 0
+  },
+  {
+    "id": "lonely",
+    "degree": 36,
+    "weightedDegree": 26.21995561,
+    "pageRank": 0.0075734,
+    "betweenness": 0.00102518,
+    "community": 0
+  },
+  {
+    "id": "loot-progression",
+    "degree": 11,
+    "weightedDegree": 5.18,
+    "pageRank": 0.00176843,
+    "betweenness": 0.00189968,
+    "community": 1
+  },
+  {
+    "id": "loss",
+    "degree": 8,
+    "weightedDegree": 4.94444445,
+    "pageRank": 0.0016484,
+    "betweenness": 0.00013445,
+    "community": 0
+  },
+  {
+    "id": "lovecraftian",
+    "degree": 9,
+    "weightedDegree": 4.15,
+    "pageRank": 0.00142687,
+    "betweenness": 0.00360748,
+    "community": 0
+  },
+  {
+    "id": "low-poly",
+    "degree": 13,
+    "weightedDegree": 5.36727274,
+    "pageRank": 0.00178578,
+    "betweenness": 0.00723538,
+    "community": 0
+  },
+  {
+    "id": "magic",
+    "degree": 10,
+    "weightedDegree": 4.62727272,
+    "pageRank": 0.00157688,
+    "betweenness": 0.00520264,
+    "community": 0
+  },
+  {
+    "id": "magnetism",
+    "degree": 11,
+    "weightedDegree": 4.54090908,
+    "pageRank": 0.00154401,
+    "betweenness": 0.01049046,
+    "community": 1
+  },
+  {
+    "id": "mall",
+    "degree": 12,
+    "weightedDegree": 4.62608696,
+    "pageRank": 0.00158199,
+    "betweenness": 0.00585581,
+    "community": 0
+  },
+  {
+    "id": "management",
+    "degree": 14,
+    "weightedDegree": 5.77857141,
+    "pageRank": 0.00196449,
+    "betweenness": 0.0045009,
+    "community": 1
+  },
+  {
+    "id": "map-goal",
+    "degree": 15,
+    "weightedDegree": 9.67666666,
+    "pageRank": 0.00305159,
+    "betweenness": 0.00003361,
+    "community": 1
+  },
+  {
+    "id": "map-making",
+    "degree": 10,
+    "weightedDegree": 5.07655679,
+    "pageRank": 0.00168499,
+    "betweenness": 0.00057695,
+    "community": 1
+  },
+  {
+    "id": "map-view",
+    "degree": 12,
+    "weightedDegree": 5.98095238,
+    "pageRank": 0.00191186,
+    "betweenness": 0.00576168,
+    "community": 0
+  },
+  {
+    "id": "mars-colony",
+    "degree": 11,
+    "weightedDegree": 4.51363636,
+    "pageRank": 0.00151376,
+    "betweenness": 0.01006635,
+    "community": 0
+  },
+  {
+    "id": "masks",
+    "degree": 10,
+    "weightedDegree": 4.58333333,
+    "pageRank": 0.00159139,
+    "betweenness": 0.00177488,
+    "community": 0
+  },
+  {
+    "id": "match-three",
+    "degree": 12,
+    "weightedDegree": 4.92142857,
+    "pageRank": 0.00170367,
+    "betweenness": 0.00564801,
+    "community": 1
+  },
+  {
+    "id": "medieval",
+    "degree": 10,
+    "weightedDegree": 4.27222223,
+    "pageRank": 0.00147921,
+    "betweenness": 0.00277093,
+    "community": 0
+  },
+  {
+    "id": "meditative",
+    "degree": 33,
+    "weightedDegree": 23.13803493,
+    "pageRank": 0.00676484,
+    "betweenness": 0.00178519,
+    "community": 0
+  },
+  {
+    "id": "melancholic",
+    "degree": 37,
+    "weightedDegree": 26.22921411,
+    "pageRank": 0.00766549,
+    "betweenness": 0.00123339,
+    "community": 0
+  },
+  {
+    "id": "memory",
+    "degree": 11,
+    "weightedDegree": 5.17333333,
+    "pageRank": 0.00169966,
+    "betweenness": 0.00023481,
+    "community": 0
+  },
+  {
+    "id": "memory-editing",
+    "degree": 14,
+    "weightedDegree": 5.7923077,
+    "pageRank": 0.00192881,
+    "betweenness": 0.01153785,
+    "community": 1
+  },
+  {
+    "id": "metroidvania",
+    "degree": 16,
+    "weightedDegree": 6.58095238,
+    "pageRank": 0.00215881,
+    "betweenness": 0.00688807,
+    "community": 1
+  },
+  {
+    "id": "migration",
+    "degree": 13,
+    "weightedDegree": 5.44666667,
+    "pageRank": 0.00179622,
+    "betweenness": 0.00240778,
+    "community": 0
+  },
+  {
+    "id": "miniature-world",
+    "degree": 5,
+    "weightedDegree": 3.16666667,
+    "pageRank": 0.00116397,
+    "betweenness": 0.00003361,
+    "community": 0
+  },
+  {
+    "id": "minimal-art",
+    "degree": 12,
+    "weightedDegree": 5.45666666,
+    "pageRank": 0.00180727,
+    "betweenness": 0.00287692,
+    "community": 0
+  },
+  {
+    "id": "mining",
+    "degree": 11,
+    "weightedDegree": 5.21428571,
+    "pageRank": 0.0017593,
+    "betweenness": 0.00333288,
+    "community": 1
+  },
+  {
+    "id": "mirrored-world",
+    "degree": 15,
+    "weightedDegree": 7.95265735,
+    "pageRank": 0.00254784,
+    "betweenness": 0.00859338,
+    "community": 1
+  },
+  {
+    "id": "monochrome-art",
+    "degree": 13,
+    "weightedDegree": 7.55692308,
+    "pageRank": 0.00234642,
+    "betweenness": 0.00236932,
+    "community": 0
+  },
+  {
+    "id": "monochrome-only",
+    "degree": 15,
+    "weightedDegree": 9.32384616,
+    "pageRank": 0.00288269,
+    "betweenness": 0.00023529,
+    "community": 2
+  },
+  {
+    "id": "moon-base",
+    "degree": 11,
+    "weightedDegree": 5.04130435,
+    "pageRank": 0.00167156,
+    "betweenness": 0.00564436,
+    "community": 0
+  },
+  {
+    "id": "move-on-beat",
+    "degree": 17,
+    "weightedDegree": 10.45393939,
+    "pageRank": 0.00315444,
+    "betweenness": 0.00062429,
+    "community": 1
+  },
+  {
+    "id": "multi-perspective",
+    "degree": 10,
+    "weightedDegree": 4.34411764,
+    "pageRank": 0.00146834,
+    "betweenness": 0.00096755,
+    "community": 0
+  },
+  {
+    "id": "multiple-endings",
+    "degree": 10,
+    "weightedDegree": 5.41,
+    "pageRank": 0.00180121,
+    "betweenness": 0.00002241,
+    "community": 1
+  },
+  {
+    "id": "museum",
+    "degree": 13,
+    "weightedDegree": 6.4842097,
+    "pageRank": 0.00208743,
+    "betweenness": 0.01118828,
+    "community": 0
+  },
+  {
+    "id": "must-keep-moving",
+    "degree": 13,
+    "weightedDegree": 7.99864469,
+    "pageRank": 0.00250954,
+    "betweenness": 0.00189039,
+    "community": 1
+  },
+  {
+    "id": "mysterious",
+    "degree": 53,
+    "weightedDegree": 31.98102599,
+    "pageRank": 0.00924591,
+    "betweenness": 0.01014921,
+    "community": 0
+  },
+  {
+    "id": "myth",
+    "degree": 10,
+    "weightedDegree": 4.85,
+    "pageRank": 0.00163862,
+    "betweenness": 0.00296966,
+    "community": 0
+  },
+  {
+    "id": "narrative",
+    "degree": 14,
+    "weightedDegree": 6.25095238,
+    "pageRank": 0.00208531,
+    "betweenness": 0.00296432,
+    "community": 1
+  },
+  {
+    "id": "nature",
+    "degree": 15,
+    "weightedDegree": 5.76818182,
+    "pageRank": 0.00191545,
+    "betweenness": 0.01208812,
+    "community": 0
+  },
+  {
+    "id": "negotiate",
+    "degree": 21,
+    "weightedDegree": 10.34095236,
+    "pageRank": 0.00319746,
+    "betweenness": 0.00781987,
+    "community": 1
+  },
+  {
+    "id": "no-combat",
+    "degree": 15,
+    "weightedDegree": 8.56829838,
+    "pageRank": 0.00266513,
+    "betweenness": 0.00570926,
+    "community": 1
+  },
+  {
+    "id": "no-dialogue",
+    "degree": 40,
+    "weightedDegree": 14.13573425,
+    "pageRank": 0.00418928,
+    "betweenness": 0.02388618,
+    "community": 2
+  },
+  {
+    "id": "no-inventory",
+    "degree": 30,
+    "weightedDegree": 11.46666666,
+    "pageRank": 0.00343443,
+    "betweenness": 0.0052898,
+    "community": 2
+  },
+  {
+    "id": "no-jump",
+    "degree": 51,
+    "weightedDegree": 21.12312685,
+    "pageRank": 0.0061828,
+    "betweenness": 0.03767527,
+    "community": 1
+  },
+  {
+    "id": "no-pause",
+    "degree": 19,
+    "weightedDegree": 11.6764935,
+    "pageRank": 0.00348245,
+    "betweenness": 0.00087661,
+    "community": 1
+  },
+  {
+    "id": "no-save",
+    "degree": 12,
+    "weightedDegree": 6.65506492,
+    "pageRank": 0.00211653,
+    "betweenness": 0.00116881,
+    "community": 2
+  },
+  {
+    "id": "no-text",
+    "degree": 23,
+    "weightedDegree": 8.66089742,
+    "pageRank": 0.00268778,
+    "betweenness": 0.02295386,
+    "community": 2
+  },
+  {
+    "id": "no-ui",
+    "degree": 13,
+    "weightedDegree": 6.36584249,
+    "pageRank": 0.00211369,
+    "betweenness": 0.00498856,
+    "community": 2
+  },
+  {
+    "id": "noir",
+    "degree": 8,
+    "weightedDegree": 3.88,
+    "pageRank": 0.00137285,
+    "betweenness": 0.00866099,
+    "community": 0
+  },
+  {
+    "id": "nonviolent",
+    "degree": 20,
+    "weightedDegree": 10.95531134,
+    "pageRank": 0.00331721,
+    "betweenness": 0.00065913,
+    "community": 1
+  },
+  {
+    "id": "nostalgic",
+    "degree": 29,
+    "weightedDegree": 19.31266766,
+    "pageRank": 0.00579067,
+    "betweenness": 0.00328504,
+    "community": 0
+  },
+  {
+    "id": "observation",
+    "degree": 11,
+    "weightedDegree": 5.37875458,
+    "pageRank": 0.00181097,
+    "betweenness": 0.00103252,
+    "community": 1
+  },
+  {
+    "id": "ocean",
+    "degree": 14,
+    "weightedDegree": 5.6423077,
+    "pageRank": 0.00182676,
+    "betweenness": 0.00424665,
+    "community": 0
+  },
+  {
+    "id": "office",
+    "degree": 13,
+    "weightedDegree": 5.108,
+    "pageRank": 0.00170808,
+    "betweenness": 0.00431153,
+    "community": 0
+  },
+  {
+    "id": "one-button",
+    "degree": 19,
+    "weightedDegree": 12.25489178,
+    "pageRank": 0.00362802,
+    "betweenness": 0.00270182,
+    "community": 1
+  },
+  {
+    "id": "one-button-control",
+    "degree": 16,
+    "weightedDegree": 8.98684981,
+    "pageRank": 0.00279454,
+    "betweenness": 0.00523133,
+    "community": 1
+  },
+  {
+    "id": "one-enemy",
+    "degree": 15,
+    "weightedDegree": 9.12666667,
+    "pageRank": 0.00274033,
+    "betweenness": 0.00112779,
+    "community": 1
+  },
+  {
+    "id": "one-life",
+    "degree": 16,
+    "weightedDegree": 8.02759241,
+    "pageRank": 0.00253542,
+    "betweenness": 0.00790564,
+    "community": 2
+  },
+  {
+    "id": "one-npc",
+    "degree": 18,
+    "weightedDegree": 12.5064935,
+    "pageRank": 0.00372287,
+    "betweenness": 0.00016283,
+    "community": 1
+  },
+  {
+    "id": "one-resource",
+    "degree": 19,
+    "weightedDegree": 13.00932401,
+    "pageRank": 0.00384311,
+    "betweenness": 0.00024873,
+    "community": 1
+  },
+  {
+    "id": "one-room-only",
+    "degree": 22,
+    "weightedDegree": 14.13523809,
+    "pageRank": 0.00417938,
+    "betweenness": 0.00348014,
+    "community": 1
+  },
+  {
+    "id": "one-shot",
+    "degree": 12,
+    "weightedDegree": 7.36363637,
+    "pageRank": 0.0022524,
+    "betweenness": 0.00013445,
+    "community": 1
+  },
+  {
+    "id": "only-one-item",
+    "degree": 16,
+    "weightedDegree": 10.83965368,
+    "pageRank": 0.00325839,
+    "betweenness": 0.00007843,
+    "community": 1
+  },
+  {
+    "id": "oppressive",
+    "degree": 41,
+    "weightedDegree": 27.48251041,
+    "pageRank": 0.00810172,
+    "betweenness": 0.00654921,
+    "community": 0
+  },
+  {
+    "id": "organizing",
+    "degree": 10,
+    "weightedDegree": 4.21538462,
+    "pageRank": 0.00146255,
+    "betweenness": 0.00759941,
+    "community": 1
+  },
+  {
+    "id": "over-the-shoulder",
+    "degree": 11,
+    "weightedDegree": 5.74745097,
+    "pageRank": 0.00186334,
+    "betweenness": 0.00237046,
+    "community": 0
+  },
+  {
+    "id": "overthrow-ruler",
+    "degree": 14,
+    "weightedDegree": 6.85641026,
+    "pageRank": 0.00222512,
+    "betweenness": 0.00601275,
+    "community": 2
+  },
+  {
+    "id": "pacifist-enemies",
+    "degree": 16,
+    "weightedDegree": 9.9563936,
+    "pageRank": 0.0031212,
+    "betweenness": 0.00417495,
+    "community": 1
+  },
+  {
+    "id": "paper-cut",
+    "degree": 12,
+    "weightedDegree": 4.67647059,
+    "pageRank": 0.00161133,
+    "betweenness": 0.00399336,
+    "community": 0
+  },
+  {
+    "id": "parkour",
+    "degree": 11,
+    "weightedDegree": 6.00454545,
+    "pageRank": 0.00197758,
+    "betweenness": 0.00043823,
+    "community": 2
+  },
+  {
+    "id": "party-game",
+    "degree": 16,
+    "weightedDegree": 6.63809524,
+    "pageRank": 0.00217772,
+    "betweenness": 0.00663218,
+    "community": 1
+  },
+  {
+    "id": "pay-debt",
+    "degree": 11,
+    "weightedDegree": 5.55757574,
+    "pageRank": 0.00190708,
+    "betweenness": 0.00431849,
+    "community": 2
+  },
+  {
+    "id": "permadeath",
+    "degree": 10,
+    "weightedDegree": 4.45,
+    "pageRank": 0.00151906,
+    "betweenness": 0.00666752,
+    "community": 1
+  },
+  {
+    "id": "photography",
+    "degree": 10,
+    "weightedDegree": 4.73205129,
+    "pageRank": 0.00159507,
+    "betweenness": 0.00374165,
+    "community": 0
+  },
+  {
+    "id": "physics-interaction",
+    "degree": 12,
+    "weightedDegree": 5.2,
+    "pageRank": 0.00175886,
+    "betweenness": 0.00505298,
+    "community": 1
+  },
+  {
+    "id": "picture-in-picture",
+    "degree": 10,
+    "weightedDegree": 4.81666667,
+    "pageRank": 0.00159552,
+    "betweenness": 0.00016085,
+    "community": 0
+  },
+  {
+    "id": "pirate-port",
+    "degree": 10,
+    "weightedDegree": 5.00681819,
+    "pageRank": 0.0016923,
+    "betweenness": 0.00070372,
+    "community": 0
+  },
+  {
+    "id": "pirates",
+    "degree": 9,
+    "weightedDegree": 4.5,
+    "pageRank": 0.00151705,
+    "betweenness": 0.0003564,
+    "community": 0
+  },
+  {
+    "id": "pixel-art",
+    "degree": 8,
+    "weightedDegree": 4.05714285,
+    "pageRank": 0.00140425,
+    "betweenness": 0.00006162,
+    "community": 0
+  },
+  {
+    "id": "platformer",
+    "degree": 21,
+    "weightedDegree": 8.33428572,
+    "pageRank": 0.00267914,
+    "betweenness": 0.00355049,
+    "community": 1
+  },
+  {
+    "id": "player-is-level",
+    "degree": 10,
+    "weightedDegree": 4.57692308,
+    "pageRank": 0.00154764,
+    "betweenness": 0.0030403,
+    "community": 1
+  },
+  {
+    "id": "playful",
+    "degree": 34,
+    "weightedDegree": 25.25246104,
+    "pageRank": 0.00746149,
+    "betweenness": 0.00024649,
+    "community": 0
+  },
+  {
+    "id": "point-and-click",
+    "degree": 12,
+    "weightedDegree": 5.41538462,
+    "pageRank": 0.00180349,
+    "betweenness": 0.01371695,
+    "community": 2
+  },
+  {
+    "id": "portals",
+    "degree": 11,
+    "weightedDegree": 5.70454545,
+    "pageRank": 0.0018956,
+    "betweenness": 0.00300025,
+    "community": 1
+  },
+  {
+    "id": "possession",
+    "degree": 11,
+    "weightedDegree": 5.32179487,
+    "pageRank": 0.00178223,
+    "betweenness": 0.00345088,
+    "community": 1
+  },
+  {
+    "id": "post-apocalyptic",
+    "degree": 12,
+    "weightedDegree": 4.85454545,
+    "pageRank": 0.0016226,
+    "betweenness": 0.0097386,
+    "community": 0
+  },
+  {
+    "id": "precision-aiming",
+    "degree": 11,
+    "weightedDegree": 5.69999999,
+    "pageRank": 0.00193054,
+    "betweenness": 0,
+    "community": 2
+  },
+  {
+    "id": "precision-platformer",
+    "degree": 10,
+    "weightedDegree": 6.23666666,
+    "pageRank": 0.00206303,
+    "betweenness": 0,
+    "community": 1
+  },
+  {
+    "id": "preserve",
+    "degree": 14,
+    "weightedDegree": 7.28799534,
+    "pageRank": 0.00233899,
+    "betweenness": 0.00059334,
+    "community": 1
+  },
+  {
+    "id": "prison",
+    "degree": 7,
+    "weightedDegree": 3.81,
+    "pageRank": 0.00134195,
+    "betweenness": 0.00320804,
+    "community": 0
+  },
+  {
+    "id": "procedural-generation",
+    "degree": 10,
+    "weightedDegree": 4.34,
+    "pageRank": 0.00153716,
+    "betweenness": 0.00406628,
+    "community": 1
+  },
+  {
+    "id": "programming",
+    "degree": 10,
+    "weightedDegree": 4.88333334,
+    "pageRank": 0.00170376,
+    "betweenness": 0.00762912,
+    "community": 1
+  },
+  {
+    "id": "protect",
+    "degree": 21,
+    "weightedDegree": 13.27978021,
+    "pageRank": 0.00404522,
+    "betweenness": 0.00303138,
+    "community": 1
+  },
+  {
+    "id": "ps1-style",
+    "degree": 13,
+    "weightedDegree": 6.07,
+    "pageRank": 0.00196324,
+    "betweenness": 0.00774822,
+    "community": 0
+  },
+  {
+    "id": "psychedelic",
+    "degree": 25,
+    "weightedDegree": 15.37237368,
+    "pageRank": 0.00469752,
+    "betweenness": 0.00951964,
+    "community": 0
+  },
+  {
+    "id": "puzzle",
+    "degree": 15,
+    "weightedDegree": 6.03333333,
+    "pageRank": 0.00202227,
+    "betweenness": 0.00484978,
+    "community": 1
+  },
+  {
+    "id": "puzzle-platformer",
+    "degree": 10,
+    "weightedDegree": 4.91666667,
+    "pageRank": 0.00169639,
+    "betweenness": 0.00179333,
+    "community": 1
+  },
+  {
+    "id": "quick-time-events",
+    "degree": 12,
+    "weightedDegree": 5.92692308,
+    "pageRank": 0.00195338,
+    "betweenness": 0.00401343,
+    "community": 1
+  },
+  {
+    "id": "racing",
+    "degree": 5,
+    "weightedDegree": 3.1904762,
+    "pageRank": 0.00122375,
+    "betweenness": 0.0000112,
+    "community": 2
+  },
+  {
+    "id": "rainy-city",
+    "degree": 8,
+    "weightedDegree": 3.86756108,
+    "pageRank": 0.00135195,
+    "betweenness": 0.00016007,
+    "community": 0
+  },
+  {
+    "id": "random-controls",
+    "degree": 11,
+    "weightedDegree": 6.37132867,
+    "pageRank": 0.00204663,
+    "betweenness": 0,
+    "community": 2
+  },
+  {
+    "id": "reach-summit",
+    "degree": 16,
+    "weightedDegree": 9.03506492,
+    "pageRank": 0.00285522,
+    "betweenness": 0.00138364,
+    "community": 1
+  },
+  {
+    "id": "real-time-combat",
+    "degree": 11,
+    "weightedDegree": 6.01666666,
+    "pageRank": 0.00200877,
+    "betweenness": 0.00035205,
+    "community": 1
+  },
+  {
+    "id": "real-time-strategy",
+    "degree": 10,
+    "weightedDegree": 4.87,
+    "pageRank": 0.00172616,
+    "betweenness": 0.00124782,
+    "community": 1
+  },
+  {
+    "id": "real-time-with-pause",
+    "degree": 13,
+    "weightedDegree": 6.54696969,
+    "pageRank": 0.00214087,
+    "betweenness": 0.00951796,
+    "community": 1
+  },
+  {
+    "id": "rebirth",
+    "degree": 9,
+    "weightedDegree": 4.26111112,
+    "pageRank": 0.00146472,
+    "betweenness": 0.00156789,
+    "community": 0
+  },
+  {
+    "id": "remember",
+    "degree": 18,
+    "weightedDegree": 8.56904761,
+    "pageRank": 0.002721,
+    "betweenness": 0.00638216,
+    "community": 1
+  },
+  {
+    "id": "repair",
+    "degree": 8,
+    "weightedDegree": 3.99333333,
+    "pageRank": 0.00138803,
+    "betweenness": 0.00089446,
+    "community": 0
+  },
+  {
+    "id": "repair-goal",
+    "degree": 17,
+    "weightedDegree": 11.1003663,
+    "pageRank": 0.00345917,
+    "betweenness": 0.00120324,
+    "community": 1
+  },
+  {
+    "id": "rescue",
+    "degree": 13,
+    "weightedDegree": 8.20358974,
+    "pageRank": 0.00262672,
+    "betweenness": 0.00011083,
+    "community": 2
+  },
+  {
+    "id": "resource-management",
+    "degree": 10,
+    "weightedDegree": 5.40285714,
+    "pageRank": 0.00185283,
+    "betweenness": 0.00046111,
+    "community": 1
+  },
+  {
+    "id": "restore-balance",
+    "degree": 19,
+    "weightedDegree": 11.15932401,
+    "pageRank": 0.00353936,
+    "betweenness": 0.00817275,
+    "community": 1
+  },
+  {
+    "id": "retro",
+    "degree": 9,
+    "weightedDegree": 5.43923077,
+    "pageRank": 0.00181243,
+    "betweenness": 0.00027263,
+    "community": 0
+  },
+  {
+    "id": "return-home",
+    "degree": 21,
+    "weightedDegree": 9.03030303,
+    "pageRank": 0.00284812,
+    "betweenness": 0.00633668,
+    "community": 2
+  },
+  {
+    "id": "reunite-family",
+    "degree": 11,
+    "weightedDegree": 5.55494506,
+    "pageRank": 0.00185173,
+    "betweenness": 0.00423454,
+    "community": 2
+  },
+  {
+    "id": "reversed-goal",
+    "degree": 12,
+    "weightedDegree": 5.82692308,
+    "pageRank": 0.00189417,
+    "betweenness": 0.00345186,
+    "community": 2
+  },
+  {
+    "id": "rhythm",
+    "degree": 11,
+    "weightedDegree": 5.23333333,
+    "pageRank": 0.00176911,
+    "betweenness": 0.00079654,
+    "community": 1
+  },
+  {
+    "id": "rhythm-combat",
+    "degree": 10,
+    "weightedDegree": 5.45238095,
+    "pageRank": 0.00183544,
+    "betweenness": 0.00023249,
+    "community": 1
+  },
+  {
+    "id": "rhythm-input",
+    "degree": 10,
+    "weightedDegree": 5.75333333,
+    "pageRank": 0.00189703,
+    "betweenness": 0.00070068,
+    "community": 1
+  },
+  {
+    "id": "ritual",
+    "degree": 10,
+    "weightedDegree": 4.6,
+    "pageRank": 0.00157442,
+    "betweenness": 0.00127095,
+    "community": 0
+  },
+  {
+    "id": "roadside-diner",
+    "degree": 5,
+    "weightedDegree": 3.3,
+    "pageRank": 0.00119426,
+    "betweenness": 0.00015686,
+    "community": 0
+  },
+  {
+    "id": "robots",
+    "degree": 11,
+    "weightedDegree": 5.88333334,
+    "pageRank": 0.00190587,
+    "betweenness": 0.00204627,
+    "community": 0
+  },
+  {
+    "id": "roguelike",
+    "degree": 10,
+    "weightedDegree": 5.21999999,
+    "pageRank": 0.00182359,
+    "betweenness": 0.0031479,
+    "community": 2
+  },
+  {
+    "id": "roguelite",
+    "degree": 10,
+    "weightedDegree": 5.29142857,
+    "pageRank": 0.00185095,
+    "betweenness": 0.00089708,
+    "community": 2
+  },
+  {
+    "id": "roots",
+    "degree": 10,
+    "weightedDegree": 4.05000001,
+    "pageRank": 0.00140323,
+    "betweenness": 0.00031055,
+    "community": 0
+  },
+  {
+    "id": "rotating-perspective",
+    "degree": 10,
+    "weightedDegree": 4.53333333,
+    "pageRank": 0.00152406,
+    "betweenness": 0.00535022,
+    "community": 0
+  },
+  {
+    "id": "royal-court",
+    "degree": 12,
+    "weightedDegree": 5.49233954,
+    "pageRank": 0.00179063,
+    "betweenness": 0.0036547,
+    "community": 0
+  },
+  {
+    "id": "rpg",
+    "degree": 19,
+    "weightedDegree": 6.99999998,
+    "pageRank": 0.00229395,
+    "betweenness": 0.01674006,
+    "community": 1
+  },
+  {
+    "id": "sabotage",
+    "degree": 15,
+    "weightedDegree": 8.90411255,
+    "pageRank": 0.00284558,
+    "betweenness": 0.00226025,
+    "community": 2
+  },
+  {
+    "id": "sacrifice",
+    "degree": 11,
+    "weightedDegree": 4.43095239,
+    "pageRank": 0.00155064,
+    "betweenness": 0.01360998,
+    "community": 0
+  },
+  {
+    "id": "sailing",
+    "degree": 11,
+    "weightedDegree": 5.44285714,
+    "pageRank": 0.00181504,
+    "betweenness": 0.00009274,
+    "community": 2
+  },
+  {
+    "id": "school",
+    "degree": 11,
+    "weightedDegree": 5.10652174,
+    "pageRank": 0.00166618,
+    "betweenness": 0.00471577,
+    "community": 0
+  },
+  {
+    "id": "science-fiction",
+    "degree": 10,
+    "weightedDegree": 4.6,
+    "pageRank": 0.00158187,
+    "betweenness": 0.00324442,
+    "community": 0
+  },
+  {
+    "id": "screen-wraps",
+    "degree": 11,
+    "weightedDegree": 5.91153847,
+    "pageRank": 0.00193399,
+    "betweenness": 0.00018207,
+    "community": 1
+  },
+  {
+    "id": "security-cameras",
+    "degree": 11,
+    "weightedDegree": 5.7372549,
+    "pageRank": 0.00188216,
+    "betweenness": 0.00442228,
+    "community": 0
+  },
+  {
+    "id": "shape-shifting",
+    "degree": 13,
+    "weightedDegree": 6.16428572,
+    "pageRank": 0.0020478,
+    "betweenness": 0.00415517,
+    "community": 2
+  },
+  {
+    "id": "shared-health",
+    "degree": 10,
+    "weightedDegree": 5.07692308,
+    "pageRank": 0.00170368,
+    "betweenness": 0.00445327,
+    "community": 2
+  },
+  {
+    "id": "ship",
+    "degree": 13,
+    "weightedDegree": 5.28934326,
+    "pageRank": 0.00173493,
+    "betweenness": 0.00643341,
+    "community": 0
+  },
+  {
+    "id": "shoot-em-up",
+    "degree": 10,
+    "weightedDegree": 4.91,
+    "pageRank": 0.00175394,
+    "betweenness": 0.00054251,
+    "community": 1
+  },
+  {
+    "id": "short-session",
+    "degree": 12,
+    "weightedDegree": 8.15274725,
+    "pageRank": 0.00249053,
+    "betweenness": 0.00006722,
+    "community": 1
+  },
+  {
+    "id": "side-scroller",
+    "degree": 10,
+    "weightedDegree": 4.35333333,
+    "pageRank": 0.00146928,
+    "betweenness": 0.00199186,
+    "community": 0
+  },
+  {
+    "id": "silent-protagonist",
+    "degree": 12,
+    "weightedDegree": 5.45333334,
+    "pageRank": 0.00178442,
+    "betweenness": 0.00419823,
+    "community": 0
+  },
+  {
+    "id": "silhouette",
+    "degree": 13,
+    "weightedDegree": 4.85714285,
+    "pageRank": 0.00164039,
+    "betweenness": 0.01414553,
+    "community": 0
+  },
+  {
+    "id": "simulation",
+    "degree": 12,
+    "weightedDegree": 5.87,
+    "pageRank": 0.00199612,
+    "betweenness": 0.00248357,
+    "community": 1
+  },
+  {
+    "id": "single-room",
+    "degree": 11,
+    "weightedDegree": 5.28363636,
+    "pageRank": 0.00173036,
+    "betweenness": 0.00013887,
+    "community": 1
+  },
+  {
+    "id": "single-screen",
+    "degree": 15,
+    "weightedDegree": 8.60512821,
+    "pageRank": 0.00265122,
+    "betweenness": 0.0000112,
+    "community": 1
+  },
+  {
+    "id": "sixty-seconds",
+    "degree": 12,
+    "weightedDegree": 8.10979021,
+    "pageRank": 0.00252116,
+    "betweenness": 0.00012325,
+    "community": 1
+  },
+  {
+    "id": "size-change",
+    "degree": 11,
+    "weightedDegree": 4.83,
+    "pageRank": 0.00165447,
+    "betweenness": 0.0094973,
+    "community": 1
+  },
+  {
+    "id": "small-village",
+    "degree": 11,
+    "weightedDegree": 5.05076923,
+    "pageRank": 0.00165417,
+    "betweenness": 0.00528678,
+    "community": 0
+  },
+  {
+    "id": "social-deduction",
+    "degree": 10,
+    "weightedDegree": 5.26794873,
+    "pageRank": 0.00176943,
+    "betweenness": 0.00108106,
+    "community": 1
+  },
+  {
+    "id": "sokoban",
+    "degree": 10,
+    "weightedDegree": 4.64285715,
+    "pageRank": 0.00164174,
+    "betweenness": 0.00139804,
+    "community": 1
+  },
+  {
+    "id": "souls-like",
+    "degree": 11,
+    "weightedDegree": 4.40714287,
+    "pageRank": 0.00154853,
+    "betweenness": 0.00413449,
+    "community": 1
+  },
+  {
+    "id": "sound-location",
+    "degree": 10,
+    "weightedDegree": 4.4,
+    "pageRank": 0.00149584,
+    "betweenness": 0.0159157,
+    "community": 0
+  },
+  {
+    "id": "sound-only",
+    "degree": 11,
+    "weightedDegree": 5.46025641,
+    "pageRank": 0.00180395,
+    "betweenness": 0.00295951,
+    "community": 2
+  },
+  {
+    "id": "space",
+    "degree": 10,
+    "weightedDegree": 5.26818182,
+    "pageRank": 0.0017481,
+    "betweenness": 0.00081422,
+    "community": 0
+  },
+  {
+    "id": "space-station",
+    "degree": 12,
+    "weightedDegree": 6.5984127,
+    "pageRank": 0.00212817,
+    "betweenness": 0.00360448,
+    "community": 0
+  },
+  {
+    "id": "spaceship",
+    "degree": 12,
+    "weightedDegree": 5.20571428,
+    "pageRank": 0.00172943,
+    "betweenness": 0.0107629,
+    "community": 0
+  },
+  {
+    "id": "split-screen",
+    "degree": 10,
+    "weightedDegree": 4.51333333,
+    "pageRank": 0.00152652,
+    "betweenness": 0.00312204,
+    "community": 0
+  },
+  {
+    "id": "stained-glass",
+    "degree": 10,
+    "weightedDegree": 4.36666667,
+    "pageRank": 0.00152444,
+    "betweenness": 0.00751651,
+    "community": 0
+  },
+  {
+    "id": "steal-artifact",
+    "degree": 12,
+    "weightedDegree": 7.09798535,
+    "pageRank": 0.00235113,
+    "betweenness": 0.00300218,
+    "community": 1
+  },
+  {
+    "id": "stealth",
+    "degree": 11,
+    "weightedDegree": 4.275,
+    "pageRank": 0.00151974,
+    "betweenness": 0.01224328,
+    "community": 2
+  },
+  {
+    "id": "steampunk",
+    "degree": 11,
+    "weightedDegree": 5.23333333,
+    "pageRank": 0.00171533,
+    "betweenness": 0.00482251,
+    "community": 0
+  },
+  {
+    "id": "stop-motion",
+    "degree": 7,
+    "weightedDegree": 3.64615385,
+    "pageRank": 0.00129637,
+    "betweenness": 0.00023155,
+    "community": 0
+  },
+  {
+    "id": "strategy",
+    "degree": 18,
+    "weightedDegree": 6.66666665,
+    "pageRank": 0.00221858,
+    "betweenness": 0.0095119,
+    "community": 1
+  },
+  {
+    "id": "stylized",
+    "degree": 11,
+    "weightedDegree": 4.81666667,
+    "pageRank": 0.00161179,
+    "betweenness": 0.00562573,
+    "community": 0
+  },
+  {
+    "id": "submarine",
+    "degree": 10,
+    "weightedDegree": 4.34545454,
+    "pageRank": 0.00148165,
+    "betweenness": 0.00183293,
+    "community": 0
+  },
+  {
+    "id": "subway",
+    "degree": 10,
+    "weightedDegree": 5.11090908,
+    "pageRank": 0.00168862,
+    "betweenness": 0.00577871,
+    "community": 0
+  },
+  {
+    "id": "surreal",
+    "degree": 31,
+    "weightedDegree": 21.13611506,
+    "pageRank": 0.0063633,
+    "betweenness": 0.00854233,
+    "community": 0
+  },
+  {
+    "id": "survival",
+    "degree": 15,
+    "weightedDegree": 6.14999998,
+    "pageRank": 0.00203821,
+    "betweenness": 0.00536199,
+    "community": 1
+  },
+  {
+    "id": "survive",
+    "degree": 23,
+    "weightedDegree": 14.82509157,
+    "pageRank": 0.00449735,
+    "betweenness": 0.00108269,
+    "community": 1
+  },
+  {
+    "id": "survivor-like",
+    "degree": 11,
+    "weightedDegree": 4.76190476,
+    "pageRank": 0.00167554,
+    "betweenness": 0.00426822,
+    "community": 1
+  },
+  {
+    "id": "suspenseful",
+    "degree": 21,
+    "weightedDegree": 13.54305273,
+    "pageRank": 0.00416121,
+    "betweenness": 0.00440897,
+    "community": 0
+  },
+  {
+    "id": "swordplay",
+    "degree": 11,
+    "weightedDegree": 5.52,
+    "pageRank": 0.00186193,
+    "betweenness": 0.00363465,
+    "community": 2
+  },
+  {
+    "id": "tactical-rpg",
+    "degree": 11,
+    "weightedDegree": 5.07142857,
+    "pageRank": 0.0017346,
+    "betweenness": 0.00530881,
+    "community": 2
+  },
+  {
+    "id": "technology",
+    "degree": 17,
+    "weightedDegree": 7.36666668,
+    "pageRank": 0.00235163,
+    "betweenness": 0.00585089,
+    "community": 0
+  },
+  {
+    "id": "teleportation",
+    "degree": 11,
+    "weightedDegree": 5.32307693,
+    "pageRank": 0.00181028,
+    "betweenness": 0.01841128,
+    "community": 1
+  },
+  {
+    "id": "temperature",
+    "degree": 10,
+    "weightedDegree": 4.24999999,
+    "pageRank": 0.0015182,
+    "betweenness": 0.0047916,
+    "community": 1
+  },
+  {
+    "id": "tense",
+    "degree": 30,
+    "weightedDegree": 21.14713142,
+    "pageRank": 0.00632699,
+    "betweenness": 0.00236733,
+    "community": 0
+  },
+  {
+    "id": "terminal",
+    "degree": 10,
+    "weightedDegree": 4.63333333,
+    "pageRank": 0.00157732,
+    "betweenness": 0.00696703,
+    "community": 0
+  },
+  {
+    "id": "text-only",
+    "degree": 14,
+    "weightedDegree": 5.82424242,
+    "pageRank": 0.00195277,
+    "betweenness": 0.01350343,
+    "community": 0
+  },
+  {
+    "id": "theater",
+    "degree": 10,
+    "weightedDegree": 4.32,
+    "pageRank": 0.00148011,
+    "betweenness": 0.00018182,
+    "community": 0
+  },
+  {
+    "id": "theme-park",
+    "degree": 10,
+    "weightedDegree": 4.50909091,
+    "pageRank": 0.00150077,
+    "betweenness": 0.01222871,
+    "community": 0
+  },
+  {
+    "id": "third-person",
+    "degree": 18,
+    "weightedDegree": 8.11047617,
+    "pageRank": 0.00252708,
+    "betweenness": 0.00117099,
+    "community": 0
+  },
+  {
+    "id": "three-colors",
+    "degree": 12,
+    "weightedDegree": 6.9564935,
+    "pageRank": 0.00218807,
+    "betweenness": 0,
+    "community": 2
+  },
+  {
+    "id": "time",
+    "degree": 20,
+    "weightedDegree": 7.35238095,
+    "pageRank": 0.00231565,
+    "betweenness": 0.00935876,
+    "community": 1
+  },
+  {
+    "id": "time-loop",
+    "degree": 12,
+    "weightedDegree": 5.29,
+    "pageRank": 0.00177643,
+    "betweenness": 0.00261279,
+    "community": 1
+  },
+  {
+    "id": "time-manipulation",
+    "degree": 12,
+    "weightedDegree": 5.78818182,
+    "pageRank": 0.00193941,
+    "betweenness": 0.00402735,
+    "community": 1
+  },
+  {
+    "id": "time-rewind",
+    "degree": 10,
+    "weightedDegree": 5.35,
+    "pageRank": 0.00178603,
+    "betweenness": 0.00017366,
+    "community": 1
+  },
+  {
+    "id": "top-down",
+    "degree": 16,
+    "weightedDegree": 6.28333332,
+    "pageRank": 0.00201165,
+    "betweenness": 0.00131721,
+    "community": 0
+  },
+  {
+    "id": "tower-defense",
+    "degree": 10,
+    "weightedDegree": 4.84090908,
+    "pageRank": 0.00166822,
+    "betweenness": 0.00140172,
+    "community": 1
+  },
+  {
+    "id": "trading",
+    "degree": 14,
+    "weightedDegree": 6.99358975,
+    "pageRank": 0.00229427,
+    "betweenness": 0.00885203,
+    "community": 1
+  },
+  {
+    "id": "tragic",
+    "degree": 15,
+    "weightedDegree": 10.18666666,
+    "pageRank": 0.00325918,
+    "betweenness": 0.00016348,
+    "community": 0
+  },
+  {
+    "id": "train",
+    "degree": 11,
+    "weightedDegree": 4.56666666,
+    "pageRank": 0.00153765,
+    "betweenness": 0.00573029,
+    "community": 0
+  },
+  {
+    "id": "transform-goal",
+    "degree": 15,
+    "weightedDegree": 8.83543123,
+    "pageRank": 0.00289529,
+    "betweenness": 0.00089582,
+    "community": 1
+  },
+  {
+    "id": "transformation",
+    "degree": 11,
+    "weightedDegree": 5.55238094,
+    "pageRank": 0.00184351,
+    "betweenness": 0.00108629,
+    "community": 1
+  },
+  {
+    "id": "trust",
+    "degree": 10,
+    "weightedDegree": 4.43181819,
+    "pageRank": 0.00150894,
+    "betweenness": 0.00457254,
+    "community": 0
+  },
+  {
+    "id": "turn-based-combat",
+    "degree": 11,
+    "weightedDegree": 6.15769231,
+    "pageRank": 0.002079,
+    "betweenness": 0.00034306,
+    "community": 1
+  },
+  {
+    "id": "turn-based-strategy",
+    "degree": 10,
+    "weightedDegree": 5.28571428,
+    "pageRank": 0.0018078,
+    "betweenness": 0.00014752,
+    "community": 1
+  },
+  {
+    "id": "twin-stick-shooter",
+    "degree": 11,
+    "weightedDegree": 4.86666666,
+    "pageRank": 0.00166931,
+    "betweenness": 0.00231753,
+    "community": 1
+  },
+  {
+    "id": "two-characters-one-controller",
+    "degree": 11,
+    "weightedDegree": 6.61363637,
+    "pageRank": 0.00213841,
+    "betweenness": 0,
+    "community": 2
+  },
+  {
+    "id": "typing",
+    "degree": 11,
+    "weightedDegree": 4.54615385,
+    "pageRank": 0.00156284,
+    "betweenness": 0.02121511,
+    "community": 1
+  },
+  {
+    "id": "uncanny",
+    "degree": 21,
+    "weightedDegree": 16.22761295,
+    "pageRank": 0.00503918,
+    "betweenness": 0.00017198,
+    "community": 0
+  },
+  {
+    "id": "uncover-truth",
+    "degree": 12,
+    "weightedDegree": 5.9089133,
+    "pageRank": 0.0019681,
+    "betweenness": 0.0001694,
+    "community": 1
+  },
+  {
+    "id": "underground-city",
+    "degree": 11,
+    "weightedDegree": 4.80928853,
+    "pageRank": 0.0016351,
+    "betweenness": 0.00656537,
+    "community": 0
+  },
+  {
+    "id": "underworld",
+    "degree": 13,
+    "weightedDegree": 5.70652174,
+    "pageRank": 0.00186122,
+    "betweenness": 0.00886136,
+    "community": 0
+  },
+  {
+    "id": "unknown",
+    "degree": 22,
+    "weightedDegree": 8.37666666,
+    "pageRank": 0.00256191,
+    "betweenness": 0.00685003,
+    "community": 0
+  },
+  {
+    "id": "vampires",
+    "degree": 4,
+    "weightedDegree": 2.9,
+    "pageRank": 0.00112043,
+    "betweenness": 0,
+    "community": 0
+  },
+  {
+    "id": "vehicular-combat",
+    "degree": 11,
+    "weightedDegree": 5.22285714,
+    "pageRank": 0.00175004,
+    "betweenness": 0.00682206,
+    "community": 1
+  },
+  {
+    "id": "vhs",
+    "degree": 10,
+    "weightedDegree": 4.59999999,
+    "pageRank": 0.00155971,
+    "betweenness": 0.00502028,
+    "community": 0
+  },
+  {
+    "id": "visual-novel",
+    "degree": 11,
+    "weightedDegree": 6.25333333,
+    "pageRank": 0.00205578,
+    "betweenness": 0.00138641,
+    "community": 1
+  },
+  {
+    "id": "voice-control",
+    "degree": 10,
+    "weightedDegree": 4.32,
+    "pageRank": 0.00149599,
+    "betweenness": 0.01195013,
+    "community": 1
+  },
+  {
+    "id": "voxel",
+    "degree": 10,
+    "weightedDegree": 4.85714286,
+    "pageRank": 0.00167305,
+    "betweenness": 0.00130672,
+    "community": 0
+  },
+  {
+    "id": "walking-simulator",
+    "degree": 9,
+    "weightedDegree": 4.56666666,
+    "pageRank": 0.00160695,
+    "betweenness": 0.0030428,
+    "community": 2
+  },
+  {
+    "id": "war",
+    "degree": 9,
+    "weightedDegree": 4.43181818,
+    "pageRank": 0.00152676,
+    "betweenness": 0.0005872,
+    "community": 0
+  },
+  {
+    "id": "watercolor",
+    "degree": 10,
+    "weightedDegree": 4.49999999,
+    "pageRank": 0.00153977,
+    "betweenness": 0.00257144,
+    "community": 0
+  },
+  {
+    "id": "weather-control",
+    "degree": 10,
+    "weightedDegree": 4.47,
+    "pageRank": 0.00154713,
+    "betweenness": 0.00515234,
+    "community": 1
+  },
+  {
+    "id": "western-frontier",
+    "degree": 5,
+    "weightedDegree": 3.32,
+    "pageRank": 0.0011961,
+    "betweenness": 0.00006722,
+    "community": 0
+  },
+  {
+    "id": "wholesome",
+    "degree": 19,
+    "weightedDegree": 11.58378129,
+    "pageRank": 0.00358909,
+    "betweenness": 0.00181282,
+    "community": 0
+  },
+  {
+    "id": "wonder",
+    "degree": 23,
+    "weightedDegree": 15.62483315,
+    "pageRank": 0.00477808,
+    "betweenness": 0.00253116,
+    "community": 0
+  },
+  {
+    "id": "woodcut",
+    "degree": 10,
+    "weightedDegree": 4.54615385,
+    "pageRank": 0.00154058,
+    "betweenness": 0.0008685,
+    "community": 0
+  },
+  {
+    "id": "work",
+    "degree": 11,
+    "weightedDegree": 4.78,
+    "pageRank": 0.00163161,
+    "betweenness": 0.00354203,
+    "community": 0
+  },
+  {
+    "id": "world-changes-every-minute",
+    "degree": 12,
+    "weightedDegree": 7.83846154,
+    "pageRank": 0.00245217,
+    "betweenness": 0.0000015,
+    "community": 1
+  },
+  {
+    "id": "world-gets-smaller",
+    "degree": 13,
+    "weightedDegree": 7.3,
+    "pageRank": 0.0023313,
+    "betweenness": 0.00609433,
+    "community": 1
+  },
+  {
+    "id": "zombies",
+    "degree": 9,
+    "weightedDegree": 4.49615385,
+    "pageRank": 0.00152994,
+    "betweenness": 0.00031745,
+    "community": 0
+  }
+]

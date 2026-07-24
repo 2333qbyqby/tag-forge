@@ -1,0 +1,165 @@
+{
+  "manifest": {
+    "schemaVersion": 1,
+    "packId": "example-multi-deck",
+    "version": "1.0.0",
+    "dataVersion": "1.0.0",
+    "name": {
+      "zh": "通用多卡组",
+      "en": "Generic Multi-deck"
+    },
+    "defaultLocale": "zh",
+    "locales": [
+      "zh",
+      "en"
+    ],
+    "files": {
+      "categories": "categories.csv",
+      "entries": "entries.csv",
+      "recipes": "recipes.json"
+    }
+  },
+  "categories": [
+    {
+      "id": "direction",
+      "labels": {
+        "zh": "方向",
+        "en": "Direction"
+      },
+      "color": "acid",
+      "enabled": true
+    },
+    {
+      "id": "modifier",
+      "labels": {
+        "zh": "修饰",
+        "en": "Modifier"
+      },
+      "color": "violet",
+      "enabled": true
+    },
+    {
+      "id": "constraint",
+      "labels": {
+        "zh": "限制",
+        "en": "Constraint"
+      },
+      "color": "coral",
+      "enabled": true
+    }
+  ],
+  "entries": [
+    {
+      "id": "movement",
+      "labels": {
+        "zh": "移动",
+        "en": "Movement"
+      },
+      "categoryId": "direction",
+      "aliases": [],
+      "family": "movement",
+      "facets": [
+        "action"
+      ],
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "enabled": true
+    },
+    {
+      "id": "memory",
+      "labels": {
+        "zh": "记忆",
+        "en": "Memory"
+      },
+      "categoryId": "modifier",
+      "aliases": [],
+      "family": "memory",
+      "facets": [
+        "identity"
+      ],
+      "baseWeight": 1,
+      "rarity": 0.4,
+      "scopeImpact": 0,
+      "implementationRisk": 0.3,
+      "enabled": true
+    },
+    {
+      "id": "one-input",
+      "labels": {
+        "zh": "单一输入",
+        "en": "One Input"
+      },
+      "categoryId": "constraint",
+      "aliases": [],
+      "family": "one-input",
+      "facets": [
+        "restriction"
+      ],
+      "baseWeight": 1,
+      "rarity": 0.4,
+      "scopeImpact": -0.2,
+      "implementationRisk": 0.2,
+      "enabled": true
+    }
+  ],
+  "promptDecks": [],
+  "recipes": [
+    {
+      "id": "multi-deck",
+      "labels": {
+        "zh": "多卡组",
+        "en": "Multi-deck"
+      },
+      "description": {
+        "zh": "组合两个方向。",
+        "en": "Combine two directions."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "neutral",
+      "slots": [
+        {
+          "id": "left",
+          "labels": {
+            "zh": "方向 A",
+            "en": "Direction A"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "direction"
+          ],
+          "required": true
+        },
+        {
+          "id": "right",
+          "labels": {
+            "zh": "方向 B",
+            "en": "Direction B"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "modifier"
+          ],
+          "required": true
+        },
+        {
+          "id": "constraint",
+          "labels": {
+            "zh": "限制",
+            "en": "Constraint"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "constraint"
+          ],
+          "required": true
+        }
+      ]
+    }
+  ]
+}

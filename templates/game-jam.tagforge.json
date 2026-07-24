@@ -1,0 +1,161 @@
+{
+  "manifest": {
+    "schemaVersion": 1,
+    "packId": "example-game-jam",
+    "version": "1.0.0",
+    "dataVersion": "1.0.0",
+    "name": {
+      "zh": "Game Jam 模板",
+      "en": "Game Jam Template"
+    },
+    "defaultLocale": "zh",
+    "locales": [
+      "zh",
+      "en"
+    ],
+    "files": {
+      "categories": "categories.csv",
+      "entries": "entries.csv",
+      "recipes": "recipes.json",
+      "prompts": "prompts.csv"
+    }
+  },
+  "categories": [
+    {
+      "id": "direction",
+      "labels": {
+        "zh": "方向",
+        "en": "Direction"
+      },
+      "color": "acid",
+      "enabled": true
+    },
+    {
+      "id": "modifier",
+      "labels": {
+        "zh": "修饰",
+        "en": "Modifier"
+      },
+      "color": "violet",
+      "enabled": true
+    }
+  ],
+  "entries": [
+    {
+      "id": "movement",
+      "labels": {
+        "zh": "移动",
+        "en": "Movement"
+      },
+      "categoryId": "direction",
+      "aliases": [],
+      "family": "movement",
+      "facets": [
+        "action"
+      ],
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "enabled": true
+    },
+    {
+      "id": "memory",
+      "labels": {
+        "zh": "记忆",
+        "en": "Memory"
+      },
+      "categoryId": "modifier",
+      "aliases": [],
+      "family": "memory",
+      "facets": [
+        "identity"
+      ],
+      "baseWeight": 1,
+      "rarity": 0.4,
+      "scopeImpact": 0,
+      "implementationRisk": 0.3,
+      "enabled": true
+    }
+  ],
+  "promptDecks": [
+    {
+      "id": "prompts",
+      "labels": {
+        "zh": "命题",
+        "en": "Prompts"
+      },
+      "prompts": [
+        {
+          "id": "something-is-missing",
+          "labels": {
+            "zh": "有些东西消失了",
+            "en": "Something is missing"
+          },
+          "family": "absence",
+          "facets": [
+            "change"
+          ],
+          "baseWeight": 1,
+          "origin": "user",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "jam",
+      "labels": {
+        "zh": "Jam 挑战",
+        "en": "Jam Challenge"
+      },
+      "description": {
+        "zh": "组合两个方向。",
+        "en": "Combine two directions."
+      },
+      "cooldown": {
+        "entryWindow": 5,
+        "familyWindow": 3,
+        "pairWindow": 30
+      },
+      "riskPolicy": "neutral",
+      "slots": [
+        {
+          "id": "left",
+          "labels": {
+            "zh": "方向 A",
+            "en": "Direction A"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "direction"
+          ],
+          "required": true
+        },
+        {
+          "id": "right",
+          "labels": {
+            "zh": "方向 B",
+            "en": "Direction B"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "modifier"
+          ],
+          "required": true
+        },
+        {
+          "id": "prompt",
+          "labels": {
+            "zh": "命题",
+            "en": "Prompt"
+          },
+          "source": "promptDeck",
+          "deckId": "prompts",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "analyzerVersion": "1.0.0",
+  "pack": {
+    "packId": "tagforge-official-v2",
+    "version": "2026.07.3",
+    "checksum": "sha256:dcee21564a68b7394063fd11a99e23a71a75ac4b623dc5f3b9c956d8bbe7778b"
+  },
+  "generatedAt": "2026-07-24T00:00:00.000Z",
+  "nodeCount": 424,
+  "edgeCount": 3096,
+  "communityCount": 3
+}
