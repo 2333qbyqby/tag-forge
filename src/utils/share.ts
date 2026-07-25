@@ -19,9 +19,12 @@ function fromBase64Url(value: string): string {
 
 export function makeShareUrl(result: ResultSnapshotV1): string {
   const url = new URL(window.location.href);
+  const shareable = result.migratedFrom
+    ? result
+    : { ...result, readOnly: undefined };
   url.search = "";
   url.searchParams.set("view", "generate");
-  url.hash = `result=${toBase64Url(JSON.stringify(result))}`;
+  url.hash = `result=${toBase64Url(JSON.stringify(shareable))}`;
   return url.toString();
 }
 

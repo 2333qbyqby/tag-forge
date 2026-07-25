@@ -14,6 +14,11 @@ export interface InstalledPackMeta {
   ref: PackRef;
   name: { zh: string; en: string };
   installedAt: number;
+  summary?: {
+    entries: number;
+    prompts: number;
+    recipes: number;
+  };
 }
 
 interface StoredPackData {
@@ -57,6 +62,7 @@ interface TagForgeDb extends DBSchema {
     indexes: {
       "by-pack": string;
       "by-created": number;
+      "by-checksum": string;
     };
   };
   favorites: {
@@ -65,6 +71,7 @@ interface TagForgeDb extends DBSchema {
     indexes: {
       "by-pack": string;
       "by-created": number;
+      "by-checksum": string;
     };
   };
   migrations: {
@@ -73,21 +80,94 @@ interface TagForgeDb extends DBSchema {
   };
 }
 
+export interface PackDeleteOptions {
+  checksum: string;
+  deleteHistory: boolean;
+}
+
+export interface LocalDataSummary {
+  installedPacks: number;
+  history: number;
+  favorites: number;
+  settings: number;
+}
+
+export interface LocalBackupV1 {
+  schemaVersion: 1;
+  exportedAt: string;
+  packs: InstalledPackMeta[];
+  packData: StoredPackData[];
+  settings: StoredSetting[];
+  history: StoredResult[];
+  favorites: StoredResult[];
+}
+
 let databasePromise: Promise<IDBPDatabase<TagForgeDb>> | undefined;
+let historyMutationQueue: Promise<unknown> = Promise.resolve();
+let favoriteMutationQueue: Promise<unknown> = Promise.resolve();
+const settingMutationQueues = new Map<string, Promise<unknown>>();
+
+function enqueueHistoryMutation<T>(mutation: () => Promise<T>): Promise<T> {
+  const pending = historyMutationQueue.then(mutation, mutation);
+  historyMutationQueue = pending.then(
+    () => undefined,
+    () => undefined,
+  );
+  return pending;
+}
+
+function enqueueFavoriteMutation<T>(mutation: () => Promise<T>): Promise<T> {
+  const pending = favoriteMutationQueue.then(mutation, mutation);
+  favoriteMutationQueue = pending.then(
+    () => undefined,
+    () => undefined,
+  );
+  return pending;
+}
+
+function enqueueSettingMutation<T>(
+  key: string,
+  mutation: () => Promise<T>,
+): Promise<T> {
+  const current = settingMutationQueues.get(key) ?? Promise.resolve();
+  const pending = current.then(mutation, mutation);
+  const settled = pending.then(
+    () => undefined,
+    () => undefined,
+  );
+  settingMutationQueues.set(key, settled);
+  return pending.finally(() => {
+    if (settingMutationQueues.get(key) === settled) {
+      settingMutationQueues.delete(key);
+    }
+  });
+}
 
 function database() {
-  databasePromise ??= openDB<TagForgeDb>("tagforge-v2", 1, {
-    upgrade(db) {
-      db.createObjectStore("packs", { keyPath: "key" });
-      db.createObjectStore("packData", { keyPath: "key" });
-      db.createObjectStore("settings", { keyPath: "key" });
-      const history = db.createObjectStore("history", { keyPath: "id" });
-      history.createIndex("by-pack", "packKey");
-      history.createIndex("by-created", "createdAt");
-      const favorites = db.createObjectStore("favorites", { keyPath: "id" });
-      favorites.createIndex("by-pack", "packKey");
-      favorites.createIndex("by-created", "createdAt");
-      db.createObjectStore("migrations", { keyPath: "key" });
+  databasePromise ??= openDB<TagForgeDb>("tagforge-v2", 2, {
+    upgrade(db, oldVersion, _newVersion, transaction) {
+      if (oldVersion < 1) {
+        db.createObjectStore("packs", { keyPath: "key" });
+        db.createObjectStore("packData", { keyPath: "key" });
+        db.createObjectStore("settings", { keyPath: "key" });
+        const history = db.createObjectStore("history", { keyPath: "id" });
+        history.createIndex("by-pack", "packKey");
+        history.createIndex("by-created", "createdAt");
+        const favorites = db.createObjectStore("favorites", { keyPath: "id" });
+        favorites.createIndex("by-pack", "packKey");
+        favorites.createIndex("by-created", "createdAt");
+        db.createObjectStore("migrations", { keyPath: "key" });
+      }
+      if (oldVersion < 2) {
+        const history = transaction.objectStore("history");
+        const favorites = transaction.objectStore("favorites");
+        if (!history.indexNames.contains("by-checksum")) {
+          history.createIndex("by-checksum", "result.pack.checksum");
+        }
+        if (!favorites.indexNames.contains("by-checksum")) {
+          favorites.createIndex("by-checksum", "result.pack.checksum");
+        }
+      }
     },
   });
   return databasePromise;
@@ -115,6 +195,14 @@ export async function installPack(
       ref,
       name: data.manifest.name,
       installedAt: Date.now(),
+      summary: {
+        entries: data.entries.length,
+        prompts: data.promptDecks.reduce(
+          (count, deck) => count + deck.prompts.length,
+          0,
+        ),
+        recipes: data.recipes.length,
+      },
     }),
     transaction.objectStore("packData").put({ key, data }),
     transaction.done,
@@ -159,14 +247,25 @@ export async function loadInstalledPack(key: string): Promise<CompiledPack | nul
   });
 }
 
-export async function deleteInstalledPack(key: string): Promise<void> {
+export async function deleteInstalledPack(
+  key: string,
+  options?: PackDeleteOptions,
+): Promise<number> {
   const db = await database();
-  const transaction = db.transaction(["packs", "packData"], "readwrite");
-  await Promise.all([
-    transaction.objectStore("packs").delete(key),
-    transaction.objectStore("packData").delete(key),
-    transaction.done,
-  ]);
+  let deletedHistory = 0;
+  if (options?.deleteHistory) {
+    deletedHistory = await clearHistoryByChecksum(options.checksum);
+  }
+  await settingMutationQueues.get(`generator:${key}`);
+  const transaction = db.transaction(
+    ["packs", "packData", "settings"],
+    "readwrite",
+  );
+  transaction.objectStore("packs").delete(key);
+  transaction.objectStore("packData").delete(key);
+  transaction.objectStore("settings").delete(`generator:${key}`);
+  await transaction.done;
+  return deletedHistory;
 }
 
 export async function getSetting<T>(key: string): Promise<T | undefined> {
@@ -174,7 +273,9 @@ export async function getSetting<T>(key: string): Promise<T | undefined> {
 }
 
 export async function setSetting<T>(key: string, value: T): Promise<void> {
-  await (await database()).put("settings", { key, value });
+  await enqueueSettingMutation(key, async () => {
+    await (await database()).put("settings", { key, value });
+  });
 }
 
 export async function loadGeneratorSettings(
@@ -195,6 +296,13 @@ export async function saveGeneratorSettings(
   await setSetting(`generator:${packStorageKey(pack.ref)}`, settings);
 }
 
+export async function deleteGeneratorSettings(key: string): Promise<void> {
+  const settingKey = key.startsWith("generator:") ? key : `generator:${key}`;
+  await enqueueSettingMutation(settingKey, async () => {
+    await (await database()).delete("settings", settingKey);
+  });
+}
+
 export async function loadHistory(limit = 100): Promise<ResultSnapshotV1[]> {
   const rows = await (await database()).getAllFromIndex("history", "by-created");
   return rows
@@ -204,22 +312,62 @@ export async function loadHistory(limit = 100): Promise<ResultSnapshotV1[]> {
 }
 
 export async function addHistory(result: ResultSnapshotV1): Promise<void> {
-  const db = await database();
-  await db.put("history", {
-    id: result.id,
-    packKey: packStorageKey(result.pack),
-    createdAt: result.createdAt,
-    result,
+  await enqueueHistoryMutation(async () => {
+    const db = await database();
+    const transaction = db.transaction("history", "readwrite");
+    await transaction.store.put({
+      id: result.id,
+      packKey: packStorageKey(result.pack),
+      createdAt: result.createdAt,
+      result,
+    });
+    const all = await transaction.store.index("by-created").getAll();
+    const overflow = all
+      .sort((left, right) => right.createdAt - left.createdAt)
+      .slice(100);
+    for (const row of overflow) {
+      await transaction.store.delete(row.id);
+    }
+    await transaction.done;
   });
-  const all = await db.getAllFromIndex("history", "by-created");
-  const overflow = all
-    .sort((left, right) => right.createdAt - left.createdAt)
-    .slice(100);
-  const transaction = db.transaction("history", "readwrite");
-  for (const row of overflow) {
-    await transaction.store.delete(row.id);
-  }
-  await transaction.done;
+}
+
+export async function deleteHistory(id: string): Promise<number> {
+  return enqueueHistoryMutation(async () => {
+    const db = await database();
+    const existing = await db.get("history", id);
+    if (!existing) return 0;
+    await db.delete("history", id);
+    return 1;
+  });
+}
+
+export async function clearHistoryByChecksum(
+  checksum: string,
+): Promise<number> {
+  return enqueueHistoryMutation(async () => {
+    const db = await database();
+    const transaction = db.transaction("history", "readwrite");
+    const index = transaction.store.index("by-checksum");
+    let cursor = await index.openCursor(checksum);
+    let count = 0;
+    while (cursor) {
+      await cursor.delete();
+      count += 1;
+      cursor = await cursor.continue();
+    }
+    await transaction.done;
+    return count;
+  });
+}
+
+export async function clearAllHistory(): Promise<number> {
+  return enqueueHistoryMutation(async () => {
+    const db = await database();
+    const count = await db.count("history");
+    await db.clear("history");
+    return count;
+  });
 }
 
 export async function loadFavorites(): Promise<ResultSnapshotV1[]> {
@@ -236,17 +384,76 @@ export async function setFavorite(
   result: ResultSnapshotV1,
   favorite: boolean,
 ): Promise<void> {
-  const db = await database();
-  if (!favorite) {
-    await db.delete("favorites", result.id);
-    return;
-  }
-  await db.put("favorites", {
-    id: result.id,
-    packKey: packStorageKey(result.pack),
-    createdAt: result.createdAt,
-    result,
+  await enqueueFavoriteMutation(async () => {
+    const db = await database();
+    if (!favorite) {
+      await db.delete("favorites", result.id);
+      return;
+    }
+    await db.put("favorites", {
+      id: result.id,
+      packKey: packStorageKey(result.pack),
+      createdAt: result.createdAt,
+      result,
+    });
   });
+}
+
+export async function getLocalDataSummary(): Promise<LocalDataSummary> {
+  const db = await database();
+  const [installedPacks, history, favorites, settings] = await Promise.all([
+    db.count("packs"),
+    db.count("history"),
+    db.count("favorites"),
+    db.count("settings"),
+  ]);
+  return { installedPacks, history, favorites, settings };
+}
+
+export async function exportLocalBackup(): Promise<LocalBackupV1> {
+  const db = await database();
+  const [packs, packData, settings, history, favorites] = await Promise.all([
+    db.getAll("packs"),
+    db.getAll("packData"),
+    db.getAll("settings"),
+    db.getAll("history"),
+    db.getAll("favorites"),
+  ]);
+  return {
+    schemaVersion: 1,
+    exportedAt: new Date().toISOString(),
+    packs,
+    packData,
+    settings,
+    history,
+    favorites,
+  };
+}
+
+export async function clearAllLocalData(): Promise<void> {
+  const db = await database();
+  await Promise.all([historyMutationQueue, favoriteMutationQueue]);
+  await Promise.all(settingMutationQueues.values());
+  const transaction = db.transaction(
+    [
+      "packs",
+      "packData",
+      "settings",
+      "history",
+      "favorites",
+      "migrations",
+    ],
+    "readwrite",
+  );
+  await Promise.all([
+    transaction.objectStore("packs").clear(),
+    transaction.objectStore("packData").clear(),
+    transaction.objectStore("settings").clear(),
+    transaction.objectStore("history").clear(),
+    transaction.objectStore("favorites").clear(),
+    transaction.objectStore("migrations").clear(),
+  ]);
+  await transaction.done;
 }
 
 export async function migrationCompleted(key: string): Promise<boolean> {

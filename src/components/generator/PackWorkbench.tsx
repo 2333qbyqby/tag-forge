@@ -7,11 +7,14 @@ import {
   Share2,
   Sparkles,
   Star,
+  Undo2,
   Unlock,
+  X,
 } from "lucide-react";
 import type {
   CompiledPack,
   GeneratorSettings,
+  ResultDisplaySource,
   ResultSnapshotV1,
 } from "../../packs/types";
 
@@ -19,8 +22,10 @@ interface Props {
   pack: CompiledPack;
   settings: GeneratorSettings;
   result: ResultSnapshotV1;
+  resultSource: ResultDisplaySource;
   isFavorite: boolean;
-  copied: boolean;
+  settingsDirty: boolean;
+  generatorError: string;
   onSettingsChange: (settings: GeneratorSettings) => void;
   onGenerate: () => void;
   onRerollSlot: (slotId: string) => void;
@@ -30,14 +35,20 @@ interface Props {
   onCopy: () => void;
   onShare: () => void;
   onRandomSeed: () => void;
+  onRemoveExclusion: (itemId: string) => void;
+  onUndoExclusion: () => void;
+  onClearExclusions: () => void;
+  onResetGeneration: () => void;
 }
 
 export function PackWorkbench({
   pack,
   settings,
   result,
+  resultSource,
   isFavorite,
-  copied,
+  settingsDirty,
+  generatorError,
   onSettingsChange,
   onGenerate,
   onRerollSlot,
@@ -47,12 +58,55 @@ export function PackWorkbench({
   onCopy,
   onShare,
   onRandomSeed,
+  onRemoveExclusion,
+  onUndoExclusion,
+  onClearExclusions,
+  onResetGeneration,
 }: Props) {
   const recipe = pack.recipeById.get(settings.recipeId);
   const resultRecipe = pack.recipeById.get(result.recipeId);
   const readonly = Boolean(result.readOnly || !resultRecipe);
   const slotDefinition = (slotId: string) =>
     recipe?.slots.find((slot) => slot.id === slotId);
+  const exclusionLabel = (itemId: string) =>
+    pack.entryById.get(itemId)?.labels.zh ??
+    pack.promptById.get(itemId)?.labels.zh ??
+    itemId;
+  const sourceCopy =
+    resultSource === "migrated"
+      ? {
+          eyebrow: "MIGRATED / READ ONLY",
+          description: "旧版结果已作为快照保留，不能继续重抽。",
+        }
+      : resultSource === "shared"
+        ? readonly
+          ? {
+              eyebrow: "SHARED SNAPSHOT / READ ONLY",
+              description: "当前数据包与分享快照不匹配，可继续复制或收藏。",
+            }
+          : {
+              eyebrow: "SHARED SNAPSHOT",
+              description: "已找到匹配的数据包，可以继续调整或生成。",
+            }
+        : resultSource === "favorite"
+          ? readonly
+            ? {
+                eyebrow: "FAVORITE SNAPSHOT / READ ONLY",
+                description: "缺少匹配的数据包，当前按收藏快照只读展示。",
+              }
+            : {
+                eyebrow: `FAVORITE / ${resultRecipe?.labels.en ?? result.recipeId}`,
+                description: "已恢复收藏快照的 Recipe 与 Seed。",
+              }
+          : resultSource === "history"
+            ? {
+                eyebrow: `RECENT / ${resultRecipe?.labels.en ?? result.recipeId}`,
+                description: "已恢复历史结果的 Recipe 与 Seed。",
+              }
+          : {
+              eyebrow: resultRecipe?.labels.en ?? "RESULT SNAPSHOT",
+              description: resultRecipe?.description.zh ?? "",
+            };
 
   return (
     <div className="pack-workbench">
@@ -133,6 +187,46 @@ export function PackWorkbench({
           </label>
         </div>
 
+        <div className="control-group exclusion-control">
+          <div className="control-label-row">
+            <div>
+              <strong>已排除 {settings.excludedItemIds.length} 项</strong>
+              <small>排除项作用于当前数据包的后续生成。</small>
+            </div>
+            {settings.excludedItemIds.length > 0 ? (
+              <button
+                className="text-button"
+                onClick={onUndoExclusion}
+                aria-label="撤销最近一次排除"
+              >
+                <Undo2 size={13} /> 撤销
+              </button>
+            ) : null}
+          </div>
+          {settings.excludedItemIds.length > 0 ? (
+            <>
+              <div className="exclusion-list">
+                {settings.excludedItemIds.map((itemId) => (
+                  <span key={itemId}>
+                    {exclusionLabel(itemId)}
+                    <button
+                      onClick={() => onRemoveExclusion(itemId)}
+                      aria-label={`恢复 ${exclusionLabel(itemId)}`}
+                    >
+                      <X size={12} />
+                    </button>
+                  </span>
+                ))}
+              </div>
+              <button className="text-button danger-text" onClick={onClearExclusions}>
+                清空全部排除
+              </button>
+            </>
+          ) : (
+            <small className="empty-note">尚未排除任何 Entry 或 Prompt。</small>
+          )}
+        </div>
+
         <div className="control-group seed-control">
           <label htmlFor="pack-seed">随机种子</label>
           <div>
@@ -155,7 +249,11 @@ export function PackWorkbench({
         </div>
         <div className="settings-footnote">
           <span className="status-dot" />
-          <span>数据与运算均留在当前浏览器。</span>
+          <span>
+            {settingsDirty
+              ? "设置已更新，将在下次生成时生效。"
+              : "数据与运算均留在当前浏览器。"}
+          </span>
         </div>
       </aside>
 
@@ -163,26 +261,26 @@ export function PackWorkbench({
         <div className="idea-toolbar">
           <div>
             <span className="eyebrow">
-              {readonly ? "MIGRATED / READ ONLY" : resultRecipe?.labels.en}
+              {sourceCopy.eyebrow}
             </span>
-            <p>
-              {readonly
-                ? "旧结果已作为快照保留，不能继续重抽。"
-                : resultRecipe?.description.zh}
-            </p>
+            <p>{sourceCopy.description}</p>
           </div>
           <div className="idea-toolbar-actions">
             <button className="secondary-button" onClick={onCopy}>
-              <Copy size={15} /> {copied ? "已复制" : "复制"}
+              <Copy size={15} /> <span>复制文本</span>
             </button>
             <button
               className={`secondary-button ${isFavorite ? "is-favorite" : ""}`}
               onClick={onFavorite}
             >
               <Star size={15} fill={isFavorite ? "currentColor" : "none"} />
-              {isFavorite ? "已收藏" : "收藏"}
+              <span>{isFavorite ? "已收藏" : "收藏"}</span>
             </button>
-            <button className="icon-button" onClick={onShare} aria-label="分享">
+            <button
+              className="icon-button"
+              onClick={onShare}
+              aria-label="复制分享链接"
+            >
               <Share2 size={16} />
             </button>
           </div>
@@ -251,6 +349,18 @@ export function PackWorkbench({
             );
           })}
         </section>
+
+        {generatorError ? (
+          <section className="generator-error" role="alert">
+            <div>
+              <strong>当前设置无法完成生成</strong>
+              <p>{generatorError}</p>
+            </div>
+            <button className="secondary-button" onClick={onResetGeneration}>
+              恢复可用设置
+            </button>
+          </section>
+        ) : null}
 
         {!readonly ? (
           <button className="generate-button" onClick={onGenerate}>

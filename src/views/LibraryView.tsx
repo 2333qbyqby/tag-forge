@@ -4,10 +4,45 @@ import type { CompiledPack } from "../packs/types";
 
 interface Props {
   pack: CompiledPack;
-  onUseEntry: (entryId: string) => void;
+  currentRecipeId: string;
+  onUseEntry: (
+    entryId: string,
+    recipeId: string,
+    slotId: string,
+  ) => void | Promise<void>;
 }
 
-export default function LibraryView({ pack, onUseEntry }: Props) {
+function anchorTarget(
+  pack: CompiledPack,
+  currentRecipeId: string,
+  categoryId: string,
+) {
+  const preferredIds = [
+    currentRecipeId,
+    "collision",
+    ...pack.data.recipes.map((recipe) => recipe.id),
+  ];
+  const recipes = [...new Set(preferredIds)]
+    .map((id) => pack.recipeById.get(id))
+    .filter((recipe) => recipe !== undefined);
+  for (const recipe of recipes) {
+    for (const slot of recipe.slots) {
+      if (slot.source !== "entries") continue;
+      const direct = slot.categoryIds?.includes(categoryId) ?? false;
+      const variant = recipe.variants?.some((item) =>
+        item.slotCategoryIds[slot.id]?.includes(categoryId),
+      );
+      if (direct || variant) return { recipeId: recipe.id, slotId: slot.id };
+    }
+  }
+  return null;
+}
+
+export default function LibraryView({
+  pack,
+  currentRecipeId,
+  onUseEntry,
+}: Props) {
   const [query, setQuery] = useState("");
   const [categoryId, setCategoryId] = useState("all");
   const [facet, setFacet] = useState("all");
@@ -87,11 +122,11 @@ export default function LibraryView({ pack, onUseEntry }: Props) {
       <section className="tag-library-grid">
         {visible.map((entry) => {
           const category = pack.categoryById.get(entry.categoryId);
+          const target = anchorTarget(pack, currentRecipeId, entry.categoryId);
           return (
-            <button
+            <article
               key={entry.id}
               className={`tag-library-card color-${category?.color ?? "slate"}`}
-              onClick={() => onUseEntry(entry.id)}
             >
               <span className="eyebrow">
                 {category?.labels.zh ?? entry.categoryId}
@@ -102,10 +137,37 @@ export default function LibraryView({ pack, onUseEntry }: Props) {
                 <span>权重 {entry.baseWeight.toFixed(2)}</span>
                 <span>{entry.facets[0] ?? "—"}</span>
               </div>
-            </button>
+              <button
+                className="primary-compact"
+                disabled={!target}
+                title={target ? undefined : "当前数据包没有兼容的 Recipe 槽位"}
+                onClick={() =>
+                  target &&
+                  void onUseEntry(entry.id, target.recipeId, target.slotId)
+                }
+              >
+                {target ? "用作生成锚点" : "无兼容槽位"}
+              </button>
+            </article>
           );
         })}
       </section>
+      {visible.length === 0 ? (
+        <section className="panel empty-state library-empty">
+          <h2>没有匹配的 Entry</h2>
+          <p>可以清除搜索词和筛选条件后重新浏览。</p>
+          <button
+            className="secondary-button"
+            onClick={() => {
+              setQuery("");
+              setCategoryId("all");
+              setFacet("all");
+            }}
+          >
+            清除筛选
+          </button>
+        </section>
+      ) : null}
     </main>
   );
 }

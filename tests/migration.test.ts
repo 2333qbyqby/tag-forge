@@ -4,11 +4,16 @@ import { importPackFile } from "../src/packs/importer";
 import { packChecksum } from "../src/packs/canonical";
 import type { DataPackV1 } from "../src/packs/types";
 import {
+  addHistory,
+  clearHistoryByChecksum,
   deleteInstalledPack,
+  deleteHistory,
+  exportLocalBackup,
   installPack,
   loadFavorites,
   loadHistory,
   packStorageKey,
+  setFavorite,
 } from "../src/storage/db";
 import { migrateLegacyStorage } from "../src/storage/legacy-migration";
 import { makeShareUrl, parseSharedResult } from "../src/utils/share";
@@ -294,5 +299,61 @@ describe("data pack import, migration, and sharing", () => {
     expect(installed.origin).toBe("installed");
     expect(installed.capabilities.analysis).toBe(false);
     await deleteInstalledPack(packStorageKey(installed.ref));
+  });
+
+  it("serializes history deletion and clears only an exact checksum", async () => {
+    const base = {
+      schemaVersion: 1 as const,
+      recipeId: "collision",
+      seed: "storage-order",
+      slots: [],
+      createdAt: Date.now(),
+    };
+    const first = {
+      ...base,
+      id: "history:checksum-a",
+      pack: {
+        packId: "same-pack",
+        version: "1.0.0",
+        checksum: "checksum-a",
+      },
+    };
+    const second = {
+      ...base,
+      id: "history:checksum-b",
+      pack: {
+        packId: "same-pack",
+        version: "1.0.0",
+        checksum: "checksum-b",
+      },
+    };
+    await Promise.all([addHistory(first), deleteHistory(first.id)]);
+    await addHistory(first);
+    await addHistory(second);
+    await setFavorite(first, true);
+
+    expect(await clearHistoryByChecksum(first.pack.checksum)).toBe(1);
+    const stored = await loadHistory();
+    expect(stored.some((item) => item.id === first.id)).toBe(false);
+    expect(stored.some((item) => item.id === second.id)).toBe(true);
+    expect((await loadFavorites()).some((item) => item.id === first.id)).toBe(
+      true,
+    );
+
+    const backup = await exportLocalBackup();
+    expect(backup.schemaVersion).toBe(1);
+    expect(
+      backup.history.some(
+        (item) => item.result.pack.checksum === second.pack.checksum,
+      ),
+    ).toBe(true);
+    expect(
+      backup.favorites.some(
+        (item) => item.result.pack.checksum === first.pack.checksum,
+      ),
+    ).toBe(true);
+
+    await deleteHistory(second.id);
+    await setFavorite(first, false);
   });
 });

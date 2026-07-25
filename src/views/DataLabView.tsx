@@ -37,6 +37,7 @@ interface Props {
 export default function DataLabView({ pack, onUseEntry }: Props) {
   const [analysis, setAnalysis] = useState<OfficialAnalysis | null>(null);
   const [error, setError] = useState("");
+  const [retry, setRetry] = useState(0);
   const [centerId, setCenterId] = useState("");
   const [, setTick] = useState(0);
   const nodesRef = useRef<GraphNode[]>([]);
@@ -44,6 +45,8 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
 
   useEffect(() => {
     let cancelled = false;
+    setError("");
+    setAnalysis(null);
     fetch(
       officialAssetUrl("analysis/tagforge-official-v2/analysis.json"),
     )
@@ -71,7 +74,7 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [pack]);
+  }, [pack, retry]);
 
   const graph = useMemo(() => {
     if (!analysis || !centerId) return { nodes: [], links: [] };
@@ -130,6 +133,9 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
         <section className="panel empty-state">
           <h1>数据实验室不可用</h1>
           <p>{error}</p>
+          <button className="secondary-button" onClick={() => setRetry((value) => value + 1)}>
+            重新加载
+          </button>
         </section>
       </main>
     );
@@ -220,8 +226,17 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
                     key={node.id}
                     transform={`translate(${node.x ?? 0} ${node.y ?? 0})`}
                     className="graph-node"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setCenterId(node.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setCenterId(node.id);
+                      }
+                    }}
                   >
+                    <title>{node.label}</title>
                     <circle r={node.radius} />
                     <text textAnchor="middle" dy="4">
                       {node.label.length > 6
@@ -232,6 +247,15 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
                 ))}
               </g>
             </svg>
+          </div>
+          <div className="graph-neighbor-list" aria-label="当前节点的相关词条">
+            {graph.nodes
+              .filter((node) => node.id !== centerId)
+              .map((node) => (
+                <button key={node.id} onClick={() => setCenterId(node.id)}>
+                  {node.label}
+                </button>
+              ))}
           </div>
         </div>
 

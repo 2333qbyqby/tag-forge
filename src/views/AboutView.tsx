@@ -1,11 +1,46 @@
 import { ArrowUpRight, Boxes, Database, Github, Shuffle } from "lucide-react";
+import { useState } from "react";
+import { ConfirmDialog } from "../components/Feedback";
 import type { CompiledPack } from "../packs/types";
+import type { LocalDataSummary } from "../storage/db";
 
-export default function AboutView({ pack }: { pack: CompiledPack }) {
+interface Props {
+  pack: CompiledPack;
+  summary: LocalDataSummary;
+  sessionHistoryCount: number;
+  onClearAllHistory: () => void | Promise<void>;
+  onResetSettings: () => void | Promise<void>;
+  onExportBackup: () => void | Promise<void>;
+  onClearAllLocalData: () => void | Promise<void>;
+}
+
+export default function AboutView({
+  pack,
+  summary,
+  sessionHistoryCount,
+  onClearAllHistory,
+  onResetSettings,
+  onExportBackup,
+  onClearAllLocalData,
+}: Props) {
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [clearOpen, setClearOpen] = useState(false);
+  const [confirmation, setConfirmation] = useState("");
+  const [actionError, setActionError] = useState("");
   const promptCount = pack.data.promptDecks.reduce(
     (count, deck) => count + deck.prompts.length,
     0,
   );
+  const run = async (action: () => void | Promise<void>) => {
+    setActionError("");
+    try {
+      await action();
+    } catch (reason) {
+      setActionError(
+        reason instanceof Error ? reason.message : "本地数据操作失败。",
+      );
+    }
+  };
   return (
     <main className="view-shell about-view">
       <header className="view-hero">
@@ -80,6 +115,101 @@ export default function AboutView({ pack }: { pack: CompiledPack }) {
           </a>
         </div>
       </section>
+      <section className="panel local-data-panel">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">LOCAL DATA MANAGEMENT</span>
+            <h2>当前浏览器中的 TagForge 数据</h2>
+          </div>
+          <Database size={22} />
+        </div>
+        <div className="local-data-stats">
+          <span>
+            <strong>{summary.installedPacks}</strong> 已安装包
+          </span>
+          <span>
+            <strong>{summary.history}</strong> 持久历史
+          </span>
+          <span>
+            <strong>{sessionHistoryCount}</strong> 会话历史
+          </span>
+          <span>
+            <strong>{summary.favorites}</strong> 收藏
+          </span>
+          <span>
+            <strong>{summary.settings}</strong> 设置项
+          </span>
+        </div>
+        <p>
+          临时数据包及其会话历史不会写入 IndexedDB，也不会进入备份文件。
+        </p>
+        {actionError ? (
+          <p className="import-error" role="alert">
+            {actionError}
+          </p>
+        ) : null}
+        <div className="local-data-actions">
+          <button className="secondary-button" onClick={() => void run(onExportBackup)}>
+            导出本地备份
+          </button>
+          <button className="secondary-button" onClick={() => void run(onResetSettings)}>
+            重置当前包设置
+          </button>
+          <button className="secondary-button" onClick={() => setHistoryOpen(true)}>
+            清空全部历史
+          </button>
+          <button className="danger-button" onClick={() => setClearOpen(true)}>
+            清除全部本地生成数据
+          </button>
+        </div>
+      </section>
+
+      <ConfirmDialog
+        open={historyOpen}
+        title="清空全部历史？"
+        description={`将删除 ${summary.history} 条持久历史和 ${sessionHistoryCount} 条会话历史。收藏不会受到影响。`}
+        confirmLabel="清空全部历史"
+        destructive
+        onCancel={() => setHistoryOpen(false)}
+        onConfirm={async () => {
+          await onClearAllHistory();
+          setHistoryOpen(false);
+        }}
+      />
+
+      <ConfirmDialog
+        open={clearOpen}
+        title="清除全部本地生成数据？"
+        description="将删除安装包、设置、历史、收藏和旧迁移数据。主题偏好会保留。此操作无法撤销。"
+        confirmLabel="永久清除"
+        confirmDisabled={confirmation !== "清除"}
+        destructive
+        onCancel={() => {
+          setClearOpen(false);
+          setConfirmation("");
+        }}
+        onConfirm={async () => {
+          if (confirmation !== "清除") return;
+          await onClearAllLocalData();
+          setConfirmation("");
+          setClearOpen(false);
+        }}
+      >
+        <button className="secondary-button" onClick={() => void run(onExportBackup)}>
+          先导出备份
+        </button>
+        <label className="destructive-confirm-field">
+          输入“清除”以确认
+          <input
+            value={confirmation}
+            onChange={(event) => setConfirmation(event.target.value)}
+            autoComplete="off"
+          />
+        </label>
+        {confirmation && confirmation !== "清除" ? (
+          <small className="import-error">确认文字不匹配。</small>
+        ) : null}
+      </ConfirmDialog>
     </main>
   );
 }

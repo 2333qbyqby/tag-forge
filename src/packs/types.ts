@@ -158,6 +158,13 @@ export interface ResultSnapshotV1 {
   migratedFrom?: "engine-1" | "engine-2" | "legacy-link";
 }
 
+export type ResultDisplaySource =
+  | "generated"
+  | "history"
+  | "favorite"
+  | "shared"
+  | "migrated";
+
 export interface GeneratorSettings {
   recipeId: string;
   seed: string;

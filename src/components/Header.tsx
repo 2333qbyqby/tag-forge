@@ -34,13 +34,14 @@ interface HeaderProps {
 const navItems: Array<{
   id: AppView;
   label: string;
+  mobileLabel?: string;
   icon: typeof Sparkles;
 }> = [
   { id: "generate", label: "生成", icon: Sparkles },
   { id: "library", label: "词库", icon: LibraryBig },
   { id: "favorites", label: "收藏", icon: Star },
   { id: "packs", label: "数据包", icon: Boxes },
-  { id: "lab", label: "数据实验室", icon: FlaskConical },
+  { id: "lab", label: "数据实验室", mobileLabel: "实验室", icon: FlaskConical },
   { id: "about", label: "关于", icon: Info },
 ];
 
@@ -68,21 +69,24 @@ export function Header({
         </span>
         <span>
           <strong>TagForge</strong>
-          <small>{packName}</small>
+          <small>
+            {originLabels[packOrigin]} · {packName}
+          </small>
         </span>
       </button>
 
       <nav className="main-nav" aria-label="主导航">
         {navItems
           .filter((item) => item.id !== "lab" || analysisEnabled)
-          .map(({ id, label, icon: Icon }) => (
+          .map(({ id, label, mobileLabel, icon: Icon }) => (
             <button
               key={id}
               className={view === id ? "active" : ""}
               onClick={() => onViewChange(id)}
+              aria-current={view === id ? "page" : undefined}
             >
               <Icon size={15} aria-hidden="true" />
-              <span>{label}</span>
+              <span data-mobile-label={mobileLabel ?? label}>{label}</span>
               {id === "favorites" && favoriteCount > 0 ? (
                 <em>{favoriteCount}</em>
               ) : null}
