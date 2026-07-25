@@ -1,4 +1,6 @@
-# Data Pack Schema 1
+# Data Pack Draft
+
+当前数据包格式只服务 TagForge 的开发阶段，不是稳定协议，也不承诺兼容旧格式、旧 ID、旧资源路径或旧浏览器数据。导入器只接受本文描述的当前结构。
 
 ## 单文件格式
 
@@ -18,10 +20,8 @@ Manifest 必须包含：
 
 ```json
 {
-  "schemaVersion": 1,
   "packId": "my-pack",
-  "version": "1.0.0",
-  "dataVersion": "1.0.0",
+  "dataVersion": "2026.07.25",
   "name": { "zh": "我的包", "en": "My Pack" },
   "defaultLocale": "zh",
   "locales": ["zh", "en"],
@@ -34,7 +34,7 @@ Manifest 必须包含：
 }
 ```
 
-没有 Prompt 时省略 `files.prompts`。
+`packId` 是已安装包的唯一键；导入相同 ID 的新内容会覆盖旧内容。`dataVersion` 记录数据更新日期，checksum 标识精确内容。没有 Prompt 时省略 `files.prompts`。
 
 ## ZIP/CSV 格式
 
@@ -66,7 +66,7 @@ id,label_zh,label_en,category_id,aliases,family,facets,base_weight,rarity,scope_
 deck_id,deck_label_zh,deck_label_en,id,label_zh,label_en,family,facets,motifs,type,base_weight,origin,source_refs,enabled
 ```
 
-JSON 与 ZIP/CSV 会经过同一个规范化器。逻辑内容相同就会得到相同 canonical JSON 和 SHA-256。
+JSON 与 ZIP/CSV 经过同一个规范化器。逻辑内容相同就会得到相同 canonical JSON 和 SHA-256。
 
 ## Recipe
 

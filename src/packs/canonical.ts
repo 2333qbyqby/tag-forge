@@ -1,4 +1,4 @@
-import type { DataPackV1 } from "./types";
+import type { DataPack } from "./types";
 
 function sortValue(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(sortValue);
@@ -12,7 +12,7 @@ function sortValue(value: unknown): unknown {
   return value;
 }
 
-export function canonicalPackJson(pack: DataPackV1): string {
+export function canonicalPackJson(pack: DataPack): string {
   return JSON.stringify(sortValue(pack));
 }
 
@@ -20,7 +20,7 @@ function bytesToHex(bytes: Uint8Array): string {
   return [...bytes].map((value) => value.toString(16).padStart(2, "0")).join("");
 }
 
-export async function packChecksum(pack: DataPackV1): Promise<string> {
+export async function packChecksum(pack: DataPack): Promise<string> {
   const bytes = new TextEncoder().encode(canonicalPackJson(pack));
   const digest = await crypto.subtle.digest("SHA-256", bytes);
   return `sha256:${bytesToHex(new Uint8Array(digest))}`;

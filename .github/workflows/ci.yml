@@ -25,7 +25,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build official pack and templates
         run: pnpm pack:build
-      - name: Validate Pack Schema
+      - name: Validate Data Pack Draft
         run: pnpm pack:validate
       - name: Build and verify deterministic analysis
         run: pnpm analysis:build && pnpm analysis:verify

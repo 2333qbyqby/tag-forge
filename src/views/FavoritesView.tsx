@@ -1,16 +1,16 @@
 import { Copy, Search, Trash2 } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { CompiledPack, ResultSnapshotV1 } from "../packs/types";
+import type { CompiledPack, ResultSnapshot } from "../packs/types";
 import type { InstalledPackMeta } from "../storage/db";
 
 interface Props {
   pack: CompiledPack;
   officialChecksum: string;
   installed: InstalledPackMeta[];
-  favorites: ResultSnapshotV1[];
-  onLoad: (result: ResultSnapshotV1) => void | Promise<void>;
-  onRemove: (result: ResultSnapshotV1) => void | Promise<void>;
-  onCopy: (result: ResultSnapshotV1) => void | Promise<void>;
+  favorites: ResultSnapshot[];
+  onLoad: (result: ResultSnapshot) => void | Promise<void>;
+  onRemove: (result: ResultSnapshot) => void | Promise<void>;
+  onCopy: (result: ResultSnapshot) => void | Promise<void>;
 }
 
 const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
@@ -64,7 +64,7 @@ export default function FavoritesView({
   }, [checksum, favorites, query, sort]);
 
   const runFor = async (
-    result: ResultSnapshotV1,
+    result: ResultSnapshot,
     action: () => void | Promise<void>,
   ) => {
     setBusyIds((current) => [...current, result.id]);
@@ -107,7 +107,7 @@ export default function FavoritesView({
               <option value="all">全部数据包</option>
               {packOptions.map((item) => (
                 <option key={item.checksum} value={item.checksum}>
-                  {item.packId} · {item.version}
+                  {item.packId} · {item.dataVersion}
                 </option>
               ))}
             </select>
@@ -133,14 +133,11 @@ export default function FavoritesView({
                   installed.some(
                     (item) => item.ref.checksum === result.pack.checksum,
                   );
-                const migrated = Boolean(result.migratedFrom);
-                const status = migrated
-                  ? "迁移快照"
-                  : isCurrent
-                    ? "当前包"
-                    : available
-                      ? "可切换"
-                      : "缺包只读";
+                const status = isCurrent
+                  ? "当前包"
+                  : available
+                    ? "可切换"
+                    : "缺包只读";
                 const recipe =
                   isCurrent
                     ? pack.recipeById.get(result.recipeId)?.labels.zh
@@ -161,7 +158,7 @@ export default function FavoritesView({
                       ))}
                     </div>
                     <small>
-                      {result.pack.packId}@{result.pack.version} ·{" "}
+                      {result.pack.packId} · 数据更新 {result.pack.dataVersion} ·{" "}
                       {dateFormatter.format(result.createdAt)}
                     </small>
                     <div className="favorite-actions">

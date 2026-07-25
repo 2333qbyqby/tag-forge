@@ -5,17 +5,13 @@ import pagerank from "graphology-metrics/centrality/pagerank.js";
 import betweenness from "graphology-metrics/centrality/betweenness.js";
 
 const ROOT = new URL("../", import.meta.url);
-const PACK_URL = new URL(
-  ".tmp/public/packs/tagforge-official-v2.tagforge.json",
-  ROOT,
-);
 const REGISTRY_URL = new URL(".tmp/public/packs/official-registry.json", ROOT);
+const registry = JSON.parse(await readFile(REGISTRY_URL, "utf8"));
+const PACK_URL = new URL(`.tmp/public/${registry.packPath}`, ROOT);
 const ANALYSIS_DIR = new URL(
-  ".tmp/public/analysis/tagforge-official-v2/",
+  `.tmp/public/${registry.analysisPath.replace(/[^/]+$/, "")}`,
   ROOT,
 );
-const ANALYSIS_URL = new URL("analysis.json", ANALYSIS_DIR);
-const ANALYZER_VERSION = "1.0.0";
 
 function xmur3(input) {
   let hash = 1779033703 ^ input.length;
@@ -75,7 +71,6 @@ function round(value) {
 }
 
 const pack = JSON.parse(await readFile(PACK_URL, "utf8"));
-const registry = JSON.parse(await readFile(REGISTRY_URL, "utf8"));
 const entries = pack.entries
   .filter((entry) => entry.enabled !== false && !entry.deprecatedBy)
   .sort((left, right) => left.id.localeCompare(right.id));
@@ -150,7 +145,7 @@ for (const entry of entries) {
 const cooccurrence = new Map();
 const recipeCooccurrence = {};
 for (const recipe of pack.recipes) {
-  const random = rngFor(`analysis:${pack.manifest.version}:${recipe.id}`);
+  const random = rngFor(`analysis:${pack.manifest.dataVersion}:${recipe.id}`);
   let producedPairs = 0;
   for (let run = 0; run < 10_000; run += 1) {
     const variant = recipe.variants?.length
@@ -228,7 +223,7 @@ for (const edge of edges) {
 
 const communityById = louvain(graph, {
   getEdgeWeight: "weight",
-  rng: rngFor("tagforge-analysis-louvain-v1"),
+  rng: rngFor("tagforge-analysis-louvain"),
   randomWalk: false,
 });
 const pageRankById = pagerank(graph, { getEdgeWeight: "weight" });
@@ -292,14 +287,12 @@ for (const entry of entries) {
 
 const analysis = {
   manifest: {
-    schemaVersion: 1,
-    analyzerVersion: ANALYZER_VERSION,
     pack: {
       packId: registry.packId,
-      version: registry.version,
+      dataVersion: registry.dataVersion,
       checksum: registry.checksum,
     },
-    generatedAt: "2026-07-24T00:00:00.000Z",
+    generatedAt: `${registry.dataVersion.replaceAll(".", "-")}T00:00:00.000Z`,
     nodeCount: entries.length,
     edgeCount: edges.length,
     communityCount: communities.length,

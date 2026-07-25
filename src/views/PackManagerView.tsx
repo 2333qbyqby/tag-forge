@@ -42,7 +42,7 @@ function downloadPack(pack: CompiledPack) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `${pack.data.manifest.packId}-${pack.data.manifest.version}.tagforge.json`;
+  link.download = `${pack.data.manifest.packId}-${pack.data.manifest.dataVersion}.tagforge.json`;
   link.click();
   window.setTimeout(() => URL.revokeObjectURL(url), 0);
 }
@@ -74,8 +74,7 @@ export default function PackManagerView({
 
   const importedKey = imported
     ? packStorageKey({
-        packId: imported.pack.manifest.packId,
-        version: imported.pack.manifest.version,
+      packId: imported.pack.manifest.packId,
       })
     : "";
   const conflict = installed.find((item) => item.key === importedKey);
@@ -221,7 +220,7 @@ export default function PackManagerView({
               </span>
             ) : conflict ? (
               <span className="import-status status-replace">
-                将覆盖同 ID 与版本的数据包
+                将覆盖同 ID 的数据包
               </span>
             ) : (
               <span className="import-status">新的本地数据包</span>
@@ -307,7 +306,7 @@ export default function PackManagerView({
               void runAction("official", () => onActivateOfficial())
             }
           >
-            {activePack.origin === "official" ? "正在使用官方 V2" : "切换到官方 V2"}
+            {activePack.origin === "official" ? "正在使用官方数据集" : "切换到官方数据集"}
           </button>
         </div>
         <div className="installed-pack-list">
@@ -331,7 +330,7 @@ export default function PackManagerView({
                       {item.name.zh} {active ? "· 当前" : ""}
                     </strong>
                     <small>
-                      {item.ref.version} · {item.ref.checksum.slice(0, 10)} ·{" "}
+                      数据更新 {item.ref.dataVersion} · {item.ref.checksum.slice(0, 10)} ·{" "}
                       {new Date(item.installedAt).toLocaleDateString("zh-CN")}
                     </small>
                   </span>
@@ -407,7 +406,7 @@ export default function PackManagerView({
             <dd>
               {conflict?.summary
                 ? `${conflict.summary.entries} Entry · ${conflict.summary.prompts} Prompt · ${conflict.summary.recipes} Recipe`
-                : "旧版本未记录内容统计"}
+                : "旧记录未包含内容统计"}
             </dd>
           </div>
           <div>

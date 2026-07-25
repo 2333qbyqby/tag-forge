@@ -1,22 +1,25 @@
 import { readFile } from "node:fs/promises";
 import { packChecksum } from "../src/packs/canonical";
 import { importPackFile } from "../src/packs/importer";
-import type { DataPackV1 } from "../src/packs/types";
+import type { DataPack } from "../src/packs/types";
 import { validatePack } from "../src/packs/validate";
 
 const ROOT = new URL("../", import.meta.url);
-const pack = JSON.parse(
-  await readFile(
-    new URL(".tmp/public/packs/tagforge-official-v2.tagforge.json", ROOT),
-    "utf8",
-  ),
-) as DataPackV1;
 const registry = JSON.parse(
   await readFile(
     new URL(".tmp/public/packs/official-registry.json", ROOT),
     "utf8",
   ),
-) as { checksum: string };
+) as {
+  packId: string;
+  dataVersion: string;
+  checksum: string;
+  packPath: string;
+  analysisPath: string;
+};
+const pack = JSON.parse(
+  await readFile(new URL(`.tmp/public/${registry.packPath}`, ROOT), "utf8"),
+) as DataPack;
 const templatePaths = [
   "minimal-collision.tagforge.json",
   "game-jam.tagforge.json",
@@ -27,7 +30,7 @@ const templates = await Promise.all(
     name,
     pack: JSON.parse(
       await readFile(new URL(`.tmp/public/templates/${name}`, ROOT), "utf8"),
-    ) as DataPackV1,
+    ) as DataPack,
   })),
 );
 
@@ -47,8 +50,20 @@ const historicalDeck = pack.promptDecks.find(
   (deck) => deck.id === "historical-jam",
 );
 const expected = [
-  [pack.manifest.schemaVersion === 1, "Schema version must be 1."],
-  [pack.manifest.version === "2026.07.3", "Version must be 2026.07.3."],
+  [pack.manifest.packId === registry.packId, "Registry pack ID must match."],
+  [
+    pack.manifest.dataVersion === registry.dataVersion,
+    "Registry data update date must match.",
+  ],
+  [
+    registry.packPath === `packs/${pack.manifest.packId}.tagforge.json`,
+    "Pack path must derive from the manifest pack ID.",
+  ],
+  [
+    registry.analysisPath ===
+      `analysis/${pack.manifest.packId}/analysis.json`,
+    "Analysis path must derive from the manifest pack ID.",
+  ],
   [pack.categories.length === 9, "Expected 9 categories."],
   [pack.entries.length === 427, "Expected 427 entry records."],
   [activeEntries.length === 424, "Expected 424 active entries."],

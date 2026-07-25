@@ -2,7 +2,7 @@ import "fake-indexeddb/auto";
 import { strToU8, zipSync } from "fflate";
 import { importPackFile } from "../src/packs/importer";
 import { packChecksum } from "../src/packs/canonical";
-import type { DataPackV1 } from "../src/packs/types";
+import type { DataPack } from "../src/packs/types";
 import {
   addHistory,
   clearHistoryByChecksum,
@@ -15,38 +15,13 @@ import {
   packStorageKey,
   setFavorite,
 } from "../src/storage/db";
-import { migrateLegacyStorage } from "../src/storage/legacy-migration";
 import { makeShareUrl, parseSharedResult } from "../src/utils/share";
 import { officialTestPack } from "./fixtures";
 
-class MemoryStorage implements Storage {
-  private values = new Map<string, string>();
-  get length() {
-    return this.values.size;
-  }
-  clear() {
-    this.values.clear();
-  }
-  getItem(key: string) {
-    return this.values.get(key) ?? null;
-  }
-  key(index: number) {
-    return [...this.values.keys()][index] ?? null;
-  }
-  removeItem(key: string) {
-    this.values.delete(key);
-  }
-  setItem(key: string, value: string) {
-    this.values.set(key, value);
-  }
-}
-
-const minimalPack: DataPackV1 = {
+const minimalPack: DataPack = {
   manifest: {
-    schemaVersion: 1,
     packId: "test-pack",
-    version: "1.0.0",
-    dataVersion: "1.0.0",
+    dataVersion: "2026.07.25",
     name: { zh: "测试包", en: "Test Pack" },
     description: { zh: "测试", en: "Test" },
     defaultLocale: "zh",
@@ -122,7 +97,7 @@ const minimalPack: DataPackV1 = {
   ],
 };
 
-describe("data pack import, migration, and sharing", () => {
+describe("data pack import, storage, and sharing", () => {
   it("normalizes equivalent JSON and ZIP/CSV to one checksum", async () => {
     const json = new File(
       [JSON.stringify(minimalPack)],
@@ -186,7 +161,7 @@ describe("data pack import, migration, and sharing", () => {
     );
     await expect(importPackFile(oversized)).rejects.toThrow();
 
-    const invalid: DataPackV1 = {
+    const invalid: DataPack = {
       ...minimalPack,
       entries: [...minimalPack.entries, { ...minimalPack.entries[0] }],
       recipes: [
@@ -213,55 +188,7 @@ describe("data pack import, migration, and sharing", () => {
     );
   });
 
-  it("migrates legacy localStorage once and preserves unknown IDs", async () => {
-    const storage = new MemoryStorage();
-    Object.defineProperty(globalThis, "localStorage", {
-      configurable: true,
-      value: storage,
-    });
-    storage.setItem(
-      "tagforge:history:v1",
-      JSON.stringify([
-        {
-          id: "old-result",
-          seed: "old-seed",
-          tagIds: ["platformer", "unknown-private-id"],
-          createdAt: 100,
-        },
-      ]),
-    );
-    storage.setItem(
-      "tagforge:favorites:v2",
-      JSON.stringify([
-        {
-          id: "old-favorite",
-          schemaVersion: 2,
-          seed: "favorite-seed",
-          baseTagIds: ["platformer"],
-          createdAt: 200,
-        },
-      ]),
-    );
-    const pack = await officialTestPack();
-    await migrateLegacyStorage(pack);
-    await migrateLegacyStorage(pack);
-    const history = await loadHistory();
-    const favorites = await loadFavorites();
-    expect(history.filter((item) => item.id.includes("old-result"))).toHaveLength(
-      1,
-    );
-    expect(
-      history
-        .find((item) => item.id.includes("old-result"))
-        ?.slots.some((slot) => slot.itemId === "unknown-private-id"),
-    ).toBe(true);
-    expect(
-      favorites.filter((item) => item.id.includes("old-favorite")),
-    ).toHaveLength(1);
-    expect(storage.getItem("tagforge:history:v1")).not.toBeNull();
-  });
-
-  it("parses old links as read-only snapshots and new links losslessly", async () => {
+  it("accepts only the current snapshot link structure", async () => {
     const pack = await officialTestPack();
     Object.defineProperty(globalThis, "window", {
       configurable: true,
@@ -269,20 +196,19 @@ describe("data pack import, migration, and sharing", () => {
         location: {
           href: "https://example.test/tag-forge/?view=generate",
           hash: "",
-          search: "?engine=1&seed=legacy&tags=platformer,unknown-id",
+          search: "?view=generate",
         },
       },
     });
-    const legacy = parseSharedResult(pack);
-    expect(legacy?.readOnly).toBe(true);
-    expect(legacy?.slots.map((slot) => slot.itemId)).toContain("unknown-id");
-
     const current = {
-      ...legacy!,
       id: "new-result",
+      pack: pack.ref,
       recipeId: "collision",
-      readOnly: false,
+      seed: "current",
+      slots: [],
+      createdAt: 100,
     };
+    expect(parseSharedResult(pack)).toBeNull();
     const url = new URL(makeShareUrl(current));
     window.location.hash = url.hash;
     window.location.search = url.search;
@@ -290,7 +216,7 @@ describe("data pack import, migration, and sharing", () => {
   });
 
   it("ignores an uploaded pack's official analysis claim", async () => {
-    const spoofed: DataPackV1 = {
+    const spoofed: DataPack = {
       ...minimalPack,
       manifest: { ...minimalPack.manifest, official: true },
     };
@@ -303,7 +229,6 @@ describe("data pack import, migration, and sharing", () => {
 
   it("serializes history deletion and clears only an exact checksum", async () => {
     const base = {
-      schemaVersion: 1 as const,
       recipeId: "collision",
       seed: "storage-order",
       slots: [],
@@ -314,7 +239,7 @@ describe("data pack import, migration, and sharing", () => {
       id: "history:checksum-a",
       pack: {
         packId: "same-pack",
-        version: "1.0.0",
+        dataVersion: "2026.07.25",
         checksum: "checksum-a",
       },
     };
@@ -323,7 +248,7 @@ describe("data pack import, migration, and sharing", () => {
       id: "history:checksum-b",
       pack: {
         packId: "same-pack",
-        version: "1.0.0",
+        dataVersion: "2026.07.25",
         checksum: "checksum-b",
       },
     };
@@ -341,7 +266,7 @@ describe("data pack import, migration, and sharing", () => {
     );
 
     const backup = await exportLocalBackup();
-    expect(backup.schemaVersion).toBe(1);
+    expect(backup.exportedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
     expect(
       backup.history.some(
         (item) => item.result.pack.checksum === second.pack.checksum,

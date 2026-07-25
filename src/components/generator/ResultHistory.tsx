@@ -1,14 +1,14 @@
 import { Eraser, List, Trash2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import type { CompiledPack, ResultSnapshotV1 } from "../../packs/types";
+import type { CompiledPack, ResultSnapshot } from "../../packs/types";
 import { ConfirmDialog } from "../Feedback";
 
 interface Props {
   pack: CompiledPack;
-  history: ResultSnapshotV1[];
+  history: ResultSnapshot[];
   currentResultId?: string;
-  onLoad: (result: ResultSnapshotV1) => void | Promise<void>;
-  onDelete: (result: ResultSnapshotV1) => void | Promise<void>;
+  onLoad: (result: ResultSnapshot) => void | Promise<void>;
+  onDelete: (result: ResultSnapshot) => void | Promise<void>;
   onClear: () => void | Promise<void>;
 }
 
@@ -41,7 +41,7 @@ export function ResultHistory({
 
   if (history.length === 0) return null;
 
-  const remove = async (result: ResultSnapshotV1) => {
+  const remove = async (result: ResultSnapshot) => {
     setBusyIds((current) => [...current, result.id]);
     try {
       await onDelete(result);
@@ -50,7 +50,7 @@ export function ResultHistory({
     }
   };
 
-  const cards = (items: ResultSnapshotV1[]) =>
+  const cards = (items: ResultSnapshot[]) =>
     items.map((result) => {
       const active = result.id === currentResultId;
       const recipe =

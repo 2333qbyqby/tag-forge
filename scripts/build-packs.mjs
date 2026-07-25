@@ -1,10 +1,12 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { zipSync, strToU8 } from "fflate";
 import Papa from "papaparse";
 
 const ROOT = new URL("../", import.meta.url);
 const OUT = new URL(".tmp/public/", ROOT);
+await rm(OUT, { recursive: true, force: true });
+await mkdir(OUT, { recursive: true });
 
 const readJson = async (path) =>
   JSON.parse(await readFile(new URL(path, ROOT), "utf8"));
@@ -63,22 +65,22 @@ const officialPack = {
 };
 
 const officialChecksum = checksum(officialPack);
-await writeJson("packs/tagforge-official-v2.tagforge.json", officialPack);
+const officialPackPath = `packs/${manifest.packId}.tagforge.json`;
+const officialAnalysisPath = `analysis/${manifest.packId}/analysis.json`;
+await writeJson(officialPackPath, officialPack);
 await writeJson("packs/official-registry.json", {
   packId: manifest.packId,
-  version: manifest.version,
+  dataVersion: manifest.dataVersion,
   checksum: officialChecksum,
-  packPath: "packs/tagforge-official-v2.tagforge.json",
-  analysisPath: "analysis/tagforge-official-v2/analysis.json",
+  packPath: officialPackPath,
+  analysisPath: officialAnalysisPath,
 });
 
 const commonCooldown = { entryWindow: 5, familyWindow: 3, pairWindow: 30 };
 const minimalPack = {
   manifest: {
-    schemaVersion: 1,
     packId: "example-minimal",
-    version: "1.0.0",
-    dataVersion: "1.0.0",
+    dataVersion: manifest.dataVersion,
     name: { zh: "极简二词碰撞", en: "Minimal Collision" },
     defaultLocale: "zh",
     locales: ["zh", "en"],
@@ -300,7 +302,7 @@ console.log(
   JSON.stringify(
     {
       packId: manifest.packId,
-      version: manifest.version,
+      dataVersion: manifest.dataVersion,
       checksum: officialChecksum,
       entries: entries.length,
       prompts: originalPrompts.length + historicalPrompts.length,

@@ -3,7 +3,7 @@ import Papa from "papaparse";
 import { packChecksum } from "./canonical";
 import type {
   CategoryDefinition,
-  DataPackV1,
+  DataPack,
   EntryRecord,
   PackManifest,
   PackValidationReport,
@@ -28,7 +28,7 @@ const FORBIDDEN_EXTENSIONS = [
 ];
 
 export interface ImportedPack {
-  pack: DataPackV1;
+  pack: DataPack;
   checksum: string;
   report: PackValidationReport;
 }
@@ -63,7 +63,7 @@ function parseCsv<T extends Record<string, string>>(text: string, name: string):
   return parsed.data;
 }
 
-function packFromZip(files: Record<string, Uint8Array>): DataPackV1 {
+function packFromZip(files: Record<string, Uint8Array>): DataPack {
   const decoder = new TextDecoder();
   const required = ["manifest.json", "categories.csv", "entries.csv", "recipes.json"];
   for (const name of required) {
@@ -192,7 +192,7 @@ export async function importPackFile(file: File): Promise<ImportedPack> {
     throw new Error("数据包不能超过 10 MiB。");
   }
   const bytes = new Uint8Array(await file.arrayBuffer());
-  let pack: DataPackV1;
+  let pack: DataPack;
   if (file.name.toLowerCase().endsWith(".json")) {
     const raw = JSON.parse(new TextDecoder().decode(bytes));
     assertDeclarativeOnly(raw);

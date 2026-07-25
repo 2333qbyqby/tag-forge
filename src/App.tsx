@@ -22,7 +22,7 @@ import type {
   CompiledPack,
   GeneratorSettings,
   ResultDisplaySource,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "./packs/types";
 import {
   addHistory,
@@ -48,7 +48,6 @@ import {
   type InstalledPackMeta,
   type LocalDataSummary,
 } from "./storage/db";
-import { migrateLegacyStorage } from "./storage/legacy-migration";
 import {
   copyResultText,
   makeShareUrl,
@@ -78,9 +77,7 @@ function viewFromUrl(): AppView {
 }
 
 function themeFromStorage(): "dark" | "light" {
-  const stored =
-    localStorage.getItem("tagforge:theme") ??
-    localStorage.getItem("tagforge:theme:v1");
+  const stored = localStorage.getItem("tagforge:theme");
   if (stored === "light" || stored === "dark") return stored;
   return window.matchMedia?.("(prefers-color-scheme: light)").matches
     ? "light"
@@ -93,12 +90,11 @@ function snapshotForEntry(
   slotId: string,
   entryId: string,
   seed: string,
-): ResultSnapshotV1 {
+): ResultSnapshot {
   const entry = pack.entryById.get(entryId);
   if (!entry) throw new Error(`Unknown entry: ${entryId}`);
   return {
     id: `anchor:${entryId}:${seed}`,
-    schemaVersion: 1,
     pack: pack.ref,
     recipeId,
     seed,
@@ -130,7 +126,7 @@ function downloadJson(filename: string, value: unknown) {
 
 function downloadCompiledPack(pack: CompiledPack) {
   downloadJson(
-    `${pack.data.manifest.packId}-${pack.data.manifest.version}.tagforge.json`,
+    `${pack.data.manifest.packId}-${pack.data.manifest.dataVersion}.tagforge.json`,
     JSON.parse(canonicalPackJson(pack.data)),
   );
 }
@@ -140,12 +136,12 @@ export default function App() {
   const [officialPack, setOfficialPack] = useState<CompiledPack>();
   const [pack, setPack] = useState<CompiledPack>();
   const [settings, setSettings] = useState<GeneratorSettings>();
-  const [result, setResult] = useState<ResultSnapshotV1>();
+  const [result, setResult] = useState<ResultSnapshot>();
   const [resultSource, setResultSource] =
     useState<ResultDisplaySource>("generated");
-  const [history, setHistory] = useState<ResultSnapshotV1[]>([]);
-  const [sessionHistory, setSessionHistory] = useState<ResultSnapshotV1[]>([]);
-  const [favorites, setFavorites] = useState<ResultSnapshotV1[]>([]);
+  const [history, setHistory] = useState<ResultSnapshot[]>([]);
+  const [sessionHistory, setSessionHistory] = useState<ResultSnapshot[]>([]);
+  const [favorites, setFavorites] = useState<ResultSnapshot[]>([]);
   const [installed, setInstalled] = useState<InstalledPackMeta[]>([]);
   const [localSummary, setLocalSummary] =
     useState<LocalDataSummary>(EMPTY_SUMMARY);
@@ -179,7 +175,6 @@ export default function App() {
     async function boot() {
       try {
         const official = await loadOfficialPack();
-        await migrateLegacyStorage(official);
         const [
           installedPacks,
           storedHistory,
@@ -231,13 +226,7 @@ export default function App() {
         setPack(active);
         setSettings(activeSettings);
         setResult(initial);
-        setResultSource(
-          visibleShared
-            ? visibleShared.migratedFrom
-              ? "migrated"
-              : "shared"
-            : "generated",
-        );
+        setResultSource(visibleShared ? "shared" : "generated");
         setHistory(storedHistory);
         setSessionHistory([]);
         setFavorites(storedFavorites);
@@ -249,7 +238,7 @@ export default function App() {
           url.searchParams.set("view", "generate");
           window.history.replaceState({}, "", url);
           setView("generate");
-          notify("数据实验室仅支持官方数据包。");
+          notify("数据实验室仅支持官方数据集。");
         }
       } catch (reason) {
         if (!cancelled) {
@@ -297,7 +286,7 @@ export default function App() {
   const updateView = useCallback(
     (next: AppView, replace = false) => {
       if (next === "lab" && pack && !pack.capabilities.analysis) {
-        notify("数据实验室仅支持官方数据包。");
+        notify("数据实验室仅支持官方数据集。");
         next = "generate";
       }
       const url = new URL(window.location.href);
@@ -329,18 +318,10 @@ export default function App() {
 
   const clearSharedResultUrl = useCallback(() => {
     const url = new URL(window.location.href);
-    const hasLegacyResult =
-      url.searchParams.has("engine") ||
-      url.searchParams.has("seed") ||
-      url.searchParams.has("tags") ||
-      url.searchParams.has("base") ||
-      url.searchParams.has("prompt");
-    if (!url.hash && !hasLegacyResult) return;
+    if (!url.hash) return;
     url.hash = "";
-    url.search = "";
-    url.searchParams.set("view", view);
     window.history.replaceState({}, "", url);
-  }, [view]);
+  }, []);
 
   const persistSettings = useCallback(
     (next: GeneratorSettings, dirty = true) => {
@@ -359,7 +340,7 @@ export default function App() {
   );
 
   const record = useCallback(
-    (next: ResultSnapshotV1) => {
+    (next: ResultSnapshot) => {
       setResult(next);
       setResultSource("generated");
       setSettingsDirty(false);
@@ -391,7 +372,7 @@ export default function App() {
   const generate = useCallback(
     (
       nextSettings: GeneratorSettings,
-      current?: ResultSnapshotV1,
+      current?: ResultSnapshot,
       onlySlotId?: string,
     ) => {
       if (!pack) return;
@@ -436,7 +417,7 @@ export default function App() {
     async (
       nextPack: CompiledPack,
       persist: boolean,
-      snapshot?: ResultSnapshotV1,
+      snapshot?: ResultSnapshot,
       source: ResultDisplaySource = "generated",
     ) => {
       const requestId = activationRequestRef.current + 1;
@@ -452,8 +433,7 @@ export default function App() {
       const editableSnapshot =
         snapshot &&
         snapshot.pack.checksum === nextPack.ref.checksum &&
-        nextPack.recipeById.has(snapshot.recipeId) &&
-        !snapshot.migratedFrom;
+        nextPack.recipeById.has(snapshot.recipeId);
       if (editableSnapshot) {
         nextSettings = {
           ...nextSettings,
@@ -511,7 +491,7 @@ export default function App() {
         data: imported.pack,
         ref: {
           packId: imported.pack.manifest.packId,
-          version: imported.pack.manifest.version,
+          dataVersion: imported.pack.manifest.dataVersion,
           checksum: imported.checksum,
         },
         origin: "temporary",
@@ -532,7 +512,6 @@ export default function App() {
     async (imported: ImportedPack) => {
       const key = packStorageKey({
         packId: imported.pack.manifest.packId,
-        version: imported.pack.manifest.version,
       });
       const existing = installed.find((item) => item.key === key);
       if (existing && existing.ref.checksum !== imported.checksum) {
@@ -572,16 +551,14 @@ export default function App() {
 
   const loadSnapshot = useCallback(
     async (
-      next: ResultSnapshotV1,
+      next: ResultSnapshot,
       source: Extract<ResultDisplaySource, "history" | "favorite">,
     ) => {
       if (!pack || !settings) return;
       clearSharedResultUrl();
-      const migrated = Boolean(next.migratedFrom);
       const editable =
         next.pack.checksum === pack.ref.checksum &&
-        pack.recipeById.has(next.recipeId) &&
-        !migrated;
+        pack.recipeById.has(next.recipeId);
       if (editable) {
         const nextSettings: GeneratorSettings = {
           ...settings,
@@ -595,7 +572,7 @@ export default function App() {
         setResultSource(source);
       } else {
         setResult({ ...next, readOnly: true });
-        setResultSource(migrated ? "migrated" : source);
+        setResultSource(source);
       }
       setGeneratorError("");
       updateView("generate");
@@ -610,15 +587,12 @@ export default function App() {
   );
 
   const openFavorite = useCallback(
-    async (next: ResultSnapshotV1) => {
+    async (next: ResultSnapshot) => {
       if (next.pack.checksum === pack?.ref.checksum) {
         await loadSnapshot(next, "favorite");
         return;
       }
-      if (
-        officialPack?.ref.checksum === next.pack.checksum &&
-        !next.migratedFrom
-      ) {
+      if (officialPack?.ref.checksum === next.pack.checksum) {
         await setSetting("active-pack", "official");
         await activate(officialPack, false, next, "favorite");
         return;
@@ -626,7 +600,7 @@ export default function App() {
       const target = installed.find(
         (item) => item.ref.checksum === next.pack.checksum,
       );
-      if (target && !next.migratedFrom) {
+      if (target) {
         const nextPack = await loadInstalledPack(target.key);
         if (nextPack) {
           await activate(nextPack, true, next, "favorite");
@@ -664,7 +638,7 @@ export default function App() {
   }, [favorites, notify, refreshLocalSummary, result]);
 
   const removeFavorite = useCallback(
-    async (next: ResultSnapshotV1) => {
+    async (next: ResultSnapshot) => {
       setFavorites((current) => current.filter((item) => item.id !== next.id));
       try {
         await setFavorite(next, false);
@@ -691,7 +665,7 @@ export default function App() {
   );
 
   const copy = useCallback(
-    async (target: ResultSnapshotV1 = result!) => {
+    async (target: ResultSnapshot = result!) => {
       if (!target) return;
       try {
         await copyResultText(target);
@@ -748,7 +722,7 @@ export default function App() {
   );
 
   const removeRecent = useCallback(
-    async (next: ResultSnapshotV1) => {
+    async (next: ResultSnapshot) => {
       const temporary = pack?.origin === "temporary";
       const setter = temporary ? setSessionHistory : setHistory;
       setter((current) => current.filter((item) => item.id !== next.id));
@@ -848,14 +822,6 @@ export default function App() {
   }, [notify]);
 
   const clearLocalData = useCallback(async () => {
-    for (const key of [
-      "tagforge:history:v1",
-      "tagforge:history:v2",
-      "tagforge:favorites:v1",
-      "tagforge:favorites:v2",
-    ]) {
-      localStorage.removeItem(key);
-    }
     await clearAllLocalData();
     setHistory([]);
     setSessionHistory([]);
@@ -917,7 +883,7 @@ export default function App() {
     return (
       <main className="view-shell">
         <section className="panel empty-state">
-          <h1>Loading official V2 data pack…</h1>
+          <h1>Loading official dataset…</h1>
         </section>
       </main>
     );
@@ -1113,7 +1079,7 @@ export default function App() {
 
       <footer className="app-footer">
         <span>
-          TagForge · Pack Schema 1 · Data {pack.data.manifest.dataVersion}
+          TagForge · 数据更新：{pack.data.manifest.dataVersion}
         </span>
         <button onClick={() => updateView("about")}>About data</button>
         <a

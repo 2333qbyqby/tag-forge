@@ -57,7 +57,7 @@ if (process.argv.includes("--json")) {
 }
 
 console.log(
-  `TagForge official V2 ${report.dataVersion} — ` +
+  `TagForge official dataset ${report.dataVersion} — ` +
     `${report.entries.active}/${report.entries.total} active entries, ` +
     `${report.prompts.original} original prompts, ` +
     `${report.prompts.historical} historical themes, ` +

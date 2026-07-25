@@ -1,6 +1,6 @@
 import type {
   CategoryDefinition,
-  DataPackV1,
+  DataPack,
   EntryRecord,
   PackManifest,
   PromptDeck,
@@ -38,9 +38,7 @@ export function normalizeManifest(value: unknown): PackManifest {
   const raw = value as Partial<PackManifest> | undefined;
   const files = raw?.files as Partial<PackManifest["files"]> | undefined;
   return {
-    schemaVersion: Number(raw?.schemaVersion) as 1,
     packId: text(raw?.packId),
-    version: text(raw?.version),
     dataVersion: text(raw?.dataVersion),
     name: localized(raw?.name),
     ...(raw?.description
@@ -178,8 +176,8 @@ function normalizeRecipe(value: unknown): RecipeDefinition {
   };
 }
 
-export function normalizePack(value: unknown): DataPackV1 {
-  const raw = value as Partial<DataPackV1>;
+export function normalizePack(value: unknown): DataPack {
+  const raw = value as Partial<DataPack>;
   return {
     manifest: normalizeManifest(raw.manifest),
     categories: Array.isArray(raw.categories)

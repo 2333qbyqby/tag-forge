@@ -44,11 +44,11 @@ export default function AboutView({
   return (
     <main className="view-shell about-view">
       <header className="view-hero">
-        <span className="eyebrow">ABOUT / DATA PACK ENGINE</span>
+        <span className="eyebrow">ABOUT / DATA WORKSPACE</span>
         <h1>数据属于用户，生成留在浏览器。</h1>
         <p>
-          TagForge 是部署在 GitHub Pages 的纯静态灵感生成器。官方包和用户包走同一套
-          Schema、校验、Recipe 与 Seed 引擎，用户文件不会上传到服务器。
+          TagForge 是部署在 GitHub Pages 的纯静态灵感生成器。官方数据集和用户包走同一套
+          Draft 结构、校验、Recipe 与 Seed 生成逻辑，用户文件不会上传到服务器。
         </p>
       </header>
       <section className="about-grid">

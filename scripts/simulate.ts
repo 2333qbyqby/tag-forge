@@ -2,9 +2,9 @@ import { readFile } from "node:fs/promises";
 import { packChecksum } from "../src/packs/canonical";
 import { compilePack } from "../src/packs/compile";
 import type {
-  DataPackV1,
+  DataPack,
   GeneratorSettings,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "../src/packs/types";
 import {
   defaultGeneratorSettings,
@@ -22,18 +22,24 @@ function argument(name: string, fallback: string): string {
 
 const count = Math.max(1000, Number(argument("count", "10000")));
 const ROOT = new URL("../", import.meta.url);
-const data = JSON.parse(
+const registry = JSON.parse(
   await readFile(
-    new URL(".tmp/public/packs/tagforge-official-v2.tagforge.json", ROOT),
+    new URL(".tmp/public/packs/official-registry.json", ROOT),
     "utf8",
   ),
-) as DataPackV1;
+) as { packPath: string };
+const data = JSON.parse(
+  await readFile(
+    new URL(`.tmp/public/${registry.packPath}`, ROOT),
+    "utf8",
+  ),
+) as DataPack;
 const checksum = await packChecksum(data);
 const pack = compilePack({
   data,
   ref: {
     packId: data.manifest.packId,
-    version: data.manifest.version,
+    dataVersion: data.manifest.dataVersion,
     checksum,
   },
   origin: "official",
@@ -52,7 +58,7 @@ const report: Record<string, unknown> = {};
 let failed = false;
 
 for (const recipe of data.recipes) {
-  const history: ResultSnapshotV1[] = [];
+  const history: ResultSnapshot[] = [];
   const frequency = new Map<string, number>();
   let invalidPairs = 0;
   let recentPairRepeats = 0;

@@ -9,7 +9,7 @@ import {
 } from "d3-force";
 import { FlaskConical } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { officialAssetUrl } from "../packs/official";
+import { loadOfficialRegistry, officialAssetUrl } from "../packs/official";
 import type {
   AnalysisEdge,
   CompiledPack,
@@ -47,16 +47,19 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
     let cancelled = false;
     setError("");
     setAnalysis(null);
-    fetch(
-      officialAssetUrl("analysis/tagforge-official-v2/analysis.json"),
-    )
+    loadOfficialRegistry()
+      .then((registry) => fetch(officialAssetUrl(registry.analysisPath)))
       .then((response) => {
         if (!response.ok) throw new Error("无法加载官方分析文件。");
         return response.json() as Promise<OfficialAnalysis>;
       })
       .then((value) => {
-        if (value.manifest.pack.checksum !== pack.ref.checksum) {
-          throw new Error("分析文件与当前官方数据包不匹配。");
+        if (
+          value.manifest.pack.packId !== pack.ref.packId ||
+          value.manifest.pack.dataVersion !== pack.ref.dataVersion ||
+          value.manifest.pack.checksum !== pack.ref.checksum
+        ) {
+          throw new Error("分析文件与当前官方数据集不匹配。");
         }
         if (!cancelled) {
           setAnalysis(value);
@@ -168,7 +171,7 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
         <span className="eyebrow">
           <FlaskConical size={14} /> OFFICIAL DATA LAB
         </span>
-        <h1>观察官方 V2 的结构。</h1>
+        <h1>观察官方数据集的结构。</h1>
         <p>图谱由 Family、Composite、Facet 与固定 Seed 共现确定性派生，不参与生成。</p>
       </header>
 

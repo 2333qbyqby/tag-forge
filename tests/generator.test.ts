@@ -6,7 +6,7 @@ import {
 import type {
   CompiledPack,
   GeneratorSettings,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "../src/packs/types";
 import { officialTestPack } from "./fixtures";
 
@@ -85,7 +85,7 @@ describe("pack generator", () => {
 
   it("never emits duplicate IDs, families, or composite overlaps", () => {
     for (const recipe of pack.data.recipes) {
-      const history: ResultSnapshotV1[] = [];
+      const history: ResultSnapshot[] = [];
       for (let index = 0; index < 500; index += 1) {
         const result = generateResult(
           pack,

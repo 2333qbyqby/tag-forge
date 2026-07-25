@@ -15,13 +15,13 @@ import type {
   CompiledPack,
   GeneratorSettings,
   ResultDisplaySource,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "../../packs/types";
 
 interface Props {
   pack: CompiledPack;
   settings: GeneratorSettings;
-  result: ResultSnapshotV1;
+  result: ResultSnapshot;
   resultSource: ResultDisplaySource;
   isFavorite: boolean;
   settingsDirty: boolean;
@@ -73,12 +73,7 @@ export function PackWorkbench({
     pack.promptById.get(itemId)?.labels.zh ??
     itemId;
   const sourceCopy =
-    resultSource === "migrated"
-      ? {
-          eyebrow: "MIGRATED / READ ONLY",
-          description: "旧版结果已作为快照保留，不能继续重抽。",
-        }
-      : resultSource === "shared"
+    resultSource === "shared"
         ? readonly
           ? {
               eyebrow: "SHARED SNAPSHOT / READ ONLY",
@@ -112,8 +107,10 @@ export function PackWorkbench({
     <div className="pack-workbench">
       <aside className="settings-panel panel">
         <div className="panel-heading">
-          <span className="eyebrow">RECIPE / PACK V1</span>
-          <span className="keyboard-hint">{pack.data.manifest.version}</span>
+          <span className="eyebrow">RECIPE / DATA PACK</span>
+          <span className="keyboard-hint">
+            数据更新：{pack.data.manifest.dataVersion}
+          </span>
         </div>
         <div className="control-group">
           <label htmlFor="recipe-select">生成配方</label>

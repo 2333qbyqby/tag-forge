@@ -1,7 +1,6 @@
 {
   "name": "tag-forge",
   "private": true,
-  "version": "0.1.0",
   "type": "module",
   "description": "A deterministic, data-pack-driven game idea generator for indie developers and game jams.",
   "scripts": {

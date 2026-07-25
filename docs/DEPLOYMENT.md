@@ -72,7 +72,7 @@ GitHub 仓库设置必须保持：
    pnpm build
    ```
 
-4. 数据内容或数据版本发生变化时，必须先完整遵守
+4. 数据内容或数据更新日期发生变化时，必须先完整遵守
    [`DATA_UPDATE_PROTOCOL.md`](DATA_UPDATE_PROTOCOL.md)，并运行：
 
    ```bash
@@ -93,7 +93,7 @@ GitHub 仓库设置必须保持：
 6. 如果任一 Job 失败，读取失败步骤和日志；修复后创建新提交并重新推送。不要把
    “已触发”或“正在运行”报告为部署成功。
 
-正常发布只需要推送 `main`。需要在不创建新提交的情况下重新执行当前版本时，可以
+正常发布只需要推送 `main`。需要在不创建新提交的情况下重新执行当前提交时，可以
 从 GitHub Actions 手动触发 `workflow_dispatch`。
 
 ## 线上验收
@@ -105,9 +105,9 @@ GitHub 仓库设置必须保持：
 2. 官方注册表可以访问：
    <https://2333qbyqby.github.io/tag-forge/packs/official-registry.json>
 3. 官方分析 Manifest 可以访问：
-   <https://2333qbyqby.github.io/tag-forge/analysis/tagforge-official-v2/analysis-manifest.json>
-4. 注册表中的 `packId`、`version` 和 `checksum` 与本次构建一致。
-5. 分析 Manifest 绑定相同的 `packId`、`version` 和 `checksum`。
+   <https://2333qbyqby.github.io/tag-forge/analysis/tagforge-official/analysis-manifest.json>
+4. 注册表中的 `packId`、`dataVersion` 和 `checksum` 与本次构建一致。
+5. 分析 Manifest 绑定相同的 `packId`、`dataVersion` 和 `checksum`。
 6. 对涉及路由、数据包或浏览器存储的变更，额外检查对应线上交互。
 
 最终交付信息至少包括：
@@ -116,7 +116,7 @@ GitHub 仓库设置必须保持：
 - 提交 SHA
 - GitHub Actions run URL
 - `validate` 和 `deploy` 的结论
-- 官方数据版本与 checksum 验收结果
+- 官方数据更新日期与 checksum 验收结果
 - 未纳入提交的工作区文件
 
 ## 常见故障

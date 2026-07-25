@@ -3,6 +3,7 @@ import process from "node:process";
 
 const ROOT = new URL("../", import.meta.url);
 const PROMPTS_URL = new URL("data-src/prompts.json", ROOT);
+const MANIFEST_URL = new URL("data-src/manifest.json", ROOT);
 const AUDIT_URL = new URL(
   "data-reviews/2026.07.2.prompt-decisions.jsonl",
   ROOT,
@@ -117,13 +118,14 @@ const canonicalReferenceId = new Map(
 const sourceTexts = new Set(
   referenceData.references.map((reference) => normalize(reference.theme)),
 );
+const { dataVersion } = JSON.parse(await readFile(MANIFEST_URL, "utf8"));
 
 let promptFile;
 try {
   promptFile = JSON.parse(await readFile(PROMPTS_URL, "utf8"));
 } catch (error) {
   if (error?.code !== "ENOENT") throw error;
-  promptFile = { dataVersion: "2026.07.3", prompts: [] };
+  promptFile = { dataVersion, prompts: [] };
 }
 let priorAudit = "";
 try {
@@ -228,7 +230,7 @@ for (const candidate of candidates) {
         family: candidate.family,
         motifs: candidate.motifs,
         baseWeight: 1,
-        origin: "jam-researched-original-v2",
+        origin: "tagforge-original",
         enabled: true,
       };
       prompts.push(prompt);
@@ -246,7 +248,7 @@ for (const candidate of candidates) {
   const candidateReferenceIds =
     candidate.referenceIds ?? candidate.referenceRefs ?? [];
   auditRows.push({
-    dataVersion: "2026.07.3",
+    dataVersion,
     batch,
     id: candidate.id,
     status,
@@ -262,7 +264,7 @@ for (const candidate of candidates) {
   });
 }
 
-promptFile.dataVersion = "2026.07.3";
+promptFile.dataVersion = dataVersion;
 promptFile.prompts = prompts;
 const priorAuditRows = priorAudit
   .split(/\r?\n/)

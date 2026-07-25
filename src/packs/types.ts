@@ -4,9 +4,7 @@ export interface LocalizedText {
 }
 
 export interface PackManifest {
-  schemaVersion: 1;
   packId: string;
-  version: string;
   dataVersion: string;
   name: LocalizedText;
   description?: LocalizedText;
@@ -95,7 +93,7 @@ export interface RecipeDefinition {
   riskPolicy: "neutral" | "prefer-lower";
 }
 
-export interface DataPackV1 {
+export interface DataPack {
   manifest: PackManifest;
   categories: CategoryDefinition[];
   entries: EntryRecord[];
@@ -105,7 +103,7 @@ export interface DataPackV1 {
 
 export interface PackRef {
   packId: string;
-  version: string;
+  dataVersion: string;
   checksum: string;
 }
 
@@ -120,7 +118,7 @@ export interface PackCapabilities {
 export type PackOrigin = "official" | "installed" | "temporary";
 
 export interface LoadedPack {
-  data: DataPackV1;
+  data: DataPack;
   ref: PackRef;
   origin: PackOrigin;
   capabilities: PackCapabilities;
@@ -145,9 +143,8 @@ export interface ResultSlotSnapshot {
   labels: LocalizedText;
 }
 
-export interface ResultSnapshotV1 {
+export interface ResultSnapshot {
   id: string;
-  schemaVersion: 1;
   pack: PackRef;
   recipeId: string;
   seed: string;
@@ -155,15 +152,13 @@ export interface ResultSnapshotV1 {
   slots: ResultSlotSnapshot[];
   createdAt: number;
   readOnly?: boolean;
-  migratedFrom?: "engine-1" | "engine-2" | "legacy-link";
 }
 
 export type ResultDisplaySource =
   | "generated"
   | "history"
   | "favorite"
-  | "shared"
-  | "migrated";
+  | "shared";
 
 export interface GeneratorSettings {
   recipeId: string;
@@ -175,7 +170,7 @@ export interface GeneratorSettings {
 }
 
 export interface HistoryEntry {
-  result: ResultSnapshotV1;
+  result: ResultSnapshot;
 }
 
 export interface PackValidationIssue {
@@ -197,8 +192,6 @@ export interface PackValidationReport {
 }
 
 export interface OfficialAnalysisManifest {
-  schemaVersion: 1;
-  analyzerVersion: string;
   pack: PackRef;
   generatedAt: string;
   nodeCount: number;

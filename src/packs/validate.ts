@@ -1,5 +1,5 @@
 import type {
-  DataPackV1,
+  DataPack,
   PackValidationIssue,
   PackValidationReport,
   RecipeDefinition,
@@ -40,8 +40,8 @@ function validateLocalized(
 }
 
 function entriesCompatible(
-  left: DataPackV1["entries"][number],
-  right: DataPackV1["entries"][number],
+  left: DataPack["entries"][number],
+  right: DataPack["entries"][number],
 ) {
   if (left.id === right.id || left.family === right.family) return false;
   const leftParts = new Set([left.id, ...(left.compositeOf ?? [])]);
@@ -51,7 +51,7 @@ function entriesCompatible(
 
 function recipeVariantReachable(
   recipe: RecipeDefinition,
-  pack: DataPackV1,
+  pack: DataPack,
   variant?: NonNullable<RecipeDefinition["variants"]>[number],
 ): boolean {
   for (const slot of recipe.slots.filter(
@@ -81,7 +81,7 @@ function recipeVariantReachable(
   let visits = 0;
   const search = (
     index: number,
-    selected: DataPackV1["entries"],
+    selected: DataPack["entries"],
   ): boolean => {
     if (index === pools.length) return true;
     if (visits > 50_000) return false;
@@ -99,7 +99,7 @@ function recipeVariantReachable(
 function validateRecipe(
   recipe: RecipeDefinition,
   index: number,
-  pack: DataPackV1,
+  pack: DataPack,
   issues: PackValidationIssue[],
 ) {
   const path = `recipes[${index}]`;
@@ -270,7 +270,7 @@ function validateRecipe(
   }
 }
 
-export function validatePack(pack: DataPackV1): PackValidationReport {
+export function validatePack(pack: DataPack): PackValidationReport {
   const issues: PackValidationIssue[] = [];
   const summary = {
     categories: pack.categories?.length ?? 0,
@@ -282,26 +282,15 @@ export function validatePack(pack: DataPackV1): PackValidationReport {
       ) ?? 0,
     recipes: pack.recipes?.length ?? 0,
   };
-  if (pack.manifest?.schemaVersion !== 1) {
-    issue(
-      issues,
-      "schema.unsupported",
-      "manifest.schemaVersion",
-      "仅支持 Data Pack Schema 1。",
-    );
-  }
   if (!ID_PATTERN.test(pack.manifest?.packId ?? "")) {
     issue(issues, "id.invalid", "manifest.packId", "Pack ID 格式无效。");
-  }
-  if (!pack.manifest?.version) {
-    issue(issues, "version.required", "manifest.version", "缺少 Pack 版本。");
   }
   if (!pack.manifest?.dataVersion) {
     issue(
       issues,
-      "version.required",
+      "data-version.required",
       "manifest.dataVersion",
-      "缺少数据版本。",
+      "缺少数据更新日期。",
     );
   }
   validateLocalized(issues, pack.manifest?.name, "manifest.name");

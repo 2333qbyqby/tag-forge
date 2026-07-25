@@ -6,7 +6,7 @@ import historicalJson from "../data-src/historical-prompts.json";
 import recipesJson from "../data-src/recipes.json";
 import { packChecksum } from "../src/packs/canonical";
 import { compilePack } from "../src/packs/compile";
-import type { CompiledPack, DataPackV1 } from "../src/packs/types";
+import type { CompiledPack, DataPack } from "../src/packs/types";
 
 export const officialData = {
   manifest: manifestJson,
@@ -25,7 +25,7 @@ export const officialData = {
     },
   ],
   recipes: recipesJson.recipes,
-} as unknown as DataPackV1;
+} as unknown as DataPack;
 
 export async function officialTestPack(): Promise<CompiledPack> {
   const checksum = await packChecksum(officialData);
@@ -33,7 +33,7 @@ export async function officialTestPack(): Promise<CompiledPack> {
     data: officialData,
     ref: {
       packId: officialData.manifest.packId,
-      version: officialData.manifest.version,
+      dataVersion: officialData.manifest.dataVersion,
       checksum,
     },
     origin: "official",

@@ -1,4 +1,4 @@
-# TagForge Pack Engine
+# TagForge 生成算法
 
 ## Recipe 与随机流
 
@@ -55,7 +55,7 @@ baseWeight
 
 同一 canonical pack checksum、Recipe、Seed、设置与历史会产生相同槽位内容和结果 ID。结果快照同时保存中英文标签，因此原包缺失时仍可查看。
 
-官方结果在 checksum 匹配时可继续生成。外部包缺失、旧 localStorage 结果和旧 query 分享链接均只读。
+结果在 checksum 匹配时可继续生成。外部包缺失时，快照仍可只读查看。
 
 ## 官方分析
 
@@ -67,4 +67,4 @@ baseWeight
 - 固定 Seed 模拟五个 Recipe，按每节点前 4 个保留共现边。
 - 对称化、去重后计算 Louvain、PageRank、度、加权度和介数中心性。
 
-分析文件绑定 pack checksum 和 `analyzerVersion`。浏览器 checksum 不匹配时拒绝显示数据实验室。
+分析文件绑定 `packId`、`dataVersion` 和 pack checksum。浏览器 checksum 不匹配时拒绝显示数据实验室。

@@ -6,7 +6,7 @@ import type {
   RecipeDefinition,
   RecipeSlot,
   ResultSlotSnapshot,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "../packs/types";
 import { createSeededRng, weightedPick, type SeededRng } from "./rng";
 
@@ -31,7 +31,7 @@ export function isValidEntryPair(left: EntryRecord, right: EntryRecord): boolean
 function recentWeight(
   itemId: string,
   family: string,
-  history: ResultSnapshotV1[],
+  history: ResultSnapshot[],
   recipe: RecipeDefinition,
   avoidRecent: boolean,
 ): number {
@@ -49,7 +49,7 @@ function recentWeight(
 function pairWasRecent(
   candidateId: string,
   selectedIds: string[],
-  history: ResultSnapshotV1[],
+  history: ResultSnapshot[],
   recipe: RecipeDefinition,
 ): boolean {
   if (selectedIds.length === 0) return false;
@@ -107,7 +107,7 @@ function pickEntry(
   categoryIds: string[],
   selected: EntryRecord[],
   settings: GeneratorSettings,
-  history: ResultSnapshotV1[],
+  history: ResultSnapshot[],
   rng: SeededRng,
   previousId?: string,
 ): EntryRecord | undefined {
@@ -160,7 +160,7 @@ function pickPrompt(
   recipe: RecipeDefinition,
   slot: RecipeSlot,
   settings: GeneratorSettings,
-  history: ResultSnapshotV1[],
+  history: ResultSnapshot[],
   rng: SeededRng,
   previousId?: string,
 ): PromptRecord | undefined {
@@ -213,7 +213,7 @@ function pickPrompt(
 function variantFor(
   recipe: RecipeDefinition,
   rng: SeededRng,
-  current?: ResultSnapshotV1,
+  current?: ResultSnapshot,
   preserveCurrent = false,
 ) {
   if (!recipe.variants?.length) return undefined;
@@ -233,7 +233,7 @@ export function defaultGeneratorSettings(
 ): GeneratorSettings {
   return {
     recipeId: pack.data.recipes[0]?.id ?? "",
-    seed: "first-spark-pack-v1",
+    seed: "first-spark-pack",
     avoidRecent: true,
     lockedSlotIds: [],
     excludedItemIds: [],
@@ -244,10 +244,10 @@ export function defaultGeneratorSettings(
 export function generateResult(
   pack: CompiledPack,
   settings: GeneratorSettings,
-  history: ResultSnapshotV1[],
-  current?: ResultSnapshotV1,
+  history: ResultSnapshot[],
+  current?: ResultSnapshot,
   onlySlotId?: string,
-): ResultSnapshotV1 {
+): ResultSnapshot {
   const recipe =
     pack.recipeById.get(settings.recipeId) ?? pack.data.recipes[0];
   if (!recipe) throw new Error("当前数据包没有可用 Recipe。");
@@ -328,7 +328,6 @@ export function generateResult(
   const parts = slots.map((slot) => slot.itemId).join("|");
   return {
     id: `result:${pack.ref.checksum.slice(-12)}:${recipe.id}:${settings.seed}:${parts}`,
-    schemaVersion: 1,
     pack: pack.ref,
     recipeId: recipe.id,
     seed: settings.seed,

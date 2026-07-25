@@ -1,6 +1,6 @@
 export type {
   CategoryDefinition,
-  DataPackV1,
+  DataPack,
   EntryRecord,
   PackCapabilities,
   PackManifest,
@@ -8,7 +8,7 @@ export type {
   PromptDeck,
   RecipeDefinition,
   RecipeSlot,
-  ResultSnapshotV1,
+  ResultSnapshot,
 } from "./types";
 export { canonicalPackJson, packChecksum } from "./canonical";
 export { normalizePack } from "./normalize";

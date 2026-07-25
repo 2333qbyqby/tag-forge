@@ -44,7 +44,7 @@ async function uploadTemplate(
   await expect(page.locator(".import-preview")).toContainText("VALID PACK");
 }
 
-test("loads the official V2 pack and renders all named recipes", async ({
+test("loads the official dataset and renders all named recipes", async ({
   page,
 }) => {
   await page.goto("/?view=generate");
@@ -125,7 +125,7 @@ test("installed packs, generation, favorites, and deletion survive refresh", asy
   await expect(page.locator(".pack-origin-badge")).toContainText("本地");
   await page.goto("/?view=lab");
   await expect(page).toHaveURL(/\?view=generate$/);
-  await expect(page.getByText("数据实验室仅支持官方数据包。")).toBeVisible();
+  await expect(page.getByText("数据实验室仅支持官方数据集。")).toBeVisible();
 
   await expect(
     page.locator(".history-section > .history-strip .history-card"),

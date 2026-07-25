@@ -1,15 +1,13 @@
 {
-  "schemaVersion": 1,
-  "packId": "tagforge-official-v2",
-  "version": "2026.07.3",
-  "dataVersion": "2026.07.3",
+  "packId": "tagforge-official",
+  "dataVersion": "2026.07.25",
   "name": {
-    "zh": "TagForge 官方 V2",
-    "en": "TagForge Official V2"
+    "zh": "TagForge 官方数据集",
+    "en": "TagForge Official Dataset"
   },
   "description": {
-    "zh": "合并旧版设计词汇与 V2 原创命题的官方数据包。",
-    "en": "The official pack combining the original design vocabulary with V2 prompts."
+    "zh": "TagForge 当前开发阶段使用的官方游戏设计词汇与原创命题数据集。",
+    "en": "The official game-design vocabulary and original prompt dataset used by TagForge during development."
   },
   "defaultLocale": "zh",
   "locales": [
