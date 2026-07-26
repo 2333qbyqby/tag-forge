@@ -258,6 +258,36 @@ kbd {
   box-shadow: 0 2px 0 var(--border);
 }
 
+.panel-heading {
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.data-version-badge {
+  min-width: 92px;
+  height: auto;
+  min-height: 34px;
+  align-content: center;
+  justify-items: end;
+  gap: 3px;
+  padding: 5px 8px;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-version-badge > span:first-child {
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+.data-version-badge > span:last-child {
+  color: var(--text);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
 .control-group {
   margin-top: 22px;
   padding-top: 20px;
@@ -2579,14 +2609,23 @@ dialog::backdrop {
 
 .history-section .history-strip .history-delete,
 .history-all-list .history-delete {
-  align-self: start;
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
   min-width: 30px;
   min-height: 30px;
+  align-self: start;
+  place-items: center;
   padding: 0;
   margin: 8px 8px 0 0;
   border-radius: 8px;
   color: var(--faint);
   background: transparent;
+  line-height: 0;
+}
+
+.history-delete svg {
+  display: block;
 }
 
 .history-delete:hover {

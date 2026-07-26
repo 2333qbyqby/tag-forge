@@ -108,8 +108,12 @@ export function PackWorkbench({
       <aside className="settings-panel panel">
         <div className="panel-heading">
           <span className="eyebrow">RECIPE / DATA PACK</span>
-          <span className="keyboard-hint">
-            数据更新：{pack.data.manifest.dataVersion}
+          <span
+            className="keyboard-hint data-version-badge"
+            aria-label={`数据更新：${pack.data.manifest.dataVersion}`}
+          >
+            <span>数据更新</span>
+            <span>{pack.data.manifest.dataVersion}</span>
           </span>
         </div>
         <div className="control-group">

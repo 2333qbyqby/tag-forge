@@ -72,6 +72,41 @@ test("loads the official dataset and renders all named recipes", async ({
   await expect(page.locator(".graph-node").first()).toBeVisible();
 });
 
+test("metadata badge and history delete icon stay aligned", async ({ page }) => {
+  await page.goto("/?view=generate");
+
+  const badgeOverflow = await page.locator(".data-version-badge").evaluate(
+    (element) => element.scrollHeight - element.clientHeight,
+  );
+  expect(badgeOverflow).toBeLessThanOrEqual(0);
+
+  await page.locator(".generate-button").click();
+  const deleteButton = page.locator(".history-delete").first();
+  const deleteIcon = deleteButton.locator("svg");
+  await expect(deleteButton).toBeVisible();
+
+  const buttonBox = await deleteButton.boundingBox();
+  const iconBox = await deleteIcon.boundingBox();
+  expect(buttonBox).not.toBeNull();
+  expect(iconBox).not.toBeNull();
+  expect(buttonBox?.width).toBe(30);
+  expect(buttonBox?.height).toBe(30);
+  expect(
+    Math.abs(
+      (iconBox?.x ?? 0) +
+        (iconBox?.width ?? 0) / 2 -
+        ((buttonBox?.x ?? 0) + (buttonBox?.width ?? 0) / 2),
+    ),
+  ).toBeLessThanOrEqual(0.5);
+  expect(
+    Math.abs(
+      (iconBox?.y ?? 0) +
+        (iconBox?.height ?? 0) / 2 -
+        ((buttonBox?.y ?? 0) + (buttonBox?.height ?? 0) / 2),
+    ),
+  ).toBeLessThanOrEqual(0.5);
+});
+
 test("library filters groups and explains motif provenance", async ({ page }) => {
   await page.goto("/?view=library");
   await page.getByRole("button", { name: "意象元素", exact: true }).click();
