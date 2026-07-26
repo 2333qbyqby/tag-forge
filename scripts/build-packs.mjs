@@ -36,11 +36,11 @@ function checksum(pack) {
 const manifest = await readJson("data-src/manifest.json");
 const categories = (await readJson("data-src/categories.json")).categories;
 const entries = (await readJson("data-src/catalog.json")).entries;
-const originalPrompts = (await readJson("data-src/prompts.json")).prompts;
 const historicalPrompts = (
   await readJson("data-src/historical-prompts.json")
 ).prompts;
 const recipes = (await readJson("data-src/recipes.json")).recipes;
+const provenance = await readJson("data-src/provenance.json");
 
 const officialPack = {
   manifest,
@@ -48,20 +48,13 @@ const officialPack = {
   entries,
   promptDecks: [
     {
-      id: "original-prompts",
-      labels: { zh: "原创开放命题", en: "Original Open Prompts" },
-      prompts: originalPrompts.map((prompt) => ({
-        ...prompt,
-        facets: prompt.motifs ?? [],
-      })),
-    },
-    {
       id: "historical-jam",
       labels: { zh: "历史 Jam 主题", en: "Historical Jam Themes" },
       prompts: historicalPrompts,
     },
   ],
   recipes,
+  provenance,
 };
 
 const officialChecksum = checksum(officialPack);
@@ -88,6 +81,7 @@ const minimalPack = {
       categories: "categories.csv",
       entries: "entries.csv",
       recipes: "recipes.json",
+      provenance: "provenance.json",
     },
   },
   categories: [
@@ -95,12 +89,14 @@ const minimalPack = {
       id: "direction",
       labels: { zh: "方向", en: "Direction" },
       color: "acid",
+      group: "design",
       enabled: true,
     },
     {
       id: "modifier",
       labels: { zh: "修饰", en: "Modifier" },
       color: "violet",
+      group: "design",
       enabled: true,
     },
   ],
@@ -133,6 +129,18 @@ const minimalPack = {
     },
   ],
   promptDecks: [],
+  provenance: {
+    sources: [
+      {
+        id: "example-taxonomy",
+        kind: "taxonomy",
+        labels: { zh: "示例分类来源", en: "Example Taxonomy Source" },
+        url: "https://example.com/tagforge-taxonomy",
+        retrievedAt: manifest.dataVersion.replaceAll(".", "-"),
+      },
+    ],
+    observations: [],
+  },
   recipes: [
     {
       id: "collision",
@@ -220,6 +228,7 @@ const multiDeckTemplate = {
       id: "constraint",
       labels: { zh: "限制", en: "Constraint" },
       color: "coral",
+      group: "design",
       enabled: true,
     },
   ],
@@ -267,6 +276,7 @@ const categoryCsv = Papa.unparse(
     id: category.id,
     label_zh: category.labels.zh,
     label_en: category.labels.en,
+    group: category.group,
     color: category.color ?? "",
     enabled: category.enabled,
   })),
@@ -294,6 +304,7 @@ const zip = zipSync({
   "categories.csv": strToU8(categoryCsv),
   "entries.csv": strToU8(entryCsv),
   "recipes.json": strToU8(JSON.stringify(minimalPack.recipes, null, 2)),
+  "provenance.json": strToU8(JSON.stringify(minimalPack.provenance, null, 2)),
 });
 await mkdir(new URL("templates/", OUT), { recursive: true });
 await writeFile(new URL("templates/minimal-collision.zip", OUT), zip);
@@ -305,7 +316,8 @@ console.log(
       dataVersion: manifest.dataVersion,
       checksum: officialChecksum,
       entries: entries.length,
-      prompts: originalPrompts.length + historicalPrompts.length,
+      prompts: historicalPrompts.length,
+      sources: provenance.sources.length,
       recipes: recipes.length,
     },
     null,

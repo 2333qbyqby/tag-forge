@@ -43,9 +43,6 @@ for (const item of report.issues) {
 const activeEntries = pack.entries.filter(
   (entry) => entry.enabled !== false && !entry.deprecatedBy,
 );
-const originalDeck = pack.promptDecks.find(
-  (deck) => deck.id === "original-prompts",
-);
 const historicalDeck = pack.promptDecks.find(
   (deck) => deck.id === "historical-jam",
 );
@@ -64,16 +61,24 @@ const expected = [
       `analysis/${pack.manifest.packId}/analysis.json`,
     "Analysis path must derive from the manifest pack ID.",
   ],
-  [pack.categories.length === 9, "Expected 9 categories."],
-  [pack.entries.length === 427, "Expected 427 entry records."],
-  [activeEntries.length === 424, "Expected 424 active entries."],
   [
-    pack.entries.filter((entry) => entry.deprecatedBy).length === 3,
-    "Expected 3 deprecated migration records.",
+    pack.categories.filter((category) => category.group === "design").length === 8,
+    "Expected 8 design categories.",
   ],
-  [originalDeck?.prompts.length === 1000, "Expected 1000 original prompts."],
+  [
+    pack.categories.filter((category) => category.group === "motif").length === 6,
+    "Expected 6 motif categories.",
+  ],
+  [
+    pack.promptDecks.length === 1,
+    "Expected only the historical prompt deck.",
+  ],
   [historicalDeck?.prompts.length === 34, "Expected 34 historical prompts."],
   [pack.recipes.length === 5, "Expected 5 official recipes."],
+  [
+    pack.provenance?.sources.every((source) => source.url.startsWith("https://")) === true,
+    "Expected HTTPS provenance sources.",
+  ],
 ] as const;
 for (const [valid, message] of expected) {
   if (!valid) {

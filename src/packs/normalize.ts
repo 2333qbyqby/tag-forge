@@ -1,10 +1,12 @@
 import type {
   CategoryDefinition,
   DataPack,
+  EntryObservation,
   EntryRecord,
   PackManifest,
   PromptDeck,
   PromptRecord,
+  PackSource,
   RecipeDefinition,
   RecipeSlot,
   RecipeVariant,
@@ -55,6 +57,9 @@ export function normalizeManifest(value: unknown): PackManifest {
       ...(files?.prompts
         ? { prompts: text(files.prompts) as "prompts.csv" }
         : {}),
+      ...(files?.provenance
+        ? { provenance: text(files.provenance) as "provenance.json" }
+        : {}),
     },
     ...(typeof raw?.official === "boolean" ? { official: raw.official } : {}),
   };
@@ -65,8 +70,38 @@ function normalizeCategory(value: unknown): CategoryDefinition {
   return {
     id: text(raw.id),
     labels: localized(raw.labels),
+    group:
+      raw.group === undefined
+        ? "design"
+        : (text(raw.group) as CategoryDefinition["group"]),
     ...(raw.color ? { color: text(raw.color) } : {}),
     enabled: bool(raw.enabled),
+  };
+}
+
+function normalizeSource(value: unknown): PackSource {
+  const raw = value as Partial<PackSource>;
+  const releaseYear = numberValue(raw.releaseYear, Number.NaN);
+  return {
+    id: text(raw.id),
+    kind: text(raw.kind) as PackSource["kind"],
+    labels: localized(raw.labels),
+    url: text(raw.url),
+    ...(raw.developer ? { developer: text(raw.developer) } : {}),
+    ...(raw.releaseYear !== undefined ? { releaseYear } : {}),
+    retrievedAt: text(raw.retrievedAt),
+  };
+}
+
+function normalizeObservation(value: unknown): EntryObservation {
+  const raw = value as Partial<EntryObservation>;
+  return {
+    entryId: text(raw.entryId),
+    sourceId: text(raw.sourceId),
+    evidenceUrl: text(raw.evidenceUrl),
+    channels: list(raw.channels) as EntryObservation["channels"],
+    salience: text(raw.salience) as EntryObservation["salience"],
+    note: localized(raw.note),
   };
 }
 
@@ -188,5 +223,17 @@ export function normalizePack(value: unknown): DataPack {
       ? raw.promptDecks.map(normalizeDeck)
       : [],
     recipes: Array.isArray(raw.recipes) ? raw.recipes.map(normalizeRecipe) : [],
+    ...(raw.provenance
+      ? {
+          provenance: {
+            sources: Array.isArray(raw.provenance.sources)
+              ? raw.provenance.sources.map(normalizeSource)
+              : [],
+            observations: Array.isArray(raw.provenance.observations)
+              ? raw.provenance.observations.map(normalizeObservation)
+              : [],
+          },
+        }
+      : {}),
   };
 }

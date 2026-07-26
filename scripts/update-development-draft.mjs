@@ -1,14 +1,14 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const root = new URL("../", import.meta.url);
-const dataVersion = "2026.07.25";
-const currentVersions = new Set(["2026.07.3", dataVersion]);
+const dataVersion = "2026.07.26";
+const currentVersions = new Set(["2026.07.3", "2026.07.25", dataVersion]);
 const files = [
   "data-src/categories.json",
   "data-src/catalog.json",
   "data-src/recipes.json",
   "data-src/historical-prompts.json",
-  "data-src/prompts.json",
+  "data-src/provenance.json",
 ];
 
 for (const relativePath of files) {
@@ -20,13 +20,6 @@ for (const relativePath of files) {
     );
   }
   data.dataVersion = dataVersion;
-  if (relativePath === "data-src/prompts.json") {
-    for (const prompt of data.prompts) {
-      if (prompt.origin !== "tagforge-original") {
-        prompt.origin = "tagforge-original";
-      }
-    }
-  }
   await writeFile(url, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 }
 

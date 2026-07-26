@@ -1,10 +1,13 @@
 export type {
   CategoryDefinition,
   DataPack,
+  EntryObservation,
   EntryRecord,
+  ObservationChannel,
   PackCapabilities,
   PackManifest,
   PackRef,
+  PackSource,
   PromptDeck,
   RecipeDefinition,
   RecipeSlot,

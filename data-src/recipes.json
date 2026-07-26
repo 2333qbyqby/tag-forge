@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026.07.25",
+  "dataVersion": "2026.07.26",
   "recipes": [
     {
       "id": "collision",
@@ -8,8 +8,8 @@
         "en": "Collision"
       },
       "description": {
-        "zh": "用一个玩法方向撞上任意补充维度。",
-        "en": "Collide a gameplay direction with any supporting dimension."
+        "zh": "组合两个稳定的设计坐标。",
+        "en": "Combine two stable design coordinates."
       },
       "cooldown": {
         "entryWindow": 5,
@@ -21,8 +21,8 @@
         {
           "id": "left",
           "labels": {
-            "zh": "方向 A",
-            "en": "Direction A"
+            "zh": "设计方向 A",
+            "en": "Design Direction A"
           },
           "source": "entries",
           "categoryIds": [
@@ -35,15 +35,14 @@
         {
           "id": "right",
           "labels": {
-            "zh": "方向 B",
-            "en": "Direction B"
+            "zh": "设计方向 B",
+            "en": "Design Direction B"
           },
           "source": "entries",
           "categoryIds": [
             "genre",
             "mechanic",
-            "theme",
-            "setting",
+            "world-frame",
             "mood",
             "goal",
             "constraint",
@@ -58,12 +57,12 @@
     {
       "id": "challenge",
       "labels": {
-        "zh": "开放挑战",
-        "en": "Open Challenge"
+        "zh": "意象挑战",
+        "en": "Motif Challenge"
       },
       "description": {
-        "zh": "两个基础方向与一条独立原创命题。",
-        "en": "Two base directions and an independently drawn original prompt."
+        "zh": "两个设计方向与三个自由组合的游戏意象。",
+        "en": "Two design directions and three freely combined game motifs."
       },
       "cooldown": {
         "entryWindow": 5,
@@ -75,103 +74,90 @@
         {
           "id": "left",
           "labels": {
-            "zh": "方向 A",
-            "en": "Direction A"
+            "zh": "设计方向 A",
+            "en": "Design Direction A"
           },
           "source": "entries",
           "categoryIds": [
-            "genre"
+            "genre",
+            "mechanic"
           ],
-          "required": true
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
           "id": "right",
           "labels": {
-            "zh": "方向 B",
-            "en": "Direction B"
+            "zh": "设计方向 B",
+            "en": "Design Direction B"
           },
           "source": "entries",
           "categoryIds": [
-            "mechanic"
+            "genre",
+            "mechanic",
+            "world-frame",
+            "mood",
+            "goal",
+            "constraint",
+            "presentation",
+            "perspective"
           ],
-          "required": true
-        },
-        {
-          "id": "prompt",
-          "labels": {
-            "zh": "开放命题",
-            "en": "Open Prompt"
-          },
-          "source": "promptDeck",
-          "deckId": "original-prompts",
           "required": true,
-          "balanceBy": "type"
-        }
-      ],
-      "variants": [
-        {
-          "id": "genre-mechanic",
-          "weight": 35,
-          "slotCategoryIds": {
-            "left": [
-              "genre"
-            ],
-            "right": [
-              "mechanic"
-            ]
-          }
+          "allowCategoryOverride": true
         },
         {
-          "id": "mechanic-mechanic",
-          "weight": 20,
-          "slotCategoryIds": {
-            "left": [
-              "mechanic"
-            ],
-            "right": [
-              "mechanic"
-            ]
-          }
+          "id": "motif-a",
+          "labels": {
+            "zh": "意象 A",
+            "en": "Motif A"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
-          "id": "mechanic-theme-mood",
-          "weight": 20,
-          "slotCategoryIds": {
-            "left": [
-              "mechanic"
-            ],
-            "right": [
-              "theme",
-              "mood"
-            ]
-          }
+          "id": "motif-b",
+          "labels": {
+            "zh": "意象 B",
+            "en": "Motif B"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
-          "id": "genre-theme-mood",
-          "weight": 15,
-          "slotCategoryIds": {
-            "left": [
-              "genre"
-            ],
-            "right": [
-              "theme",
-              "mood"
-            ]
-          }
-        },
-        {
-          "id": "gameplay-presentation-perspective",
-          "weight": 10,
-          "slotCategoryIds": {
-            "left": [
-              "genre",
-              "mechanic"
-            ],
-            "right": [
-              "presentation",
-              "perspective"
-            ]
-          }
+          "id": "motif-c",
+          "labels": {
+            "zh": "意象 C",
+            "en": "Motif C"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
         }
       ]
     },
@@ -182,8 +168,8 @@
         "en": "Prototype"
       },
       "description": {
-        "zh": "机制、玩法框架、玩家目标与开发限制。",
-        "en": "Mechanics, gameplay frame, player goal, and production constraint."
+        "zh": "机制、玩法框架、玩家目标与规则限制。",
+        "en": "Mechanics, gameplay frame, player goal, and rule constraint."
       },
       "cooldown": {
         "entryWindow": 5,
@@ -207,7 +193,7 @@
         {
           "id": "frame",
           "labels": {
-            "zh": "类型 / 副机制",
+            "zh": "类型／副机制",
             "en": "Genre / Secondary Mechanic"
           },
           "source": "entries",
@@ -232,8 +218,8 @@
         {
           "id": "constraint",
           "labels": {
-            "zh": "开发限制",
-            "en": "Constraint"
+            "zh": "规则限制",
+            "en": "Rule Constraint"
           },
           "source": "entries",
           "categoryIds": [
@@ -250,8 +236,8 @@
         "en": "World Building"
       },
       "description": {
-        "zh": "用主题、场景、氛围与视觉视角形成世界方向。",
-        "en": "Shape a world through theme, setting, mood, and presentation."
+        "zh": "用题材框架、三个自由意象和一个表现方向形成世界。",
+        "en": "Build a world from a frame, three free motifs, and one presentation direction."
       },
       "cooldown": {
         "entryWindow": 5,
@@ -261,53 +247,85 @@
       "riskPolicy": "neutral",
       "slots": [
         {
-          "id": "theme",
+          "id": "world-frame",
           "labels": {
-            "zh": "主题",
-            "en": "Theme"
+            "zh": "题材框架",
+            "en": "World Frame"
           },
           "source": "entries",
           "categoryIds": [
-            "theme"
+            "world-frame"
           ],
           "required": true
         },
         {
-          "id": "setting",
+          "id": "motif-a",
           "labels": {
-            "zh": "场景",
-            "en": "Setting"
+            "zh": "意象 A",
+            "en": "Motif A"
           },
           "source": "entries",
           "categoryIds": [
-            "setting"
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
           ],
-          "required": true
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
-          "id": "mood",
+          "id": "motif-b",
           "labels": {
-            "zh": "氛围",
-            "en": "Mood"
+            "zh": "意象 B",
+            "en": "Motif B"
           },
           "source": "entries",
           "categoryIds": [
-            "mood"
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
           ],
-          "required": true
+          "required": true,
+          "allowCategoryOverride": true
+        },
+        {
+          "id": "motif-c",
+          "labels": {
+            "zh": "意象 C",
+            "en": "Motif C"
+          },
+          "source": "entries",
+          "categoryIds": [
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
+          ],
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
           "id": "presentation",
           "labels": {
-            "zh": "表现 / 视角",
-            "en": "Presentation / Perspective"
+            "zh": "氛围／表现／视角",
+            "en": "Mood / Presentation / Perspective"
           },
           "source": "entries",
           "categoryIds": [
+            "mood",
             "presentation",
             "perspective"
           ],
-          "required": true
+          "required": true,
+          "allowCategoryOverride": true
         }
       ]
     },
@@ -318,8 +336,8 @@
         "en": "Historical Jam"
       },
       "description": {
-        "zh": "从历史 Jam 主题出发，用机制、场景、限制与氛围收敛。",
-        "en": "Start from a historical jam theme and narrow it with game directions."
+        "zh": "从历史 Jam 主题出发，用机制、意象、限制与氛围收敛。",
+        "en": "Start from a historical jam theme, then narrow it with a mechanic, motif, constraint, and mood."
       },
       "cooldown": {
         "entryWindow": 5,
@@ -351,16 +369,22 @@
           "required": true
         },
         {
-          "id": "setting",
+          "id": "motif",
           "labels": {
-            "zh": "场景",
-            "en": "Setting"
+            "zh": "任意意象",
+            "en": "Any Motif"
           },
           "source": "entries",
           "categoryIds": [
-            "setting"
+            "motif-entity",
+            "motif-place",
+            "motif-object",
+            "motif-substance",
+            "motif-phenomenon",
+            "motif-concept"
           ],
-          "required": true
+          "required": true,
+          "allowCategoryOverride": true
         },
         {
           "id": "constraint",

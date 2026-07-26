@@ -78,6 +78,12 @@ function packFromZip(files: Record<string, Uint8Array>): DataPack {
   ) {
     throw new Error("manifest.json 的 prompts.csv 声明与 ZIP 内容不一致。");
   }
+  if (
+    (manifest.files.provenance === "provenance.json") !==
+    Boolean(files["provenance.json"])
+  ) {
+    throw new Error("manifest.json 的 provenance.json 声明与 ZIP 内容不一致。");
+  }
   const categoryRows = parseCsv<Record<string, string>>(
     decoder.decode(files["categories.csv"]),
     "categories.csv",
@@ -89,6 +95,7 @@ function packFromZip(files: Record<string, Uint8Array>): DataPack {
   const categories: CategoryDefinition[] = categoryRows.map((row) => ({
     id: row.id?.trim(),
     labels: { zh: row.label_zh?.trim(), en: row.label_en?.trim() },
+    group: (row.group?.trim() || "design") as CategoryDefinition["group"],
     color: row.color?.trim() || undefined,
     enabled: bool(row.enabled),
   }));
@@ -148,7 +155,17 @@ function packFromZip(files: Record<string, Uint8Array>): DataPack {
       });
     }
   }
-  return normalizePack({ manifest, categories, entries, promptDecks, recipes });
+  const provenance = files["provenance.json"]
+    ? JSON.parse(decoder.decode(files["provenance.json"]))
+    : undefined;
+  return normalizePack({
+    manifest,
+    categories,
+    entries,
+    promptDecks,
+    recipes,
+    ...(provenance ? { provenance } : {}),
+  });
 }
 
 function assertArchivePath(name: string) {
@@ -227,6 +244,7 @@ export async function importPackFile(file: File): Promise<ImportedPack> {
       "entries.csv",
       "recipes.json",
       "prompts.csv",
+      "provenance.json",
     ]);
     for (const name of names) {
       assertArchivePath(name);

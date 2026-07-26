@@ -1,13 +1,13 @@
 {
   "packId": "tagforge-official",
-  "dataVersion": "2026.07.25",
+  "dataVersion": "2026.07.26",
   "name": {
     "zh": "TagForge 官方数据集",
     "en": "TagForge Official Dataset"
   },
   "description": {
-    "zh": "TagForge 当前开发阶段使用的官方游戏设计词汇与原创命题数据集。",
-    "en": "The official game-design vocabulary and original prompt dataset used by TagForge during development."
+    "zh": "面向独立游戏灵感组合的设计坐标、游戏意象与历史 Jam 主题。",
+    "en": "Design coordinates, observed game motifs, and historical jam themes for indie game ideation."
   },
   "defaultLocale": "zh",
   "locales": [
@@ -18,7 +18,8 @@
     "categories": "categories.csv",
     "entries": "entries.csv",
     "recipes": "recipes.json",
-    "prompts": "prompts.csv"
+    "prompts": "prompts.csv",
+    "provenance": "provenance.json"
   },
   "official": true
 }

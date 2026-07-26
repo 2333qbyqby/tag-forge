@@ -16,11 +16,13 @@ root seed
 
 官方包提供五个 Recipe：
 
-- `collision`：玩法方向 × 任意普通类别。
-- `challenge`：五种加权二词配方 + 独立原创开放命题。
+- `collision`：两个设计坐标，默认不抽取意象。
+- `challenge`：两个设计方向 + 三个自由意象。
 - `prototype`：主机制、玩法框架、玩家目标、开发限制。
-- `world-building`：主题、场景、氛围、表现/视角。
-- `historical-jam`：历史主题、机制、场景、限制、氛围。
+- `world-building`：题材框架、三个自由意象、氛围/表现/视角。
+- `historical-jam`：历史主题、机制、任意意象、限制、氛围。
+
+三个意象槽都可以从六类 motif Category 自由抽取，也允许用户逐槽覆盖 Category。算法不要求意象来自不同类别，不限制具体／抽象比例。
 
 ## 组合合法性
 
@@ -49,7 +51,7 @@ baseWeight
 - `familyWindow` 内出现相同 family 时降权。
 - `pairWindow` 内出现相同精确 Entry 对时优先排除；候选耗尽时回退。
 - `prefer-lower` Recipe 对实现风险较低的词轻度增权。
-- Prompt 可按最近类型做平衡，但不读取普通 Entry 或分析结果。
+- 历史 Prompt 仍使用通用 PromptDeck 抽取能力，但不读取普通 Entry 或分析结果。
 
 ## 可复现性与分享
 
@@ -66,5 +68,6 @@ baseWeight
 - Facet Jaccard 超阈值后，每节点保留前 6 个邻居。
 - 固定 Seed 模拟五个 Recipe，按每节点前 4 个保留共现边。
 - 对称化、去重后计算 Louvain、PageRank、度、加权度和介数中心性。
+- 额外输出 design/motif 分组统计。
 
 分析文件绑定 `packId`、`dataVersion` 和 pack checksum。浏览器 checksum 不匹配时拒绝显示数据实验室。

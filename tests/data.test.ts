@@ -1,23 +1,23 @@
 import { existsSync } from "node:fs";
 import { canonicalPackJson, packChecksum } from "../src/packs/canonical";
+import { normalizePack } from "../src/packs/normalize";
 import { validatePack } from "../src/packs/validate";
 import { officialData } from "./fixtures";
 
 describe("official dataset", () => {
-  it("uses the stable identity and exact canonical datasets", () => {
+  it("uses the stable identity and two-layer canonical dataset", () => {
     expect(officialData.manifest.packId).toBe("tagforge-official");
-    expect(officialData.manifest.dataVersion).toBe("2026.07.25");
-    expect(officialData.entries).toHaveLength(427);
+    expect(officialData.manifest.dataVersion).toBe("2026.07.26");
     expect(
-      officialData.entries.filter(
-        (entry) => entry.enabled !== false && !entry.deprecatedBy,
-      ),
-    ).toHaveLength(424);
+      officialData.categories.filter((category) => category.group === "design"),
+    ).toHaveLength(8);
     expect(
-      officialData.entries.filter((entry) => entry.deprecatedBy),
-    ).toHaveLength(3);
-    expect(officialData.promptDecks[0].prompts).toHaveLength(1000);
-    expect(officialData.promptDecks[1].prompts).toHaveLength(34);
+      officialData.categories.filter((category) => category.group === "motif"),
+    ).toHaveLength(6);
+    expect(officialData.categories.map((category) => category.id)).not.toContain("theme");
+    expect(officialData.categories.map((category) => category.id)).not.toContain("setting");
+    expect(officialData.promptDecks).toHaveLength(1);
+    expect(officialData.promptDecks[0].prompts).toHaveLength(34);
     expect(officialData.recipes.map((recipe) => recipe.id)).toEqual([
       "collision",
       "challenge",
@@ -28,28 +28,63 @@ describe("official dataset", () => {
   });
 
   it("keeps all current IDs unique", () => {
-    const allIds = new Set([
+    const ids = [
       ...officialData.entries.map((entry) => entry.id),
-      ...officialData.promptDecks[1].prompts.map((prompt) => prompt.id),
-    ]);
-    expect(allIds.size).toBe(461);
-    expect(officialData.promptDecks[0].prompts).toHaveLength(1000);
-    expect(
-      new Set(
-        officialData.promptDecks[0].prompts.map((prompt) => prompt.origin),
-      ),
-    ).toEqual(new Set(["tagforge-original"]));
+      ...officialData.promptDecks[0].prompts.map((prompt) => prompt.id),
+    ];
+    expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("keeps historical themes separate from original prompts", () => {
+  it("keeps historical themes separate from entries", () => {
     const entryIds = new Set(officialData.entries.map((entry) => entry.id));
-    const originalIds = new Set(
-      officialData.promptDecks[0].prompts.map((prompt) => prompt.id),
-    );
-    for (const prompt of officialData.promptDecks[1].prompts) {
+    for (const prompt of officialData.promptDecks[0].prompts) {
       expect(entryIds.has(prompt.id)).toBe(false);
-      expect(originalIds.has(prompt.id)).toBe(false);
     }
+  });
+
+  it("normalizes missing category groups to design and rejects illegal groups", () => {
+    const normalized = normalizePack({
+      ...officialData,
+      categories: officialData.categories.map((category, index) =>
+        index === 0 ? { ...category, group: undefined } : category,
+      ),
+    });
+    expect(normalized.categories[0].group).toBe("design");
+    const invalid = normalizePack({
+      ...officialData,
+      categories: officialData.categories.map((category, index) =>
+        index === 0 ? { ...category, group: "other" } : category,
+      ),
+    });
+    expect(validatePack(invalid).issues.map((issue) => issue.code)).toContain(
+      "category.group.invalid",
+    );
+  });
+
+  it("gives every official motif formal game evidence without imposing a count quota", () => {
+    const motifCategoryIds = new Set(
+      officialData.categories
+        .filter((category) => category.group === "motif")
+        .map((category) => category.id),
+    );
+    const motifIds = officialData.entries
+      .filter(
+        (entry) =>
+          entry.enabled !== false &&
+          !entry.deprecatedBy &&
+          motifCategoryIds.has(entry.categoryId),
+      )
+      .map((entry) => entry.id);
+    const observed = new Set(
+      officialData.provenance?.observations.map((observation) => observation.entryId),
+    );
+    expect(motifIds.length).toBeGreaterThan(0);
+    expect(motifIds.every((id) => observed.has(id))).toBe(true);
+    expect(
+      officialData.provenance?.sources.every(
+        (source) => source.kind === "game" && source.url.startsWith("https://"),
+      ),
+    ).toBe(true);
   });
 
   it("has valid references and complete declared recipe reachability", () => {

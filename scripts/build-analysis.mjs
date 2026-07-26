@@ -274,12 +274,15 @@ const countBy = (values) =>
     [...values.entries()].sort(([left], [right]) => left.localeCompare(right)),
   );
 const categoryCounts = new Map();
+const groupCounts = new Map([["design", 0], ["motif", 0]]);
 const facetCounts = new Map();
 for (const entry of entries) {
   categoryCounts.set(
     entry.categoryId,
     (categoryCounts.get(entry.categoryId) ?? 0) + 1,
   );
+  const group = pack.categories.find((category) => category.id === entry.categoryId)?.group ?? "design";
+  groupCounts.set(group, (groupCounts.get(group) ?? 0) + 1);
   for (const facet of entry.facets) {
     facetCounts.set(facet, (facetCounts.get(facet) ?? 0) + 1);
   }
@@ -301,6 +304,7 @@ const analysis = {
   metrics,
   communities,
   categoryCounts: countBy(categoryCounts),
+  groupCounts: countBy(groupCounts),
   facetCounts: countBy(facetCounts),
   recipeCooccurrence,
 };

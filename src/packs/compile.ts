@@ -29,6 +29,15 @@ export function compilePack(pack: LoadedPack): CompiledPack {
     bucket.push(entry);
     entriesByCategory.set(entry.categoryId, bucket);
   }
+  const sourceById = new Map(
+    (pack.data.provenance?.sources ?? []).map((source) => [source.id, source]),
+  );
+  const observationsByEntry = new Map();
+  for (const observation of pack.data.provenance?.observations ?? []) {
+    const bucket = observationsByEntry.get(observation.entryId) ?? [];
+    bucket.push(observation);
+    observationsByEntry.set(observation.entryId, bucket);
+  }
   return {
     ...pack,
     categoryById,
@@ -37,5 +46,7 @@ export function compilePack(pack: LoadedPack): CompiledPack {
     promptById,
     recipeById,
     entriesByCategory,
+    sourceById,
+    observationsByEntry,
   };
 }

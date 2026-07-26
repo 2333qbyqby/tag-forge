@@ -11,6 +11,22 @@ const MAX_ENTRIES = 20_000;
 const MAX_PROMPTS = 20_000;
 const MAX_RECIPES = 32;
 const MAX_SLOTS = 12;
+const OBSERVATION_CHANNELS = new Set([
+  "visual",
+  "interactive",
+  "systemic",
+  "narrative",
+  "auditory",
+  "spatial",
+]);
+
+function isHttpsUrl(value: string): boolean {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
 
 function issue(
   issues: PackValidationIssue[],
@@ -308,12 +324,24 @@ export function validatePack(pack: DataPack): PackValidationReport {
       "语言字段无效，且 locales 必须包含 defaultLocale。",
     );
   }
+  if (
+    (pack.manifest.files.provenance === "provenance.json") !==
+    Boolean(pack.provenance)
+  ) {
+    issue(
+      issues,
+      "manifest.provenance.mismatch",
+      "manifest.files.provenance",
+      "provenance.json 声明与数据内容不一致。",
+    );
+  }
   const files = pack.manifest?.files;
   if (
     files?.categories !== "categories.csv" ||
     files?.entries !== "entries.csv" ||
     files?.recipes !== "recipes.json" ||
-    (files.prompts !== undefined && files.prompts !== "prompts.csv")
+    (files.prompts !== undefined && files.prompts !== "prompts.csv") ||
+    (files.provenance !== undefined && files.provenance !== "provenance.json")
   ) {
     issue(
       issues,
@@ -363,6 +391,14 @@ export function validatePack(pack: DataPack): PackValidationReport {
     }
     categoryIds.add(category.id);
     validateLocalized(issues, category.labels, `categories[${index}].labels`);
+    if (!["design", "motif"].includes(category.group)) {
+      issue(
+        issues,
+        "category.group.invalid",
+        `categories[${index}].group`,
+        "Category group 只能是 design 或 motif。",
+      );
+    }
   }
 
   const entryIds = new Set<string>();
@@ -513,6 +549,165 @@ export function validatePack(pack: DataPack): PackValidationReport {
       "manifest.files.prompts",
       "包含 Prompt 时必须声明 prompts.csv。",
     );
+  }
+
+  const sources = pack.provenance?.sources ?? [];
+  const observations = pack.provenance?.observations ?? [];
+  const sourceIds = new Set<string>();
+  const sourceUrls = new Set<string>();
+  for (const [index, source] of sources.entries()) {
+    const path = `provenance.sources[${index}]`;
+    if (!ID_PATTERN.test(source.id ?? "") || sourceIds.has(source.id)) {
+      issue(
+        issues,
+        sourceIds.has(source.id) ? "id.duplicate" : "id.invalid",
+        `${path}.id`,
+        "来源 ID 无效或重复。",
+      );
+    }
+    sourceIds.add(source.id);
+    if (!["game", "taxonomy", "jam"].includes(source.kind)) {
+      issue(issues, "source.kind.invalid", `${path}.kind`, "来源 kind 无效。");
+    }
+    validateLocalized(issues, source.labels, `${path}.labels`);
+    if (!isHttpsUrl(source.url)) {
+      issue(issues, "url.https.required", `${path}.url`, "来源 URL 必须使用 HTTPS。");
+    }
+    if (sourceUrls.has(source.url)) {
+      issue(issues, "source.duplicate", `${path}.url`, "来源 URL 重复。");
+    }
+    sourceUrls.add(source.url);
+    if (!/^\d{4}-\d{2}-\d{2}/.test(source.retrievedAt)) {
+      issue(
+        issues,
+        "source.retrieved-at.invalid",
+        `${path}.retrievedAt`,
+        "retrievedAt 必须是 ISO 日期或时间。",
+      );
+    }
+    if (
+      source.releaseYear !== undefined &&
+      (!Number.isInteger(source.releaseYear) ||
+        source.releaseYear < 1970 ||
+        source.releaseYear > 2200)
+    ) {
+      issue(issues, "source.year.invalid", `${path}.releaseYear`, "发行年份无效。");
+    }
+  }
+  const observationKeys = new Set<string>();
+  const observedEntries = new Set<string>();
+  for (const [index, observation] of observations.entries()) {
+    const path = `provenance.observations[${index}]`;
+    const entry = pack.entries.find((candidate) => candidate.id === observation.entryId);
+    if (!entry) {
+      issue(
+        issues,
+        "reference.entry",
+        `${path}.entryId`,
+        `观察引用了不存在的 Entry：${observation.entryId}`,
+      );
+    } else if (
+      pack.categories.find((category) => category.id === entry.categoryId)?.group !==
+      "motif"
+    ) {
+      issue(
+        issues,
+        "observation.entry.group",
+        `${path}.entryId`,
+        "正式观察只能引用 motif Entry。",
+      );
+    } else if (entry.enabled === false || entry.deprecatedBy) {
+      issue(
+        issues,
+        "observation.entry.inactive",
+        `${path}.entryId`,
+        "正式观察不能引用停用或已迁移的 Entry。",
+      );
+    } else {
+      observedEntries.add(entry.id);
+    }
+    if (!sourceIds.has(observation.sourceId)) {
+      issue(
+        issues,
+        "reference.source",
+        `${path}.sourceId`,
+        `观察引用了不存在的来源：${observation.sourceId}`,
+      );
+    }
+    if (
+      pack.manifest.official &&
+      sources.find((source) => source.id === observation.sourceId)?.kind !== "game"
+    ) {
+      issue(
+        issues,
+        "observation.source.kind",
+        `${path}.sourceId`,
+        "官方 motif 观察必须引用游戏来源。",
+      );
+    }
+    if (!isHttpsUrl(observation.evidenceUrl)) {
+      issue(
+        issues,
+        "url.https.required",
+        `${path}.evidenceUrl`,
+        "证据 URL 必须使用 HTTPS。",
+      );
+    }
+    if (
+      !observation.channels.length ||
+      new Set(observation.channels).size !== observation.channels.length ||
+      observation.channels.some((channel) => !OBSERVATION_CHANNELS.has(channel))
+    ) {
+      issue(
+        issues,
+        "observation.channels.invalid",
+        `${path}.channels`,
+        "观察渠道必须非空、唯一且使用允许值。",
+      );
+    }
+    if (!["core", "recurring"].includes(observation.salience)) {
+      issue(
+        issues,
+        "observation.salience.invalid",
+        `${path}.salience`,
+        "显著性只能是 core 或 recurring。",
+      );
+    }
+    validateLocalized(issues, observation.note, `${path}.note`);
+    const key = `${observation.entryId}\u0000${observation.sourceId}\u0000${observation.evidenceUrl}`;
+    if (observationKeys.has(key)) {
+      issue(issues, "observation.duplicate", path, "存在重复的来源观察。");
+    }
+    observationKeys.add(key);
+  }
+  if (pack.manifest.official) {
+    const usedSourceIds = new Set(observations.map((observation) => observation.sourceId));
+    for (const source of sources) {
+      if (!usedSourceIds.has(source.id)) {
+        issue(
+          issues,
+          "source.unused",
+          `provenance.sources.${source.id}`,
+          "官方 provenance 不得包含未用于正式观察的来源。",
+        );
+      }
+    }
+    for (const entry of pack.entries) {
+      if (
+        entry.enabled !== false &&
+        !entry.deprecatedBy &&
+        pack.categories.find((category) => category.id === entry.categoryId)?.group ===
+          "motif" &&
+        !observedEntries.has(entry.id)
+      ) {
+        issue(
+          issues,
+          "motif.provenance.required",
+          `entries.${entry.id}`,
+          "官方 motif Entry 必须具有正式来源观察。",
+        );
+      }
+    }
   }
 
   const recipeIds = new Set<string>();

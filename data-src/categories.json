@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026.07.25",
+  "dataVersion": "2026.07.26",
   "categories": [
     {
       "id": "genre",
@@ -7,6 +7,7 @@
         "zh": "类型",
         "en": "Genre"
       },
+      "group": "design",
       "color": "coral",
       "enabled": true
     },
@@ -16,33 +17,27 @@
         "zh": "机制",
         "en": "Mechanic"
       },
+      "group": "design",
       "color": "acid",
       "enabled": true
     },
     {
-      "id": "theme",
+      "id": "world-frame",
       "labels": {
-        "zh": "主题",
-        "en": "Theme"
+        "zh": "题材框架",
+        "en": "World Frame"
       },
+      "group": "design",
       "color": "violet",
-      "enabled": true
-    },
-    {
-      "id": "setting",
-      "labels": {
-        "zh": "场景",
-        "en": "Setting"
-      },
-      "color": "cyan",
       "enabled": true
     },
     {
       "id": "mood",
       "labels": {
-        "zh": "氛围",
-        "en": "Mood"
+        "zh": "氛围／体验",
+        "en": "Mood / Experience"
       },
+      "group": "design",
       "color": "amber",
       "enabled": true
     },
@@ -52,15 +47,17 @@
         "zh": "目标",
         "en": "Goal"
       },
+      "group": "design",
       "color": "green",
       "enabled": true
     },
     {
       "id": "constraint",
       "labels": {
-        "zh": "限制",
-        "en": "Constraint"
+        "zh": "规则限制",
+        "en": "Rule Constraint"
       },
+      "group": "design",
       "color": "red",
       "enabled": true
     },
@@ -70,6 +67,7 @@
         "zh": "表现",
         "en": "Presentation"
       },
+      "group": "design",
       "color": "blue",
       "enabled": true
     },
@@ -79,7 +77,68 @@
         "zh": "视角",
         "en": "Perspective"
       },
+      "group": "design",
       "color": "slate",
+      "enabled": true
+    },
+    {
+      "id": "motif-entity",
+      "labels": {
+        "zh": "主体",
+        "en": "Entity"
+      },
+      "group": "motif",
+      "color": "rose",
+      "enabled": true
+    },
+    {
+      "id": "motif-place",
+      "labels": {
+        "zh": "空间",
+        "en": "Place"
+      },
+      "group": "motif",
+      "color": "cyan",
+      "enabled": true
+    },
+    {
+      "id": "motif-object",
+      "labels": {
+        "zh": "器物",
+        "en": "Object"
+      },
+      "group": "motif",
+      "color": "orange",
+      "enabled": true
+    },
+    {
+      "id": "motif-substance",
+      "labels": {
+        "zh": "物质／感官",
+        "en": "Substance / Sense"
+      },
+      "group": "motif",
+      "color": "teal",
+      "enabled": true
+    },
+    {
+      "id": "motif-phenomenon",
+      "labels": {
+        "zh": "现象／事件",
+        "en": "Phenomenon / Event"
+      },
+      "group": "motif",
+      "color": "indigo",
+      "enabled": true
+    },
+    {
+      "id": "motif-concept",
+      "labels": {
+        "zh": "概念／关系",
+        "en": "Concept / Relation"
+      },
+      "group": "motif",
+      "color": "pink",
       "enabled": true
     }
   ]

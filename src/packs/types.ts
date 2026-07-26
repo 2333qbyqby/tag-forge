@@ -15,6 +15,7 @@ export interface PackManifest {
     entries: "entries.csv";
     recipes: "recipes.json";
     prompts?: "prompts.csv";
+    provenance?: "provenance.json";
   };
   official?: boolean;
 }
@@ -22,8 +23,36 @@ export interface PackManifest {
 export interface CategoryDefinition {
   id: string;
   labels: LocalizedText;
+  group: "design" | "motif";
   color?: string;
   enabled: boolean;
+}
+
+export interface PackSource {
+  id: string;
+  kind: "game" | "taxonomy" | "jam";
+  labels: LocalizedText;
+  url: string;
+  developer?: string;
+  releaseYear?: number;
+  retrievedAt: string;
+}
+
+export type ObservationChannel =
+  | "visual"
+  | "interactive"
+  | "systemic"
+  | "narrative"
+  | "auditory"
+  | "spatial";
+
+export interface EntryObservation {
+  entryId: string;
+  sourceId: string;
+  evidenceUrl: string;
+  channels: ObservationChannel[];
+  salience: "core" | "recurring";
+  note: LocalizedText;
 }
 
 export interface EntryRecord {
@@ -99,6 +128,10 @@ export interface DataPack {
   entries: EntryRecord[];
   promptDecks: PromptDeck[];
   recipes: RecipeDefinition[];
+  provenance?: {
+    sources: PackSource[];
+    observations: EntryObservation[];
+  };
 }
 
 export interface PackRef {
@@ -131,6 +164,8 @@ export interface CompiledPack extends LoadedPack {
   promptById: Map<string, PromptRecord>;
   recipeById: Map<string, RecipeDefinition>;
   entriesByCategory: Map<string, EntryRecord[]>;
+  sourceById: Map<string, PackSource>;
+  observationsByEntry: Map<string, EntryObservation[]>;
 }
 
 export interface ResultSlotSnapshot {
@@ -225,6 +260,7 @@ export interface OfficialAnalysis {
     memberIds: string[];
   }>;
   categoryCounts: Record<string, number>;
+  groupCounts: Record<"design" | "motif", number>;
   facetCounts: Record<string, number>;
   recipeCooccurrence: Record<string, number>;
 }

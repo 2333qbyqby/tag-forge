@@ -2,6 +2,7 @@ import "fake-indexeddb/auto";
 import { strToU8, zipSync } from "fflate";
 import { importPackFile } from "../src/packs/importer";
 import { packChecksum } from "../src/packs/canonical";
+import { validatePack } from "../src/packs/validate";
 import type { DataPack } from "../src/packs/types";
 import {
   addHistory,
@@ -30,12 +31,14 @@ const minimalPack: DataPack = {
       categories: "categories.csv",
       entries: "entries.csv",
       recipes: "recipes.json",
+      provenance: "provenance.json",
     },
   },
   categories: [
     {
       id: "idea",
       labels: { zh: "点子", en: "Idea" },
+      group: "design",
       enabled: true,
     },
   ],
@@ -70,6 +73,18 @@ const minimalPack: DataPack = {
     },
   ],
   promptDecks: [],
+  provenance: {
+    sources: [
+      {
+        id: "taxonomy-example",
+        kind: "taxonomy",
+        labels: { zh: "示例分类", en: "Example Taxonomy" },
+        url: "https://example.test/taxonomy",
+        retrievedAt: "2026-07-26",
+      },
+    ],
+    observations: [],
+  },
   recipes: [
     {
       id: "collision",
@@ -109,7 +124,7 @@ describe("data pack import, storage, and sharing", () => {
         zipSync({
           "manifest.json": strToU8(JSON.stringify(minimalPack.manifest)),
           "categories.csv": strToU8(
-            "id,label_zh,label_en,color,enabled\nidea,点子,Idea,,true\n",
+            "id,label_zh,label_en,group,color,enabled\nidea,点子,Idea,design,,true\n",
           ),
           "entries.csv": strToU8(
             [
@@ -120,6 +135,7 @@ describe("data pack import, storage, and sharing", () => {
             ].join("\n"),
           ),
           "recipes.json": strToU8(JSON.stringify(minimalPack.recipes)),
+          "provenance.json": strToU8(JSON.stringify(minimalPack.provenance)),
         }),
       ],
       "minimal.zip",
@@ -132,6 +148,47 @@ describe("data pack import, storage, and sharing", () => {
     expect(fromJson.report.valid).toBe(true);
     expect(fromZip.report.valid).toBe(true);
     expect(fromJson.checksum).toBe(fromZip.checksum);
+  });
+
+  it("rejects malformed provenance and still accepts packs without it", async () => {
+    const withoutProvenance: DataPack = {
+      ...minimalPack,
+      manifest: {
+        ...minimalPack.manifest,
+        files: { ...minimalPack.manifest.files, provenance: undefined },
+      },
+      provenance: undefined,
+    };
+    expect(validatePack(withoutProvenance).valid).toBe(true);
+
+    const invalid: DataPack = {
+      ...minimalPack,
+      provenance: {
+        sources: [
+          {
+            ...minimalPack.provenance!.sources[0],
+            url: "http://example.test/insecure",
+          },
+          minimalPack.provenance!.sources[0],
+        ],
+        observations: [
+          {
+            entryId: "missing",
+            sourceId: "missing",
+            evidenceUrl: "http://example.test/evidence",
+            channels: ["visual", "visual"],
+            salience: "core",
+            note: { zh: "观察", en: "Observation" },
+          },
+        ],
+      },
+    };
+    const codes = validatePack(invalid).issues.map((issue) => issue.code);
+    expect(codes).toContain("id.duplicate");
+    expect(codes).toContain("url.https.required");
+    expect(codes).toContain("reference.entry");
+    expect(codes).toContain("reference.source");
+    expect(codes).toContain("observation.channels.invalid");
   });
 
   it("rejects script files and unsafe ZIP paths", async () => {

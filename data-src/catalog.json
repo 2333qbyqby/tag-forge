@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026.07.25",
+  "dataVersion": "2026.07.26",
   "sourceRefs": [
     {
       "id": "curated-2026-07",
@@ -3501,2679 +3501,6 @@
         "input",
         "observation",
         "adventure"
-      ]
-    },
-    {
-      "id": "memory",
-      "labels": {
-        "en": "Memory",
-        "zh": "记忆"
-      },
-      "aliases": [],
-      "family": "memory",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "memory",
-        "past"
-      ]
-    },
-    {
-      "id": "identity",
-      "labels": {
-        "en": "Identity",
-        "zh": "身份"
-      },
-      "aliases": [],
-      "family": "identity",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": 0,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "identity",
-        "self"
-      ]
-    },
-    {
-      "id": "loss",
-      "labels": {
-        "en": "Loss",
-        "zh": "失去"
-      },
-      "aliases": [],
-      "family": "loss",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "loss",
-        "grief"
-      ]
-    },
-    {
-      "id": "decay",
-      "labels": {
-        "en": "Decay",
-        "zh": "衰败"
-      },
-      "aliases": [],
-      "family": "decay",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": 0,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "decay",
-        "entropy"
-      ]
-    },
-    {
-      "id": "repair",
-      "labels": {
-        "en": "Repair",
-        "zh": "修复"
-      },
-      "aliases": [],
-      "family": "prompt-repair",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "repair",
-        "healing"
-      ]
-    },
-    {
-      "id": "connection",
-      "labels": {
-        "en": "Connection",
-        "zh": "连接"
-      },
-      "aliases": [],
-      "family": "connection",
-      "baseWeight": 1,
-      "rarity": 0.05,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "connection",
-        "social"
-      ]
-    },
-    {
-      "id": "isolation",
-      "labels": {
-        "en": "Isolation",
-        "zh": "孤立"
-      },
-      "aliases": [],
-      "family": "isolation",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "isolation",
-        "loneliness"
-      ]
-    },
-    {
-      "id": "transformation",
-      "labels": {
-        "en": "Transformation",
-        "zh": "蜕变"
-      },
-      "aliases": [],
-      "family": "transformation",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "transformation",
-        "change"
-      ]
-    },
-    {
-      "id": "ritual",
-      "labels": {
-        "en": "Ritual",
-        "zh": "仪式"
-      },
-      "aliases": [],
-      "family": "ritual",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "ritual",
-        "tradition"
-      ]
-    },
-    {
-      "id": "deception",
-      "labels": {
-        "en": "Deception",
-        "zh": "欺骗"
-      },
-      "aliases": [],
-      "family": "deception",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "deception",
-        "trust"
-      ]
-    },
-    {
-      "id": "duality",
-      "labels": {
-        "en": "Duality",
-        "zh": "二元性"
-      },
-      "aliases": [],
-      "family": "duality",
-      "baseWeight": 1,
-      "rarity": 0.15,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "duality",
-        "contrast"
-      ]
-    },
-    {
-      "id": "roots",
-      "labels": {
-        "en": "Roots",
-        "zh": "根源"
-      },
-      "aliases": [],
-      "family": "prompt-roots",
-      "baseWeight": 1,
-      "rarity": 0.15,
-      "scopeImpact": 0,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "roots",
-        "nature",
-        "origin"
-      ]
-    },
-    {
-      "id": "masks",
-      "labels": {
-        "en": "Masks",
-        "zh": "面具"
-      },
-      "aliases": [],
-      "family": "masks",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": -0.02,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "mask",
-        "identity",
-        "deception"
-      ]
-    },
-    {
-      "id": "dreams",
-      "labels": {
-        "en": "Dreams",
-        "zh": "梦境"
-      },
-      "aliases": [],
-      "family": "dreams",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.05,
-      "implementationRisk": 0.25,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "dream",
-        "surreal"
-      ]
-    },
-    {
-      "id": "death",
-      "labels": {
-        "en": "Death",
-        "zh": "死亡"
-      },
-      "aliases": [],
-      "family": "death",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": 0,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "death",
-        "loss"
-      ]
-    },
-    {
-      "id": "rebirth",
-      "labels": {
-        "en": "Rebirth",
-        "zh": "重生"
-      },
-      "aliases": [],
-      "family": "rebirth",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "rebirth",
-        "cycle",
-        "transformation"
-      ]
-    },
-    {
-      "id": "nature",
-      "labels": {
-        "en": "Nature",
-        "zh": "自然"
-      },
-      "aliases": [],
-      "family": "nature",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "nature",
-        "environment"
-      ]
-    },
-    {
-      "id": "technology",
-      "labels": {
-        "en": "Technology",
-        "zh": "科技"
-      },
-      "aliases": [],
-      "family": "technology",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.2,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "technology",
-        "machine"
-      ]
-    },
-    {
-      "id": "artificial-intelligence",
-      "labels": {
-        "en": "Artificial Intelligence",
-        "zh": "人工智能"
-      },
-      "aliases": [],
-      "family": "artificial-intelligence",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.24,
-      "implementationRisk": 0.38,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "technology",
-        "identity",
-        "machine"
-      ]
-    },
-    {
-      "id": "internet",
-      "labels": {
-        "en": "Internet",
-        "zh": "互联网"
-      },
-      "aliases": [],
-      "family": "internet",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "internet",
-        "connection",
-        "technology"
-      ]
-    },
-    {
-      "id": "time",
-      "labels": {
-        "en": "Time",
-        "zh": "时间"
-      },
-      "aliases": [],
-      "family": "time",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "time",
-        "change"
-      ]
-    },
-    {
-      "id": "entropy",
-      "labels": {
-        "en": "Entropy",
-        "zh": "熵"
-      },
-      "aliases": [],
-      "family": "entropy",
-      "baseWeight": 1,
-      "rarity": 0.3,
-      "scopeImpact": 0.04,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "entropy",
-        "decay",
-        "time"
-      ]
-    },
-    {
-      "id": "sacrifice",
-      "labels": {
-        "en": "Sacrifice",
-        "zh": "牺牲"
-      },
-      "aliases": [],
-      "family": "sacrifice",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "sacrifice",
-        "choice",
-        "loss"
-      ]
-    },
-    {
-      "id": "trust",
-      "labels": {
-        "en": "Trust",
-        "zh": "信任"
-      },
-      "aliases": [],
-      "family": "trust",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "trust",
-        "social",
-        "choice"
-      ]
-    },
-    {
-      "id": "language",
-      "labels": {
-        "en": "Language",
-        "zh": "语言"
-      },
-      "aliases": [],
-      "family": "language",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": -0.02,
-      "implementationRisk": 0.25,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "language",
-        "communication",
-        "culture"
-      ]
-    },
-    {
-      "id": "communication",
-      "labels": {
-        "en": "Communication",
-        "zh": "沟通"
-      },
-      "aliases": [],
-      "family": "communication",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "communication",
-        "connection",
-        "signal"
-      ]
-    },
-    {
-      "id": "home",
-      "labels": {
-        "en": "Home",
-        "zh": "家"
-      },
-      "aliases": [],
-      "family": "home",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "home",
-        "belonging"
-      ]
-    },
-    {
-      "id": "migration",
-      "labels": {
-        "en": "Migration",
-        "zh": "迁徙"
-      },
-      "aliases": [],
-      "family": "migration",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "migration",
-        "home",
-        "journey"
-      ]
-    },
-    {
-      "id": "childhood",
-      "labels": {
-        "en": "Childhood",
-        "zh": "童年"
-      },
-      "aliases": [],
-      "family": "childhood",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "childhood",
-        "memory",
-        "growth"
-      ]
-    },
-    {
-      "id": "family",
-      "labels": {
-        "en": "Family",
-        "zh": "家庭"
-      },
-      "aliases": [],
-      "family": "family",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "family",
-        "connection",
-        "home"
-      ]
-    },
-    {
-      "id": "friendship",
-      "labels": {
-        "en": "Friendship",
-        "zh": "友谊"
-      },
-      "aliases": [],
-      "family": "friendship",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": -0.05,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "friendship",
-        "connection",
-        "trust"
-      ]
-    },
-    {
-      "id": "work",
-      "labels": {
-        "en": "Work",
-        "zh": "劳动"
-      },
-      "aliases": [],
-      "family": "work",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "work",
-        "routine",
-        "society"
-      ]
-    },
-    {
-      "id": "bureaucracy",
-      "labels": {
-        "en": "Bureaucracy",
-        "zh": "官僚体系"
-      },
-      "aliases": [],
-      "family": "bureaucracy",
-      "baseWeight": 1,
-      "rarity": 0.28,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "bureaucracy",
-        "society",
-        "absurd"
-      ]
-    },
-    {
-      "id": "consumerism",
-      "labels": {
-        "en": "Consumerism",
-        "zh": "消费主义"
-      },
-      "aliases": [],
-      "family": "consumerism",
-      "baseWeight": 1,
-      "rarity": 0.22,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "consumerism",
-        "society",
-        "economy"
-      ]
-    },
-    {
-      "id": "climate",
-      "labels": {
-        "en": "Climate",
-        "zh": "气候"
-      },
-      "aliases": [],
-      "family": "climate",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "climate",
-        "nature",
-        "crisis"
-      ]
-    },
-    {
-      "id": "folklore",
-      "labels": {
-        "en": "Folklore",
-        "zh": "民间传说"
-      },
-      "aliases": [],
-      "family": "folklore",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.06,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "folklore",
-        "tradition",
-        "mystery"
-      ]
-    },
-    {
-      "id": "myth",
-      "labels": {
-        "en": "Myth",
-        "zh": "神话"
-      },
-      "aliases": [],
-      "family": "myth",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "myth",
-        "tradition",
-        "fantasy"
-      ]
-    },
-    {
-      "id": "ocean",
-      "labels": {
-        "en": "Ocean",
-        "zh": "海洋"
-      },
-      "aliases": [],
-      "family": "ocean",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "ocean",
-        "nature",
-        "unknown"
-      ]
-    },
-    {
-      "id": "space",
-      "labels": {
-        "en": "Space",
-        "zh": "太空"
-      },
-      "aliases": [],
-      "family": "space",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.28,
-      "implementationRisk": 0.36,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "space",
-        "unknown",
-        "technology"
-      ]
-    },
-    {
-      "id": "unknown",
-      "labels": {
-        "en": "The Unknown",
-        "zh": "未知"
-      },
-      "aliases": [],
-      "family": "unknown",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "unknown",
-        "mystery"
-      ]
-    },
-    {
-      "id": "fantasy",
-      "labels": {
-        "en": "Fantasy",
-        "zh": "奇幻"
-      },
-      "aliases": [],
-      "family": "fantasy",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "fantasy",
-        "magic",
-        "myth"
-      ]
-    },
-    {
-      "id": "science-fiction",
-      "labels": {
-        "en": "Science Fiction",
-        "zh": "科幻"
-      },
-      "aliases": [],
-      "family": "science-fiction",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.22,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "science",
-        "technology",
-        "future"
-      ]
-    },
-    {
-      "id": "magic",
-      "labels": {
-        "en": "Magic",
-        "zh": "魔法"
-      },
-      "aliases": [],
-      "family": "magic",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": 0.1,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "magic",
-        "power",
-        "fantasy"
-      ]
-    },
-    {
-      "id": "medieval",
-      "labels": {
-        "en": "Medieval",
-        "zh": "中世纪"
-      },
-      "aliases": [],
-      "family": "medieval",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "history",
-        "kingdom",
-        "tradition"
-      ]
-    },
-    {
-      "id": "futuristic",
-      "labels": {
-        "en": "Futuristic",
-        "zh": "未来主义"
-      },
-      "aliases": [],
-      "family": "futuristic",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.2,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "future",
-        "technology",
-        "society"
-      ]
-    },
-    {
-      "id": "post-apocalyptic",
-      "labels": {
-        "en": "Post-Apocalyptic",
-        "zh": "后末日"
-      },
-      "aliases": [],
-      "family": "post-apocalyptic",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.22,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "apocalypse",
-        "survival",
-        "decay"
-      ]
-    },
-    {
-      "id": "war",
-      "labels": {
-        "en": "War",
-        "zh": "战争"
-      },
-      "aliases": [],
-      "family": "war",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.32,
-      "implementationRisk": 0.42,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "war",
-        "conflict",
-        "loss"
-      ]
-    },
-    {
-      "id": "zombies",
-      "labels": {
-        "en": "Zombies",
-        "zh": "僵尸"
-      },
-      "aliases": [],
-      "family": "zombies",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": 0.16,
-      "implementationRisk": 0.34,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "undead",
-        "survival",
-        "infection"
-      ]
-    },
-    {
-      "id": "demons",
-      "labels": {
-        "en": "Demons",
-        "zh": "恶魔"
-      },
-      "aliases": [],
-      "family": "demons",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "demon",
-        "supernatural",
-        "corruption"
-      ]
-    },
-    {
-      "id": "aliens",
-      "labels": {
-        "en": "Aliens",
-        "zh": "外星人"
-      },
-      "aliases": [],
-      "family": "aliens",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "alien",
-        "unknown",
-        "space"
-      ]
-    },
-    {
-      "id": "cyberpunk",
-      "labels": {
-        "en": "Cyberpunk",
-        "zh": "赛博朋克"
-      },
-      "aliases": [],
-      "family": "cyberpunk",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.2,
-      "implementationRisk": 0.34,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "technology",
-        "dystopia",
-        "city"
-      ]
-    },
-    {
-      "id": "robots",
-      "labels": {
-        "en": "Robots",
-        "zh": "机器人"
-      },
-      "aliases": [],
-      "family": "robots",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "machine",
-        "technology",
-        "identity"
-      ]
-    },
-    {
-      "id": "dystopia",
-      "labels": {
-        "en": "Dystopia",
-        "zh": "反乌托邦"
-      },
-      "aliases": [],
-      "family": "dystopia",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "dystopia",
-        "oppression",
-        "society"
-      ]
-    },
-    {
-      "id": "dragons",
-      "labels": {
-        "en": "Dragons",
-        "zh": "龙"
-      },
-      "aliases": [],
-      "family": "dragons",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0.14,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "dragon",
-        "myth",
-        "fantasy"
-      ]
-    },
-    {
-      "id": "crime",
-      "labels": {
-        "en": "Crime",
-        "zh": "犯罪"
-      },
-      "aliases": [],
-      "family": "crime",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "crime",
-        "law",
-        "mystery"
-      ]
-    },
-    {
-      "id": "alternate-history",
-      "labels": {
-        "en": "Alternate History",
-        "zh": "架空历史"
-      },
-      "aliases": [],
-      "family": "alternate-history",
-      "baseWeight": 1,
-      "rarity": 0.22,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "history",
-        "change",
-        "speculation"
-      ]
-    },
-    {
-      "id": "capitalism",
-      "labels": {
-        "en": "Capitalism",
-        "zh": "资本主义"
-      },
-      "aliases": [],
-      "family": "capitalism",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.1,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "economy",
-        "consumerism",
-        "power"
-      ]
-    },
-    {
-      "id": "conspiracy",
-      "labels": {
-        "en": "Conspiracy",
-        "zh": "阴谋"
-      },
-      "aliases": [],
-      "family": "conspiracy",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "conspiracy",
-        "secrecy",
-        "mystery"
-      ]
-    },
-    {
-      "id": "noir",
-      "labels": {
-        "en": "Noir",
-        "zh": "黑色电影"
-      },
-      "aliases": [],
-      "family": "noir",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": -0.02,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "crime",
-        "shadow",
-        "fatalism"
-      ]
-    },
-    {
-      "id": "lovecraftian",
-      "labels": {
-        "en": "Lovecraftian",
-        "zh": "洛夫克拉夫特式"
-      },
-      "aliases": [],
-      "family": "lovecraftian",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.04,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "cosmic",
-        "unknown",
-        "horror"
-      ]
-    },
-    {
-      "id": "gothic",
-      "labels": {
-        "en": "Gothic",
-        "zh": "哥特"
-      },
-      "aliases": [],
-      "family": "gothic",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "gothic",
-        "decay",
-        "romance"
-      ]
-    },
-    {
-      "id": "steampunk",
-      "labels": {
-        "en": "Steampunk",
-        "zh": "蒸汽朋克"
-      },
-      "aliases": [],
-      "family": "steampunk",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "technology",
-        "history",
-        "machine"
-      ]
-    },
-    {
-      "id": "pirates",
-      "labels": {
-        "en": "Pirates",
-        "zh": "海盗"
-      },
-      "aliases": [],
-      "family": "pirates",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "pirate",
-        "ocean",
-        "freedom"
-      ]
-    },
-    {
-      "id": "vampires",
-      "labels": {
-        "en": "Vampires",
-        "zh": "吸血鬼"
-      },
-      "aliases": [],
-      "family": "vampires",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0.06,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "vampire",
-        "blood",
-        "immortality"
-      ]
-    },
-    {
-      "id": "espionage",
-      "labels": {
-        "en": "Espionage",
-        "zh": "谍战"
-      },
-      "aliases": [],
-      "family": "espionage",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.06,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "spy",
-        "secrecy",
-        "politics"
-      ]
-    },
-    {
-      "id": "cult",
-      "labels": {
-        "en": "Cult",
-        "zh": "邪教"
-      },
-      "aliases": [],
-      "family": "cult",
-      "baseWeight": 1,
-      "rarity": 0.22,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "theme",
-      "facets": [
-        "cult",
-        "faith",
-        "control"
-      ]
-    },
-    {
-      "id": "space-station",
-      "labels": {
-        "en": "Abandoned Space Station",
-        "zh": "废弃空间站"
-      },
-      "aliases": [],
-      "family": "space-station",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.2,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "space",
-        "isolation",
-        "technology"
-      ]
-    },
-    {
-      "id": "subway",
-      "labels": {
-        "en": "Subway",
-        "zh": "地铁"
-      },
-      "aliases": [],
-      "family": "subway",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "city",
-        "transit",
-        "underground"
-      ]
-    },
-    {
-      "id": "rainy-city",
-      "labels": {
-        "en": "Rainy City",
-        "zh": "雨夜城市"
-      },
-      "aliases": [],
-      "family": "rainy-city",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0.05,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "city",
-        "rain",
-        "noir"
-      ]
-    },
-    {
-      "id": "museum",
-      "labels": {
-        "en": "Museum",
-        "zh": "博物馆"
-      },
-      "aliases": [],
-      "family": "museum",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "history",
-        "archive",
-        "public"
-      ]
-    },
-    {
-      "id": "lighthouse",
-      "labels": {
-        "en": "Lighthouse",
-        "zh": "灯塔"
-      },
-      "aliases": [],
-      "family": "lighthouse",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": -0.1,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "coast",
-        "isolation",
-        "signal"
-      ]
-    },
-    {
-      "id": "deep-sea",
-      "labels": {
-        "en": "Deep Sea",
-        "zh": "深海"
-      },
-      "aliases": [],
-      "family": "deep-sea",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0.15,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "ocean",
-        "unknown",
-        "darkness"
-      ]
-    },
-    {
-      "id": "floating-islands",
-      "labels": {
-        "en": "Floating Islands",
-        "zh": "浮空群岛"
-      },
-      "aliases": [],
-      "family": "floating-islands",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": 0.25,
-      "implementationRisk": 0.36,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "sky",
-        "fantasy",
-        "vertical"
-      ]
-    },
-    {
-      "id": "forest",
-      "labels": {
-        "en": "Ancient Forest",
-        "zh": "古老森林"
-      },
-      "aliases": [],
-      "family": "forest",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "forest",
-        "nature",
-        "mystery"
-      ]
-    },
-    {
-      "id": "desert",
-      "labels": {
-        "en": "Endless Desert",
-        "zh": "无尽沙漠"
-      },
-      "aliases": [],
-      "family": "desert",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "desert",
-        "isolation",
-        "journey"
-      ]
-    },
-    {
-      "id": "arctic-base",
-      "labels": {
-        "en": "Arctic Research Base",
-        "zh": "极地研究站"
-      },
-      "aliases": [],
-      "family": "arctic-base",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.1,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "cold",
-        "isolation",
-        "science"
-      ]
-    },
-    {
-      "id": "small-village",
-      "labels": {
-        "en": "Small Village",
-        "zh": "小村庄"
-      },
-      "aliases": [],
-      "family": "small-village",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "community",
-        "rural",
-        "home"
-      ]
-    },
-    {
-      "id": "apartment",
-      "labels": {
-        "en": "Apartment Building",
-        "zh": "公寓楼"
-      },
-      "aliases": [],
-      "family": "apartment",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": -0.18,
-      "implementationRisk": 0.14,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "home",
-        "urban",
-        "neighbors"
-      ]
-    },
-    {
-      "id": "single-room",
-      "labels": {
-        "en": "One Room",
-        "zh": "单一房间"
-      },
-      "aliases": [],
-      "family": "one-room-only",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": -0.5,
-      "implementationRisk": 0.1,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "room",
-        "contained",
-        "interior"
-      ]
-    },
-    {
-      "id": "haunted-house",
-      "labels": {
-        "en": "Haunted House",
-        "zh": "闹鬼房屋"
-      },
-      "aliases": [],
-      "family": "haunted-house",
-      "baseWeight": 1,
-      "rarity": 0.06,
-      "scopeImpact": -0.12,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "home",
-        "horror",
-        "ghost"
-      ]
-    },
-    {
-      "id": "factory",
-      "labels": {
-        "en": "Automated Factory",
-        "zh": "自动化工厂"
-      },
-      "aliases": [],
-      "family": "factory",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.1,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "machine",
-        "production",
-        "industrial"
-      ]
-    },
-    {
-      "id": "office",
-      "labels": {
-        "en": "Endless Office",
-        "zh": "无尽办公室"
-      },
-      "aliases": [],
-      "family": "office",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.16,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "work",
-        "routine",
-        "interior"
-      ]
-    },
-    {
-      "id": "school",
-      "labels": {
-        "en": "School After Hours",
-        "zh": "放学后的学校"
-      },
-      "aliases": [],
-      "family": "school",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": -0.1,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "school",
-        "memory",
-        "interior"
-      ]
-    },
-    {
-      "id": "hospital",
-      "labels": {
-        "en": "Hospital",
-        "zh": "医院"
-      },
-      "aliases": [],
-      "family": "hospital",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "medical",
-        "interior",
-        "care"
-      ]
-    },
-    {
-      "id": "library",
-      "labels": {
-        "en": "Library",
-        "zh": "图书馆"
-      },
-      "aliases": [],
-      "family": "library",
-      "baseWeight": 1,
-      "rarity": 0.08,
-      "scopeImpact": -0.12,
-      "implementationRisk": 0.16,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "knowledge",
-        "archive",
-        "quiet"
-      ]
-    },
-    {
-      "id": "archive",
-      "labels": {
-        "en": "Infinite Archive",
-        "zh": "无限档案馆"
-      },
-      "aliases": [],
-      "family": "archive",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.04,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "archive",
-        "memory",
-        "bureaucracy"
-      ]
-    },
-    {
-      "id": "train",
-      "labels": {
-        "en": "Night Train",
-        "zh": "夜班列车"
-      },
-      "aliases": [],
-      "family": "train",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": -0.02,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "transit",
-        "journey",
-        "contained"
-      ]
-    },
-    {
-      "id": "ship",
-      "labels": {
-        "en": "Drifting Ship",
-        "zh": "漂流船只"
-      },
-      "aliases": [],
-      "family": "ship",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.26,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "ocean",
-        "journey",
-        "isolation"
-      ]
-    },
-    {
-      "id": "roadside-diner",
-      "labels": {
-        "en": "Roadside Diner",
-        "zh": "公路餐馆"
-      },
-      "aliases": [],
-      "family": "roadside-diner",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": -0.12,
-      "implementationRisk": 0.16,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "road",
-        "food",
-        "strangers"
-      ]
-    },
-    {
-      "id": "theme-park",
-      "labels": {
-        "en": "Abandoned Theme Park",
-        "zh": "废弃游乐园"
-      },
-      "aliases": [],
-      "family": "theme-park",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0.05,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "play",
-        "ruins",
-        "horror"
-      ]
-    },
-    {
-      "id": "mall",
-      "labels": {
-        "en": "Empty Shopping Mall",
-        "zh": "空荡商场"
-      },
-      "aliases": [],
-      "family": "mall",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": 0,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "consumerism",
-        "liminal",
-        "interior"
-      ]
-    },
-    {
-      "id": "farm",
-      "labels": {
-        "en": "Remote Farm",
-        "zh": "偏远农场"
-      },
-      "aliases": [],
-      "family": "farm",
-      "baseWeight": 1,
-      "rarity": 0.05,
-      "scopeImpact": 0.05,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "farming",
-        "rural",
-        "nature"
-      ]
-    },
-    {
-      "id": "underworld",
-      "labels": {
-        "en": "Underworld",
-        "zh": "冥界"
-      },
-      "aliases": [],
-      "family": "underworld",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "death",
-        "myth",
-        "journey"
-      ]
-    },
-    {
-      "id": "moon-base",
-      "labels": {
-        "en": "Moon Base",
-        "zh": "月球基地"
-      },
-      "aliases": [],
-      "family": "moon-base",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.22,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "space",
-        "isolation",
-        "science"
-      ]
-    },
-    {
-      "id": "alien-planet",
-      "labels": {
-        "en": "Alien Planet",
-        "zh": "异星"
-      },
-      "aliases": [],
-      "family": "alien-planet",
-      "baseWeight": 1,
-      "rarity": 0.1,
-      "scopeImpact": 0.3,
-      "implementationRisk": 0.36,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "space",
-        "unknown",
-        "nature"
-      ]
-    },
-    {
-      "id": "cyberspace",
-      "labels": {
-        "en": "Cyberspace",
-        "zh": "赛博空间"
-      },
-      "aliases": [],
-      "family": "cyberspace",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "internet",
-        "technology",
-        "abstract"
-      ]
-    },
-    {
-      "id": "ancient-ruins",
-      "labels": {
-        "en": "Ancient Ruins",
-        "zh": "古代遗迹"
-      },
-      "aliases": [],
-      "family": "ancient-ruins",
-      "baseWeight": 1,
-      "rarity": 0.04,
-      "scopeImpact": 0.1,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "ruins",
-        "history",
-        "mystery"
-      ]
-    },
-    {
-      "id": "clockwork-city",
-      "labels": {
-        "en": "Clockwork City",
-        "zh": "发条城市"
-      },
-      "aliases": [],
-      "family": "clockwork-city",
-      "baseWeight": 1,
-      "rarity": 0.26,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.32,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "city",
-        "machine",
-        "time"
-      ]
-    },
-    {
-      "id": "miniature-world",
-      "labels": {
-        "en": "Miniature World",
-        "zh": "微缩世界"
-      },
-      "aliases": [],
-      "family": "miniature-world",
-      "baseWeight": 1,
-      "rarity": 0.22,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.22,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "scale",
-        "small",
-        "diorama"
-      ]
-    },
-    {
-      "id": "inside-body",
-      "labels": {
-        "en": "Inside a Living Body",
-        "zh": "生命体内部"
-      },
-      "aliases": [],
-      "family": "inside-body",
-      "baseWeight": 1,
-      "rarity": 0.36,
-      "scopeImpact": 0.12,
-      "implementationRisk": 0.34,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "body",
-        "organic",
-        "journey"
-      ]
-    },
-    {
-      "id": "afterlife",
-      "labels": {
-        "en": "The Afterlife",
-        "zh": "来世"
-      },
-      "aliases": [],
-      "family": "afterlife",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": 0,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "death",
-        "surreal",
-        "journey"
-      ]
-    },
-    {
-      "id": "broadcast-studio",
-      "labels": {
-        "en": "Broadcast Studio",
-        "zh": "广播演播室"
-      },
-      "aliases": [],
-      "family": "broadcast-studio",
-      "baseWeight": 1,
-      "rarity": 0.28,
-      "scopeImpact": -0.1,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "signal",
-        "media",
-        "interior"
-      ]
-    },
-    {
-      "id": "mars-colony",
-      "labels": {
-        "en": "Mars Colony",
-        "zh": "火星殖民地"
-      },
-      "aliases": [],
-      "family": "mars-colony",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.38,
-      "implementationRisk": 0.48,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "mars",
-        "space",
-        "colony"
-      ]
-    },
-    {
-      "id": "spaceship",
-      "labels": {
-        "en": "Spaceship",
-        "zh": "太空飞船"
-      },
-      "aliases": [],
-      "family": "spaceship",
-      "baseWeight": 1,
-      "rarity": 0.12,
-      "scopeImpact": 0.24,
-      "implementationRisk": 0.34,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "space",
-        "vehicle",
-        "interior"
-      ]
-    },
-    {
-      "id": "submarine",
-      "labels": {
-        "en": "Submarine",
-        "zh": "潜水艇"
-      },
-      "aliases": [],
-      "family": "submarine",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.38,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "ocean",
-        "vehicle",
-        "confined"
-      ]
-    },
-    {
-      "id": "gothic-castle",
-      "labels": {
-        "en": "Gothic Castle",
-        "zh": "哥特城堡"
-      },
-      "aliases": [],
-      "family": "gothic-castle",
-      "baseWeight": 1,
-      "rarity": 0.2,
-      "scopeImpact": 0.14,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "castle",
-        "gothic",
-        "interior"
-      ]
-    },
-    {
-      "id": "western-frontier",
-      "labels": {
-        "en": "Western Frontier",
-        "zh": "西部边疆"
-      },
-      "aliases": [],
-      "family": "western-frontier",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.16,
-      "implementationRisk": 0.28,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "frontier",
-        "desert",
-        "settlement"
-      ]
-    },
-    {
-      "id": "underground-city",
-      "labels": {
-        "en": "Underground City",
-        "zh": "地下城市"
-      },
-      "aliases": [],
-      "family": "underground-city",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.28,
-      "implementationRisk": 0.38,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "underground",
-        "city",
-        "isolation"
-      ]
-    },
-    {
-      "id": "pirate-port",
-      "labels": {
-        "en": "Pirate Port",
-        "zh": "海盗港口"
-      },
-      "aliases": [],
-      "family": "pirate-port",
-      "baseWeight": 1,
-      "rarity": 0.26,
-      "scopeImpact": 0.18,
-      "implementationRisk": 0.3,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "pirate",
-        "ocean",
-        "trade"
-      ]
-    },
-    {
-      "id": "battlefield",
-      "labels": {
-        "en": "Battlefield",
-        "zh": "战场"
-      },
-      "aliases": [],
-      "family": "battlefield",
-      "baseWeight": 1,
-      "rarity": 0.16,
-      "scopeImpact": 0.26,
-      "implementationRisk": 0.38,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "war",
-        "ruin",
-        "conflict"
-      ]
-    },
-    {
-      "id": "crime-scene",
-      "labels": {
-        "en": "Crime Scene",
-        "zh": "犯罪现场"
-      },
-      "aliases": [],
-      "family": "crime-scene",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": -0.12,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "crime",
-        "evidence",
-        "interior"
-      ]
-    },
-    {
-      "id": "royal-court",
-      "labels": {
-        "en": "Royal Court",
-        "zh": "王室宫廷"
-      },
-      "aliases": [],
-      "family": "royal-court",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": 0.06,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "kingdom",
-        "politics",
-        "social"
-      ]
-    },
-    {
-      "id": "cult-compound",
-      "labels": {
-        "en": "Cult Compound",
-        "zh": "邪教据点"
-      },
-      "aliases": [],
-      "family": "cult-compound",
-      "baseWeight": 1,
-      "rarity": 0.3,
-      "scopeImpact": 0.02,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "cult",
-        "isolation",
-        "ritual"
-      ]
-    },
-    {
-      "id": "ancient-temple",
-      "labels": {
-        "en": "Ancient Temple",
-        "zh": "古代神殿"
-      },
-      "aliases": [],
-      "family": "ancient-temple",
-      "baseWeight": 1,
-      "rarity": 0.18,
-      "scopeImpact": 0.08,
-      "implementationRisk": 0.24,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "temple",
-        "ritual",
-        "ruin"
-      ]
-    },
-    {
-      "id": "prison",
-      "labels": {
-        "en": "Prison",
-        "zh": "监狱"
-      },
-      "aliases": [],
-      "family": "prison",
-      "baseWeight": 1,
-      "rarity": 0.14,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "confinement",
-        "authority",
-        "escape"
-      ]
-    },
-    {
-      "id": "theater",
-      "labels": {
-        "en": "Theater",
-        "zh": "剧院"
-      },
-      "aliases": [],
-      "family": "theater",
-      "baseWeight": 1,
-      "rarity": 0.22,
-      "scopeImpact": -0.08,
-      "implementationRisk": 0.2,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "performance",
-        "stage",
-        "interior"
-      ]
-    },
-    {
-      "id": "courtroom",
-      "labels": {
-        "en": "Courtroom",
-        "zh": "法庭"
-      },
-      "aliases": [],
-      "family": "courtroom",
-      "baseWeight": 1,
-      "rarity": 0.24,
-      "scopeImpact": -0.12,
-      "implementationRisk": 0.18,
-      "sourceRefs": [
-        "steam-tags-2026-07",
-        "curated-2026-07"
-      ],
-      "categoryId": "setting",
-      "facets": [
-        "law",
-        "dialogue",
-        "judgment"
       ]
     },
     {
@@ -9755,6 +7082,2771 @@
         "camera",
         "rotation",
         "spatial"
+      ]
+    },
+    {
+      "id": "memory",
+      "labels": {
+        "en": "Memory",
+        "zh": "记忆"
+      },
+      "aliases": [],
+      "family": "memory",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "memory",
+        "past"
+      ]
+    },
+    {
+      "id": "identity",
+      "labels": {
+        "en": "Identity",
+        "zh": "身份"
+      },
+      "aliases": [],
+      "family": "identity",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": 0,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "identity",
+        "self"
+      ]
+    },
+    {
+      "id": "loss",
+      "labels": {
+        "en": "Loss",
+        "zh": "失去"
+      },
+      "aliases": [],
+      "family": "loss",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "loss",
+        "grief"
+      ]
+    },
+    {
+      "id": "decay",
+      "labels": {
+        "en": "Decay",
+        "zh": "衰败"
+      },
+      "aliases": [],
+      "family": "decay",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "decay",
+        "entropy"
+      ]
+    },
+    {
+      "id": "repair",
+      "labels": {
+        "en": "Repair",
+        "zh": "修复"
+      },
+      "aliases": [],
+      "family": "prompt-repair",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "repair",
+        "healing"
+      ]
+    },
+    {
+      "id": "connection",
+      "labels": {
+        "en": "Connection",
+        "zh": "连接"
+      },
+      "aliases": [],
+      "family": "connection",
+      "baseWeight": 1,
+      "rarity": 0.05,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "connection",
+        "social"
+      ]
+    },
+    {
+      "id": "isolation",
+      "labels": {
+        "en": "Isolation",
+        "zh": "孤立"
+      },
+      "aliases": [],
+      "family": "isolation",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "isolation",
+        "loneliness"
+      ]
+    },
+    {
+      "id": "transformation",
+      "labels": {
+        "en": "Transformation",
+        "zh": "蜕变"
+      },
+      "aliases": [],
+      "family": "transformation",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "transformation",
+        "change"
+      ]
+    },
+    {
+      "id": "ritual",
+      "labels": {
+        "en": "Ritual",
+        "zh": "仪式"
+      },
+      "aliases": [],
+      "family": "ritual",
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "ritual",
+        "tradition"
+      ]
+    },
+    {
+      "id": "deception",
+      "labels": {
+        "en": "Deception",
+        "zh": "欺骗"
+      },
+      "aliases": [],
+      "family": "deception",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "deception",
+        "trust"
+      ]
+    },
+    {
+      "id": "duality",
+      "labels": {
+        "en": "Duality",
+        "zh": "二元性"
+      },
+      "aliases": [],
+      "family": "duality",
+      "baseWeight": 1,
+      "rarity": 0.15,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "duality",
+        "contrast"
+      ]
+    },
+    {
+      "id": "masks",
+      "labels": {
+        "en": "Masks",
+        "zh": "面具"
+      },
+      "aliases": [],
+      "family": "masks",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": -0.02,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-object",
+      "facets": [
+        "mask",
+        "identity",
+        "deception"
+      ]
+    },
+    {
+      "id": "dreams",
+      "labels": {
+        "en": "Dreams",
+        "zh": "梦境"
+      },
+      "aliases": [],
+      "family": "dreams",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.05,
+      "implementationRisk": 0.25,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "dream",
+        "surreal"
+      ]
+    },
+    {
+      "id": "death",
+      "labels": {
+        "en": "Death",
+        "zh": "死亡"
+      },
+      "aliases": [],
+      "family": "death",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": 0,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "death",
+        "loss"
+      ]
+    },
+    {
+      "id": "rebirth",
+      "labels": {
+        "en": "Rebirth",
+        "zh": "重生"
+      },
+      "aliases": [],
+      "family": "rebirth",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "rebirth",
+        "cycle",
+        "transformation"
+      ]
+    },
+    {
+      "id": "nature",
+      "labels": {
+        "en": "Nature",
+        "zh": "自然"
+      },
+      "aliases": [],
+      "family": "nature",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.12,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "nature",
+        "environment"
+      ]
+    },
+    {
+      "id": "technology",
+      "labels": {
+        "en": "Technology",
+        "zh": "科技"
+      },
+      "aliases": [],
+      "family": "technology",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.2,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "technology",
+        "machine"
+      ]
+    },
+    {
+      "id": "artificial-intelligence",
+      "labels": {
+        "en": "Artificial Intelligence",
+        "zh": "人工智能"
+      },
+      "aliases": [],
+      "family": "artificial-intelligence",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.24,
+      "implementationRisk": 0.38,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "technology",
+        "identity",
+        "machine"
+      ]
+    },
+    {
+      "id": "internet",
+      "labels": {
+        "en": "Internet",
+        "zh": "互联网"
+      },
+      "aliases": [],
+      "family": "internet",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "internet",
+        "connection",
+        "technology"
+      ]
+    },
+    {
+      "id": "time",
+      "labels": {
+        "en": "Time",
+        "zh": "时间"
+      },
+      "aliases": [],
+      "family": "time",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "time",
+        "change"
+      ]
+    },
+    {
+      "id": "entropy",
+      "labels": {
+        "en": "Entropy",
+        "zh": "熵"
+      },
+      "aliases": [],
+      "family": "entropy",
+      "baseWeight": 1,
+      "rarity": 0.3,
+      "scopeImpact": 0.04,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "entropy",
+        "decay",
+        "time"
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "labels": {
+        "en": "Sacrifice",
+        "zh": "牺牲"
+      },
+      "aliases": [],
+      "family": "sacrifice",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "sacrifice",
+        "choice",
+        "loss"
+      ]
+    },
+    {
+      "id": "trust",
+      "labels": {
+        "en": "Trust",
+        "zh": "信任"
+      },
+      "aliases": [],
+      "family": "trust",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "trust",
+        "social",
+        "choice"
+      ]
+    },
+    {
+      "id": "language",
+      "labels": {
+        "en": "Language",
+        "zh": "语言"
+      },
+      "aliases": [],
+      "family": "language",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": -0.02,
+      "implementationRisk": 0.25,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "language",
+        "communication",
+        "culture"
+      ]
+    },
+    {
+      "id": "communication",
+      "labels": {
+        "en": "Communication",
+        "zh": "沟通"
+      },
+      "aliases": [],
+      "family": "communication",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "communication",
+        "connection",
+        "signal"
+      ]
+    },
+    {
+      "id": "home",
+      "labels": {
+        "en": "Home",
+        "zh": "家"
+      },
+      "aliases": [],
+      "family": "home",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "home",
+        "belonging"
+      ]
+    },
+    {
+      "id": "migration",
+      "labels": {
+        "en": "Migration",
+        "zh": "迁徙"
+      },
+      "aliases": [],
+      "family": "migration",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "migration",
+        "home",
+        "journey"
+      ]
+    },
+    {
+      "id": "childhood",
+      "labels": {
+        "en": "Childhood",
+        "zh": "童年"
+      },
+      "aliases": [],
+      "family": "childhood",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "childhood",
+        "memory",
+        "growth"
+      ]
+    },
+    {
+      "id": "family",
+      "labels": {
+        "en": "Family",
+        "zh": "家庭"
+      },
+      "aliases": [],
+      "family": "family",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "family",
+        "connection",
+        "home"
+      ]
+    },
+    {
+      "id": "friendship",
+      "labels": {
+        "en": "Friendship",
+        "zh": "友谊"
+      },
+      "aliases": [],
+      "family": "friendship",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": -0.05,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "friendship",
+        "connection",
+        "trust"
+      ]
+    },
+    {
+      "id": "work",
+      "labels": {
+        "en": "Work",
+        "zh": "劳动"
+      },
+      "aliases": [],
+      "family": "work",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "work",
+        "routine",
+        "society"
+      ]
+    },
+    {
+      "id": "bureaucracy",
+      "labels": {
+        "en": "Bureaucracy",
+        "zh": "官僚体系"
+      },
+      "aliases": [],
+      "family": "bureaucracy",
+      "baseWeight": 1,
+      "rarity": 0.28,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "bureaucracy",
+        "society",
+        "absurd"
+      ]
+    },
+    {
+      "id": "consumerism",
+      "labels": {
+        "en": "Consumerism",
+        "zh": "消费主义"
+      },
+      "aliases": [],
+      "family": "consumerism",
+      "baseWeight": 1,
+      "rarity": 0.22,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "consumerism",
+        "society",
+        "economy"
+      ]
+    },
+    {
+      "id": "climate",
+      "labels": {
+        "en": "Climate",
+        "zh": "气候"
+      },
+      "aliases": [],
+      "family": "climate",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-phenomenon",
+      "facets": [
+        "climate",
+        "nature",
+        "crisis"
+      ]
+    },
+    {
+      "id": "folklore",
+      "labels": {
+        "en": "Folklore",
+        "zh": "民间传说"
+      },
+      "aliases": [],
+      "family": "folklore",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.06,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "folklore",
+        "tradition",
+        "mystery"
+      ]
+    },
+    {
+      "id": "myth",
+      "labels": {
+        "en": "Myth",
+        "zh": "神话"
+      },
+      "aliases": [],
+      "family": "myth",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.12,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "myth",
+        "tradition",
+        "fantasy"
+      ]
+    },
+    {
+      "id": "ocean",
+      "labels": {
+        "en": "Ocean",
+        "zh": "海洋"
+      },
+      "aliases": [],
+      "family": "ocean",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-substance",
+      "facets": [
+        "ocean",
+        "nature",
+        "unknown"
+      ]
+    },
+    {
+      "id": "space",
+      "labels": {
+        "en": "Space",
+        "zh": "太空"
+      },
+      "aliases": [],
+      "family": "space",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.28,
+      "implementationRisk": 0.36,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "space",
+        "unknown",
+        "technology"
+      ]
+    },
+    {
+      "id": "unknown",
+      "labels": {
+        "en": "The Unknown",
+        "zh": "未知"
+      },
+      "aliases": [],
+      "family": "unknown",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "unknown",
+        "mystery"
+      ]
+    },
+    {
+      "id": "fantasy",
+      "labels": {
+        "en": "Fantasy",
+        "zh": "奇幻"
+      },
+      "aliases": [],
+      "family": "fantasy",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "fantasy",
+        "magic",
+        "myth"
+      ]
+    },
+    {
+      "id": "science-fiction",
+      "labels": {
+        "en": "Science Fiction",
+        "zh": "科幻"
+      },
+      "aliases": [],
+      "family": "science-fiction",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.22,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "science",
+        "technology",
+        "future"
+      ]
+    },
+    {
+      "id": "magic",
+      "labels": {
+        "en": "Magic",
+        "zh": "魔法"
+      },
+      "aliases": [],
+      "family": "magic",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": 0.1,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "magic",
+        "power",
+        "fantasy"
+      ]
+    },
+    {
+      "id": "medieval",
+      "labels": {
+        "en": "Medieval",
+        "zh": "中世纪"
+      },
+      "aliases": [],
+      "family": "medieval",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "history",
+        "kingdom",
+        "tradition"
+      ]
+    },
+    {
+      "id": "futuristic",
+      "labels": {
+        "en": "Futuristic",
+        "zh": "未来主义"
+      },
+      "aliases": [],
+      "family": "futuristic",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.2,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "future",
+        "technology",
+        "society"
+      ]
+    },
+    {
+      "id": "post-apocalyptic",
+      "labels": {
+        "en": "Post-Apocalyptic",
+        "zh": "后末日"
+      },
+      "aliases": [],
+      "family": "post-apocalyptic",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.22,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "apocalypse",
+        "survival",
+        "decay"
+      ]
+    },
+    {
+      "id": "war",
+      "labels": {
+        "en": "War",
+        "zh": "战争"
+      },
+      "aliases": [],
+      "family": "war",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.32,
+      "implementationRisk": 0.42,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "war",
+        "conflict",
+        "loss"
+      ]
+    },
+    {
+      "id": "zombies",
+      "labels": {
+        "en": "Zombies",
+        "zh": "僵尸"
+      },
+      "aliases": [],
+      "family": "zombies",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": 0.16,
+      "implementationRisk": 0.34,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "undead",
+        "survival",
+        "infection"
+      ]
+    },
+    {
+      "id": "demons",
+      "labels": {
+        "en": "Demons",
+        "zh": "恶魔"
+      },
+      "aliases": [],
+      "family": "demons",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.12,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "demon",
+        "supernatural",
+        "corruption"
+      ]
+    },
+    {
+      "id": "aliens",
+      "labels": {
+        "en": "Aliens",
+        "zh": "外星人"
+      },
+      "aliases": [],
+      "family": "aliens",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "alien",
+        "unknown",
+        "space"
+      ]
+    },
+    {
+      "id": "cyberpunk",
+      "labels": {
+        "en": "Cyberpunk",
+        "zh": "赛博朋克"
+      },
+      "aliases": [],
+      "family": "cyberpunk",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.2,
+      "implementationRisk": 0.34,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "technology",
+        "dystopia",
+        "city"
+      ]
+    },
+    {
+      "id": "robots",
+      "labels": {
+        "en": "Robots",
+        "zh": "机器人"
+      },
+      "aliases": [],
+      "family": "robots",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "machine",
+        "technology",
+        "identity"
+      ]
+    },
+    {
+      "id": "dystopia",
+      "labels": {
+        "en": "Dystopia",
+        "zh": "反乌托邦"
+      },
+      "aliases": [],
+      "family": "dystopia",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "dystopia",
+        "oppression",
+        "society"
+      ]
+    },
+    {
+      "id": "dragons",
+      "labels": {
+        "en": "Dragons",
+        "zh": "龙"
+      },
+      "aliases": [],
+      "family": "dragons",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0.14,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "dragon",
+        "myth",
+        "fantasy"
+      ]
+    },
+    {
+      "id": "crime",
+      "labels": {
+        "en": "Crime",
+        "zh": "犯罪"
+      },
+      "aliases": [],
+      "family": "crime",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "crime",
+        "law",
+        "mystery"
+      ]
+    },
+    {
+      "id": "alternate-history",
+      "labels": {
+        "en": "Alternate History",
+        "zh": "架空历史"
+      },
+      "aliases": [],
+      "family": "alternate-history",
+      "baseWeight": 1,
+      "rarity": 0.22,
+      "scopeImpact": 0.12,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "history",
+        "change",
+        "speculation"
+      ]
+    },
+    {
+      "id": "capitalism",
+      "labels": {
+        "en": "Capitalism",
+        "zh": "资本主义"
+      },
+      "aliases": [],
+      "family": "capitalism",
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0.1,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "economy",
+        "consumerism",
+        "power"
+      ]
+    },
+    {
+      "id": "conspiracy",
+      "labels": {
+        "en": "Conspiracy",
+        "zh": "阴谋"
+      },
+      "aliases": [],
+      "family": "conspiracy",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-concept",
+      "facets": [
+        "conspiracy",
+        "secrecy",
+        "mystery"
+      ]
+    },
+    {
+      "id": "noir",
+      "labels": {
+        "en": "Noir",
+        "zh": "黑色电影"
+      },
+      "aliases": [],
+      "family": "noir",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": -0.02,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "crime",
+        "shadow",
+        "fatalism"
+      ]
+    },
+    {
+      "id": "lovecraftian",
+      "labels": {
+        "en": "Lovecraftian",
+        "zh": "洛夫克拉夫特式"
+      },
+      "aliases": [],
+      "family": "lovecraftian",
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0.04,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "cosmic",
+        "unknown",
+        "horror"
+      ]
+    },
+    {
+      "id": "gothic",
+      "labels": {
+        "en": "Gothic",
+        "zh": "哥特"
+      },
+      "aliases": [],
+      "family": "gothic",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "gothic",
+        "decay",
+        "romance"
+      ]
+    },
+    {
+      "id": "steampunk",
+      "labels": {
+        "en": "Steampunk",
+        "zh": "蒸汽朋克"
+      },
+      "aliases": [],
+      "family": "steampunk",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "technology",
+        "history",
+        "machine"
+      ]
+    },
+    {
+      "id": "pirates",
+      "labels": {
+        "en": "Pirates",
+        "zh": "海盗"
+      },
+      "aliases": [],
+      "family": "pirates",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "pirate",
+        "ocean",
+        "freedom"
+      ]
+    },
+    {
+      "id": "vampires",
+      "labels": {
+        "en": "Vampires",
+        "zh": "吸血鬼"
+      },
+      "aliases": [],
+      "family": "vampires",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0.06,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "vampire",
+        "blood",
+        "immortality"
+      ]
+    },
+    {
+      "id": "espionage",
+      "labels": {
+        "en": "Espionage",
+        "zh": "谍战"
+      },
+      "aliases": [],
+      "family": "espionage",
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0.06,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "world-frame",
+      "facets": [
+        "spy",
+        "secrecy",
+        "politics"
+      ]
+    },
+    {
+      "id": "cult",
+      "labels": {
+        "en": "Cult",
+        "zh": "邪教"
+      },
+      "aliases": [],
+      "family": "cult",
+      "baseWeight": 1,
+      "rarity": 0.22,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-entity",
+      "facets": [
+        "cult",
+        "faith",
+        "control"
+      ]
+    },
+    {
+      "id": "space-station",
+      "labels": {
+        "en": "Abandoned Space Station",
+        "zh": "废弃空间站"
+      },
+      "aliases": [],
+      "family": "space-station",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.2,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "space",
+        "isolation",
+        "technology"
+      ]
+    },
+    {
+      "id": "subway",
+      "labels": {
+        "en": "Subway",
+        "zh": "地铁"
+      },
+      "aliases": [],
+      "family": "subway",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "city",
+        "transit",
+        "underground"
+      ]
+    },
+    {
+      "id": "rainy-city",
+      "labels": {
+        "en": "Rainy City",
+        "zh": "雨夜城市"
+      },
+      "aliases": [],
+      "family": "rainy-city",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0.05,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "city",
+        "rain",
+        "noir"
+      ]
+    },
+    {
+      "id": "museum",
+      "labels": {
+        "en": "Museum",
+        "zh": "博物馆"
+      },
+      "aliases": [],
+      "family": "museum",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "history",
+        "archive",
+        "public"
+      ]
+    },
+    {
+      "id": "lighthouse",
+      "labels": {
+        "en": "Lighthouse",
+        "zh": "灯塔"
+      },
+      "aliases": [],
+      "family": "lighthouse",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": -0.1,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "coast",
+        "isolation",
+        "signal"
+      ]
+    },
+    {
+      "id": "deep-sea",
+      "labels": {
+        "en": "Deep Sea",
+        "zh": "深海"
+      },
+      "aliases": [],
+      "family": "deep-sea",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0.15,
+      "implementationRisk": 0.32,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "ocean",
+        "unknown",
+        "darkness"
+      ]
+    },
+    {
+      "id": "forest",
+      "labels": {
+        "en": "Ancient Forest",
+        "zh": "古老森林"
+      },
+      "aliases": [],
+      "family": "forest",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": 0.12,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "forest",
+        "nature",
+        "mystery"
+      ]
+    },
+    {
+      "id": "desert",
+      "labels": {
+        "en": "Endless Desert",
+        "zh": "无尽沙漠"
+      },
+      "aliases": [],
+      "family": "desert",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "desert",
+        "isolation",
+        "journey"
+      ]
+    },
+    {
+      "id": "small-village",
+      "labels": {
+        "en": "Small Village",
+        "zh": "小村庄"
+      },
+      "aliases": [],
+      "family": "small-village",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "community",
+        "rural",
+        "home"
+      ]
+    },
+    {
+      "id": "apartment",
+      "labels": {
+        "en": "Apartment Building",
+        "zh": "公寓楼"
+      },
+      "aliases": [],
+      "family": "apartment",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": -0.18,
+      "implementationRisk": 0.14,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "home",
+        "urban",
+        "neighbors"
+      ]
+    },
+    {
+      "id": "single-room",
+      "labels": {
+        "en": "One Room",
+        "zh": "单一房间"
+      },
+      "aliases": [],
+      "family": "one-room-only",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": -0.5,
+      "implementationRisk": 0.1,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "room",
+        "contained",
+        "interior"
+      ]
+    },
+    {
+      "id": "haunted-house",
+      "labels": {
+        "en": "Haunted House",
+        "zh": "闹鬼房屋"
+      },
+      "aliases": [],
+      "family": "haunted-house",
+      "baseWeight": 1,
+      "rarity": 0.06,
+      "scopeImpact": -0.12,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "home",
+        "horror",
+        "ghost"
+      ]
+    },
+    {
+      "id": "factory",
+      "labels": {
+        "en": "Automated Factory",
+        "zh": "自动化工厂"
+      },
+      "aliases": [],
+      "family": "factory",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.1,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "machine",
+        "production",
+        "industrial"
+      ]
+    },
+    {
+      "id": "office",
+      "labels": {
+        "en": "Endless Office",
+        "zh": "无尽办公室"
+      },
+      "aliases": [],
+      "family": "office",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.16,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "work",
+        "routine",
+        "interior"
+      ]
+    },
+    {
+      "id": "school",
+      "labels": {
+        "en": "School After Hours",
+        "zh": "放学后的学校"
+      },
+      "aliases": [],
+      "family": "school",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": -0.1,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "school",
+        "memory",
+        "interior"
+      ]
+    },
+    {
+      "id": "library",
+      "labels": {
+        "en": "Library",
+        "zh": "图书馆"
+      },
+      "aliases": [],
+      "family": "library",
+      "baseWeight": 1,
+      "rarity": 0.08,
+      "scopeImpact": -0.12,
+      "implementationRisk": 0.16,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "knowledge",
+        "archive",
+        "quiet"
+      ]
+    },
+    {
+      "id": "train",
+      "labels": {
+        "en": "Night Train",
+        "zh": "夜班列车"
+      },
+      "aliases": [],
+      "family": "train",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": -0.02,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "transit",
+        "journey",
+        "contained"
+      ]
+    },
+    {
+      "id": "ship",
+      "labels": {
+        "en": "Drifting Ship",
+        "zh": "漂流船只"
+      },
+      "aliases": [],
+      "family": "ship",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.26,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "ocean",
+        "journey",
+        "isolation"
+      ]
+    },
+    {
+      "id": "theme-park",
+      "labels": {
+        "en": "Abandoned Theme Park",
+        "zh": "废弃游乐园"
+      },
+      "aliases": [],
+      "family": "theme-park",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0.05,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "play",
+        "ruins",
+        "horror"
+      ]
+    },
+    {
+      "id": "farm",
+      "labels": {
+        "en": "Remote Farm",
+        "zh": "偏远农场"
+      },
+      "aliases": [],
+      "family": "farm",
+      "baseWeight": 1,
+      "rarity": 0.05,
+      "scopeImpact": 0.05,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "farming",
+        "rural",
+        "nature"
+      ]
+    },
+    {
+      "id": "underworld",
+      "labels": {
+        "en": "Underworld",
+        "zh": "冥界"
+      },
+      "aliases": [],
+      "family": "underworld",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "death",
+        "myth",
+        "journey"
+      ]
+    },
+    {
+      "id": "alien-planet",
+      "labels": {
+        "en": "Alien Planet",
+        "zh": "异星"
+      },
+      "aliases": [],
+      "family": "alien-planet",
+      "baseWeight": 1,
+      "rarity": 0.1,
+      "scopeImpact": 0.3,
+      "implementationRisk": 0.36,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "space",
+        "unknown",
+        "nature"
+      ]
+    },
+    {
+      "id": "cyberspace",
+      "labels": {
+        "en": "Cyberspace",
+        "zh": "赛博空间"
+      },
+      "aliases": [],
+      "family": "cyberspace",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.28,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "internet",
+        "technology",
+        "abstract"
+      ]
+    },
+    {
+      "id": "ancient-ruins",
+      "labels": {
+        "en": "Ancient Ruins",
+        "zh": "古代遗迹"
+      },
+      "aliases": [],
+      "family": "ancient-ruins",
+      "baseWeight": 1,
+      "rarity": 0.04,
+      "scopeImpact": 0.1,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "ruins",
+        "history",
+        "mystery"
+      ]
+    },
+    {
+      "id": "miniature-world",
+      "labels": {
+        "en": "Miniature World",
+        "zh": "微缩世界"
+      },
+      "aliases": [],
+      "family": "miniature-world",
+      "baseWeight": 1,
+      "rarity": 0.22,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.22,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "scale",
+        "small",
+        "diorama"
+      ]
+    },
+    {
+      "id": "afterlife",
+      "labels": {
+        "en": "The Afterlife",
+        "zh": "来世"
+      },
+      "aliases": [],
+      "family": "afterlife",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": 0,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "death",
+        "surreal",
+        "journey"
+      ]
+    },
+    {
+      "id": "broadcast-studio",
+      "labels": {
+        "en": "Broadcast Studio",
+        "zh": "广播演播室"
+      },
+      "aliases": [],
+      "family": "broadcast-studio",
+      "baseWeight": 1,
+      "rarity": 0.28,
+      "scopeImpact": -0.1,
+      "implementationRisk": 0.18,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "signal",
+        "media",
+        "interior"
+      ]
+    },
+    {
+      "id": "spaceship",
+      "labels": {
+        "en": "Spaceship",
+        "zh": "太空飞船"
+      },
+      "aliases": [],
+      "family": "spaceship",
+      "baseWeight": 1,
+      "rarity": 0.12,
+      "scopeImpact": 0.24,
+      "implementationRisk": 0.34,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "space",
+        "vehicle",
+        "interior"
+      ]
+    },
+    {
+      "id": "submarine",
+      "labels": {
+        "en": "Submarine",
+        "zh": "潜水艇"
+      },
+      "aliases": [],
+      "family": "submarine",
+      "baseWeight": 1,
+      "rarity": 0.24,
+      "scopeImpact": 0.18,
+      "implementationRisk": 0.38,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "ocean",
+        "vehicle",
+        "confined"
+      ]
+    },
+    {
+      "id": "gothic-castle",
+      "labels": {
+        "en": "Gothic Castle",
+        "zh": "哥特城堡"
+      },
+      "aliases": [],
+      "family": "gothic-castle",
+      "baseWeight": 1,
+      "rarity": 0.2,
+      "scopeImpact": 0.14,
+      "implementationRisk": 0.3,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "castle",
+        "gothic",
+        "interior"
+      ]
+    },
+    {
+      "id": "underground-city",
+      "labels": {
+        "en": "Underground City",
+        "zh": "地下城市"
+      },
+      "aliases": [],
+      "family": "underground-city",
+      "baseWeight": 1,
+      "rarity": 0.24,
+      "scopeImpact": 0.28,
+      "implementationRisk": 0.38,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "underground",
+        "city",
+        "isolation"
+      ]
+    },
+    {
+      "id": "battlefield",
+      "labels": {
+        "en": "Battlefield",
+        "zh": "战场"
+      },
+      "aliases": [],
+      "family": "battlefield",
+      "baseWeight": 1,
+      "rarity": 0.16,
+      "scopeImpact": 0.26,
+      "implementationRisk": 0.38,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "war",
+        "ruin",
+        "conflict"
+      ]
+    },
+    {
+      "id": "crime-scene",
+      "labels": {
+        "en": "Crime Scene",
+        "zh": "犯罪现场"
+      },
+      "aliases": [],
+      "family": "crime-scene",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": -0.12,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "crime",
+        "evidence",
+        "interior"
+      ]
+    },
+    {
+      "id": "royal-court",
+      "labels": {
+        "en": "Royal Court",
+        "zh": "王室宫廷"
+      },
+      "aliases": [],
+      "family": "royal-court",
+      "baseWeight": 1,
+      "rarity": 0.24,
+      "scopeImpact": 0.06,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "kingdom",
+        "politics",
+        "social"
+      ]
+    },
+    {
+      "id": "cult-compound",
+      "labels": {
+        "en": "Cult Compound",
+        "zh": "邪教据点"
+      },
+      "aliases": [],
+      "family": "cult-compound",
+      "baseWeight": 1,
+      "rarity": 0.3,
+      "scopeImpact": 0.02,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "cult",
+        "isolation",
+        "ritual"
+      ]
+    },
+    {
+      "id": "ancient-temple",
+      "labels": {
+        "en": "Ancient Temple",
+        "zh": "古代神殿"
+      },
+      "aliases": [],
+      "family": "ancient-temple",
+      "baseWeight": 1,
+      "rarity": 0.18,
+      "scopeImpact": 0.08,
+      "implementationRisk": 0.24,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "temple",
+        "ritual",
+        "ruin"
+      ]
+    },
+    {
+      "id": "prison",
+      "labels": {
+        "en": "Prison",
+        "zh": "监狱"
+      },
+      "aliases": [],
+      "family": "prison",
+      "baseWeight": 1,
+      "rarity": 0.14,
+      "scopeImpact": -0.08,
+      "implementationRisk": 0.2,
+      "sourceRefs": [
+        "steam-tags-2026-07",
+        "curated-2026-07"
+      ],
+      "categoryId": "motif-place",
+      "facets": [
+        "confinement",
+        "authority",
+        "escape"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "radio",
+      "labels": {
+        "zh": "无线电",
+        "en": "Radio"
+      },
+      "categoryId": "motif-object",
+      "family": "radio",
+      "facets": [
+        "communication",
+        "signal"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "book",
+      "labels": {
+        "zh": "书籍",
+        "en": "Book"
+      },
+      "categoryId": "motif-object",
+      "family": "book",
+      "facets": [
+        "knowledge",
+        "archive"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "map",
+      "labels": {
+        "zh": "地图",
+        "en": "Map"
+      },
+      "categoryId": "motif-object",
+      "family": "map",
+      "facets": [
+        "navigation",
+        "knowledge"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "boat",
+      "labels": {
+        "zh": "小船",
+        "en": "Boat"
+      },
+      "categoryId": "motif-object",
+      "family": "boat",
+      "facets": [
+        "travel",
+        "water"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "sword",
+      "labels": {
+        "zh": "剑",
+        "en": "Sword"
+      },
+      "categoryId": "motif-object",
+      "family": "sword",
+      "facets": [
+        "tool",
+        "combat"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "card-deck",
+      "labels": {
+        "zh": "卡组",
+        "en": "Card Deck"
+      },
+      "categoryId": "motif-object",
+      "family": "cards",
+      "facets": [
+        "collection",
+        "chance"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "camera",
+      "labels": {
+        "zh": "相机",
+        "en": "Camera"
+      },
+      "categoryId": "motif-object",
+      "family": "camera",
+      "facets": [
+        "observation",
+        "recording"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "clock",
+      "labels": {
+        "zh": "时钟",
+        "en": "Clock"
+      },
+      "categoryId": "motif-object",
+      "family": "clock",
+      "facets": [
+        "time",
+        "measurement"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "rain",
+      "labels": {
+        "zh": "雨",
+        "en": "Rain"
+      },
+      "categoryId": "motif-substance",
+      "family": "rain",
+      "facets": [
+        "weather",
+        "water"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "snow",
+      "labels": {
+        "zh": "雪",
+        "en": "Snow"
+      },
+      "categoryId": "motif-substance",
+      "family": "snow",
+      "facets": [
+        "weather",
+        "cold"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "fog",
+      "labels": {
+        "zh": "雾",
+        "en": "Fog"
+      },
+      "categoryId": "motif-substance",
+      "family": "fog",
+      "facets": [
+        "weather",
+        "visibility"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "water",
+      "labels": {
+        "zh": "水",
+        "en": "Water"
+      },
+      "categoryId": "motif-substance",
+      "family": "water",
+      "facets": [
+        "material",
+        "environment"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "fire",
+      "labels": {
+        "zh": "火",
+        "en": "Fire"
+      },
+      "categoryId": "motif-substance",
+      "family": "fire",
+      "facets": [
+        "heat",
+        "hazard"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "blood",
+      "labels": {
+        "zh": "血液",
+        "en": "Blood"
+      },
+      "categoryId": "motif-substance",
+      "family": "blood",
+      "facets": [
+        "body",
+        "material"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "plants",
+      "labels": {
+        "zh": "植物",
+        "en": "Plants"
+      },
+      "categoryId": "motif-substance",
+      "family": "plants",
+      "facets": [
+        "nature",
+        "growth"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "light",
+      "labels": {
+        "zh": "光",
+        "en": "Light"
+      },
+      "categoryId": "motif-substance",
+      "family": "light",
+      "facets": [
+        "visibility",
+        "sense"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "broadcast",
+      "labels": {
+        "zh": "广播",
+        "en": "Broadcast"
+      },
+      "categoryId": "motif-phenomenon",
+      "family": "broadcast",
+      "facets": [
+        "media",
+        "communication"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "signal",
+      "labels": {
+        "zh": "信号",
+        "en": "Signal"
+      },
+      "categoryId": "motif-phenomenon",
+      "family": "signal",
+      "facets": [
+        "communication",
+        "mystery"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "storm",
+      "labels": {
+        "zh": "风暴",
+        "en": "Storm"
+      },
+      "categoryId": "motif-phenomenon",
+      "family": "storm",
+      "facets": [
+        "weather",
+        "hazard"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "insects",
+      "labels": {
+        "zh": "昆虫",
+        "en": "Insects"
+      },
+      "categoryId": "motif-entity",
+      "family": "insects",
+      "facets": [
+        "creature",
+        "colony"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "ghosts",
+      "labels": {
+        "zh": "幽灵",
+        "en": "Ghosts"
+      },
+      "categoryId": "motif-entity",
+      "family": "ghosts",
+      "facets": [
+        "supernatural",
+        "presence"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "animals",
+      "labels": {
+        "zh": "动物",
+        "en": "Animals"
+      },
+      "categoryId": "motif-entity",
+      "family": "animals",
+      "facets": [
+        "creature",
+        "society"
+      ]
+    },
+    {
+      "aliases": [],
+      "baseWeight": 1,
+      "rarity": 0.45,
+      "scopeImpact": 0,
+      "implementationRisk": 0.25,
+      "enabled": true,
+      "id": "debt",
+      "labels": {
+        "zh": "债务",
+        "en": "Debt"
+      },
+      "categoryId": "motif-concept",
+      "family": "debt",
+      "facets": [
+        "obligation",
+        "economy"
       ]
     }
   ]

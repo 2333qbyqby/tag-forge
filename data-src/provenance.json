@@ -1,0 +1,3767 @@
+{
+  "sources": [
+    {
+      "id": "game-project-zomboid",
+      "kind": "game",
+      "labels": {
+        "zh": "Project Zomboid",
+        "en": "Project Zomboid"
+      },
+      "url": "https://store.steampowered.com/app/108600/Project_Zomboid/",
+      "developer": "The Indie Stone",
+      "releaseYear": 2013,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-demon-turf",
+      "kind": "game",
+      "labels": {
+        "zh": "Demon Turf",
+        "en": "Demon Turf"
+      },
+      "url": "https://store.steampowered.com/app/1325900/Demon_Turf/",
+      "developer": "Fabraz",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-ftl",
+      "kind": "game",
+      "labels": {
+        "zh": "FTL: Faster Than Light",
+        "en": "FTL: Faster Than Light"
+      },
+      "url": "https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/",
+      "developer": "Subset Games",
+      "releaseYear": 2012,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-talos-principle",
+      "kind": "game",
+      "labels": {
+        "zh": "The Talos Principle",
+        "en": "The Talos Principle"
+      },
+      "url": "https://store.steampowered.com/app/257510/The_Talos_Principle/",
+      "developer": "Croteam",
+      "releaseYear": 2014,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-machinarium",
+      "kind": "game",
+      "labels": {
+        "zh": "Machinarium",
+        "en": "Machinarium"
+      },
+      "url": "https://store.steampowered.com/app/40700/Machinarium/",
+      "developer": "Amanita Design",
+      "releaseYear": 2009,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-century",
+      "kind": "game",
+      "labels": {
+        "zh": "Century: Age of Ashes",
+        "en": "Century: Age of Ashes"
+      },
+      "url": "https://store.steampowered.com/app/918570/Century_Age_of_Ashes/",
+      "developer": "Playwing LTD",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-shadow-gambit",
+      "kind": "game",
+      "labels": {
+        "zh": "Shadow Gambit: The Cursed Crew",
+        "en": "Shadow Gambit: The Cursed Crew"
+      },
+      "url": "https://store.steampowered.com/app/1545560/Shadow_Gambit_The_Cursed_Crew/",
+      "developer": "Mimimi Games",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-v-rising",
+      "kind": "game",
+      "labels": {
+        "zh": "V Rising",
+        "en": "V Rising"
+      },
+      "url": "https://store.steampowered.com/app/1604030/V_Rising/",
+      "developer": "Stunlock Studios",
+      "releaseYear": 2024,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-cult-of-the-lamb",
+      "kind": "game",
+      "labels": {
+        "zh": "Cult of the Lamb",
+        "en": "Cult of the Lamb"
+      },
+      "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "developer": "Massive Monster",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-shrouded-isle",
+      "kind": "game",
+      "labels": {
+        "zh": "The Shrouded Isle",
+        "en": "The Shrouded Isle"
+      },
+      "url": "https://store.steampowered.com/app/501320/The_Shrouded_Isle/",
+      "developer": "Kitfox Games",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-sable",
+      "kind": "game",
+      "labels": {
+        "zh": "Sable",
+        "en": "Sable"
+      },
+      "url": "https://store.steampowered.com/app/757310/Sable/",
+      "developer": "Shedworks",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-inscryption",
+      "kind": "game",
+      "labels": {
+        "zh": "Inscryption",
+        "en": "Inscryption"
+      },
+      "url": "https://store.steampowered.com/app/1092790/Inscryption/",
+      "developer": "Daniel Mullins Games",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-subnautica",
+      "kind": "game",
+      "labels": {
+        "zh": "Subnautica",
+        "en": "Subnautica"
+      },
+      "url": "https://store.steampowered.com/app/264710/Subnautica/",
+      "developer": "Unknown Worlds Entertainment",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-dredge",
+      "kind": "game",
+      "labels": {
+        "zh": "DREDGE",
+        "en": "DREDGE"
+      },
+      "url": "https://store.steampowered.com/app/1562430/DREDGE/",
+      "developer": "Black Salt Games",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-hollow-knight",
+      "kind": "game",
+      "labels": {
+        "zh": "Hollow Knight",
+        "en": "Hollow Knight"
+      },
+      "url": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "developer": "Team Cherry",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-darkwood",
+      "kind": "game",
+      "labels": {
+        "zh": "Darkwood",
+        "en": "Darkwood"
+      },
+      "url": "https://store.steampowered.com/app/274520/Darkwood/",
+      "developer": "Acid Wizard Studio",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-gris",
+      "kind": "game",
+      "labels": {
+        "zh": "GRIS",
+        "en": "GRIS"
+      },
+      "url": "https://store.steampowered.com/app/683320/GRIS/",
+      "developer": "Nomada Studio",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-cocoon",
+      "kind": "game",
+      "labels": {
+        "zh": "COCOON",
+        "en": "COCOON"
+      },
+      "url": "https://store.steampowered.com/app/1497440/COCOON/",
+      "developer": "Geometric Interactive",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-black-book",
+      "kind": "game",
+      "labels": {
+        "zh": "Black Book",
+        "en": "Black Book"
+      },
+      "url": "https://store.steampowered.com/app/1138660/Black_Book/",
+      "developer": "Morteshka",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-yume-nikki",
+      "kind": "game",
+      "labels": {
+        "zh": "Yume Nikki: Dream Diary",
+        "en": "Yume Nikki: Dream Diary"
+      },
+      "url": "https://store.steampowered.com/app/774811/YUMENIKKI_DREAM_DIARY/",
+      "developer": "KADOKAWA Corporation",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-hades",
+      "kind": "game",
+      "labels": {
+        "zh": "Hades",
+        "en": "Hades"
+      },
+      "url": "https://store.steampowered.com/app/1145360/Hades/",
+      "developer": "Supergiant Games",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-dead-cells",
+      "kind": "game",
+      "labels": {
+        "zh": "Dead Cells",
+        "en": "Dead Cells"
+      },
+      "url": "https://store.steampowered.com/app/588650/Dead_Cells/",
+      "developer": "Motion Twin",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-spiritfarer",
+      "kind": "game",
+      "labels": {
+        "zh": "Spiritfarer",
+        "en": "Spiritfarer"
+      },
+      "url": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "developer": "Thunder Lotus Games",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-bury-me-my-love",
+      "kind": "game",
+      "labels": {
+        "zh": "Bury Me, My Love",
+        "en": "Bury Me, My Love"
+      },
+      "url": "https://store.steampowered.com/app/808090/Bury_Me_My_Love/",
+      "developer": "The Pixel Hunt",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-terra-nil",
+      "kind": "game",
+      "labels": {
+        "zh": "Terra Nil",
+        "en": "Terra Nil"
+      },
+      "url": "https://store.steampowered.com/app/1593030/Terra_Nil/",
+      "developer": "Free Lives",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-endling",
+      "kind": "game",
+      "labels": {
+        "zh": "Endling: Extinction is Forever",
+        "en": "Endling: Extinction is Forever"
+      },
+      "url": "https://store.steampowered.com/app/898890/Endling__Extinction_is_Forever/",
+      "developer": "Herobeat Studios",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-to-the-moon",
+      "kind": "game",
+      "labels": {
+        "zh": "To the Moon",
+        "en": "To the Moon"
+      },
+      "url": "https://store.steampowered.com/app/206440/To_the_Moon/",
+      "developer": "Freebird Games",
+      "releaseYear": 2011,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-unpacking",
+      "kind": "game",
+      "labels": {
+        "zh": "Unpacking",
+        "en": "Unpacking"
+      },
+      "url": "https://store.steampowered.com/app/1135690/Unpacking/",
+      "developer": "Witch Beam",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-celeste",
+      "kind": "game",
+      "labels": {
+        "zh": "Celeste",
+        "en": "Celeste"
+      },
+      "url": "https://store.steampowered.com/app/504230/Celeste/",
+      "developer": "Maddy Makes Games",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-disco-elysium",
+      "kind": "game",
+      "labels": {
+        "zh": "Disco Elysium",
+        "en": "Disco Elysium"
+      },
+      "url": "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/",
+      "developer": "ZA/UM",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-assemble-with-care",
+      "kind": "game",
+      "labels": {
+        "zh": "Assemble with Care",
+        "en": "Assemble with Care"
+      },
+      "url": "https://store.steampowered.com/app/1202900/Assemble_with_Care/",
+      "developer": "ustwo games",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-journey",
+      "kind": "game",
+      "labels": {
+        "zh": "Journey",
+        "en": "Journey"
+      },
+      "url": "https://store.steampowered.com/app/638230/Journey/",
+      "developer": "thatgamecompany",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-kind-words",
+      "kind": "game",
+      "labels": {
+        "zh": "Kind Words",
+        "en": "Kind Words"
+      },
+      "url": "https://store.steampowered.com/app/1070710/Kind_Words_lo_fi_chill_beats_to_write_to/",
+      "developer": "Popcannibal",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-long-dark",
+      "kind": "game",
+      "labels": {
+        "zh": "The Long Dark",
+        "en": "The Long Dark"
+      },
+      "url": "https://store.steampowered.com/app/305620/The_Long_Dark/",
+      "developer": "Hinterland Studio",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-far-lone-sails",
+      "kind": "game",
+      "labels": {
+        "zh": "FAR: Lone Sails",
+        "en": "FAR: Lone Sails"
+      },
+      "url": "https://store.steampowered.com/app/609320/FAR_Lone_Sails/",
+      "developer": "Okomotive",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-among-us",
+      "kind": "game",
+      "labels": {
+        "zh": "Among Us",
+        "en": "Among Us"
+      },
+      "url": "https://store.steampowered.com/app/945360/Among_Us/",
+      "developer": "Innersloth",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-gnosia",
+      "kind": "game",
+      "labels": {
+        "zh": "GNOSIA",
+        "en": "GNOSIA"
+      },
+      "url": "https://store.steampowered.com/app/1608290/GNOSIA/",
+      "developer": "Petit Depotto",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-observation",
+      "kind": "game",
+      "labels": {
+        "zh": "Observation",
+        "en": "Observation"
+      },
+      "url": "https://store.steampowered.com/app/906100/Observation/",
+      "developer": "No Code",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-hypnospace",
+      "kind": "game",
+      "labels": {
+        "zh": "Hypnospace Outlaw",
+        "en": "Hypnospace Outlaw"
+      },
+      "url": "https://store.steampowered.com/app/844590/Hypnospace_Outlaw/",
+      "developer": "Tendershoot",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-emily-is-away",
+      "kind": "game",
+      "labels": {
+        "zh": "Emily is Away",
+        "en": "Emily is Away"
+      },
+      "url": "https://store.steampowered.com/app/417860/Emily_is_Away/",
+      "developer": "Kyle Seeley",
+      "releaseYear": 2015,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-braid",
+      "kind": "game",
+      "labels": {
+        "zh": "Braid",
+        "en": "Braid"
+      },
+      "url": "https://store.steampowered.com/app/26800/Braid/",
+      "developer": "Number None",
+      "releaseYear": 2009,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-outer-wilds",
+      "kind": "game",
+      "labels": {
+        "zh": "Outer Wilds",
+        "en": "Outer Wilds"
+      },
+      "url": "https://store.steampowered.com/app/753640/Outer_Wilds/",
+      "developer": "Mobius Digital",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-we-were-here",
+      "kind": "game",
+      "labels": {
+        "zh": "We Were Here",
+        "en": "We Were Here"
+      },
+      "url": "https://store.steampowered.com/app/582500/We_Were_Here/",
+      "developer": "Total Mayhem Games",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-chants-of-sennaar",
+      "kind": "game",
+      "labels": {
+        "zh": "Chants of Sennaar",
+        "en": "Chants of Sennaar"
+      },
+      "url": "https://store.steampowered.com/app/1931770/Chants_of_Sennaar/",
+      "developer": "Rundisc",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-heavens-vault",
+      "kind": "game",
+      "labels": {
+        "zh": "Heaven's Vault",
+        "en": "Heaven's Vault"
+      },
+      "url": "https://store.steampowered.com/app/774201/Heavens_Vault/",
+      "developer": "inkle",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-a-short-hike",
+      "kind": "game",
+      "labels": {
+        "zh": "A Short Hike",
+        "en": "A Short Hike"
+      },
+      "url": "https://store.steampowered.com/app/1055540/A_Short_Hike/",
+      "developer": "adamgryu",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-chinese-parents",
+      "kind": "game",
+      "labels": {
+        "zh": "中国式家长",
+        "en": "Chinese Parents"
+      },
+      "url": "https://store.steampowered.com/app/736190/Chinese_Parents/",
+      "developer": "墨鱼玩游戏",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-a-space-for-the-unbound",
+      "kind": "game",
+      "labels": {
+        "zh": "A Space for the Unbound",
+        "en": "A Space for the Unbound"
+      },
+      "url": "https://store.steampowered.com/app/1201270/A_Space_for_the_Unbound/",
+      "developer": "Mojiken",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-venba",
+      "kind": "game",
+      "labels": {
+        "zh": "Venba",
+        "en": "Venba"
+      },
+      "url": "https://store.steampowered.com/app/1491670/Venba/",
+      "developer": "Visai Games",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-night-in-the-woods",
+      "kind": "game",
+      "labels": {
+        "zh": "Night in the Woods",
+        "en": "Night in the Woods"
+      },
+      "url": "https://store.steampowered.com/app/481510/Night_in_the_Woods/",
+      "developer": "Infinite Fall",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-papers-please",
+      "kind": "game",
+      "labels": {
+        "zh": "Papers, Please",
+        "en": "Papers, Please"
+      },
+      "url": "https://store.steampowered.com/app/239030/Papers_Please/",
+      "developer": "Lucas Pope",
+      "releaseYear": 2013,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-death-and-taxes",
+      "kind": "game",
+      "labels": {
+        "zh": "Death and Taxes",
+        "en": "Death and Taxes"
+      },
+      "url": "https://store.steampowered.com/app/1166290/Death_and_Taxes/",
+      "developer": "Placeholder Gameworks",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-going-under",
+      "kind": "game",
+      "labels": {
+        "zh": "Going Under",
+        "en": "Going Under"
+      },
+      "url": "https://store.steampowered.com/app/1154810/Going_Under/",
+      "developer": "Aggro Crab",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-invisible-hand",
+      "kind": "game",
+      "labels": {
+        "zh": "The Invisible Hand",
+        "en": "The Invisible Hand"
+      },
+      "url": "https://store.steampowered.com/app/628200/The_Invisible_Hand/",
+      "developer": "Power Struggle Games",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-paradise-killer",
+      "kind": "game",
+      "labels": {
+        "zh": "Paradise Killer",
+        "en": "Paradise Killer"
+      },
+      "url": "https://store.steampowered.com/app/1160220/Paradise_Killer/",
+      "developer": "Kaizen Game Works",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-golden-idol",
+      "kind": "game",
+      "labels": {
+        "zh": "The Case of the Golden Idol",
+        "en": "The Case of the Golden Idol"
+      },
+      "url": "https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/",
+      "developer": "Color Gray Games",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-citizen-sleeper",
+      "kind": "game",
+      "labels": {
+        "zh": "Citizen Sleeper",
+        "en": "Citizen Sleeper"
+      },
+      "url": "https://store.steampowered.com/app/1578650/Citizen_Sleeper/",
+      "developer": "Jump Over The Age",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-yes-your-grace",
+      "kind": "game",
+      "labels": {
+        "zh": "Yes, Your Grace",
+        "en": "Yes, Your Grace"
+      },
+      "url": "https://store.steampowered.com/app/1115690/Yes_Your_Grace/",
+      "developer": "Brave At Night",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-mini-metro",
+      "kind": "game",
+      "labels": {
+        "zh": "Mini Metro",
+        "en": "Mini Metro"
+      },
+      "url": "https://store.steampowered.com/app/287980/Mini_Metro/",
+      "developer": "Dinosaur Polo Club",
+      "releaseYear": 2015,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-cloudpunk",
+      "kind": "game",
+      "labels": {
+        "zh": "Cloudpunk",
+        "en": "Cloudpunk"
+      },
+      "url": "https://store.steampowered.com/app/746850/Cloudpunk/",
+      "developer": "ION LANDS",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-ib",
+      "kind": "game",
+      "labels": {
+        "zh": "Ib",
+        "en": "Ib"
+      },
+      "url": "https://store.steampowered.com/app/1901370/Ib/",
+      "developer": "kouri",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-stardew-valley",
+      "kind": "game",
+      "labels": {
+        "zh": "Stardew Valley",
+        "en": "Stardew Valley"
+      },
+      "url": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "developer": "ConcernedApe",
+      "releaseYear": 2016,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-twelve-minutes",
+      "kind": "game",
+      "labels": {
+        "zh": "Twelve Minutes",
+        "en": "Twelve Minutes"
+      },
+      "url": "https://store.steampowered.com/app/1097200/Twelve_Minutes/",
+      "developer": "Luis Antonio",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-pdta",
+      "kind": "game",
+      "labels": {
+        "zh": "Please, Don't Touch Anything",
+        "en": "Please, Don't Touch Anything"
+      },
+      "url": "https://store.steampowered.com/app/354240/Please_Dont_Touch_Anything/",
+      "developer": "Four Quarters",
+      "releaseYear": 2015,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-phasmophobia",
+      "kind": "game",
+      "labels": {
+        "zh": "Phasmophobia",
+        "en": "Phasmophobia"
+      },
+      "url": "https://store.steampowered.com/app/739630/Phasmophobia/",
+      "developer": "Kinetic Games",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-factorio",
+      "kind": "game",
+      "labels": {
+        "zh": "Factorio",
+        "en": "Factorio"
+      },
+      "url": "https://store.steampowered.com/app/427520/Factorio/",
+      "developer": "Wube Software",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-stanley-parable",
+      "kind": "game",
+      "labels": {
+        "zh": "The Stanley Parable: Ultra Deluxe",
+        "en": "The Stanley Parable: Ultra Deluxe"
+      },
+      "url": "https://store.steampowered.com/app/1703340/The_Stanley_Parable_Ultra_Deluxe/",
+      "developer": "Crows Crows Crows",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-detention",
+      "kind": "game",
+      "labels": {
+        "zh": "返校",
+        "en": "Detention"
+      },
+      "url": "https://store.steampowered.com/app/555220/Detention/",
+      "developer": "RedCandleGames",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-book-of-hours",
+      "kind": "game",
+      "labels": {
+        "zh": "BOOK OF HOURS",
+        "en": "BOOK OF HOURS"
+      },
+      "url": "https://store.steampowered.com/app/1028310/BOOK_OF_HOURS/",
+      "developer": "Weather Factory",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-final-station",
+      "kind": "game",
+      "labels": {
+        "zh": "The Final Station",
+        "en": "The Final Station"
+      },
+      "url": "https://store.steampowered.com/app/435530/The_Final_Station/",
+      "developer": "DO MY BEST",
+      "releaseYear": 2016,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-obra-dinn",
+      "kind": "game",
+      "labels": {
+        "zh": "Return of the Obra Dinn",
+        "en": "Return of the Obra Dinn"
+      },
+      "url": "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/",
+      "developer": "Lucas Pope",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-parkitect",
+      "kind": "game",
+      "labels": {
+        "zh": "Parkitect",
+        "en": "Parkitect"
+      },
+      "url": "https://store.steampowered.com/app/453090/Parkitect/",
+      "developer": "Texel Raptor",
+      "releaseYear": 2018,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-astroneer",
+      "kind": "game",
+      "labels": {
+        "zh": "ASTRONEER",
+        "en": "ASTRONEER"
+      },
+      "url": "https://store.steampowered.com/app/361420/ASTRONEER/",
+      "developer": "System Era Softworks",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-la-mulana",
+      "kind": "game",
+      "labels": {
+        "zh": "La-Mulana",
+        "en": "La-Mulana"
+      },
+      "url": "https://store.steampowered.com/app/230700/LaMulana/",
+      "developer": "NIGORO",
+      "releaseYear": 2013,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-tunic",
+      "kind": "game",
+      "labels": {
+        "zh": "TUNIC",
+        "en": "TUNIC"
+      },
+      "url": "https://store.steampowered.com/app/553420/TUNIC/",
+      "developer": "TUNIC Team",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-tinykin",
+      "kind": "game",
+      "labels": {
+        "zh": "Tinykin",
+        "en": "Tinykin"
+      },
+      "url": "https://store.steampowered.com/app/1599020/Tinykin/",
+      "developer": "Splashteam",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-not-for-broadcast",
+      "kind": "game",
+      "labels": {
+        "zh": "Not For Broadcast",
+        "en": "Not For Broadcast"
+      },
+      "url": "https://store.steampowered.com/app/1147550/Not_For_Broadcast/",
+      "developer": "NotGames",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-killer-frequency",
+      "kind": "game",
+      "labels": {
+        "zh": "Killer Frequency",
+        "en": "Killer Frequency"
+      },
+      "url": "https://store.steampowered.com/app/1903620/Killer_Frequency/",
+      "developer": "Team17",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-barotrauma",
+      "kind": "game",
+      "labels": {
+        "zh": "Barotrauma",
+        "en": "Barotrauma"
+      },
+      "url": "https://store.steampowered.com/app/602960/Barotrauma/",
+      "developer": "FakeFish",
+      "releaseYear": 2023,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-eastward",
+      "kind": "game",
+      "labels": {
+        "zh": "Eastward",
+        "en": "Eastward"
+      },
+      "url": "https://store.steampowered.com/app/977880/Eastward/",
+      "developer": "Pixpil",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-foxhole",
+      "kind": "game",
+      "labels": {
+        "zh": "Foxhole",
+        "en": "Foxhole"
+      },
+      "url": "https://store.steampowered.com/app/505460/Foxhole/",
+      "developer": "Siege Camp",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-prison-architect",
+      "kind": "game",
+      "labels": {
+        "zh": "Prison Architect",
+        "en": "Prison Architect"
+      },
+      "url": "https://store.steampowered.com/app/233450/Prison_Architect/",
+      "developer": "Introversion Software",
+      "releaseYear": 2015,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-escapists",
+      "kind": "game",
+      "labels": {
+        "zh": "The Escapists",
+        "en": "The Escapists"
+      },
+      "url": "https://store.steampowered.com/app/298630/The_Escapists/",
+      "developer": "Mouldy Toof Studios",
+      "releaseYear": 2015,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-oxenfree",
+      "kind": "game",
+      "labels": {
+        "zh": "OXENFREE",
+        "en": "OXENFREE"
+      },
+      "url": "https://store.steampowered.com/app/388880/Oxenfree/",
+      "developer": "Night School Studio",
+      "releaseYear": 2016,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-strange-horticulture",
+      "kind": "game",
+      "labels": {
+        "zh": "Strange Horticulture",
+        "en": "Strange Horticulture"
+      },
+      "url": "https://store.steampowered.com/app/1574580/Strange_Horticulture/",
+      "developer": "Bad Viking",
+      "releaseYear": 2022,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-nine-sols",
+      "kind": "game",
+      "labels": {
+        "zh": "九日",
+        "en": "Nine Sols"
+      },
+      "url": "https://store.steampowered.com/app/1809540/Nine_Sols/",
+      "developer": "RedCandleGames",
+      "releaseYear": 2024,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-slay-the-spire",
+      "kind": "game",
+      "labels": {
+        "zh": "Slay the Spire",
+        "en": "Slay the Spire"
+      },
+      "url": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+      "developer": "Mega Crit",
+      "releaseYear": 2019,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-toem",
+      "kind": "game",
+      "labels": {
+        "zh": "TOEM",
+        "en": "TOEM"
+      },
+      "url": "https://store.steampowered.com/app/1307580/TOEM_A_Photo_Adventure/",
+      "developer": "Something We Made",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-umurangi",
+      "kind": "game",
+      "labels": {
+        "zh": "Umurangi Generation",
+        "en": "Umurangi Generation"
+      },
+      "url": "https://store.steampowered.com/app/1223500/Umurangi_Generation/",
+      "developer": "Origame Digital",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-rain-world",
+      "kind": "game",
+      "labels": {
+        "zh": "Rain World",
+        "en": "Rain World"
+      },
+      "url": "https://store.steampowered.com/app/312520/Rain_World/",
+      "developer": "Videocult",
+      "releaseYear": 2017,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-coffee-talk",
+      "kind": "game",
+      "labels": {
+        "zh": "Coffee Talk",
+        "en": "Coffee Talk"
+      },
+      "url": "https://store.steampowered.com/app/914800/Coffee_Talk/",
+      "developer": "Toge Productions",
+      "releaseYear": 2020,
+      "retrievedAt": "2026-07-26"
+    },
+    {
+      "id": "game-gunfire-reborn",
+      "kind": "game",
+      "labels": {
+        "zh": "枪火重生",
+        "en": "Gunfire Reborn"
+      },
+      "url": "https://store.steampowered.com/app/1217060/Gunfire_Reborn/",
+      "developer": "Duoyi Games",
+      "releaseYear": 2021,
+      "retrievedAt": "2026-07-26"
+    }
+  ],
+  "observations": [
+    {
+      "entryId": "zombies",
+      "sourceId": "game-project-zomboid",
+      "evidenceUrl": "https://store.steampowered.com/app/108600/Project_Zomboid/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Project Zomboid 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「僵尸」。",
+        "en": "Project Zomboid's official page and gameplay media support observing Zombies through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "demons",
+      "sourceId": "game-demon-turf",
+      "evidenceUrl": "https://store.steampowered.com/app/1325900/Demon_Turf/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Demon Turf 的官方页面与实机媒体支持通过 visual、interactive 观察到「恶魔」。",
+        "en": "Demon Turf's official page and gameplay media support observing Demons through visual, interactive."
+      }
+    },
+    {
+      "entryId": "aliens",
+      "sourceId": "game-ftl",
+      "evidenceUrl": "https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "FTL: Faster Than Light 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「外星人」。",
+        "en": "FTL: Faster Than Light's official page and gameplay media support observing Aliens through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "robots",
+      "sourceId": "game-talos-principle",
+      "evidenceUrl": "https://store.steampowered.com/app/257510/The_Talos_Principle/",
+      "channels": [
+        "visual",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Talos Principle 的官方页面与实机媒体支持通过 visual、narrative 观察到「机器人」。",
+        "en": "The Talos Principle's official page and gameplay media support observing Robots through visual, narrative."
+      }
+    },
+    {
+      "entryId": "robots",
+      "sourceId": "game-machinarium",
+      "evidenceUrl": "https://store.steampowered.com/app/40700/Machinarium/",
+      "channels": [
+        "visual",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Machinarium 的官方页面与实机媒体支持通过 visual、narrative 观察到「机器人」。",
+        "en": "Machinarium's official page and gameplay media support observing Robots through visual, narrative."
+      }
+    },
+    {
+      "entryId": "dragons",
+      "sourceId": "game-century",
+      "evidenceUrl": "https://store.steampowered.com/app/918570/Century_Age_of_Ashes/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Century: Age of Ashes 的官方页面与实机媒体支持通过 visual、interactive 观察到「龙」。",
+        "en": "Century: Age of Ashes's official page and gameplay media support observing Dragons through visual, interactive."
+      }
+    },
+    {
+      "entryId": "pirates",
+      "sourceId": "game-shadow-gambit",
+      "evidenceUrl": "https://store.steampowered.com/app/1545560/Shadow_Gambit_The_Cursed_Crew/",
+      "channels": [
+        "visual",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Shadow Gambit: The Cursed Crew 的官方页面与实机媒体支持通过 visual、narrative 观察到「海盗」。",
+        "en": "Shadow Gambit: The Cursed Crew's official page and gameplay media support observing Pirates through visual, narrative."
+      }
+    },
+    {
+      "entryId": "vampires",
+      "sourceId": "game-v-rising",
+      "evidenceUrl": "https://store.steampowered.com/app/1604030/V_Rising/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "V Rising 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「吸血鬼」。",
+        "en": "V Rising's official page and gameplay media support observing Vampires through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "cult",
+      "sourceId": "game-cult-of-the-lamb",
+      "evidenceUrl": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Cult of the Lamb 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「邪教」。",
+        "en": "Cult of the Lamb's official page and gameplay media support observing Cult through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "cult",
+      "sourceId": "game-shrouded-isle",
+      "evidenceUrl": "https://store.steampowered.com/app/501320/The_Shrouded_Isle/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Shrouded Isle 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「邪教」。",
+        "en": "The Shrouded Isle's official page and gameplay media support observing Cult through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "insects",
+      "sourceId": "game-hollow-knight",
+      "evidenceUrl": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hollow Knight 的官方页面与实机媒体支持通过 visual、interactive 观察到「昆虫」。",
+        "en": "Hollow Knight's official page and gameplay media support observing Insects through visual, interactive."
+      }
+    },
+    {
+      "entryId": "insects",
+      "sourceId": "game-tinykin",
+      "evidenceUrl": "https://store.steampowered.com/app/1599020/Tinykin/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Tinykin 的官方页面与实机媒体支持通过 visual、interactive 观察到「昆虫」。",
+        "en": "Tinykin's official page and gameplay media support observing Insects through visual, interactive."
+      }
+    },
+    {
+      "entryId": "ghosts",
+      "sourceId": "game-detention",
+      "evidenceUrl": "https://store.steampowered.com/app/555220/Detention/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "返校 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「幽灵」。",
+        "en": "Detention's official page and gameplay media support observing Ghosts through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "ghosts",
+      "sourceId": "game-phasmophobia",
+      "evidenceUrl": "https://store.steampowered.com/app/739630/Phasmophobia/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Phasmophobia 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「幽灵」。",
+        "en": "Phasmophobia's official page and gameplay media support observing Ghosts through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "animals",
+      "sourceId": "game-cult-of-the-lamb",
+      "evidenceUrl": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Cult of the Lamb 的官方页面与实机媒体支持通过 visual、interactive 观察到「动物」。",
+        "en": "Cult of the Lamb's official page and gameplay media support observing Animals through visual, interactive."
+      }
+    },
+    {
+      "entryId": "animals",
+      "sourceId": "game-gunfire-reborn",
+      "evidenceUrl": "https://store.steampowered.com/app/1217060/Gunfire_Reborn/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "枪火重生 的官方页面与实机媒体支持通过 visual、interactive 观察到「动物」。",
+        "en": "Gunfire Reborn's official page and gameplay media support observing Animals through visual, interactive."
+      }
+    },
+    {
+      "entryId": "masks",
+      "sourceId": "game-sable",
+      "evidenceUrl": "https://store.steampowered.com/app/757310/Sable/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Sable 的官方页面与实机媒体支持通过 visual、interactive 观察到「面具」。",
+        "en": "Sable's official page and gameplay media support observing Masks through visual, interactive."
+      }
+    },
+    {
+      "entryId": "masks",
+      "sourceId": "game-inscryption",
+      "evidenceUrl": "https://store.steampowered.com/app/1092790/Inscryption/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Inscryption 的官方页面与实机媒体支持通过 visual、interactive 观察到「面具」。",
+        "en": "Inscryption's official page and gameplay media support observing Masks through visual, interactive."
+      }
+    },
+    {
+      "entryId": "radio",
+      "sourceId": "game-oxenfree",
+      "evidenceUrl": "https://store.steampowered.com/app/388880/Oxenfree/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "OXENFREE 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「无线电」。",
+        "en": "OXENFREE's official page and gameplay media support observing Radio through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "radio",
+      "sourceId": "game-killer-frequency",
+      "evidenceUrl": "https://store.steampowered.com/app/1903620/Killer_Frequency/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Killer Frequency 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「无线电」。",
+        "en": "Killer Frequency's official page and gameplay media support observing Radio through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "book",
+      "sourceId": "game-book-of-hours",
+      "evidenceUrl": "https://store.steampowered.com/app/1028310/BOOK_OF_HOURS/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "BOOK OF HOURS 的官方页面与实机媒体支持通过 visual、interactive 观察到「书籍」。",
+        "en": "BOOK OF HOURS's official page and gameplay media support observing Book through visual, interactive."
+      }
+    },
+    {
+      "entryId": "book",
+      "sourceId": "game-strange-horticulture",
+      "evidenceUrl": "https://store.steampowered.com/app/1574580/Strange_Horticulture/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Strange Horticulture 的官方页面与实机媒体支持通过 visual、interactive 观察到「书籍」。",
+        "en": "Strange Horticulture's official page and gameplay media support observing Book through visual, interactive."
+      }
+    },
+    {
+      "entryId": "map",
+      "sourceId": "game-mini-metro",
+      "evidenceUrl": "https://store.steampowered.com/app/287980/Mini_Metro/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Mini Metro 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「地图」。",
+        "en": "Mini Metro's official page and gameplay media support observing Map through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "map",
+      "sourceId": "game-strange-horticulture",
+      "evidenceUrl": "https://store.steampowered.com/app/1574580/Strange_Horticulture/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Strange Horticulture 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「地图」。",
+        "en": "Strange Horticulture's official page and gameplay media support observing Map through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "boat",
+      "sourceId": "game-spiritfarer",
+      "evidenceUrl": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Spiritfarer 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「小船」。",
+        "en": "Spiritfarer's official page and gameplay media support observing Boat through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "boat",
+      "sourceId": "game-dredge",
+      "evidenceUrl": "https://store.steampowered.com/app/1562430/DREDGE/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "DREDGE 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「小船」。",
+        "en": "DREDGE's official page and gameplay media support observing Boat through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "sword",
+      "sourceId": "game-tunic",
+      "evidenceUrl": "https://store.steampowered.com/app/553420/TUNIC/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "TUNIC 的官方页面与实机媒体支持通过 visual、interactive 观察到「剑」。",
+        "en": "TUNIC's official page and gameplay media support observing Sword through visual, interactive."
+      }
+    },
+    {
+      "entryId": "sword",
+      "sourceId": "game-nine-sols",
+      "evidenceUrl": "https://store.steampowered.com/app/1809540/Nine_Sols/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "九日 的官方页面与实机媒体支持通过 visual、interactive 观察到「剑」。",
+        "en": "Nine Sols's official page and gameplay media support observing Sword through visual, interactive."
+      }
+    },
+    {
+      "entryId": "card-deck",
+      "sourceId": "game-slay-the-spire",
+      "evidenceUrl": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Slay the Spire 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「卡组」。",
+        "en": "Slay the Spire's official page and gameplay media support observing Card Deck through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "card-deck",
+      "sourceId": "game-inscryption",
+      "evidenceUrl": "https://store.steampowered.com/app/1092790/Inscryption/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Inscryption 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「卡组」。",
+        "en": "Inscryption's official page and gameplay media support observing Card Deck through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "camera",
+      "sourceId": "game-toem",
+      "evidenceUrl": "https://store.steampowered.com/app/1307580/TOEM_A_Photo_Adventure/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "TOEM 的官方页面与实机媒体支持通过 visual、interactive 观察到「相机」。",
+        "en": "TOEM's official page and gameplay media support observing Camera through visual, interactive."
+      }
+    },
+    {
+      "entryId": "camera",
+      "sourceId": "game-umurangi",
+      "evidenceUrl": "https://store.steampowered.com/app/1223500/Umurangi_Generation/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Umurangi Generation 的官方页面与实机媒体支持通过 visual、interactive 观察到「相机」。",
+        "en": "Umurangi Generation's official page and gameplay media support observing Camera through visual, interactive."
+      }
+    },
+    {
+      "entryId": "clock",
+      "sourceId": "game-twelve-minutes",
+      "evidenceUrl": "https://store.steampowered.com/app/1097200/Twelve_Minutes/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Twelve Minutes 的官方页面与实机媒体支持通过 visual、interactive 观察到「时钟」。",
+        "en": "Twelve Minutes's official page and gameplay media support observing Clock through visual, interactive."
+      }
+    },
+    {
+      "entryId": "clock",
+      "sourceId": "game-obra-dinn",
+      "evidenceUrl": "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Return of the Obra Dinn 的官方页面与实机媒体支持通过 visual、interactive 观察到「时钟」。",
+        "en": "Return of the Obra Dinn's official page and gameplay media support observing Clock through visual, interactive."
+      }
+    },
+    {
+      "entryId": "ocean",
+      "sourceId": "game-subnautica",
+      "evidenceUrl": "https://store.steampowered.com/app/264710/Subnautica/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Subnautica 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「海洋」。",
+        "en": "Subnautica's official page and gameplay media support observing Ocean through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "ocean",
+      "sourceId": "game-dredge",
+      "evidenceUrl": "https://store.steampowered.com/app/1562430/DREDGE/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "DREDGE 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「海洋」。",
+        "en": "DREDGE's official page and gameplay media support observing Ocean through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "rain",
+      "sourceId": "game-rain-world",
+      "evidenceUrl": "https://store.steampowered.com/app/312520/Rain_World/",
+      "channels": [
+        "visual",
+        "auditory",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Rain World 的官方页面与实机媒体支持通过 visual、auditory、systemic 观察到「雨」。",
+        "en": "Rain World's official page and gameplay media support observing Rain through visual, auditory, systemic."
+      }
+    },
+    {
+      "entryId": "rain",
+      "sourceId": "game-coffee-talk",
+      "evidenceUrl": "https://store.steampowered.com/app/914800/Coffee_Talk/",
+      "channels": [
+        "visual",
+        "auditory",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Coffee Talk 的官方页面与实机媒体支持通过 visual、auditory、systemic 观察到「雨」。",
+        "en": "Coffee Talk's official page and gameplay media support observing Rain through visual, auditory, systemic."
+      }
+    },
+    {
+      "entryId": "snow",
+      "sourceId": "game-long-dark",
+      "evidenceUrl": "https://store.steampowered.com/app/305620/The_Long_Dark/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Long Dark 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「雪」。",
+        "en": "The Long Dark's official page and gameplay media support observing Snow through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "snow",
+      "sourceId": "game-celeste",
+      "evidenceUrl": "https://store.steampowered.com/app/504230/Celeste/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Celeste 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「雪」。",
+        "en": "Celeste's official page and gameplay media support observing Snow through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "fog",
+      "sourceId": "game-dredge",
+      "evidenceUrl": "https://store.steampowered.com/app/1562430/DREDGE/",
+      "channels": [
+        "visual",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "DREDGE 的官方页面与实机媒体支持通过 visual、spatial 观察到「雾」。",
+        "en": "DREDGE's official page and gameplay media support observing Fog through visual, spatial."
+      }
+    },
+    {
+      "entryId": "fog",
+      "sourceId": "game-darkwood",
+      "evidenceUrl": "https://store.steampowered.com/app/274520/Darkwood/",
+      "channels": [
+        "visual",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Darkwood 的官方页面与实机媒体支持通过 visual、spatial 观察到「雾」。",
+        "en": "Darkwood's official page and gameplay media support observing Fog through visual, spatial."
+      }
+    },
+    {
+      "entryId": "water",
+      "sourceId": "game-gris",
+      "evidenceUrl": "https://store.steampowered.com/app/683320/GRIS/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "GRIS 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「水」。",
+        "en": "GRIS's official page and gameplay media support observing Water through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "water",
+      "sourceId": "game-terra-nil",
+      "evidenceUrl": "https://store.steampowered.com/app/1593030/Terra_Nil/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Terra Nil 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「水」。",
+        "en": "Terra Nil's official page and gameplay media support observing Water through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "fire",
+      "sourceId": "game-darkwood",
+      "evidenceUrl": "https://store.steampowered.com/app/274520/Darkwood/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Darkwood 的官方页面与实机媒体支持通过 visual、interactive 观察到「火」。",
+        "en": "Darkwood's official page and gameplay media support observing Fire through visual, interactive."
+      }
+    },
+    {
+      "entryId": "fire",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 visual、interactive 观察到「火」。",
+        "en": "Hades's official page and gameplay media support observing Fire through visual, interactive."
+      }
+    },
+    {
+      "entryId": "blood",
+      "sourceId": "game-v-rising",
+      "evidenceUrl": "https://store.steampowered.com/app/1604030/V_Rising/",
+      "channels": [
+        "visual",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "V Rising 的官方页面与实机媒体支持通过 visual、systemic 观察到「血液」。",
+        "en": "V Rising's official page and gameplay media support observing Blood through visual, systemic."
+      }
+    },
+    {
+      "entryId": "blood",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "visual",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 visual、systemic 观察到「血液」。",
+        "en": "Hades's official page and gameplay media support observing Blood through visual, systemic."
+      }
+    },
+    {
+      "entryId": "plants",
+      "sourceId": "game-strange-horticulture",
+      "evidenceUrl": "https://store.steampowered.com/app/1574580/Strange_Horticulture/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Strange Horticulture 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「植物」。",
+        "en": "Strange Horticulture's official page and gameplay media support observing Plants through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "plants",
+      "sourceId": "game-terra-nil",
+      "evidenceUrl": "https://store.steampowered.com/app/1593030/Terra_Nil/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Terra Nil 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「植物」。",
+        "en": "Terra Nil's official page and gameplay media support observing Plants through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "light",
+      "sourceId": "game-gris",
+      "evidenceUrl": "https://store.steampowered.com/app/683320/GRIS/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "GRIS 的官方页面与实机媒体支持通过 visual、interactive 观察到「光」。",
+        "en": "GRIS's official page and gameplay media support observing Light through visual, interactive."
+      }
+    },
+    {
+      "entryId": "light",
+      "sourceId": "game-cocoon",
+      "evidenceUrl": "https://store.steampowered.com/app/1497440/COCOON/",
+      "channels": [
+        "visual",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "COCOON 的官方页面与实机媒体支持通过 visual、interactive 观察到「光」。",
+        "en": "COCOON's official page and gameplay media support observing Light through visual, interactive."
+      }
+    },
+    {
+      "entryId": "decay",
+      "sourceId": "game-hollow-knight",
+      "evidenceUrl": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "channels": [
+        "visual",
+        "spatial",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hollow Knight 的官方页面与实机媒体支持通过 visual、spatial、narrative 观察到「衰败」。",
+        "en": "Hollow Knight's official page and gameplay media support observing Decay through visual, spatial, narrative."
+      }
+    },
+    {
+      "entryId": "decay",
+      "sourceId": "game-darkwood",
+      "evidenceUrl": "https://store.steampowered.com/app/274520/Darkwood/",
+      "channels": [
+        "visual",
+        "spatial",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Darkwood 的官方页面与实机媒体支持通过 visual、spatial、narrative 观察到「衰败」。",
+        "en": "Darkwood's official page and gameplay media support observing Decay through visual, spatial, narrative."
+      }
+    },
+    {
+      "entryId": "transformation",
+      "sourceId": "game-gris",
+      "evidenceUrl": "https://store.steampowered.com/app/683320/GRIS/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "GRIS 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「蜕变」。",
+        "en": "GRIS's official page and gameplay media support observing Transformation through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "transformation",
+      "sourceId": "game-cocoon",
+      "evidenceUrl": "https://store.steampowered.com/app/1497440/COCOON/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "COCOON 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「蜕变」。",
+        "en": "COCOON's official page and gameplay media support observing Transformation through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "ritual",
+      "sourceId": "game-cult-of-the-lamb",
+      "evidenceUrl": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Cult of the Lamb 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「仪式」。",
+        "en": "Cult of the Lamb's official page and gameplay media support observing Ritual through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "ritual",
+      "sourceId": "game-black-book",
+      "evidenceUrl": "https://store.steampowered.com/app/1138660/Black_Book/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Black Book 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「仪式」。",
+        "en": "Black Book's official page and gameplay media support observing Ritual through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "dreams",
+      "sourceId": "game-yume-nikki",
+      "evidenceUrl": "https://store.steampowered.com/app/774811/YUMENIKKI_DREAM_DIARY/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Yume Nikki: Dream Diary 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「梦境」。",
+        "en": "Yume Nikki: Dream Diary's official page and gameplay media support observing Dreams through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "death",
+      "sourceId": "game-spiritfarer",
+      "evidenceUrl": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "channels": [
+        "narrative",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Spiritfarer 的官方页面与实机媒体支持通过 narrative、systemic 观察到「死亡」。",
+        "en": "Spiritfarer's official page and gameplay media support observing Death through narrative, systemic."
+      }
+    },
+    {
+      "entryId": "death",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "narrative",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 narrative、systemic 观察到「死亡」。",
+        "en": "Hades's official page and gameplay media support observing Death through narrative, systemic."
+      }
+    },
+    {
+      "entryId": "rebirth",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 systemic、narrative 观察到「重生」。",
+        "en": "Hades's official page and gameplay media support observing Rebirth through systemic, narrative."
+      }
+    },
+    {
+      "entryId": "rebirth",
+      "sourceId": "game-dead-cells",
+      "evidenceUrl": "https://store.steampowered.com/app/588650/Dead_Cells/",
+      "channels": [
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Dead Cells 的官方页面与实机媒体支持通过 systemic、narrative 观察到「重生」。",
+        "en": "Dead Cells's official page and gameplay media support observing Rebirth through systemic, narrative."
+      }
+    },
+    {
+      "entryId": "migration",
+      "sourceId": "game-venba",
+      "evidenceUrl": "https://store.steampowered.com/app/1491670/Venba/",
+      "channels": [
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Venba 的官方页面与实机媒体支持通过 narrative 观察到「迁徙」。",
+        "en": "Venba's official page and gameplay media support observing Migration through narrative."
+      }
+    },
+    {
+      "entryId": "migration",
+      "sourceId": "game-bury-me-my-love",
+      "evidenceUrl": "https://store.steampowered.com/app/808090/Bury_Me_My_Love/",
+      "channels": [
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Bury Me, My Love 的官方页面与实机媒体支持通过 narrative 观察到「迁徙」。",
+        "en": "Bury Me, My Love's official page and gameplay media support observing Migration through narrative."
+      }
+    },
+    {
+      "entryId": "entropy",
+      "sourceId": "game-outer-wilds",
+      "evidenceUrl": "https://store.steampowered.com/app/753640/Outer_Wilds/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Outer Wilds 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「熵」。",
+        "en": "Outer Wilds's official page and gameplay media support observing Entropy through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "climate",
+      "sourceId": "game-terra-nil",
+      "evidenceUrl": "https://store.steampowered.com/app/1593030/Terra_Nil/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Terra Nil 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「气候」。",
+        "en": "Terra Nil's official page and gameplay media support observing Climate through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "climate",
+      "sourceId": "game-endling",
+      "evidenceUrl": "https://store.steampowered.com/app/898890/Endling__Extinction_is_Forever/",
+      "channels": [
+        "visual",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Endling: Extinction is Forever 的官方页面与实机媒体支持通过 visual、systemic、narrative 观察到「气候」。",
+        "en": "Endling: Extinction is Forever's official page and gameplay media support observing Climate through visual, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "broadcast",
+      "sourceId": "game-not-for-broadcast",
+      "evidenceUrl": "https://store.steampowered.com/app/1147550/Not_For_Broadcast/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Not For Broadcast 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「广播」。",
+        "en": "Not For Broadcast's official page and gameplay media support observing Broadcast through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "broadcast",
+      "sourceId": "game-killer-frequency",
+      "evidenceUrl": "https://store.steampowered.com/app/1903620/Killer_Frequency/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Killer Frequency 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「广播」。",
+        "en": "Killer Frequency's official page and gameplay media support observing Broadcast through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "signal",
+      "sourceId": "game-oxenfree",
+      "evidenceUrl": "https://store.steampowered.com/app/388880/Oxenfree/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "OXENFREE 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「信号」。",
+        "en": "OXENFREE's official page and gameplay media support observing Signal through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "signal",
+      "sourceId": "game-observation",
+      "evidenceUrl": "https://store.steampowered.com/app/906100/Observation/",
+      "channels": [
+        "visual",
+        "interactive",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Observation 的官方页面与实机媒体支持通过 visual、interactive、auditory 观察到「信号」。",
+        "en": "Observation's official page and gameplay media support observing Signal through visual, interactive, auditory."
+      }
+    },
+    {
+      "entryId": "storm",
+      "sourceId": "game-rain-world",
+      "evidenceUrl": "https://store.steampowered.com/app/312520/Rain_World/",
+      "channels": [
+        "visual",
+        "auditory",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Rain World 的官方页面与实机媒体支持通过 visual、auditory、systemic 观察到「风暴」。",
+        "en": "Rain World's official page and gameplay media support observing Storm through visual, auditory, systemic."
+      }
+    },
+    {
+      "entryId": "storm",
+      "sourceId": "game-long-dark",
+      "evidenceUrl": "https://store.steampowered.com/app/305620/The_Long_Dark/",
+      "channels": [
+        "visual",
+        "auditory",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Long Dark 的官方页面与实机媒体支持通过 visual、auditory、systemic 观察到「风暴」。",
+        "en": "The Long Dark's official page and gameplay media support observing Storm through visual, auditory, systemic."
+      }
+    },
+    {
+      "entryId": "memory",
+      "sourceId": "game-to-the-moon",
+      "evidenceUrl": "https://store.steampowered.com/app/206440/To_the_Moon/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "To the Moon 的官方页面与实机媒体支持通过 narrative、interactive 观察到「记忆」。",
+        "en": "To the Moon's official page and gameplay media support observing Memory through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "memory",
+      "sourceId": "game-unpacking",
+      "evidenceUrl": "https://store.steampowered.com/app/1135690/Unpacking/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Unpacking 的官方页面与实机媒体支持通过 narrative、interactive 观察到「记忆」。",
+        "en": "Unpacking's official page and gameplay media support observing Memory through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "identity",
+      "sourceId": "game-celeste",
+      "evidenceUrl": "https://store.steampowered.com/app/504230/Celeste/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Celeste 的官方页面与实机媒体支持通过 narrative、interactive 观察到「身份」。",
+        "en": "Celeste's official page and gameplay media support observing Identity through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "identity",
+      "sourceId": "game-disco-elysium",
+      "evidenceUrl": "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Disco Elysium 的官方页面与实机媒体支持通过 narrative、interactive 观察到「身份」。",
+        "en": "Disco Elysium's official page and gameplay media support observing Identity through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "loss",
+      "sourceId": "game-spiritfarer",
+      "evidenceUrl": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "channels": [
+        "narrative",
+        "visual"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Spiritfarer 的官方页面与实机媒体支持通过 narrative、visual 观察到「失去」。",
+        "en": "Spiritfarer's official page and gameplay media support observing Loss through narrative, visual."
+      }
+    },
+    {
+      "entryId": "loss",
+      "sourceId": "game-gris",
+      "evidenceUrl": "https://store.steampowered.com/app/683320/GRIS/",
+      "channels": [
+        "narrative",
+        "visual"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "GRIS 的官方页面与实机媒体支持通过 narrative、visual 观察到「失去」。",
+        "en": "GRIS's official page and gameplay media support observing Loss through narrative, visual."
+      }
+    },
+    {
+      "entryId": "repair",
+      "sourceId": "game-assemble-with-care",
+      "evidenceUrl": "https://store.steampowered.com/app/1202900/Assemble_with_Care/",
+      "channels": [
+        "interactive",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Assemble with Care 的官方页面与实机媒体支持通过 interactive、narrative 观察到「修复」。",
+        "en": "Assemble with Care's official page and gameplay media support observing Repair through interactive, narrative."
+      }
+    },
+    {
+      "entryId": "connection",
+      "sourceId": "game-journey",
+      "evidenceUrl": "https://store.steampowered.com/app/638230/Journey/",
+      "channels": [
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Journey 的官方页面与实机媒体支持通过 interactive、narrative 观察到「连接」。",
+        "en": "Journey's official page and gameplay media support observing Connection through interactive, narrative."
+      }
+    },
+    {
+      "entryId": "connection",
+      "sourceId": "game-kind-words",
+      "evidenceUrl": "https://store.steampowered.com/app/1070710/Kind_Words_lo_fi_chill_beats_to_write_to/",
+      "channels": [
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Kind Words 的官方页面与实机媒体支持通过 interactive、narrative 观察到「连接」。",
+        "en": "Kind Words's official page and gameplay media support observing Connection through interactive, narrative."
+      }
+    },
+    {
+      "entryId": "isolation",
+      "sourceId": "game-long-dark",
+      "evidenceUrl": "https://store.steampowered.com/app/305620/The_Long_Dark/",
+      "channels": [
+        "spatial",
+        "narrative",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Long Dark 的官方页面与实机媒体支持通过 spatial、narrative、auditory 观察到「孤立」。",
+        "en": "The Long Dark's official page and gameplay media support observing Isolation through spatial, narrative, auditory."
+      }
+    },
+    {
+      "entryId": "isolation",
+      "sourceId": "game-far-lone-sails",
+      "evidenceUrl": "https://store.steampowered.com/app/609320/FAR_Lone_Sails/",
+      "channels": [
+        "spatial",
+        "narrative",
+        "auditory"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "FAR: Lone Sails 的官方页面与实机媒体支持通过 spatial、narrative、auditory 观察到「孤立」。",
+        "en": "FAR: Lone Sails's official page and gameplay media support observing Isolation through spatial, narrative, auditory."
+      }
+    },
+    {
+      "entryId": "deception",
+      "sourceId": "game-among-us",
+      "evidenceUrl": "https://store.steampowered.com/app/945360/Among_Us/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Among Us 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「欺骗」。",
+        "en": "Among Us's official page and gameplay media support observing Deception through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "deception",
+      "sourceId": "game-gnosia",
+      "evidenceUrl": "https://store.steampowered.com/app/1608290/GNOSIA/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "GNOSIA 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「欺骗」。",
+        "en": "GNOSIA's official page and gameplay media support observing Deception through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "duality",
+      "sourceId": "game-celeste",
+      "evidenceUrl": "https://store.steampowered.com/app/504230/Celeste/",
+      "channels": [
+        "visual",
+        "narrative",
+        "interactive"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Celeste 的官方页面与实机媒体支持通过 visual、narrative、interactive 观察到「二元性」。",
+        "en": "Celeste's official page and gameplay media support observing Duality through visual, narrative, interactive."
+      }
+    },
+    {
+      "entryId": "nature",
+      "sourceId": "game-terra-nil",
+      "evidenceUrl": "https://store.steampowered.com/app/1593030/Terra_Nil/",
+      "channels": [
+        "visual",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Terra Nil 的官方页面与实机媒体支持通过 visual、systemic 观察到「自然」。",
+        "en": "Terra Nil's official page and gameplay media support observing Nature through visual, systemic."
+      }
+    },
+    {
+      "entryId": "nature",
+      "sourceId": "game-endling",
+      "evidenceUrl": "https://store.steampowered.com/app/898890/Endling__Extinction_is_Forever/",
+      "channels": [
+        "visual",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Endling: Extinction is Forever 的官方页面与实机媒体支持通过 visual、systemic 观察到「自然」。",
+        "en": "Endling: Extinction is Forever's official page and gameplay media support observing Nature through visual, systemic."
+      }
+    },
+    {
+      "entryId": "technology",
+      "sourceId": "game-factorio",
+      "evidenceUrl": "https://store.steampowered.com/app/427520/Factorio/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Factorio 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「科技」。",
+        "en": "Factorio's official page and gameplay media support observing Technology through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "technology",
+      "sourceId": "game-talos-principle",
+      "evidenceUrl": "https://store.steampowered.com/app/257510/The_Talos_Principle/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Talos Principle 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「科技」。",
+        "en": "The Talos Principle's official page and gameplay media support observing Technology through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "artificial-intelligence",
+      "sourceId": "game-talos-principle",
+      "evidenceUrl": "https://store.steampowered.com/app/257510/The_Talos_Principle/",
+      "channels": [
+        "narrative",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Talos Principle 的官方页面与实机媒体支持通过 narrative、interactive、systemic 观察到「人工智能」。",
+        "en": "The Talos Principle's official page and gameplay media support observing Artificial Intelligence through narrative, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "artificial-intelligence",
+      "sourceId": "game-observation",
+      "evidenceUrl": "https://store.steampowered.com/app/906100/Observation/",
+      "channels": [
+        "narrative",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Observation 的官方页面与实机媒体支持通过 narrative、interactive、systemic 观察到「人工智能」。",
+        "en": "Observation's official page and gameplay media support observing Artificial Intelligence through narrative, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "internet",
+      "sourceId": "game-hypnospace",
+      "evidenceUrl": "https://store.steampowered.com/app/844590/Hypnospace_Outlaw/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hypnospace Outlaw 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「互联网」。",
+        "en": "Hypnospace Outlaw's official page and gameplay media support observing Internet through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "internet",
+      "sourceId": "game-emily-is-away",
+      "evidenceUrl": "https://store.steampowered.com/app/417860/Emily_is_Away/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Emily is Away 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「互联网」。",
+        "en": "Emily is Away's official page and gameplay media support observing Internet through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "time",
+      "sourceId": "game-braid",
+      "evidenceUrl": "https://store.steampowered.com/app/26800/Braid/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Braid 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「时间」。",
+        "en": "Braid's official page and gameplay media support observing Time through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "time",
+      "sourceId": "game-outer-wilds",
+      "evidenceUrl": "https://store.steampowered.com/app/753640/Outer_Wilds/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Outer Wilds 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「时间」。",
+        "en": "Outer Wilds's official page and gameplay media support observing Time through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "sacrifice",
+      "sourceId": "game-cult-of-the-lamb",
+      "evidenceUrl": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Cult of the Lamb 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「牺牲」。",
+        "en": "Cult of the Lamb's official page and gameplay media support observing Sacrifice through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "trust",
+      "sourceId": "game-among-us",
+      "evidenceUrl": "https://store.steampowered.com/app/945360/Among_Us/",
+      "channels": [
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Among Us 的官方页面与实机媒体支持通过 interactive、systemic 观察到「信任」。",
+        "en": "Among Us's official page and gameplay media support observing Trust through interactive, systemic."
+      }
+    },
+    {
+      "entryId": "trust",
+      "sourceId": "game-we-were-here",
+      "evidenceUrl": "https://store.steampowered.com/app/582500/We_Were_Here/",
+      "channels": [
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "We Were Here 的官方页面与实机媒体支持通过 interactive、systemic 观察到「信任」。",
+        "en": "We Were Here's official page and gameplay media support observing Trust through interactive, systemic."
+      }
+    },
+    {
+      "entryId": "language",
+      "sourceId": "game-chants-of-sennaar",
+      "evidenceUrl": "https://store.steampowered.com/app/1931770/Chants_of_Sennaar/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Chants of Sennaar 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「语言」。",
+        "en": "Chants of Sennaar's official page and gameplay media support observing Language through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "language",
+      "sourceId": "game-heavens-vault",
+      "evidenceUrl": "https://store.steampowered.com/app/774201/Heavens_Vault/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Heaven's Vault 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「语言」。",
+        "en": "Heaven's Vault's official page and gameplay media support observing Language through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "communication",
+      "sourceId": "game-oxenfree",
+      "evidenceUrl": "https://store.steampowered.com/app/388880/Oxenfree/",
+      "channels": [
+        "interactive",
+        "auditory",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "OXENFREE 的官方页面与实机媒体支持通过 interactive、auditory、narrative 观察到「沟通」。",
+        "en": "OXENFREE's official page and gameplay media support observing Communication through interactive, auditory, narrative."
+      }
+    },
+    {
+      "entryId": "communication",
+      "sourceId": "game-we-were-here",
+      "evidenceUrl": "https://store.steampowered.com/app/582500/We_Were_Here/",
+      "channels": [
+        "interactive",
+        "auditory",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "We Were Here 的官方页面与实机媒体支持通过 interactive、auditory、narrative 观察到「沟通」。",
+        "en": "We Were Here's official page and gameplay media support observing Communication through interactive, auditory, narrative."
+      }
+    },
+    {
+      "entryId": "home",
+      "sourceId": "game-unpacking",
+      "evidenceUrl": "https://store.steampowered.com/app/1135690/Unpacking/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Unpacking 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「家」。",
+        "en": "Unpacking's official page and gameplay media support observing Home through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "home",
+      "sourceId": "game-a-short-hike",
+      "evidenceUrl": "https://store.steampowered.com/app/1055540/A_Short_Hike/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "A Short Hike 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「家」。",
+        "en": "A Short Hike's official page and gameplay media support observing Home through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "childhood",
+      "sourceId": "game-chinese-parents",
+      "evidenceUrl": "https://store.steampowered.com/app/736190/Chinese_Parents/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "中国式家长 的官方页面与实机媒体支持通过 narrative、interactive 观察到「童年」。",
+        "en": "Chinese Parents's official page and gameplay media support observing Childhood through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "childhood",
+      "sourceId": "game-a-space-for-the-unbound",
+      "evidenceUrl": "https://store.steampowered.com/app/1201270/A_Space_for_the_Unbound/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "A Space for the Unbound 的官方页面与实机媒体支持通过 narrative、interactive 观察到「童年」。",
+        "en": "A Space for the Unbound's official page and gameplay media support observing Childhood through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "family",
+      "sourceId": "game-chinese-parents",
+      "evidenceUrl": "https://store.steampowered.com/app/736190/Chinese_Parents/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "中国式家长 的官方页面与实机媒体支持通过 narrative、interactive 观察到「家庭」。",
+        "en": "Chinese Parents's official page and gameplay media support observing Family through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "family",
+      "sourceId": "game-venba",
+      "evidenceUrl": "https://store.steampowered.com/app/1491670/Venba/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Venba 的官方页面与实机媒体支持通过 narrative、interactive 观察到「家庭」。",
+        "en": "Venba's official page and gameplay media support observing Family through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "friendship",
+      "sourceId": "game-night-in-the-woods",
+      "evidenceUrl": "https://store.steampowered.com/app/481510/Night_in_the_Woods/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Night in the Woods 的官方页面与实机媒体支持通过 narrative、interactive 观察到「友谊」。",
+        "en": "Night in the Woods's official page and gameplay media support observing Friendship through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "friendship",
+      "sourceId": "game-a-short-hike",
+      "evidenceUrl": "https://store.steampowered.com/app/1055540/A_Short_Hike/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "A Short Hike 的官方页面与实机媒体支持通过 narrative、interactive 观察到「友谊」。",
+        "en": "A Short Hike's official page and gameplay media support observing Friendship through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "work",
+      "sourceId": "game-papers-please",
+      "evidenceUrl": "https://store.steampowered.com/app/239030/Papers_Please/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Papers, Please 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「劳动」。",
+        "en": "Papers, Please's official page and gameplay media support observing Work through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "work",
+      "sourceId": "game-death-and-taxes",
+      "evidenceUrl": "https://store.steampowered.com/app/1166290/Death_and_Taxes/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Death and Taxes 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「劳动」。",
+        "en": "Death and Taxes's official page and gameplay media support observing Work through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "bureaucracy",
+      "sourceId": "game-papers-please",
+      "evidenceUrl": "https://store.steampowered.com/app/239030/Papers_Please/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Papers, Please 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「官僚体系」。",
+        "en": "Papers, Please's official page and gameplay media support observing Bureaucracy through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "bureaucracy",
+      "sourceId": "game-death-and-taxes",
+      "evidenceUrl": "https://store.steampowered.com/app/1166290/Death_and_Taxes/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Death and Taxes 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「官僚体系」。",
+        "en": "Death and Taxes's official page and gameplay media support observing Bureaucracy through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "consumerism",
+      "sourceId": "game-going-under",
+      "evidenceUrl": "https://store.steampowered.com/app/1154810/Going_Under/",
+      "channels": [
+        "visual",
+        "narrative",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Going Under 的官方页面与实机媒体支持通过 visual、narrative、systemic 观察到「消费主义」。",
+        "en": "Going Under's official page and gameplay media support observing Consumerism through visual, narrative, systemic."
+      }
+    },
+    {
+      "entryId": "capitalism",
+      "sourceId": "game-invisible-hand",
+      "evidenceUrl": "https://store.steampowered.com/app/628200/The_Invisible_Hand/",
+      "channels": [
+        "interactive",
+        "systemic",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "The Invisible Hand 的官方页面与实机媒体支持通过 interactive、systemic、narrative 观察到「资本主义」。",
+        "en": "The Invisible Hand's official page and gameplay media support observing Capitalism through interactive, systemic, narrative."
+      }
+    },
+    {
+      "entryId": "conspiracy",
+      "sourceId": "game-paradise-killer",
+      "evidenceUrl": "https://store.steampowered.com/app/1160220/Paradise_Killer/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Paradise Killer 的官方页面与实机媒体支持通过 narrative、interactive 观察到「阴谋」。",
+        "en": "Paradise Killer's official page and gameplay media support observing Conspiracy through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "conspiracy",
+      "sourceId": "game-golden-idol",
+      "evidenceUrl": "https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/",
+      "channels": [
+        "narrative",
+        "interactive"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Case of the Golden Idol 的官方页面与实机媒体支持通过 narrative、interactive 观察到「阴谋」。",
+        "en": "The Case of the Golden Idol's official page and gameplay media support observing Conspiracy through narrative, interactive."
+      }
+    },
+    {
+      "entryId": "unknown",
+      "sourceId": "game-outer-wilds",
+      "evidenceUrl": "https://store.steampowered.com/app/753640/Outer_Wilds/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Outer Wilds 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「未知」。",
+        "en": "Outer Wilds's official page and gameplay media support observing The Unknown through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "unknown",
+      "sourceId": "game-dredge",
+      "evidenceUrl": "https://store.steampowered.com/app/1562430/DREDGE/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "DREDGE 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「未知」。",
+        "en": "DREDGE's official page and gameplay media support observing The Unknown through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "debt",
+      "sourceId": "game-citizen-sleeper",
+      "evidenceUrl": "https://store.steampowered.com/app/1578650/Citizen_Sleeper/",
+      "channels": [
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Citizen Sleeper 的官方页面与实机媒体支持通过 systemic、narrative 观察到「债务」。",
+        "en": "Citizen Sleeper's official page and gameplay media support observing Debt through systemic, narrative."
+      }
+    },
+    {
+      "entryId": "debt",
+      "sourceId": "game-yes-your-grace",
+      "evidenceUrl": "https://store.steampowered.com/app/1115690/Yes_Your_Grace/",
+      "channels": [
+        "systemic",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Yes, Your Grace 的官方页面与实机媒体支持通过 systemic、narrative 观察到「债务」。",
+        "en": "Yes, Your Grace's official page and gameplay media support observing Debt through systemic, narrative."
+      }
+    },
+    {
+      "entryId": "space-station",
+      "sourceId": "game-observation",
+      "evidenceUrl": "https://store.steampowered.com/app/906100/Observation/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Observation 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「废弃空间站」。",
+        "en": "Observation's official page and gameplay media support observing Abandoned Space Station through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "subway",
+      "sourceId": "game-mini-metro",
+      "evidenceUrl": "https://store.steampowered.com/app/287980/Mini_Metro/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Mini Metro 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「地铁」。",
+        "en": "Mini Metro's official page and gameplay media support observing Subway through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "rainy-city",
+      "sourceId": "game-cloudpunk",
+      "evidenceUrl": "https://store.steampowered.com/app/746850/Cloudpunk/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Cloudpunk 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「雨夜城市」。",
+        "en": "Cloudpunk's official page and gameplay media support observing Rainy City through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "rainy-city",
+      "sourceId": "game-coffee-talk",
+      "evidenceUrl": "https://store.steampowered.com/app/914800/Coffee_Talk/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Coffee Talk 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「雨夜城市」。",
+        "en": "Coffee Talk's official page and gameplay media support observing Rainy City through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "museum",
+      "sourceId": "game-ib",
+      "evidenceUrl": "https://store.steampowered.com/app/1901370/Ib/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Ib 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「博物馆」。",
+        "en": "Ib's official page and gameplay media support observing Museum through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "lighthouse",
+      "sourceId": "game-to-the-moon",
+      "evidenceUrl": "https://store.steampowered.com/app/206440/To_the_Moon/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "To the Moon 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「灯塔」。",
+        "en": "To the Moon's official page and gameplay media support observing Lighthouse through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "deep-sea",
+      "sourceId": "game-subnautica",
+      "evidenceUrl": "https://store.steampowered.com/app/264710/Subnautica/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Subnautica 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「深海」。",
+        "en": "Subnautica's official page and gameplay media support observing Deep Sea through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "deep-sea",
+      "sourceId": "game-barotrauma",
+      "evidenceUrl": "https://store.steampowered.com/app/602960/Barotrauma/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Barotrauma 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「深海」。",
+        "en": "Barotrauma's official page and gameplay media support observing Deep Sea through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "forest",
+      "sourceId": "game-darkwood",
+      "evidenceUrl": "https://store.steampowered.com/app/274520/Darkwood/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Darkwood 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「古老森林」。",
+        "en": "Darkwood's official page and gameplay media support observing Ancient Forest through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "desert",
+      "sourceId": "game-sable",
+      "evidenceUrl": "https://store.steampowered.com/app/757310/Sable/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Sable 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「无尽沙漠」。",
+        "en": "Sable's official page and gameplay media support observing Endless Desert through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "desert",
+      "sourceId": "game-journey",
+      "evidenceUrl": "https://store.steampowered.com/app/638230/Journey/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Journey 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「无尽沙漠」。",
+        "en": "Journey's official page and gameplay media support observing Endless Desert through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "small-village",
+      "sourceId": "game-stardew-valley",
+      "evidenceUrl": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Stardew Valley 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「小村庄」。",
+        "en": "Stardew Valley's official page and gameplay media support observing Small Village through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "apartment",
+      "sourceId": "game-twelve-minutes",
+      "evidenceUrl": "https://store.steampowered.com/app/1097200/Twelve_Minutes/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Twelve Minutes 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「公寓楼」。",
+        "en": "Twelve Minutes's official page and gameplay media support observing Apartment Building through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "apartment",
+      "sourceId": "game-unpacking",
+      "evidenceUrl": "https://store.steampowered.com/app/1135690/Unpacking/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Unpacking 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「公寓楼」。",
+        "en": "Unpacking's official page and gameplay media support observing Apartment Building through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "single-room",
+      "sourceId": "game-pdta",
+      "evidenceUrl": "https://store.steampowered.com/app/354240/Please_Dont_Touch_Anything/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Please, Don't Touch Anything 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「单一房间」。",
+        "en": "Please, Don't Touch Anything's official page and gameplay media support observing One Room through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "single-room",
+      "sourceId": "game-twelve-minutes",
+      "evidenceUrl": "https://store.steampowered.com/app/1097200/Twelve_Minutes/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Twelve Minutes 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「单一房间」。",
+        "en": "Twelve Minutes's official page and gameplay media support observing One Room through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "haunted-house",
+      "sourceId": "game-phasmophobia",
+      "evidenceUrl": "https://store.steampowered.com/app/739630/Phasmophobia/",
+      "channels": [
+        "visual",
+        "auditory",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Phasmophobia 的官方页面与实机媒体支持通过 visual、auditory、spatial 观察到「闹鬼房屋」。",
+        "en": "Phasmophobia's official page and gameplay media support observing Haunted House through visual, auditory, spatial."
+      }
+    },
+    {
+      "entryId": "factory",
+      "sourceId": "game-factorio",
+      "evidenceUrl": "https://store.steampowered.com/app/427520/Factorio/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Factorio 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「自动化工厂」。",
+        "en": "Factorio's official page and gameplay media support observing Automated Factory through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "office",
+      "sourceId": "game-stanley-parable",
+      "evidenceUrl": "https://store.steampowered.com/app/1703340/The_Stanley_Parable_Ultra_Deluxe/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Stanley Parable: Ultra Deluxe 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「无尽办公室」。",
+        "en": "The Stanley Parable: Ultra Deluxe's official page and gameplay media support observing Endless Office through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "office",
+      "sourceId": "game-yume-nikki",
+      "evidenceUrl": "https://store.steampowered.com/app/774811/YUMENIKKI_DREAM_DIARY/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Yume Nikki: Dream Diary 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「无尽办公室」。",
+        "en": "Yume Nikki: Dream Diary's official page and gameplay media support observing Endless Office through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "school",
+      "sourceId": "game-detention",
+      "evidenceUrl": "https://store.steampowered.com/app/555220/Detention/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "返校 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「放学后的学校」。",
+        "en": "Detention's official page and gameplay media support observing School After Hours through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "school",
+      "sourceId": "game-a-space-for-the-unbound",
+      "evidenceUrl": "https://store.steampowered.com/app/1201270/A_Space_for_the_Unbound/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "A Space for the Unbound 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「放学后的学校」。",
+        "en": "A Space for the Unbound's official page and gameplay media support observing School After Hours through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "library",
+      "sourceId": "game-book-of-hours",
+      "evidenceUrl": "https://store.steampowered.com/app/1028310/BOOK_OF_HOURS/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "BOOK OF HOURS 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「图书馆」。",
+        "en": "BOOK OF HOURS's official page and gameplay media support observing Library through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "train",
+      "sourceId": "game-final-station",
+      "evidenceUrl": "https://store.steampowered.com/app/435530/The_Final_Station/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "The Final Station 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「夜班列车」。",
+        "en": "The Final Station's official page and gameplay media support observing Night Train through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ship",
+      "sourceId": "game-obra-dinn",
+      "evidenceUrl": "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Return of the Obra Dinn 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「漂流船只」。",
+        "en": "Return of the Obra Dinn's official page and gameplay media support observing Drifting Ship through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ship",
+      "sourceId": "game-spiritfarer",
+      "evidenceUrl": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Spiritfarer 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「漂流船只」。",
+        "en": "Spiritfarer's official page and gameplay media support observing Drifting Ship through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "theme-park",
+      "sourceId": "game-parkitect",
+      "evidenceUrl": "https://store.steampowered.com/app/453090/Parkitect/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Parkitect 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「废弃游乐园」。",
+        "en": "Parkitect's official page and gameplay media support observing Abandoned Theme Park through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "farm",
+      "sourceId": "game-stardew-valley",
+      "evidenceUrl": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Stardew Valley 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「偏远农场」。",
+        "en": "Stardew Valley's official page and gameplay media support observing Remote Farm through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "underworld",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「冥界」。",
+        "en": "Hades's official page and gameplay media support observing Underworld through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "alien-planet",
+      "sourceId": "game-outer-wilds",
+      "evidenceUrl": "https://store.steampowered.com/app/753640/Outer_Wilds/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Outer Wilds 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「异星」。",
+        "en": "Outer Wilds's official page and gameplay media support observing Alien Planet through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "alien-planet",
+      "sourceId": "game-astroneer",
+      "evidenceUrl": "https://store.steampowered.com/app/361420/ASTRONEER/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "ASTRONEER 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「异星」。",
+        "en": "ASTRONEER's official page and gameplay media support observing Alien Planet through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "cyberspace",
+      "sourceId": "game-hypnospace",
+      "evidenceUrl": "https://store.steampowered.com/app/844590/Hypnospace_Outlaw/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Hypnospace Outlaw 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「赛博空间」。",
+        "en": "Hypnospace Outlaw's official page and gameplay media support observing Cyberspace through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ancient-ruins",
+      "sourceId": "game-la-mulana",
+      "evidenceUrl": "https://store.steampowered.com/app/230700/LaMulana/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "La-Mulana 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「古代遗迹」。",
+        "en": "La-Mulana's official page and gameplay media support observing Ancient Ruins through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ancient-ruins",
+      "sourceId": "game-tunic",
+      "evidenceUrl": "https://store.steampowered.com/app/553420/TUNIC/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "TUNIC 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「古代遗迹」。",
+        "en": "TUNIC's official page and gameplay media support observing Ancient Ruins through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "miniature-world",
+      "sourceId": "game-tinykin",
+      "evidenceUrl": "https://store.steampowered.com/app/1599020/Tinykin/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Tinykin 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「微缩世界」。",
+        "en": "Tinykin's official page and gameplay media support observing Miniature World through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "afterlife",
+      "sourceId": "game-spiritfarer",
+      "evidenceUrl": "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Spiritfarer 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「来世」。",
+        "en": "Spiritfarer's official page and gameplay media support observing The Afterlife through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "afterlife",
+      "sourceId": "game-hades",
+      "evidenceUrl": "https://store.steampowered.com/app/1145360/Hades/",
+      "channels": [
+        "visual",
+        "narrative",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hades 的官方页面与实机媒体支持通过 visual、narrative、spatial 观察到「来世」。",
+        "en": "Hades's official page and gameplay media support observing The Afterlife through visual, narrative, spatial."
+      }
+    },
+    {
+      "entryId": "broadcast-studio",
+      "sourceId": "game-not-for-broadcast",
+      "evidenceUrl": "https://store.steampowered.com/app/1147550/Not_For_Broadcast/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Not For Broadcast 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「广播演播室」。",
+        "en": "Not For Broadcast's official page and gameplay media support observing Broadcast Studio through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "broadcast-studio",
+      "sourceId": "game-killer-frequency",
+      "evidenceUrl": "https://store.steampowered.com/app/1903620/Killer_Frequency/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Killer Frequency 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「广播演播室」。",
+        "en": "Killer Frequency's official page and gameplay media support observing Broadcast Studio through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "spaceship",
+      "sourceId": "game-ftl",
+      "evidenceUrl": "https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "FTL: Faster Than Light 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「太空飞船」。",
+        "en": "FTL: Faster Than Light's official page and gameplay media support observing Spaceship through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "spaceship",
+      "sourceId": "game-among-us",
+      "evidenceUrl": "https://store.steampowered.com/app/945360/Among_Us/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Among Us 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「太空飞船」。",
+        "en": "Among Us's official page and gameplay media support observing Spaceship through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "submarine",
+      "sourceId": "game-barotrauma",
+      "evidenceUrl": "https://store.steampowered.com/app/602960/Barotrauma/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Barotrauma 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「潜水艇」。",
+        "en": "Barotrauma's official page and gameplay media support observing Submarine through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "submarine",
+      "sourceId": "game-subnautica",
+      "evidenceUrl": "https://store.steampowered.com/app/264710/Subnautica/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Subnautica 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「潜水艇」。",
+        "en": "Subnautica's official page and gameplay media support observing Submarine through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "gothic-castle",
+      "sourceId": "game-we-were-here",
+      "evidenceUrl": "https://store.steampowered.com/app/582500/We_Were_Here/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "We Were Here 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「哥特城堡」。",
+        "en": "We Were Here's official page and gameplay media support observing Gothic Castle through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "underground-city",
+      "sourceId": "game-hollow-knight",
+      "evidenceUrl": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Hollow Knight 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「地下城市」。",
+        "en": "Hollow Knight's official page and gameplay media support observing Underground City through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "underground-city",
+      "sourceId": "game-eastward",
+      "evidenceUrl": "https://store.steampowered.com/app/977880/Eastward/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Eastward 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「地下城市」。",
+        "en": "Eastward's official page and gameplay media support observing Underground City through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "battlefield",
+      "sourceId": "game-foxhole",
+      "evidenceUrl": "https://store.steampowered.com/app/505460/Foxhole/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Foxhole 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「战场」。",
+        "en": "Foxhole's official page and gameplay media support observing Battlefield through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "crime-scene",
+      "sourceId": "game-obra-dinn",
+      "evidenceUrl": "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Return of the Obra Dinn 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「犯罪现场」。",
+        "en": "Return of the Obra Dinn's official page and gameplay media support observing Crime Scene through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "crime-scene",
+      "sourceId": "game-disco-elysium",
+      "evidenceUrl": "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Disco Elysium 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「犯罪现场」。",
+        "en": "Disco Elysium's official page and gameplay media support observing Crime Scene through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "royal-court",
+      "sourceId": "game-yes-your-grace",
+      "evidenceUrl": "https://store.steampowered.com/app/1115690/Yes_Your_Grace/",
+      "channels": [
+        "visual",
+        "interactive",
+        "narrative"
+      ],
+      "salience": "core",
+      "note": {
+        "zh": "Yes, Your Grace 的官方页面与实机媒体支持通过 visual、interactive、narrative 观察到「王室宫廷」。",
+        "en": "Yes, Your Grace's official page and gameplay media support observing Royal Court through visual, interactive, narrative."
+      }
+    },
+    {
+      "entryId": "cult-compound",
+      "sourceId": "game-shrouded-isle",
+      "evidenceUrl": "https://store.steampowered.com/app/501320/The_Shrouded_Isle/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Shrouded Isle 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「邪教据点」。",
+        "en": "The Shrouded Isle's official page and gameplay media support observing Cult Compound through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "cult-compound",
+      "sourceId": "game-cult-of-the-lamb",
+      "evidenceUrl": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Cult of the Lamb 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「邪教据点」。",
+        "en": "Cult of the Lamb's official page and gameplay media support observing Cult Compound through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ancient-temple",
+      "sourceId": "game-la-mulana",
+      "evidenceUrl": "https://store.steampowered.com/app/230700/LaMulana/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "La-Mulana 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「古代神殿」。",
+        "en": "La-Mulana's official page and gameplay media support observing Ancient Temple through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "ancient-temple",
+      "sourceId": "game-tunic",
+      "evidenceUrl": "https://store.steampowered.com/app/553420/TUNIC/",
+      "channels": [
+        "visual",
+        "interactive",
+        "spatial"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "TUNIC 的官方页面与实机媒体支持通过 visual、interactive、spatial 观察到「古代神殿」。",
+        "en": "TUNIC's official page and gameplay media support observing Ancient Temple through visual, interactive, spatial."
+      }
+    },
+    {
+      "entryId": "prison",
+      "sourceId": "game-prison-architect",
+      "evidenceUrl": "https://store.steampowered.com/app/233450/Prison_Architect/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "Prison Architect 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「监狱」。",
+        "en": "Prison Architect's official page and gameplay media support observing Prison through visual, interactive, systemic."
+      }
+    },
+    {
+      "entryId": "prison",
+      "sourceId": "game-escapists",
+      "evidenceUrl": "https://store.steampowered.com/app/298630/The_Escapists/",
+      "channels": [
+        "visual",
+        "interactive",
+        "systemic"
+      ],
+      "salience": "recurring",
+      "note": {
+        "zh": "The Escapists 的官方页面与实机媒体支持通过 visual、interactive、systemic 观察到「监狱」。",
+        "en": "The Escapists's official page and gameplay media support observing Prison through visual, interactive, systemic."
+      }
+    }
+  ]
+}

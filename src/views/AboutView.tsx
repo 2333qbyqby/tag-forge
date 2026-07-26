@@ -27,10 +27,19 @@ export default function AboutView({
   const [clearOpen, setClearOpen] = useState(false);
   const [confirmation, setConfirmation] = useState("");
   const [actionError, setActionError] = useState("");
-  const promptCount = pack.data.promptDecks.reduce(
-    (count, deck) => count + deck.prompts.length,
-    0,
+  const activeEntries = pack.data.entries.filter(
+    (entry) => entry.enabled !== false && !entry.deprecatedBy,
   );
+  const countGroup = (group: "design" | "motif") =>
+    activeEntries.filter(
+      (entry) => pack.categoryById.get(entry.categoryId)?.group === group,
+    ).length;
+  const historicalCount = pack.data.promptDecks
+    .find((deck) => deck.id === "historical-jam")
+    ?.prompts.filter((prompt) => prompt.enabled).length ?? 0;
+  const sourceGameCount = pack.data.provenance?.sources.filter(
+    (source) => source.kind === "game",
+  ).length ?? 0;
   const run = async (action: () => void | Promise<void>) => {
     setActionError("");
     try {
@@ -79,10 +88,16 @@ export default function AboutView({
         </div>
         <div className="dataset-stats">
           <span>
-            <strong>{pack.data.entries.length}</strong> Entry
+            <strong>{countGroup("design")}</strong> 设计词
           </span>
           <span>
-            <strong>{promptCount}</strong> Prompt
+            <strong>{countGroup("motif")}</strong> 意象词
+          </span>
+          <span>
+            <strong>{sourceGameCount}</strong> 来源游戏
+          </span>
+          <span>
+            <strong>{historicalCount}</strong> 历史主题
           </span>
           <span>
             <strong>{pack.data.recipes.length}</strong> Recipe

@@ -75,12 +75,35 @@ describe("pack generator", () => {
     const initial = generateResult(pack, settings("world-building", "one"), []);
     const nextSettings = {
       ...settings("world-building", "two"),
-      lockedSlotIds: ["setting"],
+      lockedSlotIds: ["motif-a"],
     };
     const next = generateResult(pack, nextSettings, [], initial);
-    expect(next.slots.find((slot) => slot.slotId === "setting")).toEqual(
-      initial.slots.find((slot) => slot.slotId === "setting"),
+    expect(next.slots.find((slot) => slot.slotId === "motif-a")).toEqual(
+      initial.slots.find((slot) => slot.slotId === "motif-a"),
     );
+  });
+
+  it("makes the motif challenge exactly two design slots and three free motif slots", () => {
+    const challengeSettings = {
+      ...settings("challenge", "three-concepts"),
+      categoryOverrides: {
+        "motif-a": ["motif-concept"],
+        "motif-b": ["motif-concept"],
+        "motif-c": ["motif-concept"],
+      },
+    };
+    const result = generateResult(pack, challengeSettings, []);
+    expect(result.slots).toHaveLength(5);
+    const groups = result.slots.map((slot) =>
+      pack.categoryById.get(slot.categoryId ?? "")?.group,
+    );
+    expect(groups.filter((group) => group === "design")).toHaveLength(2);
+    expect(groups.filter((group) => group === "motif")).toHaveLength(3);
+    expect(
+      result.slots
+        .filter((slot) => slot.slotId.startsWith("motif-"))
+        .every((slot) => slot.categoryId === "motif-concept"),
+    ).toBe(true);
   });
 
   it("never emits duplicate IDs, families, or composite overlaps", () => {

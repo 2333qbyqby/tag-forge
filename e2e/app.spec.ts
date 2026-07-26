@@ -67,9 +67,38 @@ test("loads the official dataset and renders all named recipes", async ({
   await expect(labButton).toBeVisible();
   await labButton.click();
   await expect(page.locator(".lab-summary-grid article").first()).toContainText(
-    "424",
+    "432",
   );
   await expect(page.locator(".graph-node").first()).toBeVisible();
+});
+
+test("library filters groups and explains motif provenance", async ({ page }) => {
+  await page.goto("/?view=library");
+  await page.getByRole("button", { name: "意象元素", exact: true }).click();
+  await expect(page.locator(".tag-library-card").first()).toBeVisible();
+  await page.locator(".source-detail-button").first().click();
+  await expect(page.getByRole("dialog")).toContainText("MOTIF PROVENANCE");
+  await expect(
+    page.getByRole("dialog").getByRole("link", { name: "官方页面" }).first(),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "关闭来源详情" }).click();
+
+  await openPackManager(page);
+  const external = JSON.parse(fs.readFileSync(templatePath, "utf8"));
+  external.categories[1].group = "motif";
+  delete external.manifest.files.provenance;
+  delete external.provenance;
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "motif-without-provenance.tagforge.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(external)),
+  });
+  await expect(page.locator(".import-preview")).toContainText("VALID PACK");
+  await page.locator(".pack-preview-actions button").first().click();
+  await page.locator(".main-nav button").filter({ hasText: "词库" }).click();
+  await page.getByRole("button", { name: "意象元素", exact: true }).click();
+  await page.locator(".source-detail-button").first().click();
+  await expect(page.getByRole("dialog")).toContainText("该词条未附来源证据");
 });
 
 test("temporary packs disappear on refresh and cannot enable analysis", async ({
@@ -154,7 +183,7 @@ test("loading a recent result synchronizes recipe and clears locks", async ({
 }) => {
   await page.goto("/?view=generate");
   await page.locator("#recipe-select").selectOption("challenge");
-  await expect(page.locator(".idea-tile")).toHaveCount(3);
+  await expect(page.locator(".idea-tile")).toHaveCount(5);
   await page.locator("#recipe-select").selectOption("prototype");
   await expect(page.locator(".idea-tile")).toHaveCount(4);
   await page.locator(".idea-tile").first().hover();
@@ -167,11 +196,11 @@ test("loading a recent result synchronizes recipe and clears locks", async ({
 
   await page
     .locator(".history-section > .history-strip .history-card")
-    .filter({ hasText: "开放挑战" })
-    .getByRole("button", { name: /开放挑战/ })
+    .filter({ hasText: "意象挑战" })
+    .getByRole("button", { name: /意象挑战/ })
     .click();
   await expect(page.locator("#recipe-select")).toHaveValue("challenge");
-  await expect(page.locator(".idea-tile")).toHaveCount(3);
+  await expect(page.locator(".idea-tile")).toHaveCount(5);
   await expect(page.locator(".pin-badge")).toHaveCount(0);
 });
 
@@ -212,10 +241,10 @@ test("local data manager clears generated data but keeps the official pack", asy
 });
 
 test("mobile navigation and actions do not overflow", async ({ page }) => {
-  for (const width of [320, 375, 768]) {
+  for (const width of [320, 375, 768, 1024]) {
     await page.setViewportSize({ width, height: 760 });
     await page.goto("/?view=generate");
-    if (width <= 767) {
+    if (width <= 860) {
       await expect(page.locator(".brand small")).toBeVisible();
     }
     await expect(page.locator(".main-nav")).toBeVisible();
@@ -225,9 +254,44 @@ test("mobile navigation and actions do not overflow", async ({ page }) => {
         document.documentElement.clientWidth,
     );
     expect(bodyOverflow).toBeLessThanOrEqual(1);
+
+    const workbenchBox = await page.locator(".workbench").boundingBox();
+    const clientWidth = await page.evaluate(
+      () => document.documentElement.clientWidth,
+    );
+    expect(workbenchBox).not.toBeNull();
+    expect(
+      Math.abs(
+        (workbenchBox?.x ?? 0) * 2 +
+          (workbenchBox?.width ?? 0) -
+          clientWidth,
+      ),
+    ).toBeLessThanOrEqual(2);
+
+    if (width <= 860) {
+      const navBox = await page.locator(".main-nav").boundingBox();
+      const workspaceBox = await page.locator(".idea-workspace").boundingBox();
+      expect(navBox).not.toBeNull();
+      expect(workspaceBox).not.toBeNull();
+      expect(
+        Math.abs((navBox?.y ?? 0) + (navBox?.height ?? 0) - 748),
+      ).toBeLessThanOrEqual(2);
+      expect(
+        Math.abs((workspaceBox?.width ?? 0) - (workbenchBox?.width ?? 0)),
+      ).toBeLessThanOrEqual(2);
+    }
   }
 
   await page.setViewportSize({ width: 320, height: 760 });
+  await page.goto("/?view=library");
+  const toolbarBox = await page.locator(".library-toolbar").boundingBox();
+  const groupFilterBox = await page.locator(".group-filter").boundingBox();
+  expect(toolbarBox).not.toBeNull();
+  expect(groupFilterBox).not.toBeNull();
+  expect(groupFilterBox?.width ?? 0).toBeGreaterThan(250);
+  expect(groupFilterBox?.x ?? 0).toBeGreaterThan(toolbarBox?.x ?? 0);
+
+  await page.goto("/?view=generate");
   await page.locator(".main-nav button").filter({ hasText: "数据包" }).click();
   await expect(page.getByRole("button", { name: "导出当前包" })).toBeVisible();
   const exportBox = await page

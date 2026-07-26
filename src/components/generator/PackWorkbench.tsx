@@ -156,11 +156,23 @@ export function PackWorkbench({
                 }
               >
                 <option value="">配方默认</option>
-                {slot.categoryIds?.map((categoryId) => (
-                  <option key={categoryId} value={categoryId}>
-                    {pack.categoryById.get(categoryId)?.labels.zh ?? categoryId}
-                  </option>
-                ))}
+                {(["design", "motif"] as const).map((group) => {
+                  const categoryIds = (slot.categoryIds ?? []).filter(
+                    (categoryId) => pack.categoryById.get(categoryId)?.group === group,
+                  );
+                  return categoryIds.length > 0 ? (
+                    <optgroup
+                      key={group}
+                      label={group === "design" ? "设计坐标" : "意象元素"}
+                    >
+                      {categoryIds.map((categoryId) => (
+                        <option key={categoryId} value={categoryId}>
+                          {pack.categoryById.get(categoryId)?.labels.zh ?? categoryId}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ) : null;
+                })}
               </select>
             </div>
           ))}

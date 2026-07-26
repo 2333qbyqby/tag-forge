@@ -310,6 +310,15 @@ export default function DataLabView({ pack, onUseEntry }: Props) {
 
       <section className="lab-distribution-grid">
         <article className="panel distribution-card">
+          <span className="eyebrow">GROUPS</span>
+          <h2>词库分组</h2>
+          <dl>
+            <div><dt>设计坐标</dt><dd>{analysis.groupCounts.design}</dd></div>
+            <div><dt>意象元素</dt><dd>{analysis.groupCounts.motif}</dd></div>
+          </dl>
+          <p>分组统计只用于分析展示，不影响生成概率。</p>
+        </article>
+        <article className="panel distribution-card">
           <span className="eyebrow">CATEGORIES</span>
           <h2>类别分布</h2>
           <dl>

@@ -3,12 +3,12 @@
 TagForge 是面向独立游戏开发者和 Game Jam 团队的本地优先灵感生成器。产品以数据包为单位工作，不需要账号、后端或运行时 API，可直接部署在 GitHub Pages。
 
 - 官方数据：`TagForge 官方数据集`
-- 数据更新：`2026.07.25`
+- 数据更新：`2026.07.26`
 - 部署方式：Vite 纯静态站点，`base: "./"`
 
 ## 核心功能
 
-- 五个官方 Recipe：二词碰撞、开放挑战、独立原型、世界构建、历史 Jam。
+- 五个官方 Recipe：二词碰撞、意象挑战、独立原型、世界构建、历史 Jam。
 - 每个槽位拥有从根 Seed 派生的独立随机流，支持锁定、单独重抽和排除。
 - 动态词库浏览、历史、收藏、文本复制和 URL Fragment 分享。
 - 导入单文件 `*.tagforge.json` 或 ZIP/CSV 数据包。
@@ -21,10 +21,13 @@ TagForge 是面向独立游戏开发者和 Game Jam 团队的本地优先灵感�
 
 官方数据集包含：
 
-- 427 条普通 Entry，其中 424 条有效、3 条 `deprecatedBy` 重定向记录。
+- 435 条 Entry，其中 432 条有效、3 条 `deprecatedBy` 重定向记录。
+- 326 条有效设计坐标与 106 条来自真实游戏观察的意象元素。
+- 92 款正式来源游戏、181 条精简事实观察；URL 只在用户点击时打开。
 - 34 条历史 Jam 主题，位于独立牌组。
-- 1000 条原创开放命题，保留原文本、类型、family、motif 与审核记录。
-- 9 个动态类别和 5 个命名 Recipe。
+- 14 个动态类别（8 个 design、6 个 motif）和 5 个命名 Recipe。
+
+旧的 1000 条原创开放命题已退出当前数据包，历史审核 Markdown 和 Git 历史仍保留。新 Recipe 只组合设计词、意象词与历史 Jam 主题，不生成完整命题句。
 
 项目仍在单人开发阶段，Data Pack Draft、结果快照和本地存储均不承诺向后兼容。格式变化后直接从当前数据重新开始。
 
@@ -49,14 +52,14 @@ pnpm data:verify
 pnpm build
 ```
 
-`pack:build` 会将官方包和三个导入模板写入被 Git 忽略的 `.tmp/public/`。Vite 从该目录复制静态资源到 `dist`，因此 1000 条命题和官方分析不会进入主 JS Bundle。
+`pack:build` 会将官方包和三个导入模板写入被 Git 忽略的 `.tmp/public/`。Vite 从该目录复制静态资源到 `dist`，因此正式 provenance 与官方分析不会进入主 JS Bundle。
 
 ## 数据包格式
 
 支持两种等价输入：
 
 1. 单文件 `*.tagforge.json`。
-2. ZIP：`manifest.json`、`categories.csv`、`entries.csv`、`recipes.json`，以及可选 `prompts.csv`。
+2. ZIP：`manifest.json`、`categories.csv`、`entries.csv`、`recipes.json`，以及可选 `prompts.csv`、`provenance.json`。
 
 浏览器会校验当前 Draft 结构、ID、引用、权重、空池、`deprecatedBy` 循环、路径安全和资源上限。Recipe 只能声明数据，不能携带脚本、表达式、HTML、SVG 或远程资源。
 
